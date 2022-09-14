@@ -1,0 +1,15 @@
+admin/
+build/
+public/
+video/
+img/
+fonts/
+node_modules/
+package-lock.json
+webpack.config.js
+**/.git
+**/.svn
+**/.hg
+.gitignore
+.eslintignore
+.gitkeep
