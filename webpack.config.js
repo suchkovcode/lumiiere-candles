@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
@@ -39,6 +40,10 @@ module.exports = {
       static: {
          directory: path.join(__dirname, "./dist"),
       },
+      devMiddleware: {
+         serverSideRender: false,
+         writeToDisk: true,
+      },
       server: "http",
       compress: false,
       http2: false,
@@ -66,7 +71,7 @@ module.exports = {
    plugins: [
       new HtmlWebpackPlugin({
          filename: "index.html",
-         template: path.resolve(__dirname, "./src/index.html"),
+         template: path.resolve(__dirname, "./src/layouts/index.html"),
          inject: "body",
          scriptLoading: "blocking",
          minify: isDev ? false : true,
@@ -76,8 +81,8 @@ module.exports = {
          filename: "app.css",
          linkType: "text/css",
       }),
-      new ImageminWebpWebpackPlugin( {
-         config: [{ 
+      new ImageminWebpWebpackPlugin({
+         config: [{
             test: /\.(png|jpe?g)$/i,
             options: {
                quality: 75
@@ -89,11 +94,18 @@ module.exports = {
          strict: true
       }
       ),
+      new CopyPlugin({
+         patterns: [
+            { from: "./src/pages/", to: "./pages/" },
+         ],
+      }),
       new FaviconsWebpackPlugin({
          logo: "./src/assets/img/svg/favicon.svg",
          cache: true,
          mode: "auto",
-         outputPath: "./assets/img/favicon/",
+         publicPath: "./static",
+         outputPath: "./static/",
+         prefix: "",
          inject: true,
          favicons: {
             appName: "«Webpack-app",
@@ -105,7 +117,7 @@ module.exports = {
             background: "#fff",
             theme_color: "#fff",
             lang: "en-US",
-            scope: "/",
+            start_url: "/",
             icons: {
                android: true,
                appleIcon: true,
@@ -168,7 +180,7 @@ module.exports = {
             test: /\.(png|jpe?g)$/i,
             type: "asset/resource",
             use: isDev ? undefined : [
-               { loader: "image-webpack-loader"},
+               { loader: "image-webpack-loader" },
             ],
             generator: {
                filename: isDev ? "assets/img/webp/[contenthash][ext]" : "assets/img/webp/[name].webp",
