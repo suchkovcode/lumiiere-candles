@@ -1,0 +1,27 @@
+.page {
+   overflow-x: hidden;
+   max-width: 2000px;
+   margin: 0 auto;
+}
+
+.container {
+   max-width: 1280px;
+   margin: 0 auto;
+}
+
+.contain {
+   contain: layout paint;
+}
+
+.root {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   background-color: blanchedalmond;
+}
+
+
+::placeholder {
+   font: 400 16px/1.5 "AvenirNextCyr";
+   color: var(--color_palceholder);
+}
