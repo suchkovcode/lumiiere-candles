@@ -12,7 +12,7 @@
       "string-no-newline": true,
       "unit-no-unknown": true,
       "comment-no-empty": true,
-      
+
       "media-feature-name-no-vendor-prefix": true,
       "media-feature-name-no-unknown": true,
 
@@ -189,6 +189,7 @@
             "grid-column-end",
             "grid-column-gap",
             "grid-column-start",
+            "gap",
             "grid-gap",
             "grid-row",
             "grid-row-end",
