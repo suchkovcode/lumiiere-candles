@@ -1,18 +1,10 @@
-@import "Assets/styles/base/reset";
-@import "Assets/styles/base/fonts";
-@import "Assets/styles/base/mixin";
-@import "Assets/styles/base/var";
-@import "Assets/styles/base/global";
+@import "./styles/base/reset";
+@import "./styles/base/fonts";
+@import "./styles/base/mixin";
+@import "./styles/base/var";
+@import "./styles/base/global";
 
-@import "Components/btn/btn";
-@import "Components/canvas/canvas";
-@import "Components/serach/search";
-@import "Components/header/header";
-@import "Components/footer/footer";
-
-.root {
-   position: relative;
-   width: 100%;
-   height: 100%;
-   background-color: blanchedalmond;
-}
+@import "./styles/components/btn";
+@import "./styles/components/canvas";
+@import "./styles/components/header"; 
+@import "./styles/components/search";
