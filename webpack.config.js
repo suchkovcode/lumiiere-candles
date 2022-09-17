@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+// const CopyPlugin = require("copy-webpack-plugin");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
@@ -42,7 +42,7 @@ module.exports = {
       },
       devMiddleware: {
          serverSideRender: false,
-         writeToDisk: true,
+         writeToDisk: false,
       },
       server: "http",
       compress: false,
@@ -77,6 +77,12 @@ module.exports = {
          minify: isDev ? false : true,
          xhtml: true,
       }),
+      new HtmlWebpackPlugin({
+         filename: "pages/home.html",
+         template: path.resolve(__dirname, "./src/pages/home.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
       new MiniCssExtractPlugin({
          filename: "app.css",
          linkType: "text/css",
@@ -94,17 +100,17 @@ module.exports = {
          strict: true
       }
       ),
-      new CopyPlugin({
-         patterns: [
-            { from: "./src/pages/", to: "./pages/" },
-         ],
-      }),
+      // new CopyPlugin({
+      //    patterns: [
+      //       { from: "./src/pages/", to: "./pages/" },
+      //    ],
+      // }),
       new FaviconsWebpackPlugin({
          logo: "./src/assets/img/svg/favicon.svg",
          cache: true,
          mode: "auto",
-         publicPath: "./static",
-         outputPath: "./static/",
+         publicPath: "./assets/static",
+         outputPath: "./assets/static",
          prefix: "",
          inject: true,
          favicons: {
@@ -165,9 +171,11 @@ module.exports = {
                   options: {
                      postcssOptions: {
                         plugins: [
-                           require("autoprefixer"),
-                           require("postcss-mq-keyframes"),
-                           require("postcss-sort-media-queries"),
+                           require("postcss-100vh-fix"),
+                           isDev ? undefined : require("autoprefixer"),
+                           isDev ? undefined : require("postcss-mq-keyframes"),
+                           isDev ? undefined : require("postcss-sort-media-queries"),
+                           isDev ? undefined : require("postcss-focus"),
                         ],
                      },
                   },
