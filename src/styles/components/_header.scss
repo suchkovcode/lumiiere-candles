@@ -1,5 +1,5 @@
 .header {
-   position: relative;
+   position: fixed;
    top: 0;
    left: 0;
    z-index: 100;
@@ -41,9 +41,16 @@
          border-radius: 25px;
          box-shadow: 0 25px 45px 0 rgb(107, 107, 106, 10%);
       }
+      @include md {
+         margin: 15px 30px 0 30px;
+      }
 
       @include lg {
          height: 100px;
+      }
+      @include xxl {
+         height: 110px;
+         margin: 15px 0 0 0;
       }
    }
 
@@ -375,6 +382,6 @@
    }
 
    &.active {
-      position: absolute;
+      position: fixed;
    }
 }

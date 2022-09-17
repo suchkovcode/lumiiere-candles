@@ -1,5 +1,5 @@
 .canvas {
-   position: absolute;
+   position: fixed;
    top: 0;
    right: -100%;
    z-index: 50;
@@ -74,14 +74,12 @@
       display: flex;
       flex-flow: column;
       justify-content: space-between;
+      gap: 30px;
       width: 100%;
-      height: calc(100% - 160px);
-      max-height: 90vh;
+      height: 550px;
       padding: 25px;
 
       &__nav {
-         margin-bottom: 25px;
-
          &-list {
             display: flex;
             flex-flow: column;
