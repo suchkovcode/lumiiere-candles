@@ -23,3 +23,8 @@
       @content;
    }
 }
+@mixin xxxl() {
+   @media all and (min-width: 1536px) {
+      @content;
+   }
+}
