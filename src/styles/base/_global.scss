@@ -24,6 +24,10 @@
    contain: layout paint;
 }
 
+.transition {
+   transition: all 0.2s ease-in-out;
+}
+
 .upercase {
    text-transform: uppercase;
 }
