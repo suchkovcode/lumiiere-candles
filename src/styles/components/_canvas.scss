@@ -12,8 +12,8 @@
 
    &__top {
       display: flex;
-      align-items: center;
       justify-content: flex-end;
+      align-items: center;
       padding: 30px 25px;
       border-bottom: 1px solid var(--color_border);
       @include lg {
