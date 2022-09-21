@@ -1,8 +1,10 @@
 .title {
    font: 400 38px/1.3 "Karton";
    text-align: center;
-   letter-spacing: 6px;
+   text-transform: uppercase;
+   letter-spacing: 5px;
    color: var(--color_base);
+   
    @include md {
       text-align: left;
    }
