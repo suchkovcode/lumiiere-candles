@@ -16,7 +16,7 @@
    "input-requires-label": false,
    "tag-pair": true,
    "tag-self-close": true,
-   "tagname-lowercase": ["feOffset", "feGaussianBlur", "feComposite", "feColorMatrix", "feBlend", "feFlood", "clipPath"],
+   "tagname-lowercase": ["feOffset", "feGaussianBlur", "feComposite", "feColorMatrix", "feBlend", "feFlood", "clipPath", "linearGradient"],
    "empty-tag-not-self-closed": false,
    "src-not-empty": true,
    "href-abs-or-rel": false,
