@@ -11,6 +11,8 @@
       align-items: center;
       width: 100%;
       height: 20px;
+      max-width: 2000px;
+      margin: 0 auto;
       font: 400 12px/1.2 "AvenirNextCyr";
       text-align: center;
       color: var(--color_base);
@@ -192,8 +194,8 @@
 
    &__icon-count {
       position: absolute;
-      bottom: -7px;
       right: -3px;
+      bottom: -7px;
       z-index: 10;
       display: flex;
       justify-content: center;

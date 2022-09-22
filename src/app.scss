@@ -1,14 +1,3 @@
-@import "./styles/base/reset";
-@import "./styles/base/fonts";
-@import "./styles/base/mixin";
-@import "./styles/base/var";
-@import "./styles/base/global";
-
-@import "./styles/components/btn";
-@import "./styles/components/canvas";
-@import "./styles/components/header";
-@import "./styles/components/footer";
-@import "./styles/components/search";
-@import "./styles/components/text";
-
-@import "./styles/page/pages";
+@import "./styles/base";
+@import "./styles/components";
+@import "./styles/pages";

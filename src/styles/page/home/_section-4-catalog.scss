@@ -1,0 +1,46 @@
+.popular-catalog {
+   padding: 60px 20px;
+
+   &__header {
+      position: relative;
+      
+   }
+
+   &__icon {
+   }
+
+   &__title {
+   }
+
+   &__subtitle {
+   }
+
+   &__btn {
+      display: none;
+   }
+
+   &__filter {
+   }
+
+   &__select {
+      &-title {
+      }
+
+      &-dropdown {
+         &-item {
+         }
+
+         &-input {
+         }
+
+         &-title {
+         }
+
+         &-item {
+         }
+      }
+   }
+
+   &__products {
+   }
+}
