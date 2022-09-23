@@ -1,5 +1,5 @@
 import { CanvasMenu, CanvasFavorite, CanvasBacket } from "./_canvasItem";
-import { toggleMenuDrobdown, close } from "./_canvas"; 
+import { toggleMenuDrobdown, close } from "./_canvas";
 
 function header() {
    const headerWrapper = document.querySelector(".header");
