@@ -27,6 +27,19 @@
       height: 90px;
    }
 
+   &--catalog {
+      width: 165px;
+      height: 95px;
+      color: var(--color_primary);
+      background-color: var(--color_base);
+      box-shadow: none;
+
+      &:hover {
+         color: var(--color_base);
+         transform: scale(1);
+      }
+   }
+
    &--hero {
       width: 165px;
       height: 85px;

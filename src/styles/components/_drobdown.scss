@@ -1,0 +1,22 @@
+.drobdown {
+   overflow-y: scroll;
+   position: absolute;
+   top: 55px;
+   left: 0;
+   display: none;
+   flex-flow: column;
+   min-width: 240px;
+   max-height: 300px;
+   border-radius: 12px;
+   background-color: var(--color_base);
+
+   &::-webkit-scrollbar {
+      display: block;
+      width: 7px;
+   }
+
+   &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: var(--color_border);
+   }
+}
