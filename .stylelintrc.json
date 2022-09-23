@@ -31,6 +31,7 @@
       "selector-max-compound-selectors": 3,
       "selector-no-qualifying-type": true,
       "selector-class-pattern": null,
+      "selector-not-notation": "simple",
 
       "no-descending-specificity": true,
       "no-duplicate-selectors": true,
