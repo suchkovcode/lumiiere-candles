@@ -1,46 +1,179 @@
 .popular-catalog {
-   padding: 60px 20px;
+   padding: 80px 0 60px 0;
+   background-color: var(--color_bg_grey);
 
    &__header {
       position: relative;
-      
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      gap: 15px;
+      max-width: 360px;
+      margin: 0 auto 50px auto;
+      padding: 0 20px;
+
+      @include md {
+         align-items: flex-start;
+         max-width: 100%;
+      }
+
+      @include lg {
+         display: grid;
+         grid-template-areas:
+            "title btn"
+            "subtitle btn";
+         grid-template-columns: 3fr 1fr;
+         padding: 0 30px;
+      }
    }
 
    &__icon {
+      position: absolute;
+      top: -30px;
+      left: calc(50% - 60px);
+
+      @include md {
+         left: 20px;
+         width: 140px;
+         height: 40px;
+      }
    }
 
    &__title {
+      letter-spacing: 2px;
+      color: var(--color_secondary);
+      @include md {
+         font-size: 48px;
+      }
+
+      @include lg {
+         grid-area: title;
+      }
+      @include xl {
+         font-size: 52px;
+      }
    }
 
    &__subtitle {
+      color: var(--color_secondary);
+      opacity: 0.8;
+
+      @include md {
+         text-align: left;
+      }
+
+      @include lg {
+         grid-area: subtitle;
+         font-size: 20px;
+      }
    }
 
    &__btn {
       display: none;
+
+      @include lg {
+         display: flex;
+      }
+
+      @include lg {
+         justify-self: end;
+         align-self: center;
+         grid-area: btn;
+      }
    }
 
    &__filter {
+      display: flex;
+      gap: 15px;
+      margin: 0 auto 30px auto;
+      padding: 0 20px;
+
+      @include lg {
+         padding: 0 30px;
+      }
    }
 
    &__select {
+      position: relative;
+
       &-title {
+         cursor: pointer;
+         position: relative;
+         display: block;
+         padding: 10px 35px 10px 15px;
+         border: 1px solid var(--color_border);
+         border-radius: 0.3em;
+         font: 400 16px/1.5 "AvenirNextCyr";
+         color: var(--color_secondary);
+
+         &::before,
+         &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            display: block;
+            width: 10px;
+            height: 1px;
+            border-radius: 1px;
+            background-color: var(--color_secondary);
+         }
+
+         &::before {
+            right: 17px;
+            transform: rotate(45deg);
+         }
+
+         &::after {
+            right: 10px;
+            transform: rotate(-45deg);
+         }
+
+         &:hover {
+            border: 1px solid var(--color_primary);
+            color: var(--color_primary);
+
+            &::before,
+            &::after {
+               background-color: var(--color_primary);
+            }
+         }
       }
 
-      &-dropdown {
-         &-item {
+      &.active {
+         .popular-catalog__select-title {
+            border: 1px solid var(--color_primary);
+            color: var(--color_primary);
+
+            &::before {
+               right: 17px;
+               background-color: var(--color_primary);
+               transform: rotate(-45deg);
+            }
+
+            &::after {
+               right: 10px;
+               background-color: var(--color_primary);
+               transform: rotate(45deg);
+            }
          }
 
-         &-input {
-         }
-
-         &-title {
-         }
-
-         &-item {
+         .drobdown {
+            display: flex;
          }
       }
    }
 
    &__products {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0 20px;
+   }
+
+   @include md {
+      padding: 100px 0 80px 0;
+   }
+
+   @include lg {
+      padding: 120px 0 100px 0;
    }
 }
