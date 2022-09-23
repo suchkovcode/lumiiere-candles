@@ -1,5 +1,5 @@
 const routes = {
-   "/404": {
+   "#/404": {
       template: "/pages/404.html",
       meta: {
          title: "Lumiiere Candles | Станицы не существует",
@@ -7,7 +7,7 @@ const routes = {
       },
    },
 
-   "home": {
+   "/": {
       template: "/pages/home.html",
       meta: {
          title: "Lumiiere Candles | Главная",
@@ -15,7 +15,7 @@ const routes = {
       },
    },
 
-   "/about": {
+   "#/about": {
       template: "/pages/about.html",
       meta: {
          title: "Lumiiere Candles | О нас",
@@ -23,7 +23,7 @@ const routes = {
       },
    },
 
-   "/contact": {
+   "#/contact": {
       template: "/pages/contact.html",
       meta: {
          title: "Lumiiere Candles | Контакты",
@@ -31,7 +31,7 @@ const routes = {
       },
    },
 
-   "/catalog": {
+   "#/catalog": {
       template: "/pages/catalog.html",
       meta: {
          title: "Lumiiere Candles | Каталог",
@@ -48,16 +48,16 @@ const route = (event) => {
 };
 
 const locationHandler = async () => {
-   let location = window.location.hash.replace("#", "");
+   let location = window.location.hash;
    if (location.length == 0 || location.length == 1) {
-      location = "home";
+      location = "/";
    }
-   const main = document.getElementById("main");
-   const metaDescription = document.querySelector("meta[name='description']");
-   const metaUrl = document.querySelector("meta[name='url']");
    const route = routes[location] || routes["/404"];
    const html = await fetch(route.template).then((response) => response.text());
 
+   const main = document.getElementById("main");
+   const metaDescription = document.querySelector("meta[name='description']");
+   const metaUrl = document.querySelector("meta[name='url']");
    document.title = route.meta.title;
    metaDescription.setAttribute("content", route.meta.description);
    metaUrl.setAttribute("content", window.location);
