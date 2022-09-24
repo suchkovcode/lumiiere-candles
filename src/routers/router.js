@@ -46,6 +46,14 @@ const routes = {
          description: "Hello care",
       },
    },
+
+   "#/faq": {
+      template: "/pages/faq.html",
+      meta: {
+         title: "Lumiiere Candles | Ответы на вопросы",
+         description: "Hello care",
+      },
+   },
 };
 
 const route = (event) => {
