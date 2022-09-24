@@ -10,7 +10,7 @@ module.exports = {
    target: isDev ? "web" : "browserslist",
    devtool: isDev ? "source-map" : undefined,
    cache: {
-      type: "filesystem",
+      type: "memory",
    },
    entry: {
       app: path.resolve(__dirname, "./src/app.js"),
@@ -30,8 +30,8 @@ module.exports = {
    },
    performance: {
       hints: false,
-      maxAssetSize: 512000,
-      maxEntrypointSize: 512000,
+      maxAssetSize: 1000000,
+      maxEntrypointSize: 1000000,
    },
    devServer: {
       static: {
@@ -113,6 +113,12 @@ module.exports = {
       new HtmlWebpackPlugin({
          filename: "pages/policy.html",
          template: path.resolve(__dirname, "./src/pages/policy.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
+      new HtmlWebpackPlugin({
+         filename: "pages/delivery.html",
+         template: path.resolve(__dirname, "./src/pages/delivery.html"),
          inject: false,
          minify: isDev ? false : true,
       }),

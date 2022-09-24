@@ -39,6 +39,14 @@ const routes = {
       },
    },
 
+   "#/delivery": {
+      template: "/pages/delivery.html",
+      meta: {
+         title: "Lumiiere Candles | Доставка и оплата",
+         description: "Hello delivery",
+      },
+   },
+
    "#/faq": {
       template: "/pages/faq.html",
       meta: {
