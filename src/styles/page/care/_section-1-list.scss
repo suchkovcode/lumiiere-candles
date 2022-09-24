@@ -1,6 +1,4 @@
 .list {
-   padding: 140px 20px 60px 20px;
-
    &__header {
       position: relative;
       display: flex;
@@ -118,26 +116,5 @@
       @include lg {
          padding: 40px 30px;
       }
-   }
-
-
-   @include sm {
-      padding: 200px 20px 60px 20px;
-   }
-
-   @include md {
-      padding: 220px 30px 100px 30px;
-   }
-
-   @include lg {
-      padding: 240px 30px 120px 30px;
-   }
-
-   @include xl {
-      padding: 240px 30px 140px 30px;
-   }
-
-   @include xxl {
-      padding: 240px 30px 180px 30px;
    }
 }

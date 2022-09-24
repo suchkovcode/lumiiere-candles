@@ -1,6 +1,4 @@
 .about {
-   padding: 140px 20px 60px 20px;
-
    &__grid {
       @include lg {
          display: grid;
@@ -241,16 +239,8 @@
       }
    }
 
-   @include sm {
-      padding: 200px 20px 60px 20px;
-   }
-
-   @include md {
-      padding: 220px 30px 80px 30px;
-   }
-
-   @include lg {
-      padding: 240px 30px 80px 30px;
+   @include xl {
+      padding-bottom: 80px;
    }
 }
 
