@@ -1,0 +1,82 @@
+.documents {
+   &__header {
+      position: relative;
+      margin-bottom: 50px;
+
+      &-icon {
+         position: absolute;
+         top: 0;
+         left: calc(50% - 45px);
+
+         @include md {
+            width: 100px;
+            height: auto;
+         }
+
+         @include lg {
+            left: 25px;
+         }
+
+         @include xxl {
+            width: 110px;
+            height: auto;
+         }
+      }
+      @include lg {
+         grid-area: header;
+      }
+   }
+
+   &__section {
+      margin-bottom: 30px;
+
+      &:last-of-type {
+         margin: 0;
+      }
+   }
+
+   &__title {
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--color_secondary);
+
+      @include sm {
+         font-size: 42px;
+      }
+
+      @include md {
+         font-size: 46px;
+         text-align: center;
+      }
+
+      @include lg {
+         font-size: 52px;
+         text-align: left;
+      }
+
+      @include xl {
+         font-size: 56px;
+      }
+
+      @include xxl {
+         font-size: 58px;
+      }
+   }
+
+   &__title-2 {
+      margin-bottom: 15px;
+      font: 600 18px/1.5 "AvenirNextCyr";
+   }
+
+   &__text {
+      margin-bottom: 10px;
+      font: 400 16px/1.5 "AvenirNextCyr";
+   }
+
+   &__list {
+      display: flex;
+      flex-flow: column;
+      gap: 5px;
+      padding-left: 10px;
+   }
+}

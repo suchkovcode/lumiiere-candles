@@ -104,6 +104,18 @@ module.exports = {
          inject: false,
          minify: isDev ? false : true,
       }),
+      new HtmlWebpackPlugin({
+         filename: "pages/oferta.html",
+         template: path.resolve(__dirname, "./src/pages/oferta.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
+      new HtmlWebpackPlugin({
+         filename: "pages/policy.html",
+         template: path.resolve(__dirname, "./src/pages/policy.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
       new MiniCssExtractPlugin({
          filename: "app.css",
          linkType: "text/css",

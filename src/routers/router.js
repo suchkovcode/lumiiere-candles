@@ -62,6 +62,22 @@ const routes = {
          description: "Hello patners",
       },
    },
+
+   "#/oferta": {
+      template: "/pages/oferta.html",
+      meta: {
+         title: "Lumiiere Candles | Публичная оферта",
+         description: "Hello patners",
+      },
+   },
+
+   "#/policy": {
+      template: "/pages/policy.html",
+      meta: {
+         title: "Lumiiere Candles | Политика конфиденциальности",
+         description: "Hello policy",
+      },
+   },
 };
 
 const route = (event) => {
