@@ -13,7 +13,7 @@
 
 .single-page {
    padding: 140px 20px 60px 20px;
-   
+
    @include sm {
       padding: 200px 20px 60px 20px;
    }
@@ -54,6 +54,11 @@
 
 .upercase {
    text-transform: uppercase;
+}
+
+.space {
+   display: inline-block;
+   margin-bottom: 15px;
 }
 
 ::placeholder {
