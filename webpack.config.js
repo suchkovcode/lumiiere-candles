@@ -98,6 +98,12 @@ module.exports = {
          inject: false,
          minify: isDev ? false : true,
       }),
+      new HtmlWebpackPlugin({
+         filename: "pages/partners.html",
+         template: path.resolve(__dirname, "./src/pages/partners.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
       new MiniCssExtractPlugin({
          filename: "app.css",
          linkType: "text/css",

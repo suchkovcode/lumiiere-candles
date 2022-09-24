@@ -51,7 +51,15 @@ const routes = {
       template: "/pages/faq.html",
       meta: {
          title: "Lumiiere Candles | Ответы на вопросы",
-         description: "Hello care",
+         description: "Hello faq",
+      },
+   },
+
+   "#/partners": {
+      template: "/pages/partners.html",
+      meta: {
+         title: "Lumiiere Candles | Сотрудничество",
+         description: "Hello patners",
       },
    },
 };
