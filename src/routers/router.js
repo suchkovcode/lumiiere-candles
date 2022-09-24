@@ -38,6 +38,14 @@ const routes = {
          description: "Hello catalog",
       },
    },
+
+   "#/care": {
+      template: "/pages/care.html",
+      meta: {
+         title: "Lumiiere Candles | Уход",
+         description: "Hello care",
+      },
+   },
 };
 
 const route = (event) => {
