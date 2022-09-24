@@ -23,14 +23,6 @@ const routes = {
       },
    },
 
-   "#/contact": {
-      template: "/pages/contact.html",
-      meta: {
-         title: "Lumiiere Candles | Контакты",
-         description: "Hello contact",
-      },
-   },
-
    "#/catalog": {
       template: "/pages/catalog.html",
       meta: {
