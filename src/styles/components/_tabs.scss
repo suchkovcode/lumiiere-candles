@@ -74,7 +74,7 @@
          @include lg {
             display: flex;
             justify-content: center;
-            width: 250px;
+            width: 230px;
          }
       }
 
@@ -90,6 +90,14 @@
       &:hover > .tabs__option-text {
          color: var(--color_base);
          background-color: var(--color_primary);
+      }
+
+      @include lg {
+         border-right: 1px solid var(--color_border);
+
+         &:last-of-type {
+            border-right: 0;
+         }
       }
    }
 
@@ -120,6 +128,7 @@
    @include lg {
       .drobdown {
          position: relative;
+         top: 0;
          display: flex;
          flex-flow: row;
          justify-content: center;
