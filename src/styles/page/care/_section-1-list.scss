@@ -106,11 +106,27 @@
          text-align: left;
          letter-spacing: 1px;
          color: var(--color_secondary);
+
+         @include md {
+            font-size: 18px;
+         }
+
+         @include xl {
+            font-size: 20px;
+         }
+
+         @include xxl {
+            font-size: 22px;
+         }
       }
 
       &-description {
          font: 400 16px/1.5 "AvenirNextCyr";
          color: var(--color_secondary);
+
+         @include lg {
+            font-size: 18px;
+         }
       }
 
       @include lg {
