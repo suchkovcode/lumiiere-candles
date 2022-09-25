@@ -60,6 +60,7 @@
       cursor: pointer;
       position: relative;
       display: block;
+      width: 100%;
       font: 400 16px/1.5 "AvenirNextCyr";
       color: var(--color_secondary);
 
@@ -74,7 +75,7 @@
          @include lg {
             display: flex;
             justify-content: center;
-            width: 230px;
+            width: 100%;
          }
       }
 
@@ -132,7 +133,6 @@
          display: flex;
          flex-flow: row;
          justify-content: center;
-         width: fit-content;
          margin: 0 auto;
          border: 1px solid var(--color_border);
          border-radius: 1em;
