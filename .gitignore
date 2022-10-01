@@ -6,6 +6,8 @@ public/
 node_modules/
 
 ## System files
+.DS_Store
+Thumbs.db
 .vscode
 .cache
 .git
