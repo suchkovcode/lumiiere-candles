@@ -21,6 +21,7 @@
       @include sm {
          height: 25px;
       }
+
       @include lg {
          height: 30px;
          font: 500 14px/1.2 "AvenirNextCyr";
@@ -35,7 +36,7 @@
       height: 67px;
       padding: 20px;
       background-color: var(--color_base);
-      box-shadow: 0 25px 45px 0 rgb(107 107 106 / 5%);
+      box-shadow: 0 25px 45px 0 rgba(107, 107, 106, 5%);
 
       @include sm {
          height: 90px;
@@ -116,7 +117,7 @@
                background-color: var(--color_header_btn_hover);
             }
 
-            &:hover > .header__icon > path {
+            &:hover > .header__icon {
                stroke: var(--color_primary);
             }
          }
@@ -144,7 +145,7 @@
                color: var(--color_primary);
             }
 
-            &:hover > .header__icon > path {
+            &:hover > .header__icon {
                stroke: var(--color_primary);
             }
          }
@@ -163,34 +164,6 @@
       justify-content: center;
       align-items: center;
       margin-top: -10px;
-
-      &-icon {
-         @include sm {
-            width: 130px;
-            height: auto;
-         }
-         @include md {
-            width: 140px;
-            height: auto;
-         }
-      }
-   }
-
-   &__icon {
-      @include sm {
-         width: 26px;
-         height: 26px;
-         transition: all 0.2s ease-in-out;
-
-         &:hover > path {
-            stroke: var(--color_primary);
-         }
-
-         &--backet {
-            width: 28px;
-            height: 28px;
-         }
-      }
    }
 
    &__icon-count {

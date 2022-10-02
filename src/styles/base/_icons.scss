@@ -1,0 +1,35 @@
+.header__icon {
+   width: 24px;
+   height: 24px;
+   fill: none;
+   stroke: var(--color_secondary);
+   transition: all 0.2s ease-in-out;
+
+   &:hover {
+      stroke: var(--color_primary);
+   }
+
+   @include sm {
+      &--backet {
+         width: 28px;
+         height: 28px;
+      }
+   }
+}
+
+.header__logo-icon {
+   width: 110px;
+   height: 31px;
+
+   @include sm {
+      width: 130px;
+      height: auto;
+   }
+   @include md {
+      width: 140px;
+   }
+
+   @include lg {
+      width: 160px;
+   }
+}
