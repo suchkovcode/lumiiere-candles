@@ -27,7 +27,11 @@
       left: calc(50% - 105px);
       z-index: 10;
       display: block;
+      width: 210px;
+      height: 100px;
       margin: 0 auto;
+      fill: none;
+      
       @include sm {
          top: -30px;
       }

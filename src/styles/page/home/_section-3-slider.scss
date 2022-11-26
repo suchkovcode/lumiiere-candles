@@ -93,6 +93,9 @@
 
       &__bullet {
          &-icon {
+            width: 100px;
+            height: 100px;
+            fill: none;
             @include xl {
                position: absolute;
                top: 0;
@@ -105,6 +108,9 @@
          }
 
          &-text {
+            width: 60px;
+            height: 25px;
+            fill: none;
             @include xl {
                position: absolute;
                top: 35px;
@@ -112,6 +118,7 @@
 
                &--ticket {
                   left: 15px;
+                  width: 70px;
                }
             }
          }
@@ -132,6 +139,9 @@
       }
 
       &__icon-1 {
+         width: 30px;
+         height: 30px;
+         fill: none;
          @include sm {
             width: 45px;
             height: 45px;
@@ -142,6 +152,9 @@
          position: absolute;
          top: -25px;
          right: 0;
+         width: 150px;
+         height: 100px;
+         fill: none;
          @include sm {
             top: -60px;
             width: 220px;
@@ -257,7 +270,7 @@
 
 
 
-   
+
    @include lg {
       padding: 80px 30px;
    }
