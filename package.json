@@ -13,10 +13,16 @@
       "build:dev": "cross-env NODE_ENV=development webpack",
       "build:prod": "cross-env NODE_ENV=production webpack",
       "test:check": "prettier --check src/**/* && eslint && stylelint src/**/*.scss",
-      "test:fix": "prettier --write . && eslint --fix && stylelint src/**/*.scss --fix"
+      "test:fix": "prettier --write . && eslint --fix --color && stylelint src/**/*.scss --fix"
+   },
+   "lint-staged": {
+      "*.js": ["prettier --write", "eslint --fix --color"],
+      "*.scss": "stylelint --syntax=scss --fix"
    },
    "devDependencies": {
       "cross-env": "^7.0.3",
+      "husky": "^8.0.2",
+      "lint-staged": "^13.0.4",
 
       "webpack": "^5.75.0",
       "webpack-cli": "^5.0.0",
