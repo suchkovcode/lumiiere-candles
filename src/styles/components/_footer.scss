@@ -292,7 +292,7 @@
             width: 40px;
             height: 40px;
             fill: none;
-            color: #EB4A00;
+            color: var(--color_primary);
             transition: all 0.2s ease-in-out;
          }
 
@@ -303,7 +303,7 @@
 
             &:hover {
                .footer__social-icon  {
-                  color: #ff6219;
+                  color: var(--color_btn_hover);
                }
             }
          }
