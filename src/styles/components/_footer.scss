@@ -50,6 +50,8 @@
       }
 
       &-icon {
+         width: 170px;
+         height: 50px;
          @include md {
             width: 200px;
             height: auto;
@@ -96,6 +98,15 @@
          font: 500 18px/1.5 "AvenirNextCyr";
          text-align: center;
          text-transform: uppercase;
+      }
+
+      &-icon {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 15px;
+         height: 15px;
+         fill: none;
       }
 
       &-nav {
@@ -149,6 +160,15 @@
          text-transform: uppercase;
       }
 
+      &-icon {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 15px;
+         height: 15px;
+         fill: none;
+      }
+
       &-nav {
          display: flex;
          flex-flow: column;
@@ -195,6 +215,15 @@
 
       &-title {
          font: 500 18px/1.5 "AvenirNextCyr";
+      }
+
+      &-icon {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 15px;
+         height: 15px;
+         fill: none;
       }
 
       &-tel {
@@ -259,15 +288,22 @@
          align-items: center;
          gap: 10px;
 
+         &-icon {
+            width: 40px;
+            height: 40px;
+            fill: none;
+            color: #EB4A00;
+            transition: all 0.2s ease-in-out;
+         }
+
          &-link {
             display: flex;
             justify-content: center;
             align-items: center;
 
             &:hover {
-               .footer__social-icon path:first-of-type {
-                  fill: #ff6219;
-                  transition: all 0.2s ease-in-out;
+               .footer__social-icon  {
+                  color: #ff6219;
                }
             }
          }
@@ -293,6 +329,12 @@
          gap: 10px;
          margin-bottom: 30px;
 
+         &-icon {
+            width: 45px;
+            height: 35px;
+            fill: none;
+         }
+
          @include md {
             order: 1;
             margin-bottom: 0;
@@ -310,7 +352,7 @@
          text-align: center;
          color: var(--color_secondary);
          opacity: 0.8;
-   
+
          @include md {
             order: 0;
             margin: 0;
@@ -323,16 +365,16 @@
 
          @include xl {
             font: 400 16px/1.5 "AvenirNextCyr";
-         } 
+         }
       }
-   
+
       .footer__dev {
          display: block;
          font: 400 14px/1.5 "AvenirNextCyr";
          text-align: center;
          color: var(--color_secondary);
          opacity: 0.8;
-   
+
          &:hover {
             color: var(--color_primary);
          }
@@ -343,7 +385,7 @@
 
          @include xl {
             font: 400 16px/1.5 "AvenirNextCyr";
-         } 
+         }
       }
 
       @include sm {
