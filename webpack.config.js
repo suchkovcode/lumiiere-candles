@@ -15,7 +15,7 @@ module.exports = {
    },
    output: {
       path: path.resolve(__dirname, "./dist"),
-      filename: isDev ? "[name].[contenthash].js" : "[name].js",
+      filename: isDev ? "[name].[contenthash].js" : "[name].min.js",
       clean: true,
    },
    resolve: {
@@ -56,7 +56,7 @@ module.exports = {
                   plugins: [
                   ["gifsicle", { interlaced: true, optimizationLevel: 2}],
                   ["mozjpeg", { quality: 50, progressive: true }],
-                  ["pngquant", { quality: [0.3, 0.5], strip: true }],
+                  ["optipng", { optimizationLevel: 5 }],
                ],
              },
            },
