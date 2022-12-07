@@ -10,7 +10,6 @@ node_modules/
 Thumbs.db
 .vscode
 .cache
-.git
 .svn
 .hg
 
