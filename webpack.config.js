@@ -25,6 +25,10 @@ module.exports = {
          Assets: path.resolve(__dirname, "./src/assets"),
          Components: path.resolve(__dirname, "./src/components"),
       },
+<<<<<<< HEAD
+=======
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+>>>>>>> 8d9bf07 (Fix: git init)
    },
    cache: {
       type: "filesystem",
@@ -206,6 +210,7 @@ module.exports = {
             exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             loader: "html-loader",
+<<<<<<< HEAD
          }, // End Html
 
          {  // Start Scss
@@ -235,10 +240,29 @@ module.exports = {
 
          {  // Start Img
             test: /\.(png|jpe?g)$/i,
+=======
+            options: {
+               minimize: isDev ? false : false,
+              },
+         }, // End Html
+
+         {  // Start Scss
+            test: /\.s[ac]ss$/i,
+            exclude: /(node_modules|bower_components)/,
+            include: path.resolve(__dirname, "./src"),
+            use: [
+               isDev ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader",
+            ],
+         }, // End Scss
+
+         {  // Start IMG
+            test: /\.(jpg|png|svg|jpeg|gif)$/,
+>>>>>>> 8d9bf07 (Fix: git init)
             exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             generator: {
+<<<<<<< HEAD
                filename: isDev ? "assets/img/png/[contenthash][ext]" : "assets/img/png/[name][ext]",
             },
          }, // End Img
@@ -262,6 +286,12 @@ module.exports = {
                filename: isDev ? "assets/img/svg/[contenthash][ext]" : "assets/img/svg/[name][ext]",
             },
          }, // End svg
+=======
+               filename: isDev ? "assets/img/[contenthash][ext]" : "assets/img/[name][ext]",
+            },
+         }, // End IMG
+
+>>>>>>> 8d9bf07 (Fix: git init)
 
          {  // Start Fonts
             test: /\.(eot|ttf|woff|woff2)$/i,
