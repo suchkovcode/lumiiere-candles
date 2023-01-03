@@ -223,154 +223,248 @@
 <section class="popular-catalog">
    <div class="container">
       <header class="popular-catalog__header">
-         <img class="popular-catalog__icon" src="/src/assets/img/svg/popular-catalog__icon.svg" loading="lazy" alt="Иконка" width="120" height="40">
+         <img class="popular-catalog__icon" src="/src/assets/img/svg/popular-catalog__icon.svg" loading="lazy" alt="Иконка" width="120" height="40"/>
          <h2 class="title popular-catalog__title">Популярные товары</h2>
          <p class="subtitle popular-catalog__subtitle">Свечи, которые действительно пахнут!</p>
          <a class="btn btn--catalog popular-catalog__btn" href="#">Все товары</a>
       </header>
-      <div class="popular-catalog__filter">
-         <div class="popular-catalog__select">
-            <button class="transition popular-catalog__select-title" type="button" data-type="toggle">Ароматы</button>
-            <div class="drobdown">
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Мужественные" data-index="0">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Мужественные</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Природные" data-index="1">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Природные</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Пряные" data-index="2">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Пряные</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Свежие" data-index="3">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Свежие</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Фруктовые" data-index="4">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Фруктовые</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Цветочные" data-index="5">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Цветочные</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Ягодные" data-index="6">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Ягодные</span>
-                  </label>
-               </div>
-            </div>
-         </div>
-         <div class="popular-catalog__select">
-            <button class="transition popular-catalog__select-title" type="button" data-select="toggle">Колекция</button>
-            <div class="drobdown">
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Аниме" data-index="0">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Аниме</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Без персонажей" data-index="1">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Без персонажей</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Гарри Поттер" data-index="2">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Гарри Поттер</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Игры" data-index="3">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Игры</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Сериалы" data-index="4">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Сериалы</span>
-                  </label>
-               </div>
-               <div class="checkbox">
-                  <label class="checkbox__item" data-type="option" data-value="Фильмы" data-index="5">
-                     <input class="checkbox__input" type="checkbox" />
-                     <span class="checkbox__title">Фильмы</span>
-                  </label>
-               </div>
-            </div>
-         </div>
-         <div class="popular-catalog__select">
-            <button class="transition popular-catalog__select-title" type="button" name="sorting" value="" data-type="toggle">Сортировка</button>
-            <ul class="drobdown">
-               <li class="popular-catalog__select-dropdown-item" data-type="option" data-value="" data-index="0">Порядок: по умолчанию</li>
-               <li class="popular-catalog__select-dropdown-item" data-type="option" data-value="" data-index="1">Порядок: сперва новые</li>
-               <li class="popular-catalog__select-dropdown-item" data-type="option" data-value="" data-index="2">Порядок: сперва старые</li>
-               <li class="popular-catalog__select-dropdown-item" data-type="option" data-value="" data-index="3">Цена: по возростанию</li>
-               <li class="popular-catalog__select-dropdown-item" data-type="option" data-value="" data-index="4">Цена: по убыванию</li>
-               <li class="popular-catalog__select-dropdown-item" data-type="option" data-value="" data-index="5">Название: А-Я</li>
-               <li class="popular-catalog__select-dropdown-item" data-type="option" data-value="" data-index="6">Название: Я-А</li>
-            </ul>
-         </div>
-      </div>
       <div class="popular-catalog__products">
-         <!-- <div class="card">
-            <div class="card__header">
-               <div class="card__favorite">
-                  <svg class="card__favorite-icon"></svg>
+         <article class="card">
+            <header class="card__header">
+               <div class="card__favorite" data-type="favorite">
+                  <svg class="card__favorite-icon">
+                     <use xlink:href="/src/assets/img/svg/sprite.svg#cardFavoriteIcon"></use>
+                  </svg>
                </div>
-               <img class="card__hero" src="#" alt="" width="" height="" />
-            </div>
-            <div class="card__body">
+               <img class="card__hero" src="/src/assets/img/png/products__card-1.png" alt="" width="140" height="180" />
+            </header>
+            <main class="card__body">
                <div class="card__rating">
-                  <span class="card__rating-value"></span>
-                  <span class="card__rating-total"></span>
+                  <div class="card__rating-icons">
+                     <svg class="card__rating-icon" data-index="0">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="1">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="2">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="3">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="4">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                  </div>
+                  <span class="card__rating-value">5.0</span>
+                  <span class="card__rating-total">(10)</span>
                </div>
                <h3 class="card__title">Гарри Поттер</h3>
                <p class="card__article">Артикул: <span class="card__article-size" data-type="article">CNDL-HAR-S</span></p>
                <p class="card__description">Пряный тыквенный латте | золотой снитч</p>
-               <p class="card__price" data-value="0"><span class="card__price-currency">$</span>0</p>
+               <p class="card__price" data-value="0"><span class="card__price-currency">$</span>4.99</p>
                <div class="card__size">
                   <p class="card__size-title">Размер</p>
-                  <button class="card__size-btn" type="button" data-value="40">40 мл</button>
-                  <button class="card__size-btn" type="button" data-value="100">100 мл</button>
+                  <div class="card__size-select">
+                     <button class="card__size-btn" type="button" data-index="0" data-value="40" data-select="true">40 мл</button>
+                     <button class="card__size-btn" type="button" data-index="1" data-value="100" data-select="false">100 мл</button>
+                     <button class="card__size-btn" type="button" data-index="2" data-value="200" data-select="false">200 мл</button>
+                  </div>
                </div>
-            </div>
-            <div class="card__footer">
+            </main>
+            <footer class="card__footer">
                <a class="card__btn-more" href="#">Подробнее</a>
                <div class="card__btn-count">
-                  <button class="card__btn-minus" data-type="minus">-</button>
+                  <button class="card__btn-minus" data-type="minus"></button>
                   <p class="card__count-value" data-value="1">1</p>
-                  <button class="card__btn-plus" data-type="plus">+</button>
+                  <button class="card__btn-plus" data-type="plus"></button>
                </div>
                <button class="card__btn-add" data-type="add">
-                  <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path
-                        d="M7.29199 9.4444V4.63636C7.29199 2.62805 8.91999 1 10.9283 1C12.9366 1 14.5647 2.62805 14.5647 4.63636V9.4444M3.29489 19.9838L1.07266 9.98381C0.656311 8.11031 2.08198 6.33301 4.00123 6.33301H17.8549C19.7741 6.33301 21.1998 8.11031 20.7835 9.98381L18.5612 19.9838C18.2562 21.3564 17.0388 22.333 15.6327 22.333H6.22347C4.81735 22.333 3.59991 21.3564 3.29489 19.9838Z"
-                        stroke="#FF8D59"
-                        stroke-width="2" />
+                  <svg class="card__btn-add-icon">
+                     <use xlink:href="/src/assets/img/svg/sprite.svg#cardBtnAddIcon"></use>
                   </svg>
                   <span>В корзину</span>
                </button>
-            </div>
-         </div> -->
+            </footer>
+         </article>
+         <article class="card">
+            <header class="card__header">
+               <div class="card__favorite" data-type="favorite">
+                  <svg class="card__favorite-icon">
+                     <use xlink:href="/src/assets/img/svg/sprite.svg#cardFavoriteIcon"></use>
+                  </svg>
+               </div>
+               <img class="card__hero" src="/src/assets/img/png/products__card-1.png" alt="" width="140" height="180" />
+            </header>
+            <main class="card__body">
+               <div class="card__rating">
+                  <div class="card__rating-icons">
+                     <svg class="card__rating-icon" data-index="0">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="1">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="2">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="3">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="4">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                  </div>
+                  <span class="card__rating-value">5.0</span>
+                  <span class="card__rating-total">(10)</span>
+               </div>
+               <h3 class="card__title">Гарри Поттер</h3>
+               <p class="card__article">Артикул: <span class="card__article-size" data-type="article">CNDL-HAR-S</span></p>
+               <p class="card__description">Пряный тыквенный латте | золотой снитч</p>
+               <p class="card__price" data-value="0"><span class="card__price-currency">$</span>4.99</p>
+               <div class="card__size">
+                  <p class="card__size-title">Размер</p>
+                  <div class="card__size-select">
+                     <button class="card__size-btn" type="button" data-index="0" data-value="40" data-select="true">40 мл</button>
+                     <button class="card__size-btn" type="button" data-index="1" data-value="100" data-select="false">100 мл</button>
+                     <button class="card__size-btn" type="button" data-index="2" data-value="200" data-select="false">200 мл</button>
+                  </div>
+               </div>
+            </main>
+            <footer class="card__footer">
+               <a class="card__btn-more" href="#">Подробнее</a>
+               <div class="card__btn-count">
+                  <button class="card__btn-minus" data-type="minus"></button>
+                  <p class="card__count-value" data-value="1">1</p>
+                  <button class="card__btn-plus" data-type="plus"></button>
+               </div>
+               <button class="card__btn-add" data-type="add">
+                  <svg class="card__btn-add-icon">
+                     <use xlink:href="/src/assets/img/svg/sprite.svg#cardBtnAddIcon"></use>
+                  </svg>
+                  <span>В корзину</span>
+               </button>
+            </footer>
+         </article>
+         <article class="card">
+            <header class="card__header">
+               <div class="card__favorite" data-type="favorite">
+                  <svg class="card__favorite-icon">
+                     <use xlink:href="/src/assets/img/svg/sprite.svg#cardFavoriteIcon"></use>
+                  </svg>
+               </div>
+               <img class="card__hero" src="/src/assets/img/png/products__card-1.png" alt="" width="140" height="180" />
+            </header>
+            <main class="card__body">
+               <div class="card__rating">
+                  <div class="card__rating-icons">
+                     <svg class="card__rating-icon" data-index="0">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="1">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="2">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="3">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="4">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                  </div>
+                  <span class="card__rating-value">5.0</span>
+                  <span class="card__rating-total">(10)</span>
+               </div>
+               <h3 class="card__title">Гарри Поттер</h3>
+               <p class="card__article">Артикул: <span class="card__article-size" data-type="article">CNDL-HAR-S</span></p>
+               <p class="card__description">Пряный тыквенный латте | золотой снитч</p>
+               <p class="card__price" data-value="0"><span class="card__price-currency">$</span>4.99</p>
+               <div class="card__size">
+                  <p class="card__size-title">Размер</p>
+                  <div class="card__size-select">
+                     <button class="card__size-btn" type="button" data-index="0" data-value="40" data-select="true">40 мл</button>
+                     <button class="card__size-btn" type="button" data-index="1" data-value="100" data-select="false">100 мл</button>
+                     <button class="card__size-btn" type="button" data-index="2" data-value="200" data-select="false">200 мл</button>
+                  </div>
+               </div>
+            </main>
+            <footer class="card__footer">
+               <a class="card__btn-more" href="#">Подробнее</a>
+               <div class="card__btn-count">
+                  <button class="card__btn-minus" data-type="minus"></button>
+                  <p class="card__count-value" data-value="1">1</p>
+                  <button class="card__btn-plus" data-type="plus"></button>
+               </div>
+               <button class="card__btn-add" data-type="add">
+                  <svg class="card__btn-add-icon">
+                     <use xlink:href="/src/assets/img/svg/sprite.svg#cardBtnAddIcon"></use>
+                  </svg>
+                  <span>В корзину</span>
+               </button>
+            </footer>
+         </article>
+         <article class="card">
+            <header class="card__header">
+               <div class="card__favorite" data-type="favorite">
+                  <svg class="card__favorite-icon">
+                     <use xlink:href="/src/assets/img/svg/sprite.svg#cardFavoriteIcon"></use>
+                  </svg>
+               </div>
+               <img class="card__hero" src="/src/assets/img/png/products__card-1.png" alt="" width="140" height="180" />
+            </header>
+            <main class="card__body">
+               <div class="card__rating">
+                  <div class="card__rating-icons">
+                     <svg class="card__rating-icon" data-index="0">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="1">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="2">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="3">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                     <svg class="card__rating-icon" data-index="4">
+                        <use xlink:href="/src/assets/img/svg/sprite.svg#cardRatingIcon"></use>
+                     </svg>
+                  </div>
+                  <span class="card__rating-value">5.0</span>
+                  <span class="card__rating-total">(10)</span>
+               </div>
+               <h3 class="card__title">Гарри Поттер</h3>
+               <p class="card__article">Артикул: <span class="card__article-size" data-type="article">CNDL-HAR-S</span></p>
+               <p class="card__description">Пряный тыквенный латте | золотой снитч</p>
+               <p class="card__price" data-value="0"><span class="card__price-currency">$</span>4.99</p>
+               <div class="card__size">
+                  <p class="card__size-title">Размер</p>
+                  <div class="card__size-select">
+                     <button class="card__size-btn" type="button" data-index="0" data-value="40" data-select="true">40 мл</button>
+                     <button class="card__size-btn" type="button" data-index="1" data-value="100" data-select="false">100 мл</button>
+                     <button class="card__size-btn" type="button" data-index="2" data-value="200" data-select="false">200 мл</button>
+                  </div>
+               </div>
+            </main>
+            <footer class="card__footer">
+               <a class="card__btn-more" href="#">Подробнее</a>
+               <div class="card__btn-count">
+                  <button class="card__btn-minus" data-type="minus"></button>
+                  <p class="card__count-value" data-value="1">1</p>
+                  <button class="card__btn-plus" data-type="plus"></button>
+               </div>
+               <button class="card__btn-add" data-type="add">
+                  <svg class="card__btn-add-icon">
+                     <use xlink:href="/src/assets/img/svg/sprite.svg#cardBtnAddIcon"></use>
+                  </svg>
+                  <span>В корзину</span>
+               </button>
+            </footer>
+         </article>
       </div>
    </div>
 </section>

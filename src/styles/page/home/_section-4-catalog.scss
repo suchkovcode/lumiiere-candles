@@ -82,90 +82,12 @@
       }
    }
 
-   &__filter {
-      display: flex;
-      gap: 15px;
-      margin: 0 auto 30px auto;
-      padding: 0 20px;
-
-      @include lg {
-         padding: 0 30px;
-      }
-   }
-
-   &__select {
-      position: relative;
-
-      &-title {
-         cursor: pointer;
-         position: relative;
-         display: block;
-         padding: 10px 35px 10px 15px;
-         border: 1px solid var(--color_border);
-         border-radius: 0.3em;
-         font: 400 16px/1.5 "AvenirNextCyr";
-         color: var(--color_secondary);
-
-         &::before,
-         &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            display: block;
-            width: 10px;
-            height: 1px;
-            border-radius: 1px;
-            background-color: var(--color_secondary);
-         }
-
-         &::before {
-            right: 17px;
-            transform: rotate(45deg);
-         }
-
-         &::after {
-            right: 10px;
-            transform: rotate(-45deg);
-         }
-
-         &:hover {
-            border: 1px solid var(--color_primary);
-            color: var(--color_primary);
-
-            &::before,
-            &::after {
-               background-color: var(--color_primary);
-            }
-         }
-      }
-
-      &.active {
-         .popular-catalog__select-title {
-            border: 1px solid var(--color_primary);
-            color: var(--color_primary);
-
-            &::before {
-               right: 17px;
-               background-color: var(--color_primary);
-               transform: rotate(-45deg);
-            }
-
-            &::after {
-               right: 10px;
-               background-color: var(--color_primary);
-               transform: rotate(45deg);
-            }
-         }
-
-         .drobdown {
-            display: flex;
-         }
-      }
-   }
-
    &__products {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      justify-items: center;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       padding: 0 20px;
    }
 
