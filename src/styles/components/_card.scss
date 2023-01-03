@@ -4,7 +4,7 @@
    display: block;
    width: 100%;
    height: auto;
-   max-width: 280px;
+   max-width: 300px;
    border-radius: 12px;
    background-color: var(--color_base);
 
@@ -158,6 +158,11 @@
       flex-flow: column;
       gap: 10px;
       padding: 0 15px 15px 15px;
+
+      @include md {
+         flex-flow: row;
+         flex-wrap: wrap;
+      }
    }
 
    &__btn-more {
@@ -177,6 +182,10 @@
          color: var(--color_base);
          background-color: var(--color_primary);
       }
+
+      @include md {
+         flex: 1 1 100%;
+      }
    }
 
    &__btn-count {
@@ -191,6 +200,10 @@
       color: var(--color_secondary);
       background-color: var(--color_base);
       transition: all 0.2s ease-in-out;
+
+      @include md {
+         flex: 0 0 calc(50% - 5px);
+      }
    }
 
    &__btn-minus {
@@ -279,6 +292,10 @@
 
       &:hover {
          background-color: #ff6219;
+      }
+
+      @include md {
+         flex: 0 0 calc(50% - 5px);
       }
    }
 }
