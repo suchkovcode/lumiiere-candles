@@ -25,10 +25,6 @@ module.exports = {
          Assets: path.resolve(__dirname, "./src/assets"),
          Components: path.resolve(__dirname, "./src/components"),
       },
-<<<<<<< HEAD
-=======
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
->>>>>>> 8d9bf07 (Fix: git init)
    },
    cache: {
       type: "filesystem",
@@ -210,37 +206,6 @@ module.exports = {
             exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             loader: "html-loader",
-<<<<<<< HEAD
-         }, // End Html
-
-         {  // Start Scss
-            test: /\.(sa|sc|c)ss$/i,
-            exclude: /(node_modules|bower_components)/,
-            include: path.resolve(__dirname, "./src"),
-            use: [
-               isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-               "css-loader",
-               {
-                  loader: "postcss-loader",
-                  options: {
-                     postcssOptions: {
-                        plugins: [
-                           require("postcss-100vh-fix"),
-                           isDev ? undefined : require("autoprefixer"),
-                           isDev ? undefined : require("postcss-mq-keyframes"),
-                           isDev ? undefined : require("postcss-sort-media-queries"),
-                           isDev ? undefined : require("postcss-focus"),
-                        ],
-                     },
-                  },
-               },
-               "sass-loader",
-            ],
-         }, // End Scss
-
-         {  // Start Img
-            test: /\.(png|jpe?g)$/i,
-=======
             options: {
                minimize: isDev ? false : false,
               },
@@ -257,41 +222,14 @@ module.exports = {
 
          {  // Start IMG
             test: /\.(jpg|png|svg|jpeg|gif)$/,
->>>>>>> 8d9bf07 (Fix: git init)
             exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
             generator: {
-<<<<<<< HEAD
-               filename: isDev ? "assets/img/png/[contenthash][ext]" : "assets/img/png/[name][ext]",
-            },
-         }, // End Img
-
-         {  // Start gif
-            test: /\.gif$/i,
-            exclude: /(node_modules|bower_components)/,
-            include: path.resolve(__dirname, "./src"),
-            type: "asset/resource",
-            generator: {
-               filename: isDev ? "assets/gif/[contenthash][ext]" : "assets/gif/[name][ext]",
-            },
-         }, // End gif
-
-         {  // Start svg
-            test: /\.svg$/i,
-            exclude: /(node_modules|bower_components)/,
-            include: path.resolve(__dirname, "./src"),
-            type: "asset/resource",
-            generator: {
-               filename: isDev ? "assets/img/svg/[contenthash][ext]" : "assets/img/svg/[name][ext]",
-            },
-         }, // End svg
-=======
                filename: isDev ? "assets/img/[contenthash][ext]" : "assets/img/[name][ext]",
             },
          }, // End IMG
 
->>>>>>> 8d9bf07 (Fix: git init)
 
          {  // Start Fonts
             test: /\.(eot|ttf|woff|woff2)$/i,
