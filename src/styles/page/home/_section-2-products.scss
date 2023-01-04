@@ -162,12 +162,24 @@
                gap: 30px;
                grid-template-columns: 0.6fr 1fr;
                /* stylelint-disable-next-line declaration-no-important */
-               padding: 120px 80px 120px 180px !important;
+               padding: 120px 80px 120px 240px !important;
 
                .products__card-icon-1 {
                   order: 3;
                   margin-top: -50px;
                }
+            }
+
+            @include xl {
+               gap: 0;
+               grid-template-columns: 0.5fr 0.9fr;
+               padding: 120px 80px 120px 280px !important;
+            }
+
+            @include xxl {
+               gap: 0;
+               grid-template-columns: 0.4fr 0.7fr;
+               padding: 120px 80px 120px 380px !important;
             }
          }
 
@@ -206,6 +218,10 @@
 
          @include md {
             align-items: flex-start;
+         }
+
+         @include xl {
+            width: fit-content;
          }
       }
 
