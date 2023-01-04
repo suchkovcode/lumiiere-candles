@@ -69,13 +69,22 @@
       margin-bottom: 5px;
 
       &-icons {
-         display: inline-block;
+         display: inline-flex;
+         gap: 3px;
          font-size: 0;
       }
 
       &-icon {
+         cursor: pointer;
          width: 16px;
          height: 16px;
+         fill: none;
+         stroke: var(--color_secondary);
+
+         &:hover {
+            fill: var(--color_primary);
+            stroke: var(--color_primary);
+         }
       }
 
       &-value {
