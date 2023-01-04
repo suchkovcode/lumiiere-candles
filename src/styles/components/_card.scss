@@ -42,6 +42,12 @@
             transition: all 0.2s ease-in-out;
          }
       }
+
+      &[data-select="true"] {
+         .card__favorite-icon {
+            fill: var(--color_primary);
+         }
+      }
    }
 
    &__hero {
