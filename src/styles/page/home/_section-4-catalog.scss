@@ -86,22 +86,6 @@
       }
    }
 
-   &__products {
-      display: grid;
-      justify-content: center;
-      justify-items: center;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      padding: 0 20px;
-
-      @include lg {
-         padding: 0 30px;
-      }
-      @include xxl {
-         padding: 0;
-      }
-   }
-
    @include md {
       padding: 100px 0 80px 0;
    }
