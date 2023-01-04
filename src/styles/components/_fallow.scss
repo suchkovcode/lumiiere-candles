@@ -1,5 +1,6 @@
 .fallow {
    overflow: hidden;
+   position: relative;
    max-width: 480px;
    margin: 0 auto;
    padding: 60px 20px;
@@ -15,11 +16,12 @@
    &__icon {
       position: absolute;
       top: -30px;
-      left: calc(50% - 50px);
+      left: 50%;
       z-index: 10;
       display: block;
       width: 100px;
       height: 43px;
+      transform: translateX(-50%);
 
       @include lg {
          left: 10px;
