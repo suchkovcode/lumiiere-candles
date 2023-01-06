@@ -37,7 +37,6 @@
 
       &:hover {
          .card__favorite-icon {
-            fill: var(--color_primary);
             transform: scale(1.2);
             transition: all 0.2s ease-in-out;
          }
@@ -46,6 +45,12 @@
       &[data-select="true"] {
          .card__favorite-icon {
             fill: var(--color_primary);
+         }
+      }
+
+      &[data-select="false"] {
+         .card__favorite-icon {
+            fill: none;
          }
       }
    }
