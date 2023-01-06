@@ -8,9 +8,12 @@ import "Root/pages/oferta.html";
 import "Root/pages/delivery.html";
 
 import "Root/app.scss";
-import "Assets/img/svg/sprite.svg";
+// import "Assets/img/svg/sprite.svg";
 
 import "Root/routers/router";
 import "Root/module/_header.js";
+import "Root/module/_generateCatalog.js";
+
+
 // import "Root/module/_slider.js";
-import { Tabs } from "./module/_tabs";
+// import { Tabs } from "./module/_tabs";
