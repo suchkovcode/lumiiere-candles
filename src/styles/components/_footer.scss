@@ -47,15 +47,13 @@
 
       &-link {
          display: block;
+         width: 170px;
+         height: 50px;
       }
 
       &-icon {
          width: 170px;
          height: 50px;
-         @include md {
-            width: 200px;
-            height: auto;
-         }
       }
 
       &-text {
