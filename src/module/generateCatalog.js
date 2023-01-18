@@ -26,7 +26,7 @@ export class GenerateCatalog {
                   <use xlink:href="${svg}#cardFavoriteIcon"></use>
                </svg>
             </div>
-            <img class="card__hero" src="${item.hero}" alt="" width="140" height="180" />
+            <img class="card__hero" src="${item.hero}" loading="lazy" alt="" width="140" height="180" />
          </header>
          <main class="card__body">
             <div class="card__rating">
@@ -94,7 +94,6 @@ export class GenerateCatalog {
       try {
          this._target.innerHTML = this.#html(arrData);
       } catch (err) {
-         console.error(err);
       }
    }
 
@@ -170,7 +169,6 @@ export class GenerateCatalog {
       currentValue.dataset.value = dataSize.price;
       currentPrice.textContent = dataSize.price;
    }
-
 
    #incrementCount() {
       const btnCount = this._target.querySelectorAll(".card__btn-count[data-type='count']");
