@@ -52,14 +52,12 @@ export class Router {
 
    #locationHandler = async () => {
       const location = this.#getFragment();
-      const route = this.routes[location] ? this.routes[location] : "";
+      const route = this.routes[location] ?? this.routes["/404"];
       if (this.routes[location] === "/404") window.history.replaceState({}, "", "/404");
-      if (route !== "") {
-         const html = await fetch(route.template).then((response) => response.text());
-         const renderHTml = this.#localStorage(location, html);
-         this.#render(renderHTml);
-         this.#chageMeta(route.meta.title, route.meta.description, window.location);
-      }
+      const html = await fetch(route.template).then((response) => response.text());
+      const renderHTml = this.#localStorage(location, html);
+      this.#render(renderHTml);
+      this.#chageMeta(route.meta.title, route.meta.description, window.location);
    };
 
    #localStorage(location, html) {
