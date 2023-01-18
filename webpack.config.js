@@ -145,6 +145,12 @@ module.exports = {
          inject: false,
          minify: isDev ? false : true,
       }),
+      new HtmlWebpackPlugin({
+         filename: "pages/404.html",
+         template: path.resolve(__dirname, "./src/pages/404.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
       new MiniCssExtractPlugin({
          filename: isDev ? "app.css" : "app.min.css",
          linkType: "text/css",
@@ -178,13 +184,13 @@ module.exports = {
             },
          },
       }),
-      new BundleAnalyzerPlugin({
-         analyzerMode: isDev ? "static" : "disabled",
-         analyzerPort: 5500,
-         openAnalyzer: false,
-         analyzerHost: "127.0.0.1",
-         logLevel: "info"
-      }),
+      // new BundleAnalyzerPlugin({
+      //    analyzerMode: isDev ? "static" : "disabled",
+      //    analyzerPort: 5500,
+      //    openAnalyzer: false,
+      //    analyzerHost: "127.0.0.1",
+      //    logLevel: "info"
+      // }),
       new DuplicatePackageCheckerPlugin(),
    ],
    module: {
