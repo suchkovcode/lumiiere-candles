@@ -36,8 +36,9 @@ export class Router {
 
    #getFragment() {
       const matchLocation = window.location.href.match(/#(.*)$/);
+      const routersKey = Object.keys(this.routes);
       let fragmentLocation = "";
-      if (matchLocation != null) {
+      if (matchLocation !== null) {
          if (matchLocation[1] === "") {
             fragmentLocation = "/";
          }
@@ -47,7 +48,7 @@ export class Router {
       } else {
          fragmentLocation = "/";
       }
-      return fragmentLocation;
+      return routersKey.includes(fragmentLocation) ? fragmentLocation : "/404";
    }
 
    #locationHandler = async () => {
@@ -55,8 +56,8 @@ export class Router {
       const route = this.routes[location] ?? this.routes["/404"];
       if (this.routes[location] === "/404") window.history.replaceState({}, "", "/404");
       const html = await fetch(route.template).then((response) => response.text());
-      const renderHTml = this.#localStorage(location, html);
-      this.#render(renderHTml);
+      const renderHtml = this.#localStorage(location, html);
+      this.#render(renderHtml);
       this.#chageMeta(route.meta.title, route.meta.description, window.location);
    };
 
