@@ -1,4 +1,5 @@
 import "Root/layouts/index.html";
+import "Root/pages/404.html";
 import "Root/pages/home.html";
 import "Root/pages/about.html";
 import "Root/pages/care.html";
@@ -10,9 +11,10 @@ import "Root/pages/delivery.html";
 import "Root/app.scss";
 // import "Assets/img/svg/sprite.svg";
 
+import "Root/module/router";
 import "Root/routers/router";
-import "Root/module/_header.js";
-import "Root/module/_generateCatalog.js";
+import "Root/module/header";
+// import "Root/module/_generateCatalog.js";
 
 
 // import "Root/module/_slider.js";
