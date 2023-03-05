@@ -11,7 +11,7 @@ import "Root/pages/delivery.html";
 import "Root/app.scss";
 // import "Assets/img/svg/sprite.svg";
 
-import "Root/module/router";
+import "Root/module/routers";
 import "Root/routers/router";
 import "Root/module/header";
 // import "Root/module/_generateCatalog.js";
