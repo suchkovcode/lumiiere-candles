@@ -38,12 +38,15 @@
       background-color: var(--color_base);
       box-shadow: 0 25px 45px 0 rgba(107, 107, 106, 5%);
 
+
       @include sm {
          height: 90px;
          margin: 15px 20px 0 20px;
          padding: 20px 25px;
          border-radius: 25px;
+         background-color: rgba(255, 255, 255, 0.8);
          box-shadow: 0 25px 45px 0 rgb(107, 107, 106, 10%);
+         backdrop-filter: blur(10px);
       }
       @include md {
          margin: 15px 30px 0 30px;
