@@ -14,7 +14,7 @@ import "Root/app.scss";
 import "Root/module/routers";
 import "Root/routers/router";
 import "Root/module/header";
-// import "Root/module/_generateCatalog.js";
+import "Root/module/generateCatalog.js";
 
 
 // import "Root/module/_slider.js";
