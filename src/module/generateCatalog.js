@@ -137,6 +137,9 @@ export class GenerateCatalog {
    }
 }
 
-setTimeout(() => {
-   new GenerateCatalog("#popular-catalog", data);
-}, 2500);
+
+window.addEventListener("DOMContentLoaded", () => {
+   setTimeout(() => {
+      new GenerateCatalog("#popular-catalog", data);
+   }, 2500);
+});
