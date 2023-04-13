@@ -123,11 +123,18 @@
 
       .drobdown {
          display: flex;
+         scrollbar-width: none;
       }
+      
+      .drobdown::-webkit-scrollbar {
+         width: 0;
+      }
+
    }
 
    @include lg {
       .drobdown {
+         overflow-y: hidden;
          position: relative;
          top: 0;
          display: flex;
@@ -136,6 +143,10 @@
          margin: 0 auto;
          border: 1px solid var(--color_border);
          border-radius: 1em;
+      }
+
+      .drobdown::-webkit-scrollbar {
+         width: 0;
       }
    }
 }
