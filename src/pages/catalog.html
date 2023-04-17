@@ -1,0 +1,86 @@
+<section class="goods">
+   <div class="container">
+      <nav class="breadcrumbs goods__breadcrumbs">
+         <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+               <a class="breadcrumbs__link route" href="#">Главная</a>
+            </li>
+            <li class="breadcrumbs__item">/</li>
+            <li class="breadcrumbs__item active">
+               <a class="breadcrumbs__link route" href="#/catalog">Каталог</a>
+            </li>
+         </ul>
+      </nav>
+      <div class="goods__header">
+         <img
+            class="goods__header-icon"
+            src="/src/assets/img/svg/catalog__header-icon.svg"
+            alt="Главная картинка"
+            width="85"
+            height="40" />
+         <h1 class="title goods__title">КАТАЛОГ</h1>
+         <p class="subtitle goods__subtitle">
+            <svg class="goods__subtitle-icon">
+               <use xlink:href="/src/assets/img/svg/sprite.svg#catalogGetting"></use>
+            </svg>
+            «Поверь дружок, здесь ты найдешь все для сохранения своего душевного равновесия»
+         </p>
+      </div>
+      <div class="goods__search">
+         <form class="goods__search-container" action="" method="">
+            <input class="goods__search-input" type="search" placeholder="Что нужно найти?" />
+            <svg class="goods__search-icon" fill="none" stroke="rgb(182, 182, 182)">
+               <use xlink:href="/src/assets/img/svg/sprite.svg#search"></use>
+            </svg>
+         </form>
+         <button class="goods__search-btn" type="submit">Найти</button>
+      </div>
+   </div>
+</section>
+<section class="allcatalog">
+   <div class="container">
+      <div class="allcatalog__grid">
+         <div class="allcatalog__filter">
+            <div class="allcatalog__filter-radio">
+               <label class="allcatalog__label">
+                  <input class="allcatalog__input" type="radio" name="radio" value="all" data-value="all" data-select="true"/>
+                  <span class="allcatalog__text">Все</span>
+               </label>
+               <label class="allcatalog__label">
+                  <input class="allcatalog__input" type="radio" name="radio" value="candles" data-value="candles" data-select="false"/>
+                  <span class="allcatalog__text">Свечи</span>
+               </label>
+               <label class="allcatalog__label">
+                  <input class="allcatalog__input" type="radio" name="radio" value="additionally" data-value="additionally" data-select="false"/>
+                  <span class="allcatalog__text">Дополнительно</span>
+               </label>
+               <label class="allcatalog__label">
+                  <input class="allcatalog__input" type="radio" name="radio" value="sets" data-value="sets" data-select="false"/>
+                  <span class="allcatalog__text">Наборы свечей</span>
+               </label>
+               <label class="allcatalog__label">
+                  <input class="allcatalog__input" type="radio" name="radio" value="postcards" data-value="postcards" data-select="false"/>
+                  <span class="allcatalog__text">Открытки</span>
+               </label>
+               <label class="allcatalog__label">
+                  <input class="allcatalog__input" type="radio" name="radio" value="popular" data-value="popular" data-select="false"/>
+                  <span class="allcatalog__text">Популярные товары</span>
+               </label>
+               <label class="allcatalog__label">
+                  <input class="allcatalog__input" type="radio" name="radio" value="meltsy" data-value="meltsy" data-select="false"/>
+                  <span class="allcatalog__text">Мелтсы</span>
+               </label>
+            </div>
+            <div class="allcatalog__filter-check">
+               <div class="allcatalog__filter-sort">
+                  <button class="allcatalog__filter-btn">Сортировка</button>
+                  <div class="allcatalog__filter-drobdown">
+
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="catalog allcatalog__card" id="all-catalog" data-type="all-catalog"></div>
+      </div>
+   </div>
+</section>

@@ -7,6 +7,7 @@ import "Root/pages/faq.html";
 import "Root/pages/partners.html";
 import "Root/pages/oferta.html";
 import "Root/pages/delivery.html";
+import "Root/pages/catalog.html";
 
 import "Root/app.scss";
 // import "Assets/img/svg/sprite.svg";

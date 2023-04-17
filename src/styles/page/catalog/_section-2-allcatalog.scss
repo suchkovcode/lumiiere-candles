@@ -1,0 +1,51 @@
+.allcatalog {
+   &__grid {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+   }
+
+   &__filter {
+      &-radio {
+         display: flex;
+         flex-flow: row;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 10px 20px;
+      }
+
+      &-check {
+         
+      }
+   }
+
+   &__label {
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+   }
+
+   &__input {
+   }
+
+   &__text {
+      font: 400 16px/1.3 "AvenirNextCyr";
+      color: var(--color_secondary);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+         color: var(--color_primary);
+      }
+   }
+
+   &__card {
+   }
+
+   @include sm {
+      padding: 30px 20px;
+   }
+
+   @include lg {
+      padding: 30px;
+   }
+}
