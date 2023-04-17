@@ -1,19 +1,22 @@
 .title {
+   position: relative;
    font: 400 38px/1.3 "Karton";
    text-align: center;
    text-transform: uppercase;
    letter-spacing: 5px;
    color: var(--color_base);
-   
+
    @include md {
       text-align: left;
    }
 }
 
 .subtitle {
+   position: relative;
    font: 500 18px/1.5 "AvenirNextCyr";
    text-align: center;
    color: var(--color_base);
+
    @include md {
       text-align: left;
    }
