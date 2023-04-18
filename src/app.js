@@ -11,9 +11,8 @@ import "Root/pages/catalog.html";
 
 import "Root/app.scss";
 
-
-// import "Root/routers/router";
-// import "Root/module/routes";
+import "Root/routers/router";
+import "Root/module/route";
 // import "Root/module/header";
 // import "Root/module/GenerateCatalog";
 // import "Root/module/Tabs";
