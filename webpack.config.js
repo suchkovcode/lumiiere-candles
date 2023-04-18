@@ -48,14 +48,15 @@ module.exports = {
       minimizer: [
          "...",
          new ImageMinimizerPlugin({
-            test: /\.(jpe?g|png|gif|svg)$/i,
+            test: /\.(jpe?g|png|gif)$/i,
             exclude: /(node_modules|bower_components)/,
             minimizer: {
-               implementation: isDev ? undefined : ImageMinimizerPlugin.imageminMinify,
+               implementation: ImageMinimizerPlugin.imageminMinify,
                options: {
                   plugins: [
                   ["gifsicle", { interlaced: true, optimizationLevel: 2}],
                   ["mozjpeg", { quality: 50, progressive: true }],
+                  ["optipng", { optimizationLevel: 5 }],
                   ["optipng", { optimizationLevel: 5 }],
                ],
              },
@@ -84,9 +85,6 @@ module.exports = {
       open: true,
       hot: true,
       liveReload: false,
-   },
-   externals: {
-      jquery: "jQuery",
    },
    plugins: [
       new HtmlWebpackPlugin({
@@ -146,6 +144,12 @@ module.exports = {
          minify: isDev ? false : true,
       }),
       new HtmlWebpackPlugin({
+         filename: "pages/catalog.html",
+         template: path.resolve(__dirname, "./src/pages/catalog.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
+      new HtmlWebpackPlugin({
          filename: "pages/404.html",
          template: path.resolve(__dirname, "./src/pages/404.html"),
          inject: false,
@@ -191,8 +195,9 @@ module.exports = {
       //    analyzerHost: "127.0.0.1",
       //    logLevel: "info"
       // }),
-      new DuplicatePackageCheckerPlugin(),
+      // new DuplicatePackageCheckerPlugin(),
    ],
+
    module: {
       rules: [
          {  // Start Babel
