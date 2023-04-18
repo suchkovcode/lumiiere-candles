@@ -13,10 +13,10 @@ import "Root/app.scss";
 // import "Assets/img/svg/sprite.svg";
 
 import "Root/module/Routers";
-import "Root/routers/router";
 import "Root/module/header";
-import "Root/module/GenerateCatalog.js";
-import "Root/module/Tabs.js";
+import "Root/module/GenerateCatalog";
+import "Root/module/Tabs";
+import "Root/routers/router";
 
 
 // import "Root/module/_slider.js";
