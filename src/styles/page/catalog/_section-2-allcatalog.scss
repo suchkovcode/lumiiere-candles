@@ -7,8 +7,12 @@
 
 
       @include lg {
-         grid-template-columns: 220px 1fr;
          gap: 20px;
+         grid-template-columns: 220px 1fr;
+      }
+
+      @include xl {
+         padding: 0;
       }
    }
 
