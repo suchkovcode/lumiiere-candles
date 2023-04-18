@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { data } from "Root/assets/data/products";
-import { Card } from "./card";
+import { Card } from "./cards";
 
 export class GenerateCatalog {
    constructor(target, data) {
