@@ -15,5 +15,4 @@ import "Root/routers/router";
 import "Root/module/route";
 import "Root/module/header";
 import "Root/module/generateCatalog";
-import "Root/module/tabs";
-
+import "Root/module/tab";
