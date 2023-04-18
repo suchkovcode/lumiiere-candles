@@ -141,5 +141,5 @@ export class GenerateCatalog {
 window.addEventListener("DOMContentLoaded", () => {
    setTimeout(() => {
       new GenerateCatalog("#popular-catalog", data);
-   }, 2500);
+   }, 1500);
 });

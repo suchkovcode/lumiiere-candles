@@ -10,7 +10,17 @@ export class Router {
       this.routes = options.routes;
       this.root = options.root;
       this.render = document.querySelector(options.render);
+      this.init();
+   }
+
+   init() {
+      window.addEventListener("hashchange", this);
       this.#route();
+   }
+
+   handleEvent() {
+      this.#route();
+      window.location.reload();
    }
 
    #route() {
@@ -59,6 +69,7 @@ export class Router {
       const renderHtml = this.#localStorage(location, html);
       this.#render(html);
       this.#chageMeta(route.meta.title, route.meta.description, window.location);
+
    };
 
    #localStorage(location, html) {

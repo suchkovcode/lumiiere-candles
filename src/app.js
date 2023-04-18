@@ -12,7 +12,7 @@ import "Root/pages/catalog.html";
 import "Root/app.scss";
 // import "Assets/img/svg/sprite.svg";
 
-import "Root/module/routers";
+import "Root/module/Routers";
 import "Root/routers/router";
 import "Root/module/header";
 import "Root/module/GenerateCatalog.js";

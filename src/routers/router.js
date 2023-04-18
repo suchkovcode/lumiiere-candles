@@ -1,4 +1,4 @@
-import { Router } from "../module/routers";
+import { Router } from "../module/Routers";
 
 new Router({
    root: "/",
