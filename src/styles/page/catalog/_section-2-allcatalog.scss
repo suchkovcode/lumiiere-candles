@@ -185,6 +185,10 @@
                display: none;
             }
          }
+
+         @include lg {
+            cursor: default;
+         }
       }
 
       &-drobdown {
