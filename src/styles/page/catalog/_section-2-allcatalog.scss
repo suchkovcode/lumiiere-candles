@@ -4,28 +4,205 @@
       gap: 30px;
       grid-template-columns: 1fr;
       padding: 0 20px;
+
+
+      @include lg {
+         grid-template-columns: 220px 1fr;
+         gap: 20px;
+      }
    }
 
    &__filter {
+      &-sort {
+         height: fit-content;
+         padding: 12px 0;
+         border-top: 1px solid var(--color_border);
+         border-bottom: 1px solid var(--color_border);
+
+         &:nth-child(3) {
+            border-top: none;
+         }
+
+         &:nth-child(4) {
+            border-top: none;
+         }
+
+         &:hover {
+            .allcatalog__filter-btn {
+               &::before,
+               &::after {
+                  background-color: var(--color_primary);
+               }
+            }
+         }
+
+         &.active {
+            & .allcatalog__filter-btn {
+               &::before,
+               &::after {
+                  background-color: var(--color_primary);
+               }
+
+               &::before {
+                  transform: rotate(130deg) translateY(-3px);
+               }
+
+               &::after {
+                  transform: rotate(50deg) translateY(3px);
+               }
+            }
+
+            & .allcatalog__filter-drobdown {
+               display: flex;
+
+
+               &--gap {
+                  gap: 10px;
+               }
+            }
+         }
+
+         @include lg {
+            border-top: none;
+            border-bottom: none;
+         }
+      }
+
       &-radio {
          display: flex;
          flex-flow: row;
          flex-wrap: wrap;
          justify-content: center;
          gap: 10px 20px;
+         margin-bottom: 30px;
+
+         @include lg {
+            flex-flow: column;
+            flex-wrap: nowrap;
+         }
       }
 
-      &-check {
-         
+      &-header {
+         display: flex;
+         align-items: center;
+         gap: 10px;
+         margin-bottom: 20px;
+
+         @include lg {
+            display: none;
+         }
+      }
+
+      &-icon {
+         width: 16px;
+         height: 16px;
+         fill: var(--color_secondary);
+      }
+
+      &-label {
+         cursor: pointer;
+
+         &--checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+         }
+      }
+
+      &-input {
+         &:checked {
+            + .allcatalog__filter-text {
+               color: var(--color_primary);
+            }
+         }
+      }
+
+      &-checkbox {
+         cursor: pointer;
+         width: 20px;
+         height: 20px;
+         padding: 3px;
+         border: 1px solid var(--color_border);
+         background-clip: content-box;
+
+         &:checked {
+            background-color: var(--color_primary);
+         }
+      }
+
+      &-text {
+         cursor: pointer;
+         font: 400 14px/1.3 "AvenirNextCyr";
+         color: var(--color_secondary);
+
+         @include lg {
+            font: 400 16px/1.3 "AvenirNextCyr";
+         }
+      }
+
+      &-btn {
+         cursor: pointer;
+         position: relative;
+         display: block;
+         width: 100%;
+         font: 400 14px/1.3 "AvenirNextCyr";
+         text-align: left;
+         color: var(--color_secondary);
+         transition: all 0.2s ease-in-out;
+
+         &::before {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            display: block;
+            width: 8px;
+            height: 1px;
+            background-color: var(--color_secondary);
+            transform: rotate(40deg) translateY(-3px);
+            transition: all 0.2s ease-in-out;
+
+            @include lg {
+               content: none;
+               display: none;
+            }
+         }
+
+         &::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            display: block;
+            width: 8px;
+            height: 1px;
+            background-color: var(--color_secondary);
+            transform: rotate(320deg) translateY(3px);
+            transition: all 0.2s ease-in-out;
+
+            @include lg {
+               content: none;
+               display: none;
+            }
+         }
+      }
+
+      &-drobdown {
+         display: none;
+         flex-flow: column;
+         gap: 5px;
+         padding: 13px 0;
+
+         @include lg {
+            display: flex;
+         }
       }
    }
 
    &__label {
       cursor: pointer;
       transition: all 0.2s ease-in-out;
-   }
-
-   &__input {
    }
 
    &__text {
@@ -36,9 +213,16 @@
       &:hover {
          color: var(--color_primary);
       }
+
+      @include lg {
+         font: 400 16px/1.3 "AvenirNextCyr";
+      }
    }
 
    &__card {
+      .card {
+         border: 1px solid var(--color_border);
+      }
    }
 
    @include sm {
