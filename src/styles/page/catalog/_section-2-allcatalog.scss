@@ -228,6 +228,10 @@
       }
    }
 
+   .catalog {
+      padding: 0;
+   }
+
    @include sm {
       padding: 30px 20px;
    }
