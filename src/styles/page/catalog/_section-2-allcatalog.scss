@@ -54,11 +54,6 @@
 
             & .allcatalog__filter-drobdown {
                display: flex;
-
-
-               &--gap {
-                  gap: 10px;
-               }
             }
          }
 
@@ -193,6 +188,10 @@
          flex-flow: column;
          gap: 5px;
          padding: 13px 0;
+
+         &--gap {
+            gap: 10px;
+         }
 
          @include lg {
             display: flex;
