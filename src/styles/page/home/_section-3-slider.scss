@@ -1,6 +1,6 @@
 .slider {
    position: relative;
-   padding: 60px 20px;
+   padding: 60px 20px 100px 20px;
 
    &-wrapper {
       position: relative;
@@ -230,8 +230,6 @@
 
          @include lg {
             text-align: left;
-
-
          }
       }
 
@@ -312,12 +310,39 @@
       }
    }
 
+   &-dots {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      transform: translateX(-50%);
+
+      &__item {
+         cursor: pointer;
+         display: block;
+         width: 14px;
+         height: 14px;
+         border: 2px solid var(--color_border_slider);
+         border-radius: 50px;
+         background-color: transparent;
+         transition: all 0.2s ease-in-out;
+
+         &.active {
+            border-color: var(--color_primary);
+            background-color: var(--color_primary);
+         }
+      }
+   }
+
    @include lg {
-      padding: 80px 30px;
+      padding: 80px 30px 120px 30px;
    }
 
    @include xl {
-      padding: 100px 30px;
+      padding: 100px 30px 120px 30px;
    }
 
    @include xxl {
