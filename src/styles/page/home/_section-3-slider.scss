@@ -207,6 +207,10 @@
 
          @include xxl {
             right: 130px;
+
+            &--slider-3 {
+               right: 5px;
+            }
          }
       }
 
