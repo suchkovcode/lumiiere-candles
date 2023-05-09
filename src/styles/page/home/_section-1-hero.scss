@@ -31,7 +31,7 @@
       height: 100px;
       margin: 0 auto;
       fill: none;
-      
+
       @include sm {
          top: -30px;
       }
@@ -133,14 +133,45 @@
 
    &__wave-1 {
       position: absolute;
+      right: 0;
       bottom: 0;
-      left: 0;
+      z-index: 15;
+      display: block;
+      fill: none;
+      color: #F7F7F6;
+      object-fit: cover;
+      animation: wave-1 70s linear infinite;
+
+      @include lg {
+         animation: wave-1 90s linear infinite;
+      }
    }
 
    &__wave-2 {
       position: absolute;
-      bottom: 0;
-      left: -100px;
+      bottom: -30px;
+      left: 0;
+      color: #F7F7F6;
+      animation: wave-2 80s linear infinite;
+
+      &--white {
+         color: #fff;
+      }
+
+      &--wave-1 {
+         right: 0;
+         left: initial;
+         animation: wave-1 80s linear infinite;
+      }
+
+      @include lg {
+         animation: wave-2 100s linear infinite;
+
+         &--wave-1 {
+            right: 0;
+            animation: wave-1 80s linear infinite;
+         }
+      }
    }
 
    @include sm {
@@ -156,7 +187,28 @@
    }
    @include xxl {
       height: 100vh;
-      min-height: 950px;
+      min-height: 1050px;
       margin-top: -125px;
+   }
+}
+
+@keyframes wave-1 {
+   0% {
+      transform: translateX(9500px);
+   }
+
+   100% {
+      transform: translateX(0);
+   }
+}
+
+
+@keyframes wave-2 {
+   0% {
+      transform: translateX(-9500px);
+   }
+
+   100% {
+      transform: translateX(0);
    }
 }
