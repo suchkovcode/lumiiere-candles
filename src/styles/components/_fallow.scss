@@ -16,16 +16,22 @@
    &__icon {
       position: absolute;
       top: -30px;
-      left: 50%;
-      z-index: 10;
+      left: 80px;
+      z-index: 15;
       display: block;
       width: 100px;
       height: 43px;
-      transform: translateX(-50%);
+
+      @include sm {
+         left: 140px;
+      }
+
+      @include md {
+         left: 220px;
+      }
 
       @include lg {
          left: 10px;
-         transform: translateX(0);
       }
    }
 
