@@ -16,7 +16,7 @@ export class Card {
                <use xlink:href="${svg}#cardFavoriteIcon"></use>
             </svg>
          </div>
-         <img class="card__hero" src="${this.item.hero}" loading="lazy" alt="" width="140" height="180" />
+         <img class="card__hero" src="${this.item.hero}" loading="lazy" alt="Картинка продукта" width="140" height="180" />
       </header>
       <main class="card__body">
          <div class="card__rating">
@@ -39,7 +39,6 @@ export class Card {
             </div>
             <span class="card__rating-value">${this.item.grade.level}</span>
             <span class="card__rating-total">(${this.item.grade.count})</span>
-
          </div>
          <h3 class="card__title">${this.item.title}</h3>
          <p class="card__article">
