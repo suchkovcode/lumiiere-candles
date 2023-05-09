@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { data } from "Root/assets/data/products";
 import { Card } from "./cards";
 
 export class GenerateCatalog {
@@ -136,10 +135,3 @@ export class GenerateCatalog {
       });
    }
 }
-
-
-window.addEventListener("DOMContentLoaded", () => {
-   setTimeout(() => {
-      new GenerateCatalog("#popular-catalog", data);
-   }, 1500);
-});

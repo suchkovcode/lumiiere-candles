@@ -60,7 +60,3 @@ export class Tabs {
       this.state = false;
    }
 }
-
-setTimeout(() => {
-   new Tabs(".tabs", ".tab-content");
-}, 500);

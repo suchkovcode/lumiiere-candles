@@ -10,9 +10,4 @@ import "Root/pages/delivery.html";
 import "Root/pages/catalog.html";
 
 import "Root/app.scss";
-
-import "Root/routers/router";
-import "Root/module/route";
-import "Root/module/header";
-import "Root/module/generateCatalog";
-import "Root/module/tab";
+import "Root/module/scripts";
