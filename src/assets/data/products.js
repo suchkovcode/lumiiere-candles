@@ -1,11 +1,11 @@
-import img_1 from "Assets/img/png/hero__card-1.jpg";
-import img_2 from "Assets/img/png/hero__card-2.jpg";
-import img_4 from "Assets/img/png/hero__card-4.jpg";
-import img_5 from "Assets/img/png/hero__card-5.jpg";
-import img_6 from "Assets/img/png/hero__card-6.jpg";
-import img_7 from "Assets/img/png/hero__card-7.jpg";
-import img_8 from "Assets/img/png/hero__card-8.jpg";
-import img_9 from "Assets/img/png/hero__card-9.jpg";
+import img_1 from "Assets/img/webp/hero__card-1.webp";
+import img_2 from "Assets/img/webp/hero__card-2.webp";
+import img_4 from "Assets/img/webp/hero__card-4.webp";
+import img_5 from "Assets/img/webp/hero__card-5.webp";
+import img_6 from "Assets/img/webp/hero__card-6.webp";
+import img_7 from "Assets/img/webp/hero__card-7.webp";
+import img_8 from "Assets/img/webp/hero__card-8.webp";
+import img_9 from "Assets/img/webp/hero__card-9.webp";
 
 export const data = [
    {

@@ -232,7 +232,7 @@ module.exports = {
          }, // End Scss
 
          {  // Start IMG
-            test: /\.(jpg|png|svg|jpeg|gif)$/,
+            test: /\.(jpg|png|svg|jpeg|gif|webp)$/,
             exclude: /(node_modules|bower_components)/,
             include: path.resolve(__dirname, "./src"),
             type: "asset/resource",
