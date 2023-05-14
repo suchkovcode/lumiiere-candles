@@ -4,7 +4,8 @@ import { Card } from "./cards";
 export class GenerateCatalog {
    constructor(target, data) {
       this._target = document.querySelector(target);
-      this.#init(data);
+      this._data = data;
+      this.#init(this._data);
    }
 
    #init(data) {
@@ -49,7 +50,7 @@ export class GenerateCatalog {
 
       cardFavorite.forEach((element) => {
          element.addEventListener("click", (event) => {
-            const dataElement = data.find((dataElement) => dataElement.id == event.currentTarget.dataset.id);
+            const dataElement = this._data.find((dataElement) => dataElement.id == event.currentTarget.dataset.id);
             const existElement = Boolean(arrFavoriteElements.find((item) => item.id == event.currentTarget.dataset.id));
             if (event.currentTarget.dataset.select === "false") {
                event.currentTarget.dataset.select = true;
