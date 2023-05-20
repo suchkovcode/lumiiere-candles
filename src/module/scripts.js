@@ -1,6 +1,5 @@
 import "Root/routers/router";
 import "Root/module/class/route";
-import "Root/module/class/header";
 
 import { data } from "Root/assets/data/products";
 import { GenerateCatalog } from "Root/module/class/generateCatalog";
