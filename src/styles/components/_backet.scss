@@ -90,16 +90,16 @@
       &-item {
          display: grid;
          gap: 15px;
-         grid-template-columns: 70px 1fr 15%;
          grid-template-areas:
             "img options remove"
             "count count count";
+         grid-template-columns: 70px 1fr 15%;
          padding-bottom: 20px;
          border-bottom: 1px solid var(--color_border);
 
          @include lg {
-            grid-template-columns: 70px 1fr 0.8fr 80px;
             grid-template-areas: "img options count remove";
+            grid-template-columns: 70px 1fr 0.8fr 80px;
          }
       }
 
@@ -183,18 +183,6 @@
          border-radius: 100%;
          transition: all 0.2s ease-in-out;
 
-         &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: calc(50% - 5px);
-            display: block;
-            width: 10px;
-            height: 1px;
-            background-color: var(--color_backet);
-            transition: all 0.2s ease-in-out;
-         }
-
          &::before {
             content: "";
             position: absolute;
@@ -205,6 +193,18 @@
             height: 1px;
             background-color: var(--color_backet);
             transform: rotate(90deg);
+            transition: all 0.2s ease-in-out;
+         }
+
+         &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: calc(50% - 5px);
+            display: block;
+            width: 10px;
+            height: 1px;
+            background-color: var(--color_backet);
             transition: all 0.2s ease-in-out;
          }
 
