@@ -2,15 +2,15 @@
 <html lang="ru">
    <head>
       <title>Lumiiere Candles | Главная</title>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="description" content="Описание не длиннее 155 символов">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="url" content="http://www.websiteaddrress.com">
-      <meta name="copyright" content="2022. Lumiiere Candles">
-      <meta name="author" content="Nikita Suchkov, suchkov8520@gmail.com">
-      <meta name="robots" content="index,follow,noodp">
-      <meta name="googlebot" content="index,follow">
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="description" content="Описание не длиннее 155 символов" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="url" content="http://www.websiteaddrress.com" />
+      <meta name="copyright" content="2022. Lumiiere Candles" />
+      <meta name="author" content="Nikita Suchkov, suchkov8520@gmail.com" />
+      <meta name="robots" content="index,follow,noodp" />
+      <meta name="googlebot" content="index,follow" />
    </head>
 
    <body class="page">
@@ -27,19 +27,19 @@
                      </button>
                      <ul class="header__left-drobdown">
                         <li class="header__left-drobdown-item">
-                           <a class="header__left-drobdown-link route" href="#">Соевые свечи</a>
+                           <a class="header__left-drobdown-link route" href="#/catalog">Соевые свечи</a>
                         </li>
                         <li class="header__left-drobdown-item">
-                           <a class="header__left-drobdown-link route" href="#">Бестселлеры</a>
+                           <a class="header__left-drobdown-link route" href="#/catalog">Бестселлеры</a>
                         </li>
                         <li class="header__left-drobdown-item">
-                           <a class="header__left-drobdown-link route" href="#">Спички</a>
+                           <a class="header__left-drobdown-link route" href="#/catalog">Спички</a>
                         </li>
                         <li class="header__left-drobdown-item">
-                           <a class="header__left-drobdown-link route" href="#">Открытки</a>
+                           <a class="header__left-drobdown-link route" href="#/catalog">Открытки</a>
                         </li>
                         <li class="header__left-drobdown-item">
-                           <a class="header__left-drobdown-link route" href="#">Наборы</a>
+                           <a class="header__left-drobdown-link route" href="#/catalog">Наборы</a>
                         </li>
                      </ul>
                      <button class="header__btn-search">
@@ -102,24 +102,91 @@
                   </div>
                </div>
             </div>
-            <div class="canvas"></div>
-            <div class="search">
-               <div class="search__input-box">
-                  <input class="search__input" type="search" placeholder="Свечи ароматические...">
-                  <svg class="header__icon search__icon" fill="none" stroke="#777">
-                     <use xlink:href="/src/assets/img/svg/sprite.svg#search"></use>
-                  </svg>
+            <div class="backet">
+               <div class="backet__header">
+                  <p class="backet__title">Корзина:</p>
+                  <button class="backet__close"></button>
                </div>
-               <div class="search__close"></div>
-               <div class="search__tag-box">
-                  <p class="search__tag">Cвечи</p>
-                  <p class="search__tag">Cпички</p>
-                  <p class="search__tag">Открытки</p>
-                  <p class="search__tag">Наборы</p>
-                  <p class="search__tag">Фильмы</p>
-                  <p class="search__tag">Аниме</p>
+               <div class="backet__empty">
+                  <p class="backet__empty-text">Корзина пуста</p>
                </div>
+               <div class="backet__product hidden">
+                  <div class="backet__product-item" data-product="" data-size="" data-code="" data-count="1" data-sum="">
+                     <img class="backet__product-img" src="/src/assets/img/png/hero__card-1.jpg" alt="Картинка товара" width="70" height="70">
+                     <div class="backet__product-options">
+                        <p class="backet__product-name">Гарри Поттер</p>
+                        <p class="backet__product-size">Размер: <span class="backet__product-option">40</span> мл</p>
+                        <p class="backet__product-code">CNDL-HAR-S</p>
+                     </div>
+                     <div class="backet__product-count">
+                        <div class="backet__product-plusminus">
+                           <div class="backet__product-minus"></div>
+                           <div class="backet__product-total">1</div>
+                           <div class="backet__product-plus"></div>
+                        </div>
+                        <div class="backet__product-sum">$<span class="backet__product-cost">300</span></div>
+                     </div>
+                     <div class="backet__product-remove"></div>
+                  </div>
+                  <div class="backet__product-item" data-product="" data-size="" data-code="" data-count="1" data-sum="">
+                     <img class="backet__product-img" src="/src/assets/img/png/hero__card-1.jpg" alt="Картинка товара" width="70" height="70">
+                     <div class="backet__product-options">
+                        <p class="backet__product-name">Гарри Поттер</p>
+                        <p class="backet__product-size">Размер: <span class="backet__product-option">40</span> мл</p>
+                        <p class="backet__product-code">CNDL-HAR-S</p>
+                     </div>
+                     <div class="backet__product-count">
+                        <div class="backet__product-plusminus">
+                           <div class="backet__product-minus"></div>
+                           <div class="backet__product-total">1</div>
+                           <div class="backet__product-plus"></div>
+                        </div>
+                        <div class="backet__product-sum">$<span class="backet__product-cost">300</span></div>
+                     </div>
+                     <div class="backet__product-remove"></div>
+                  </div>
+                  <div class="backet__product-all" data-sum="">Итого: $<span class="backet__product-value">600</span></div>
+                  <button class="btn backet__product-btn" type="button">Оформить</button>
+               </div>
+               <form class="backet__form hidden" action="#" method="post">
+                  <div class="backet__form-contact">
+                     <h2 class="backet__tittle">Оформить заказ</h2>
+                     <div class="backet__form-input-box">
+                        <input class="backet__form-input" type="text" placeholder="Ваше имя" value="" />
+                     </div>
+                     <div class="backet__form-input-box">
+                        <input class="backet__form-input" type="email" placeholder="Электронная почта" value="" />
+                     </div>
+                     <div class="backet__form-input-box">
+                        <input class="backet__form-input" type="tel" placeholder="+38 (999) 999 99-99" value="" />
+                     </div>
+                  </div>
+                  <div class="backet__form-delivery">
+                     <h2 class="backet__tittle">Доставка</h2>
+                     <label class="backet__form-input-box">
+                        <span class="backet__form-title">Город</span>
+                        <input class="backet__form-input" type="search" placeholder="Киев" value="" />
+                     </label>
+                     <label class="backet__form-input-box">
+                        <span class="backet__form-title">Промокод:</span>
+                        <input class="backet__form-input" type="text" placeholder="Введите промокод" value="" />
+                     </label>
+                     <label class="backet__form-input-box">
+                        <span class="backet__form-title">Как подписать заказ?</span>
+                        <input class="backet__form-input" type="text" placeholder="Подпись для коробки" value="" />
+                     </label>
+                  </div>
+                  <p class="backet__form-sum">
+                     Итоговая сумма:
+                     <span class="backet__form-currency">$</span><span class="backet__form-count">0</span>
+                  </p>
+                  <div class="backet__form-button-box">
+                     <button class="backet__form-btn btn" type="submit">Купить</button>
+                     <p class="backet__form-policy">Нажимая на кнопку «Купить» Вы соглашаетесь с нашей Политикой конфиденциальности</p>
+                  </div>
+               </form>
             </div>
+            <div class="search"></div>
          </header>
          <main class="main" id="main"></main>
          <footer class="footer">
@@ -132,7 +199,8 @@
                         </svg>
                      </a>
                      <p class="footer__logo-text">
-                        Соевые свечи ручной <br />
+                        Соевые свечи ручной
+                        <br />
                         работы
                      </p>
                   </div>
@@ -205,7 +273,8 @@
                      <div class="footer__props">
                         <p class="footer__props-title upercase">Реквизиты:</p>
                         <p class="footer__props-info">
-                           Иванова Елизавета Александрова <br>
+                           Иванова Елизавета Александрова
+                           <br />
                            ИНН-145389784328
                         </p>
                      </div>

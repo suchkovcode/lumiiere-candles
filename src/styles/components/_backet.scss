@@ -1,0 +1,375 @@
+.backet {
+   position: fixed;
+   top: 0;
+   right: -100%;
+   z-index: 50;
+   display: block;
+   width: 100%;
+   height: 100vh;
+   max-width: 450px;
+   background-color: var(--color_base);
+   transition: right 0.3s ease-in-out;
+
+   &__header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 30px 25px;
+      border-bottom: 1px solid var(--color_border);
+      @include lg {
+         padding: 30px;
+      }
+   }
+
+   &__title {
+      display: block;
+      width: 100%;
+      font: 600 20px/1.3 "AvenirNextCyr";
+   }
+
+   &__close {
+      cursor: pointer;
+      position: relative;
+      width: 24px;
+      height: 24px;
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: calc(50% - 1px);
+         left: 0;
+         display: block;
+         width: 100%;
+         height: 2px;
+         background-color: var(--color_secondary);
+         transform: rotate(45deg);
+         transition: left 0.3s ease-in-out;
+      }
+
+      &::after {
+         content: "";
+         position: absolute;
+         top: calc(50% - 1px);
+         left: 0;
+         display: block;
+         width: 100%;
+         height: 2px;
+         background-color: var(--color_secondary);
+         transform: rotate(-45deg);
+         transition: left 0.3s ease-in-out;
+      }
+
+      &:hover {
+         &::before {
+            background-color: var(--color_primary);
+         }
+
+         &::after {
+            background-color: var(--color_primary);
+         }
+      }
+   }
+
+   &__empty {
+      margin: 25px;
+      padding: 25px;
+      border-radius: 12px;
+      background-color: var(--color_input);
+
+      &.hidden {
+         display: none;
+      }
+   }
+
+   &__product {
+      display: flex;
+      flex-flow: column;
+      gap: 20px;
+      padding: 25px;
+
+      &-item {
+         display: grid;
+         gap: 15px;
+         grid-template-columns: 70px 1fr 15%;
+         grid-template-areas:
+            "img options remove"
+            "count count count";
+         padding-bottom: 20px;
+         border-bottom: 1px solid var(--color_border);
+
+         @include lg {
+            grid-template-columns: 70px 1fr 0.8fr 80px;
+            grid-template-areas: "img options count remove";
+         }
+      }
+
+      &-img {
+         grid-area: img;
+         width: 70px;
+         height: 70px;
+         border-radius: 8px;
+         object-fit: cover;
+      }
+
+      &-options {
+         grid-area: options;
+      }
+
+      &-name {
+         font: 700 14px/1.5 "AvenirNextCyr";
+         color: var(--color_secondary);
+      }
+
+      &-size {
+         font: 500 13px/1.5 "AvenirNextCyr";
+         color: var(--color_backet);
+      }
+
+      &-code {
+         font: 500 13px/1.5 "AvenirNextCyr";
+         color: var(--color_backet);
+      }
+
+      &-count {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         grid-area: count;
+      }
+
+      &-plusminus {
+         position: relative;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
+
+      &-minus {
+         cursor: pointer;
+         position: relative;
+         width: 18px;
+         height: 18px;
+         border: 1px solid var(--color_backet);
+         border-radius: 100%;
+         transition: all 0.2s ease-in-out;
+
+         &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: calc(50% - 5px);
+            display: block;
+            width: 10px;
+            height: 1px;
+            background-color: var(--color_backet);
+            transition: all 0.2s ease-in-out;
+         }
+
+         &:hover {
+            border: 1px solid var(--color_secondary);
+
+            &::after {
+               background-color: var(--color_secondary);
+            }
+         }
+      }
+
+      &-plus {
+         cursor: pointer;
+         position: relative;
+         width: 18px;
+         height: 18px;
+         border: 1px solid var(--color_backet);
+         border-radius: 100%;
+         transition: all 0.2s ease-in-out;
+
+         &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: calc(50% - 5px);
+            display: block;
+            width: 10px;
+            height: 1px;
+            background-color: var(--color_backet);
+            transition: all 0.2s ease-in-out;
+         }
+
+         &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: calc(50% - 5px);
+            display: block;
+            width: 10px;
+            height: 1px;
+            background-color: var(--color_backet);
+            transform: rotate(90deg);
+            transition: all 0.2s ease-in-out;
+         }
+
+         &:hover {
+            border: 1px solid var(--color_secondary);
+
+            &::after {
+               background-color: var(--color_secondary);
+            }
+         }
+      }
+
+      &-total {
+         font: 500 14px/1.3 "AvenirNextCyr";
+         color: var(--color_secondary);
+      }
+
+      &-sum {
+         font: 600 16px/1.3 "AvenirNextCyr";
+         color: var(--color_secondary);
+      }
+
+      &-remove {
+         cursor: pointer;
+         position: relative;
+         align-self: center;
+         grid-area: remove;
+         width: 20px;
+         height: 20px;
+         margin-left: auto;
+         border: 1px solid var(--color_backet);
+         border-radius: 100%;
+         transition: all 0.2s ease-in-out;
+
+         &::before,
+         &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: calc(50% - 6px);
+            display: block;
+            width: 12px;
+            height: 1px;
+            background-color: var(--color_backet);
+            transition: all 0.2s ease-in-out;
+         }
+
+         &::before {
+            transform: rotate(45deg);
+         }
+
+         &::after {
+            transform: rotate(-45deg);
+         }
+
+         &:hover {
+            border: 1px solid red;
+
+            &::before,
+            &::after {
+               background-color: red;
+            }
+         }
+      }
+
+      &-all {
+         margin-left: auto;
+         font: 600 18px/1.3 "AvenirNextCyr";
+         color: var(--color_secondary);
+      }
+
+      &-btn {
+         margin-top: 30px;
+      }
+
+      &.hidden {
+         display: none;
+      }
+   }
+
+   &__form {
+      overflow-y: scroll;
+      width: 100%;
+      height: 100%;
+      max-height: 90vh;
+      padding: 25px;
+
+      &-order {
+         margin-bottom: 50px;
+      }
+
+      &-contact {
+         display: flex;
+         flex-flow: column;
+         gap: 25px;
+         margin-bottom: 50px;
+      }
+
+      &-input-box {
+         display: flex;
+         flex-flow: column;
+         gap: 5px;
+      }
+
+      &-title {
+         font: 400 16px/1.5 "AvenirNextCyr";
+         color: var(--color_secondary);
+      }
+
+      &-input {
+         padding: 20px;
+         border-radius: 50px;
+         background-color: var(--color_input);
+      }
+
+      &-delivery {
+         display: flex;
+         flex-flow: column;
+         gap: 25px;
+         margin-bottom: 50px;
+      }
+
+      &-sum {
+         margin-bottom: 30px;
+         font: 400 18px/1.5 "AvenirNextCyr";
+      }
+
+      &-currency {
+         font: 600 18px/1.5 "AvenirNextCyr";
+      }
+
+      &-count {
+         font: 600 18px/1.5 "AvenirNextCyr";
+      }
+
+      &-button-box {
+         display: flex;
+         flex-flow: column;
+         justify-content: center;
+         gap: 15px;
+      }
+
+      &-policy {
+         font: 400 16px/1.5 "AvenirNextCyr";
+         text-align: center;
+      }
+
+      &.hidden {
+         display: none;
+      }
+   }
+
+   &__tittle {
+      font: 500 18px/1.5 "AvenirNextCyr";
+   }
+
+   &.active {
+      right: 0;
+   }
+
+   @include sm {
+      border-left: 1px solid var(--color_border);
+   }
+
+   @include lg {
+      max-width: 550px;
+   }
+}
