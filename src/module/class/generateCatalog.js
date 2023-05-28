@@ -14,6 +14,7 @@ export class GenerateCatalog {
       this.#decrementCount();
       this.#selectFavorite();
       this.#changeSize();
+      this.#addBacket();
    }
 
    #html(data) {
@@ -27,6 +28,46 @@ export class GenerateCatalog {
       try {
          this._target.innerHTML = this.#html(arrData);
       } catch (err) {}
+   }
+
+   #addBacket() {
+      const arrBacketElements = [];
+      const cardAddBacket = this._target.getElementsByClassName("card__btn-add");
+      const cardArr = Array.from(cardAddBacket);
+      cardArr.forEach((cardAdd) => {
+         cardAdd.addEventListener("click", (event) => {
+            const idCard = event.currentTarget.dataset.id;
+            const currentCard = this._target.querySelector(`.card[data-id="${idCard}"]`);
+            const currentPrice = currentCard.querySelector(".card__price").dataset.value;
+            const currentSize = currentCard.querySelector(".card__size-btn[data-select='true']").dataset.value;
+            const currentCount = Number(currentCard.querySelector(".card__btn-count[data-type='count']").dataset.value);
+            const currentArticle = currentCard.querySelector(".card__article-size[data-type='article']").dataset.value;
+            const cardData = this._data.find((dataElement) => dataElement.id == idCard);
+            const isElement = arrBacketElements.find((dataElement) => dataElement.article === currentArticle) !== undefined;
+
+            if (!isElement) {
+               arrBacketElements.push({
+                  id: idCard,
+                  article: currentArticle,
+                  count: Number(currentCount),
+                  size: currentSize,
+                  price: currentPrice,
+                  name: cardData.title,
+                  img: cardData.hero,
+               });
+
+               localStorage.setItem("backetElements", JSON.stringify(arrBacketElements));
+            } else {
+               const addElement = arrBacketElements.find((dataElement) => dataElement.article === currentArticle);
+               const indexElement = arrBacketElements.findIndex((dataElement) => dataElement.article === addElement.article);
+               arrBacketElements[indexElement].count = arrBacketElements[indexElement].count + currentCount;
+               if (arrBacketElements[indexElement].count >= 10) {
+                  arrBacketElements[indexElement].count = 10;
+               }
+               localStorage.setItem("backetElements", JSON.stringify(arrBacketElements));
+            }
+         });
+      });
    }
 
    #selectFavorite() {
@@ -79,12 +120,20 @@ export class GenerateCatalog {
       const dataSize = {};
       changeContainer.forEach((element) => {
          const selectSizeElement = element.querySelectorAll(".card__size-btn");
+
          element.addEventListener("click", (event) => {
+            const currnetId = event.target.dataset.id;
+            const currentCard = this._target.querySelector(`.card[data-id="${currnetId}"]`);
+            const currentArticle = currentCard.querySelector(".card__article-size");
+
             if (event.target.classList == "card__size-btn") {
                dataSize.card = event.target.dataset.id;
                dataSize.size = event.target.dataset.value;
                dataSize.price = event.target.dataset.price;
                dataSize.select = event.target.dataset.select;
+               dataSize.article = event.target.dataset.article;
+               currentArticle.dataset.value = dataSize.article;
+               currentArticle.textContent = dataSize.article;
                selectSizeElement.forEach((element) => {
                   element.dataset.select = false;
                   event.target.dataset.select = true;
