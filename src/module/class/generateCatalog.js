@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import { Card } from "./cards";
+import { Backet } from "./backet";
 
 export class GenerateCatalog {
    constructor(target, data) {
@@ -42,6 +43,7 @@ export class GenerateCatalog {
             const currentArticle = currentCard.querySelector(".card__article-size[data-type='article']").dataset.value;
             const cardData = this._data.find((dataElement) => dataElement.id == idCard);
             const isElement = arrBacketElements.find((dataElement) => dataElement.article === currentArticle) !== undefined;
+            const isExist = localStorage.getItem("backetElements") !== null;
 
             if (!isElement) {
                arrBacketElements.push({
@@ -53,8 +55,8 @@ export class GenerateCatalog {
                   name: cardData.title,
                   img: cardData.hero,
                });
-
                localStorage.setItem("backetElements", JSON.stringify(arrBacketElements));
+
             } else {
                const addElement = arrBacketElements.find((dataElement) => dataElement.article === currentArticle);
                const indexElement = arrBacketElements.findIndex((dataElement) => dataElement.article === addElement.article);
@@ -64,6 +66,8 @@ export class GenerateCatalog {
                }
                localStorage.setItem("backetElements", JSON.stringify(arrBacketElements));
             }
+            new Backet(".header").render();
+            new Backet(".header").updateBacketCountItem();
          });
       });
    }
