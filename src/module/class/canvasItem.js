@@ -112,7 +112,7 @@ export class BacketItem {
 
    html() {
       const markup = /* html */ `
-      <div class="backet__product-item" data-id="${this.item.id}" data-size="${this.item.size}" data-code="${this.item.article}" data-count="${this.item.count}" data-cost="${this.item.price}" data-sum=""  data-index="${this.index}">
+      <div class="backet__product-item" data-id="${this.item.id}" data-code="${this.item.article}" data-size="${this.item.size}" data-count="${this.item.count}" data-cost="${this.item.price}" data-sum=""  data-index="${this.index}">
          <img class="backet__product-img" src="${this.item.img}" alt="Картинка товара" width="70" height="70" />
          <div class="backet__product-options">
             <a class="backet__product-name" href="#">${this.item.name}</a>
