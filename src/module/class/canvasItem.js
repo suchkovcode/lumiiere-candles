@@ -103,3 +103,33 @@ export class CanvasSearch {
       return (locationRender.innerHTML = html);
    }
 }
+
+export class BacketItem {
+   constructor(item, index) {
+      this.item = item;
+      this.index = index;
+   }
+
+   html() {
+      const markup = /* html */ `
+      <div class="backet__product-item" data-id="${this.item.id}" data-size="${this.item.size}" data-code="${this.item.article}" data-count="${this.item.count}" data-cost="${this.item.price}" data-sum=""  data-index="${this.index}">
+         <img class="backet__product-img" src="${this.item.img}" alt="Картинка товара" width="70" height="70" />
+         <div class="backet__product-options">
+            <a class="backet__product-name" href="#">${this.item.name}</a>
+            <p class="backet__product-size">Размер: <span class="backet__product-option">${this.item.size}</span> мл </p>
+            <p class="backet__product-code">${this.item.article}</p>
+         </div>
+         <div class="backet__product-count">
+            <div class="backet__product-plusminus" data-id="${this.item.id}">
+               <div class="backet__product-minus" data-type="minus"></div>
+               <div class="backet__product-total" data-value="${this.item.count}">${this.item.count}</div>
+               <div class="backet__product-plus" data-type="plus"></div>
+            </div>
+            <div class="backet__product-sum">$<span class="backet__product-cost">${this.item.price}</span></div>
+         </div>
+         <div class="backet__product-remove"></div>
+      </div>
+      `;
+      return markup;
+   }
+}
