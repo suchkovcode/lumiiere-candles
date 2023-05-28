@@ -8,6 +8,7 @@ export class Card {
    }
 
    html() {
+      const description = this.item.category.join(" | ").trim();
       const markup = /* html */ `
       <article class="card" data-index="${this.index}" data-id="${this.item.id}">
       <header class="card__header">
@@ -43,9 +44,9 @@ export class Card {
          <h3 class="card__title">${this.item.title}</h3>
          <p class="card__article">
             Артикул:
-            <span class="card__article-size" data-type="article">${this.item.code.small}</span>
+            <span class="card__article-size" data-type="article" data-value="${this.item.code.small}">${this.item.code.small}</span>
          </p>
-         <p class="card__description">${this.item.category.join(" | ").trim()}</p>
+         <p class="card__description">${description}</p>
          <p class="card__price" data-value="${this.item.price.small}">
             <span class="card__price-currency">$</span>
             <span class="card__price-value">${this.item.price.small}</span>
@@ -53,9 +54,9 @@ export class Card {
          <div class="card__size">
             <p class="card__size-title">Размер</p>
             <div class="card__size-select">
-               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="0" data-value="40" data-price="${this.item.price.small}" data-select="true" >40 мл</button>
-               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="1" data-value="100" data-price="${this.item.price.medium}" data-select="false" >100 мл</button>
-               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="2" data-value="200" data-price="${this.item.price.large}" data-select="false">200 мл</button>
+               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="0" data-value="40" data-article="${this.item.code.small}" data-price="${this.item.price.small}" data-select="true" >40 мл</button>
+               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="1" data-value="100" data-article="${this.item.code.medium}" data-price="${this.item.price.medium}" data-select="false" >100 мл</button>
+               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="2" data-value="200" data-article="${this.item.code.large}" data-price="${this.item.price.large}" data-select="false">200 мл</button>
             </div>
          </div>
       </main>
@@ -66,7 +67,7 @@ export class Card {
             <p class="card__count-value">1</p>
             <button class="card__btn-plus" data-type="plus"></button>
          </div>
-         <button class="card__btn-add" data-type="add">
+         <button class="card__btn-add" data-type="add" data-id="${this.item.id}">
             <svg class="card__btn-add-icon">
                <use xlink:href="${svg}#cardBtnAddIcon"></use>
             </svg>
