@@ -18,9 +18,7 @@ export class GenerateCatalog {
    }
 
    #html(data) {
-      const markup = data.map((item, index) => {
-         return new Card(item, index).html();
-      });
+      const markup = data.map((item, index) => new Card(item, index).html());
       return markup.join("");
    }
 
