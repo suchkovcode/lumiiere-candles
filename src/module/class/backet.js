@@ -4,20 +4,21 @@ export class Backet {
    constructor(selectorPerent) {
       this.el = document.querySelector(selectorPerent);
       this.backet = this.el.querySelector(".backet");
+      this.list = this.el.querySelector(".backet__product-list");
       this.open = this.el.querySelector(".header__btn-backet");
       this.close = this.el.querySelector(".backet__close");
-      this.arrBacket = [];
       this.init();
    }
 
    handleEvent() {
       if (!this.backet.classList.contains("active")) {
          this.#openBacket();
-         this.#isLocalStogage();
       } else {
          this.#closeBacket();
-         this.#isLocalStogage();
       }
+      this.#isLocalStogage();
+      this.#matchAllSum();
+      this.#updateAllDataAtributeItem();
    }
 
    init() {
@@ -25,39 +26,52 @@ export class Backet {
       this.close.addEventListener("click", this);
    }
 
-   render(arrData) {
-      const productList = this.el.querySelector(".backet__product-list");
-      productList.innerHTML = this.#html(arrData);
+   render() {
+      const backetItem = JSON.parse(localStorage.getItem("backetElements"));
+      const dataRenderSort = backetItem.sort((a, b) => (a.name > b.name ? 1 : -1));
+      this.list.innerHTML = dataRenderSort.map((item, index) => new BacketItem(item, index).html()).join("");
       this.#incrementCount();
       this.#decrementCount();
+      this.#updateAllDataAtributeItem();
+      this.updateBacketCountItem();
    }
 
-   #html(data) {
-      const dataRender = data.sort((a, b) => (a.name > b.name ? 1 : -1));
-      const markup = dataRender.map((item, index) => new BacketItem(item, index).html());
-      return markup.join("");
+   updateBacketCountItem() {
+      const allElement = this.backet.querySelectorAll(".backet__product-item");
+      const countBacketContainer = this.el.querySelector(".header__btn-backet");
+      const countBacket = countBacketContainer.querySelector(".header__icon-count");
+      countBacket.textContent = allElement.length;
    }
 
    #isLocalStogage() {
       const emptyContainer = this.el.querySelector(".backet__empty");
       const productContainer = this.el.querySelector(".backet__product");
       const isEmpty = localStorage.getItem("backetElements") !== null;
+
       if (isEmpty) {
          emptyContainer.classList.add("hidden");
          productContainer.classList.remove("hidden");
-         this.#addItemBacket();
+         this.render();
       } else {
          emptyContainer.classList.remove("hidden");
          productContainer.classList.add("hidden");
       }
    }
 
-   #addItemBacket() {
-      this.arrBacket = JSON.parse(localStorage.getItem("backetElements"));
-      this.render(this.arrBacket);
+   #updateAllDataAtributeItem() {
+      const allElement = this.backet.querySelectorAll(".backet__product-item");
+      allElement.forEach((element) => {
+         const totalMatch = element.querySelector(".backet__product-cost");
+         const curentTotalCount = element.dataset.count;
+         const curentCost = element.dataset.cost;
+         const mathSum = Number(curentTotalCount) * Number(curentCost);
+         element.dataset.sum = parseFloat(mathSum.toFixed(4));
+         totalMatch.textContent = parseFloat(mathSum.toFixed(4));
+         this.#matchAllSum();
+      });
    }
 
-   #updateDataAtributeItem(id) {
+   #updateCurrentDataAtributeItem(id) {
       const currentElement = this.backet.querySelector(`.backet__product-item[data-id='${id}']`);
       const curentTotalCount = currentElement.querySelector(".backet__product-total");
       const curentCost = currentElement.querySelector(".backet__product-cost");
@@ -92,7 +106,7 @@ export class Backet {
                if (dataValueCountChange <= "10") {
                   totalCount.setAttribute("data-value", dataValueCountChange);
                   totalCount.textContent = dataValueCountChange;
-                  this.#updateDataAtributeItem(event.currentTarget.dataset.id);
+                  this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.id);
                   this.#matchAllSum();
                }
             }
@@ -111,7 +125,7 @@ export class Backet {
                if (dataValueCountChange >= "1") {
                   totalCount.setAttribute("data-value", dataValueCountChange);
                   totalCount.textContent = dataValueCountChange;
-                  this.#updateDataAtributeItem(event.currentTarget.dataset.id);
+                  this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.id);
                   this.#matchAllSum();
                }
             }
