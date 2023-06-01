@@ -65,8 +65,8 @@ export class GenerateCatalog {
                }
                localStorage.setItem("backetElements", JSON.stringify(arrBacketElements));
             }
-            new Backet(".header").render();
-            new Backet(".header").updateBacketCountItem();
+            new Backet().render();
+            new Backet().updateBacketCountItem();
          });
       });
    }
