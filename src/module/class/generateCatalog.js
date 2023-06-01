@@ -11,8 +11,7 @@ export class GenerateCatalog {
 
    #init(data) {
       this.#render(data);
-      this.#incrementCount();
-      this.#decrementCount();
+      this.#incrementDecremenCount();
       this.#selectFavorite();
       this.#changeSize();
       this.#addBacket();
@@ -153,7 +152,7 @@ export class GenerateCatalog {
       currentPrice.textContent = dataSize.price;
    }
 
-   #incrementCount() {
+   #incrementDecremenCount() {
       const btnCount = this._target.querySelectorAll(".card__btn-count[data-type='count']");
       btnCount.forEach((element) => {
          element.addEventListener("click", (event) => {
@@ -166,16 +165,6 @@ export class GenerateCatalog {
                   cardcountValue.textContent = dataValueCountChange;
                }
             }
-         });
-      });
-   }
-
-   #decrementCount() {
-      const btnCount = this._target.querySelectorAll(".card__btn-count[data-type='count']");
-      btnCount.forEach((element) => {
-         element.addEventListener("click", (event) => {
-            let dataValueCountChange = event.currentTarget.getAttribute("data-value");
-            const cardcountValue = event.currentTarget.querySelector(".card__count-value");
             if (event.target.dataset.type === "minus") {
                if (dataValueCountChange > "1") {
                   dataValueCountChange--;
