@@ -8,7 +8,7 @@ import { Tabs } from "Root/module/class/tab";
 import { Backet } from "Root/module/class/backet";
 
 window.addEventListener("DOMContentLoaded", () => {
-   new Backet(".header");
+   new Backet();
 
    setTimeout(() => {
       try {
