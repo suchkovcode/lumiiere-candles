@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export class CanvasMenu {
    constructor() {}
    render(locationRender) {
@@ -122,7 +123,7 @@ export class BacketItem {
          <div class="backet__product-count">
             <div class="backet__product-plusminus" data-id="${this.item.id}">
                <div class="backet__product-minus" data-type="minus"></div>
-               <div class="backet__product-total" data-value="${this.item.count}">${this.item.count}</div>
+               <div class="backet__product-total">${this.item.count}</div>
                <div class="backet__product-plus" data-type="plus"></div>
             </div>
             <div class="backet__product-sum">$<span class="backet__product-cost">${this.item.price}</span></div>
