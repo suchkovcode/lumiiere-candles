@@ -128,7 +128,7 @@ export class BacketItem {
             </div>
             <div class="backet__product-sum">$<span class="backet__product-cost">${this.item.price}</span></div>
          </div>
-         <div class="backet__product-remove"></div>
+         <div class="backet__product-remove" data-code="${this.item.article}"></div>
       </div>
       `;
       return markup;
