@@ -1,8 +1,11 @@
+/* eslint-disable max-len */
+/* eslint-disable no-unused-expressions */
+// @ts-nocheck
 import { BacketItem } from "./canvasItem";
 
 export class Backet {
-   constructor(selectorPerent) {
-      this.el = document.querySelector(selectorPerent);
+   constructor() {
+      this.el = document.querySelector(".header");
       this.backet = this.el.querySelector(".backet");
       this.list = this.el.querySelector(".backet__product-list");
       this.open = this.el.querySelector(".header__btn-backet");
@@ -10,48 +13,47 @@ export class Backet {
       this.init();
    }
 
+   init() {
+      this.open.addEventListener("click", this);
+      this.close.addEventListener("click", this);
+      this.render();
+      this.updateBacketCountItem();
+      this.#updateAllDataAtributeItem();
+      this.#incrementDecrementCount();
+   }
+
    handleEvent() {
-      if (!this.backet.classList.contains("active")) {
-         this.#openBacket();
-      } else {
-         this.#closeBacket();
-      }
-      this.#isLocalStogage();
+      !this.backet.classList.contains("active") ? this.backet.classList.add("active") : this.backet.classList.remove("active");
+      this.#emptyChangeDataCard();
       this.#matchAllSum();
       this.#updateAllDataAtributeItem();
    }
 
-   init() {
-      this.open.addEventListener("click", this);
-      this.close.addEventListener("click", this);
-   }
-
    render() {
-      const backetItem = JSON.parse(localStorage.getItem("backetElements"));
+      const storageElement = localStorage.getItem("backetElements");
+      const isEmptyStorage = storageElement !== null;
+      const backetItem = isEmptyStorage ? JSON.parse(localStorage.getItem("backetElements")) : [];
       const dataRenderSort = backetItem.sort((a, b) => (a.name > b.name ? 1 : -1));
       this.list.innerHTML = dataRenderSort.map((item, index) => new BacketItem(item, index).html()).join("");
-      this.#incrementCount();
-      this.#decrementCount();
-      this.#updateAllDataAtributeItem();
-      this.updateBacketCountItem();
    }
 
    updateBacketCountItem() {
-      const allElement = this.backet.querySelectorAll(".backet__product-item");
+      const storageElement = localStorage.getItem("backetElements");
+      const isEmptyStorage = storageElement !== null;
+      const storageDataLenght = isEmptyStorage ? JSON.parse(storageElement).length : "0";
       const countBacketContainer = this.el.querySelector(".header__btn-backet");
-      const countBacket = countBacketContainer.querySelector(".header__icon-count");
-      countBacket.textContent = allElement.length;
+      const countBacketNumber = countBacketContainer.querySelector(".header__icon-count");
+      countBacketNumber.textContent = storageDataLenght;
    }
 
-   #isLocalStogage() {
+   #emptyChangeDataCard() {
       const emptyContainer = this.el.querySelector(".backet__empty");
       const productContainer = this.el.querySelector(".backet__product");
-      const isEmpty = localStorage.getItem("backetElements") !== null;
+      const isEmptyStorage = localStorage.getItem("backetElements") !== null;
 
-      if (isEmpty) {
+      if (isEmptyStorage) {
          emptyContainer.classList.add("hidden");
          productContainer.classList.remove("hidden");
-         this.render();
       } else {
          emptyContainer.classList.remove("hidden");
          productContainer.classList.add("hidden");
@@ -75,7 +77,6 @@ export class Backet {
       const currentElement = this.backet.querySelector(`.backet__product-item[data-id='${id}']`);
       const curentTotalCount = currentElement.querySelector(".backet__product-total");
       const curentCost = currentElement.querySelector(".backet__product-cost");
-
       const mathSum = Number(currentElement.dataset.cost) * Number(curentTotalCount.dataset.value);
       currentElement.dataset.count = curentTotalCount.dataset.value;
       currentElement.dataset.sum = parseFloat(mathSum.toFixed(4));
@@ -95,49 +96,28 @@ export class Backet {
       });
    }
 
-   #incrementCount() {
+   #incrementDecrementCount() {
       const btnCount = this.backet.querySelectorAll(".backet__product-plusminus");
       btnCount.forEach((element) => {
          element.addEventListener("click", (event) => {
             const totalCount = event.currentTarget.querySelector(".backet__product-total");
-            let dataValueCountChange = totalCount.getAttribute("data-value");
+            let dataValueCountChange = Number(totalCount.textContent);
+
             if (event.target.dataset.type === "plus") {
                dataValueCountChange++;
-               if (dataValueCountChange <= "10") {
-                  totalCount.setAttribute("data-value", dataValueCountChange);
-                  totalCount.textContent = dataValueCountChange;
-                  this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.id);
-                  this.#matchAllSum();
+               if (dataValueCountChange <= 10) {
+                  totalCount.textContent = String(dataValueCountChange) ;
                }
             }
-         });
-      });
-   }
-
-   #decrementCount() {
-      const btnCount = this.backet.querySelectorAll(".backet__product-plusminus");
-      btnCount.forEach((element) => {
-         element.addEventListener("click", (event) => {
-            const totalCount = event.currentTarget.querySelector(".backet__product-total");
-            let dataValueCountChange = totalCount.getAttribute("data-value");
             if (event.target.dataset.type === "minus") {
                dataValueCountChange--;
-               if (dataValueCountChange >= "1") {
-                  totalCount.setAttribute("data-value", dataValueCountChange);
-                  totalCount.textContent = dataValueCountChange;
-                  this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.id);
-                  this.#matchAllSum();
+               if (dataValueCountChange >= 1) {
+                  totalCount.textContent = String(dataValueCountChange);
                }
             }
+            this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.id);
+            this.#matchAllSum();
          });
       });
-   }
-
-   #openBacket() {
-      this.backet.classList.add("active");
-   }
-
-   #closeBacket() {
-      this.backet.classList.remove("active");
    }
 }
