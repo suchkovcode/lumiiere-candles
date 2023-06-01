@@ -119,6 +119,8 @@ export class Backet {
                   if (allBacketItemArr.length === 0) {
                      emptyContainer.classList.remove("hidden");
                      productContainer.classList.add("hidden");
+                     localStorage.removeItem("backetElements");
+                     this.updateBacketCountItem();
                   }
                }
             });
