@@ -27,6 +27,7 @@ export class Backet {
       this.#emptyChangeDataCard();
       this.#matchAllSum();
       this.#updateAllDataAtributeItem();
+      this.#removeItemBacket();
    }
 
    render() {
@@ -96,6 +97,35 @@ export class Backet {
       });
    }
 
+   #removeItemBacket() {
+      const emptyContainer = this.el.querySelector(".backet__empty");
+      const productContainer = this.el.querySelector(".backet__product");
+      const storageElement = localStorage.getItem("backetElements");
+      const isEmptyStorage = storageElement !== null;
+
+      if (isEmptyStorage) {
+         const allBacketItem = this.backet.getElementsByClassName("backet__product-item");
+         const allBacketItemArr = [...allBacketItem];
+
+         allBacketItemArr.forEach((element) => {
+            element.addEventListener("click", (e) => {
+               const isRemoveBtn = e.target.classList.contains("backet__product-remove");
+               if (isRemoveBtn) {
+                  const codeElement = e.target.dataset.code;
+                  const currentElement = this.backet.querySelector(`.backet__product-item[data-code='${codeElement}']`);
+                  currentElement.remove();
+                  this.#matchAllSum();
+                  const allBacketItemArr = [...allBacketItem];
+                  if (allBacketItemArr.length === 0) {
+                     emptyContainer.classList.remove("hidden");
+                     productContainer.classList.add("hidden");
+                  }
+               }
+            });
+         });
+      }
+   }
+
    #incrementDecrementCount() {
       const btnCount = this.backet.querySelectorAll(".backet__product-plusminus");
       btnCount.forEach((element) => {
@@ -105,14 +135,16 @@ export class Backet {
 
             if (event.target.dataset.type === "plus") {
                dataValueCountChange++;
-               if (dataValueCountChange <= 10) {
-                  totalCount.textContent = String(dataValueCountChange) ;
+               if (dataValueCountChange <= "10") {
+                  totalCount.setAttribute("data-value", dataValueCountChange);
+                  totalCount.textContent = dataValueCountChange;
                }
             }
             if (event.target.dataset.type === "minus") {
                dataValueCountChange--;
-               if (dataValueCountChange >= 1) {
-                  totalCount.textContent = String(dataValueCountChange);
+               if (dataValueCountChange >= "1") {
+                  totalCount.setAttribute("data-value", dataValueCountChange);
+                  totalCount.textContent = dataValueCountChange;
                }
             }
             this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.id);
