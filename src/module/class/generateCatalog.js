@@ -1,8 +1,11 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable max-len */
 import { Card } from "./cards";
 import { Backet } from "./backet";
 
 export class GenerateCatalog {
+   static nameStorageItemsCard = "backetElements";
+
    constructor(target, data) {
       this._target = document.querySelector(target);
       this._data = data;
@@ -31,40 +34,60 @@ export class GenerateCatalog {
    #addBacket() {
       const arrBacketElements = [];
       const cardAddBacket = this._target.getElementsByClassName("card__btn-add");
-      const cardArr = Array.from(cardAddBacket);
+      const cardArr = [...cardAddBacket];
+
       cardArr.forEach((cardAdd) => {
          cardAdd.addEventListener("click", (event) => {
-            const idCard = event.currentTarget.dataset.id;
-            const currentCard = this._target.querySelector(`.card[data-id="${idCard}"]`);
-            const currentPrice = currentCard.querySelector(".card__price").dataset.value;
-            const currentSize = currentCard.querySelector(".card__size-btn[data-select='true']").dataset.value;
-            const currentCount = Number(currentCard.querySelector(".card__btn-count[data-type='count']").dataset.value);
-            const currentArticle = currentCard.querySelector(".card__article-size[data-type='article']").dataset.value;
-            const cardData = this._data.find((dataElement) => dataElement.id == idCard);
-            const isElement = arrBacketElements.find((dataElement) => dataElement.article === currentArticle) !== undefined;
-            const isExist = localStorage.getItem("backetElements") !== null;
-
-            if (!isElement) {
-               arrBacketElements.push({
-                  id: idCard,
-                  article: currentArticle,
+            const getDataCard = (e) => {
+               const idCard = e.currentTarget.dataset.id;
+               const currentCard = this._target.querySelector(`.card[data-id="${idCard}"]`);
+               const currentPrice = currentCard.querySelector(".card__price").dataset.value;
+               const currentSize = currentCard.querySelector(".card__size-btn[data-select='true']").dataset.value;
+               const currentCount = currentCard.querySelector(".card__btn-count[data-type='count']").dataset.value;
+               const currentArticle = currentCard.querySelector(".card__article-size[data-type='article']").dataset.value;
+               const cardData = this._data.find((dataElement) => dataElement.id == idCard);
+               const dataObjectCard = {
+                  id: String(idCard),
+                  article: String(currentArticle),
                   count: Number(currentCount),
-                  size: currentSize,
-                  price: currentPrice,
-                  name: cardData.title,
-                  img: cardData.hero,
-               });
-               localStorage.setItem("backetElements", JSON.stringify(arrBacketElements));
+                  size: Number(currentSize),
+                  price: Number(currentPrice),
+                  name: String(cardData.title),
+                  img: String(cardData.hero),
+               };
+               return dataObjectCard;
+            };
 
-            } else {
-               const addElement = arrBacketElements.find((dataElement) => dataElement.article === currentArticle);
-               const indexElement = arrBacketElements.findIndex((dataElement) => dataElement.article === addElement.article);
-               arrBacketElements[indexElement].count = arrBacketElements[indexElement].count + currentCount;
-               if (arrBacketElements[indexElement].count >= 10) {
-                  arrBacketElements[indexElement].count = 10;
+            const getArrBacketItem = () => {
+               const dataObjectCard = getDataCard(event);
+               const isElement = arrBacketElements.find((dataElement) => dataElement.article === dataObjectCard.article) !== undefined;
+
+               if (!isElement) {
+                  arrBacketElements.push(dataObjectCard);
+               } else {
+                  const addElement = arrBacketElements.find((dataElement) => dataElement.article === dataObjectCard.article);
+                  const indexElement = arrBacketElements.findIndex((dataElement) => dataElement.article === addElement.article);
+                  arrBacketElements[indexElement].count = arrBacketElements[indexElement].count + dataObjectCard.count;
+                  if (arrBacketElements[indexElement].count >= 10) {
+                     arrBacketElements[indexElement].count = 10;
+                  }
                }
-               localStorage.setItem("backetElements", JSON.stringify(arrBacketElements));
-            }
+               return arrBacketElements;
+            };
+
+            (() => {
+               const isExist = localStorage.getItem(GenerateCatalog.nameStorageItemsCard) !== null;
+               const dataObjectCard = getArrBacketItem();
+
+               if (!isExist) {
+                  localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
+               } else {
+                  const getDataStorageItems = JSON.parse(localStorage.getItem(GenerateCatalog.nameStorageItemsCard));
+                  const mergeDataBacketItem = dataObjectCard.map((item) => ({ ...item, ...getDataStorageItems.count }));
+                  localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(mergeDataBacketItem));
+               }
+            })();
+
             new Backet().render();
             new Backet().updateBacketCountItem();
          });
