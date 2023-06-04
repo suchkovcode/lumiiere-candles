@@ -26,7 +26,7 @@ export class Backet {
 
    handleEvent() {
       !this.backet.classList.contains("active") ? this.backet.classList.add("active") : this.backet.classList.remove("active");
-      this.#emptyChangeDataCard();
+      this.emptyChangeDataCard();
       this.#matchAllSum();
       this.#updateAllDataAtributeItem();
       this.#removeItemBacket();
@@ -49,7 +49,7 @@ export class Backet {
       countBacketNumber.textContent = storageDataLenght;
    }
 
-   #emptyChangeDataCard() {
+   emptyChangeDataCard() {
       const emptyContainer = this.el.querySelector(".backet__empty");
       const productContainer = this.el.querySelector(".backet__product");
       const isEmptyStorage = localStorage.getItem(Backet.nameStorageItemsCard) !== null;
@@ -82,6 +82,7 @@ export class Backet {
       const curentTotalCount = currentElementArticle.querySelector(".backet__product-total");
       const curentCost = currentElementArticle.querySelector(".backet__product-cost");
       const mathSum = Number(currentElementArticle.dataset.cost) * Number(curentTotalCount.dataset.value);
+
       currentElementArticle.dataset.count = curentTotalCount.dataset.value;
       currentElementArticle.dataset.sum = parseFloat(mathSum.toFixed(4));
       curentCost.textContent = parseFloat(mathSum.toFixed(4));
@@ -90,7 +91,7 @@ export class Backet {
          const storageElement = JSON.parse(localStorage.getItem(Backet.nameStorageItemsCard));
          const test = storageElement.find((item) => item.article === article);
          test.count = Number(curentTotalCount.dataset.value);
-         localStorage.setItem("backetElements", JSON.stringify(storageElement));
+         localStorage.setItem(Backet.nameStorageItemsCard, JSON.stringify(storageElement));
       }
    }
 
@@ -127,7 +128,8 @@ export class Backet {
                   this.#matchAllSum();
                   const allBacketItemArr = [...allBacketItem];
                   const newArr = storageElement.filter((item) => item.article !== codeElement);
-                  localStorage.setItem("backetElements", JSON.stringify(newArr));
+                  localStorage.setItem(Backet.nameStorageItemsCard, JSON.stringify(newArr));
+
                   if (allBacketItemArr.length === 0) {
                      emptyContainer.classList.remove("hidden");
                      productContainer.classList.add("hidden");
