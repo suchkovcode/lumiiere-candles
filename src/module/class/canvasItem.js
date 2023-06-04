@@ -121,7 +121,7 @@ export class BacketItem {
             <p class="backet__product-code">${this.item.article}</p>
          </div>
          <div class="backet__product-count">
-            <div class="backet__product-plusminus" data-id="${this.item.id}">
+            <div class="backet__product-plusminus" data-id="${this.item.id}" data-article="${this.item.article}">
                <div class="backet__product-minus" data-type="minus"></div>
                <div class="backet__product-total" data-value="${this.item.count}">${this.item.count}</div>
                <div class="backet__product-plus" data-type="plus"></div>
