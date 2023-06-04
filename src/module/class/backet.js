@@ -4,6 +4,8 @@
 import { BacketItem } from "./canvasItem";
 
 export class Backet {
+   static nameStorageItemsCard = "backetElements";
+
    constructor() {
       this.el = document.querySelector(".header");
       this.backet = this.el.querySelector(".backet");
@@ -31,15 +33,15 @@ export class Backet {
    }
 
    render() {
-      const storageElement = localStorage.getItem("backetElements");
+      const storageElement = localStorage.getItem(Backet.nameStorageItemsCard);
       const isEmptyStorage = storageElement !== null;
-      const backetItem = isEmptyStorage ? JSON.parse(localStorage.getItem("backetElements")) : [];
+      const backetItem = isEmptyStorage ? JSON.parse(localStorage.getItem(Backet.nameStorageItemsCard)) : [];
       const dataRenderSort = backetItem.sort((a, b) => (a.name > b.name ? 1 : -1));
       this.list.innerHTML = dataRenderSort.map((item, index) => new BacketItem(item, index).html()).join("");
    }
 
    updateBacketCountItem() {
-      const storageElement = localStorage.getItem("backetElements");
+      const storageElement = localStorage.getItem(Backet.nameStorageItemsCard);
       const isEmptyStorage = storageElement !== null;
       const storageDataLenght = isEmptyStorage ? JSON.parse(storageElement).length : "0";
       const countBacketContainer = this.el.querySelector(".header__btn-backet");
@@ -50,7 +52,7 @@ export class Backet {
    #emptyChangeDataCard() {
       const emptyContainer = this.el.querySelector(".backet__empty");
       const productContainer = this.el.querySelector(".backet__product");
-      const isEmptyStorage = localStorage.getItem("backetElements") !== null;
+      const isEmptyStorage = localStorage.getItem(Backet.nameStorageItemsCard) !== null;
 
       if (isEmptyStorage) {
          emptyContainer.classList.add("hidden");
@@ -74,14 +76,22 @@ export class Backet {
       });
    }
 
-   #updateCurrentDataAtributeItem(id) {
-      const currentElement = this.backet.querySelector(`.backet__product-item[data-id='${id}']`);
-      const curentTotalCount = currentElement.querySelector(".backet__product-total");
-      const curentCost = currentElement.querySelector(".backet__product-cost");
-      const mathSum = Number(currentElement.dataset.cost) * Number(curentTotalCount.dataset.value);
-      currentElement.dataset.count = curentTotalCount.dataset.value;
-      currentElement.dataset.sum = parseFloat(mathSum.toFixed(4));
+   #updateCurrentDataAtributeItem(article) {
+      const isEmptyStorage = localStorage.getItem(Backet.nameStorageItemsCard) !== null;
+      const currentElementArticle = this.backet.querySelector(`.backet__product-item[data-code='${article}']`);
+      const curentTotalCount = currentElementArticle.querySelector(".backet__product-total");
+      const curentCost = currentElementArticle.querySelector(".backet__product-cost");
+      const mathSum = Number(currentElementArticle.dataset.cost) * Number(curentTotalCount.dataset.value);
+      currentElementArticle.dataset.count = curentTotalCount.dataset.value;
+      currentElementArticle.dataset.sum = parseFloat(mathSum.toFixed(4));
       curentCost.textContent = parseFloat(mathSum.toFixed(4));
+
+      if (isEmptyStorage) {
+         const storageElement = JSON.parse(localStorage.getItem(Backet.nameStorageItemsCard));
+         const test = storageElement.find((item) => item.article === article);
+         test.count = Number(curentTotalCount.dataset.value);
+         localStorage.setItem("backetElements", JSON.stringify(storageElement));
+      }
    }
 
    #matchAllSum() {
@@ -100,8 +110,7 @@ export class Backet {
    #removeItemBacket() {
       const emptyContainer = this.el.querySelector(".backet__empty");
       const productContainer = this.el.querySelector(".backet__product");
-      const storageElement = localStorage.getItem("backetElements");
-      const isEmptyStorage = storageElement !== null;
+      const isEmptyStorage = localStorage.getItem(Backet.nameStorageItemsCard) !== null;
 
       if (isEmptyStorage) {
          const allBacketItem = this.backet.getElementsByClassName("backet__product-item");
@@ -111,15 +120,18 @@ export class Backet {
             element.addEventListener("click", (e) => {
                const isRemoveBtn = e.target.classList.contains("backet__product-remove");
                if (isRemoveBtn) {
+                  const storageElement = JSON.parse(localStorage.getItem(Backet.nameStorageItemsCard));
                   const codeElement = e.target.dataset.code;
                   const currentElement = this.backet.querySelector(`.backet__product-item[data-code='${codeElement}']`);
                   currentElement.remove();
                   this.#matchAllSum();
                   const allBacketItemArr = [...allBacketItem];
+                  const newArr = storageElement.filter((item) => item.article !== codeElement);
+                  localStorage.setItem("backetElements", JSON.stringify(newArr));
                   if (allBacketItemArr.length === 0) {
                      emptyContainer.classList.remove("hidden");
                      productContainer.classList.add("hidden");
-                     localStorage.removeItem("backetElements");
+                     localStorage.removeItem(Backet.nameStorageItemsCard);
                      this.updateBacketCountItem();
                   }
                }
@@ -149,7 +161,7 @@ export class Backet {
                   totalCount.textContent = dataValueCountChange;
                }
             }
-            this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.id);
+            this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.article);
             this.#matchAllSum();
          });
       });
