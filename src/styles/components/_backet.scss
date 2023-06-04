@@ -151,8 +151,8 @@
       &-minus {
          cursor: pointer;
          position: relative;
-         width: 18px;
-         height: 18px;
+         width: 20px;
+         height: 20px;
          border: 1px solid var(--color_backet);
          border-radius: 100%;
          transition: all 0.2s ease-in-out;
@@ -181,8 +181,8 @@
       &-plus {
          cursor: pointer;
          position: relative;
-         width: 18px;
-         height: 18px;
+         width: 20px;
+         height: 20px;
          border: 1px solid var(--color_backet);
          border-radius: 100%;
          transition: all 0.2s ease-in-out;
@@ -236,8 +236,8 @@
          position: relative;
          align-self: center;
          grid-area: remove;
-         width: 20px;
-         height: 20px;
+         width: 22px;
+         height: 22px;
          margin-left: auto;
          border: 1px solid var(--color_backet);
          border-radius: 100%;
@@ -248,12 +248,13 @@
             content: "";
             position: absolute;
             top: 50%;
-            left: calc(50% - 6px);
+            left: calc(50% - 7px);
             display: block;
-            width: 12px;
+            width: 14px;
             height: 1px;
             background-color: var(--color_backet);
             transition: all 0.2s ease-in-out;
+
          }
 
          &::before {
