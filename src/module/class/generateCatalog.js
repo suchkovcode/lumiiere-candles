@@ -92,11 +92,11 @@ export class GenerateCatalog {
 
             (() => {
                const dataObjectCard = getArrBacketItem();
-               const isExist = localStorage.getItem(GenerateCatalog.nameStorageItemsCard) !== null;
                localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
-               new Backet().render();
-               new Backet().updateBacketCountItem();
             })();
+            new Backet().render();
+            new Backet().updateBacketCountItem();
+            new Backet().emptyChangeDataCard();
          });
       });
    }
