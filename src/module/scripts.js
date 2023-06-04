@@ -6,11 +6,12 @@ import { GenerateCatalog } from "Root/module/class/generateCatalog";
 import { Slider } from "Root/module/class/slider";
 import { Tabs } from "Root/module/class/tab";
 import { Backet } from "Root/module/class/backet";
+import { Favorite } from "Root/module/class/favorite";
 
 window.addEventListener("DOMContentLoaded", () => {
-   new Backet();
-
    setTimeout(() => {
+      new Backet();
+      new Favorite();
       try {
          new GenerateCatalog("#popular-catalog", data);
       } catch (err) {}

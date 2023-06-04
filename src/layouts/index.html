@@ -113,7 +113,8 @@
                <div class="backet__product hidden">
                   <div class="backet__product-list"></div>
                   <div class="backet__product-all" data-sum="">
-                     Итого: $<span class="backet__product-value">0</span>
+                     Итого: $
+                     <span class="backet__product-value">0</span>
                   </div>
                   <button class="btn backet__product-btn" type="button">Оформить</button>
                </div>
@@ -156,7 +157,16 @@
                   </div>
                </form>
             </div>
-            <div class="canvas"></div>
+            <div class="favorite">
+               <div class="favorite__header">
+                  <p class="favorite__title">Избранное:</p>
+                  <button class="favorite__close"></button>
+               </div>
+               <div class="favorite__empty">
+                  <p class="favorite__empty-text">Список избранного пуст</p>
+               </div>
+               <div class="favorite__list hidden"></div>
+            </div>
             <div class="search"></div>
          </header>
          <main class="main" id="main"></main>
