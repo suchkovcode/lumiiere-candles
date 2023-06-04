@@ -61,7 +61,6 @@ export class GenerateCatalog {
             const getArrBacketItem = () => {
                const dataObjectCard = getDataCard(event);
                const isElement = arrBacketElements.find((dataElement) => dataElement.article === dataObjectCard.article) !== undefined;
-
                if (!isElement) {
                   arrBacketElements.push(dataObjectCard);
                } else {
@@ -77,10 +76,18 @@ export class GenerateCatalog {
 
             (() => {
                const dataObjectCard = getArrBacketItem();
-               localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
-               new Backet().render();
-               new Backet().updateBacketCountItem();
+               const isExist = localStorage.getItem(GenerateCatalog.nameStorageItemsCard) !== null;
+
+               if (!isExist) {
+                  localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
+               } else {
+                  const storageDataCard = JSON.parse(localStorage.getItem(GenerateCatalog.nameStorageItemsCard));
+                  localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
+               }
             })();
+
+            new Backet().render();
+            new Backet().updateBacketCountItem();
          });
       });
    }
