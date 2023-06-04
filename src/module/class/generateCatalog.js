@@ -35,6 +35,22 @@ export class GenerateCatalog {
       const arrBacketElements = [];
       const cardAddBacket = this._target.getElementsByClassName("card__btn-add");
       const cardArr = [...cardAddBacket];
+      const isExist = localStorage.getItem(GenerateCatalog.nameStorageItemsCard) !== null;
+
+      if (isExist) {
+         const getBacketData = JSON.parse(localStorage.getItem(GenerateCatalog.nameStorageItemsCard));
+         getBacketData.map((item) => {
+            arrBacketElements.push({
+               id: String(item.id),
+               article: String(item.article),
+               count: Number(item.count),
+               size: Number(item.size),
+               price: Number(item.price),
+               name: String(item.name),
+               img: String(item.img),
+            });
+         });
+      }
 
       cardArr.forEach((cardAdd) => {
          cardAdd.addEventListener("click", (event) => {
@@ -77,17 +93,10 @@ export class GenerateCatalog {
             (() => {
                const dataObjectCard = getArrBacketItem();
                const isExist = localStorage.getItem(GenerateCatalog.nameStorageItemsCard) !== null;
-
-               if (!isExist) {
-                  localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
-               } else {
-                  const storageDataCard = JSON.parse(localStorage.getItem(GenerateCatalog.nameStorageItemsCard));
-                  localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
-               }
+               localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
+               new Backet().render();
+               new Backet().updateBacketCountItem();
             })();
-
-            new Backet().render();
-            new Backet().updateBacketCountItem();
          });
       });
    }
@@ -95,9 +104,9 @@ export class GenerateCatalog {
    #selectFavorite() {
       const arrFavoriteElements = [];
       const cardFavorite = this._target.querySelectorAll(".card__favorite[data-type='favorite']");
-      const isExist = localStorage.getItem("favoriteElements");
+      const isExist = localStorage.getItem("favoriteElements") !== null;
 
-      if (isExist !== null) {
+      if (isExist) {
          const getFavoriteData = JSON.parse(localStorage.getItem("favoriteElements"));
          getFavoriteData.map((item) => {
             const currentElement = this._target.querySelector(`.card__favorite[data-id="${item.id}"]`);
