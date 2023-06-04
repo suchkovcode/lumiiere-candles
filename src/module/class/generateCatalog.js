@@ -76,20 +76,11 @@ export class GenerateCatalog {
             };
 
             (() => {
-               const isExist = localStorage.getItem(GenerateCatalog.nameStorageItemsCard) !== null;
                const dataObjectCard = getArrBacketItem();
-
-               if (!isExist) {
-                  localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
-               } else {
-                  const getDataStorageItems = JSON.parse(localStorage.getItem(GenerateCatalog.nameStorageItemsCard));
-                  const mergeDataBacketItem = dataObjectCard.map((item) => ({ ...item, ...getDataStorageItems.count }));
-                  localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(mergeDataBacketItem));
-               }
+               localStorage.setItem(GenerateCatalog.nameStorageItemsCard, JSON.stringify(dataObjectCard));
+               new Backet().render();
+               new Backet().updateBacketCountItem();
             })();
-
-            new Backet().render();
-            new Backet().updateBacketCountItem();
          });
       });
    }
