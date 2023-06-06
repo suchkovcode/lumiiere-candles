@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
 // @ts-nocheck
-import { BacketItem } from "./canvasItem";
+import { CardBacket } from "./markup/cardBacketMarkup";
 
 export class Backet {
    static nameStorageItemsCard = "backetElements";
@@ -36,7 +36,7 @@ export class Backet {
       const isEmptyStorage = storageElement !== null;
       const backetItem = isEmptyStorage ? JSON.parse(localStorage.getItem(Backet.nameStorageItemsCard)) : [];
       const dataRenderSort = backetItem.sort((a, b) => (a.name > b.name ? 1 : -1));
-      this.list.innerHTML = dataRenderSort.map((item, index) => new BacketItem(item, index).html()).join("");
+      this.list.innerHTML = dataRenderSort.map((item, index) => new CardBacket(item, index).html()).join("");
    }
 
    updateBacketCountItem() {

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import svg from "Assets/img/svg/sprite.svg";
 
-export class Card {
+export class CardCatalog {
    constructor(item, index) {
       this.item = item;
       this.index = index;
