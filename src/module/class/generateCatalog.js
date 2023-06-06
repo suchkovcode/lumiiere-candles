@@ -93,22 +93,23 @@ export class GenerateCatalog {
          });
       });
    }
+
    #setArrBacketItem(eventData, arrSet) {
-      const dataObjectCard = this.#getDataCard(eventData);
-      const isElement = arrSet.find((dataElement) => dataElement.article === dataObjectCard.article) !== undefined;
+      const getDataObjectCard = this.#getDataCard(eventData);
+      const isElement = arrSet.find((dataElement) => dataElement.article === getDataObjectCard.article) !== undefined;
 
       if (!isElement) {
-         arrSet.push(dataObjectCard);
+         arrSet.push(getDataObjectCard);
+         return arrSet;
+      } else {
+         const getArrItem = arrSet.find((dataElement) => dataElement.article === getDataObjectCard.article);
+         const getArrIndexItem = arrSet.findIndex((dataElement) => dataElement.article === getArrItem.article);
+         arrSet[getArrIndexItem].count = arrSet[getArrIndexItem].count + getDataObjectCard.count;
+         if (arrSet[getArrIndexItem].count >= 10) {
+            arrSet[getArrIndexItem].count = 10;
+         }
+         return arrSet;
       }
-      const addElement = arrSet.find((dataElement) => dataElement.article === dataObjectCard.article);
-      const indexElement = arrSet.findIndex((dataElement) => dataElement.article === addElement.article);
-      arrSet[indexElement].count = arrSet[indexElement].count + dataObjectCard.count;
-
-      if (arrSet[indexElement].count >= 10) {
-         arrSet[indexElement].count = 10;
-      }
-
-      return arrSet;
    }
 
    #setBacketCard() {
