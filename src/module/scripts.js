@@ -10,7 +10,8 @@ import { Favorite } from "Root/module/class/favorite";
 
 window.addEventListener("DOMContentLoaded", () => {
    setTimeout(() => {
-      new Backet();
+      new Backet().init();
+      
       new Favorite();
       try {
          new GenerateCatalog("#popular-catalog", data);
