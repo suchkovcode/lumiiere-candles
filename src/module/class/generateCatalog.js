@@ -96,7 +96,7 @@ export class GenerateCatalog {
    #setArrBacketItem(eventData, arrSet) {
       const dataObjectCard = this.#getDataCard(eventData);
       const isElement = arrSet.find((dataElement) => dataElement.article === dataObjectCard.article) !== undefined;
-      
+
       if (!isElement) {
          arrSet.push(dataObjectCard);
       }
@@ -112,7 +112,6 @@ export class GenerateCatalog {
    }
 
    #setBacketCard() {
-      const backet = new Backet();
       const arrBacketElements = [];
       const cardAddBacket = this.#getHtmlColletcion("card__btn-add");
       const cardArr = [...cardAddBacket];
@@ -125,9 +124,6 @@ export class GenerateCatalog {
       cardArr.forEach((cardAdd) => {
          cardAdd.addEventListener("click", (event) => {
             this.#setStorageData(GenerateCatalog.nameStorageItemsCard, this.#setArrBacketItem(event, arrBacketElements));
-            backet.render();
-            backet.updateBacketCountItem();
-            backet.emptyChangeDataCard();
          });
       });
    }
