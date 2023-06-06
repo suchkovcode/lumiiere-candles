@@ -10,43 +10,6 @@ export class CardAddFavorite {
       this.#selectFavorite();
    }
 
-   #getStorageData(storageKey) {
-      const isNan = this.#isStorageExist(storageKey);
-
-      if (isNan) {
-         const dataStorgae = JSON.parse(localStorage.getItem(storageKey));
-         const emptyOrder = Object.keys(dataStorgae).length === 0;
-
-         if (!emptyOrder) {
-            return JSON.parse(localStorage.getItem(storageKey));
-         } else {
-            return false;
-         }
-      }
-   }
-
-   #setStorageData(storageKey, dataStorage = []) {
-      return localStorage.setItem(storageKey, JSON.stringify(dataStorage));
-   }
-
-   #setMemoryStorageArrFavotite(storageKey, pushArr) {
-      const dataStorage = this.#getStorageData(storageKey);
-
-      if (dataStorage !== false) {
-         dataStorage.map((item) => {
-            const currentElement = this.#getSingletNode(`.card__favorite[data-id="${item.id}"]`);
-            currentElement.dataset.select = true;
-            pushArr.push({
-               id: item.id,
-               title: item.title,
-               hero: item.hero,
-               code: item.code,
-            });
-         });
-         return pushArr;
-      }
-   }
-
    #selectFavorite() {
       const arrFavoriteElements = [];
       const cardFavorite = this.#getNodeList(".card__favorite[data-type='favorite']");
@@ -90,6 +53,43 @@ export class CardAddFavorite {
 
    #getNodeList(selectorNode) {
       return this.el.querySelectorAll(selectorNode);
+   }
+
+   #getStorageData(storageKey) {
+      const isNan = this.#isStorageExist(storageKey);
+
+      if (isNan) {
+         const dataStorgae = JSON.parse(localStorage.getItem(storageKey));
+         const emptyOrder = Object.keys(dataStorgae).length === 0;
+
+         if (!emptyOrder) {
+            return JSON.parse(localStorage.getItem(storageKey));
+         } else {
+            return false;
+         }
+      }
+   }
+
+   #setStorageData(storageKey, dataStorage = []) {
+      return localStorage.setItem(storageKey, JSON.stringify(dataStorage));
+   }
+
+   #setMemoryStorageArrFavotite(storageKey, pushArr) {
+      const dataStorage = this.#getStorageData(storageKey);
+
+      if (dataStorage !== false) {
+         dataStorage.map((item) => {
+            const currentElement = this.#getSingletNode(`.card__favorite[data-id="${item.id}"]`);
+            currentElement.dataset.select = true;
+            pushArr.push({
+               id: item.id,
+               title: item.title,
+               hero: item.hero,
+               code: item.code,
+            });
+         });
+         return pushArr;
+      }
    }
 
    #isStorageExist(storageKey) {
