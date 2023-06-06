@@ -12,7 +12,6 @@ export class Backet {
       this.list = this.el.querySelector(".backet__product-list");
       this.open = this.el.querySelector(".header__btn-backet");
       this.close = this.el.querySelector(".backet__close");
-      this.init();
    }
 
    init() {
