@@ -67,20 +67,6 @@ export class CanvasMenu {
    }
 }
 
-export class CanvasFavorite {
-   constructor() {}
-   render(locationRender) {
-      const html = /* html */ `
-      <div class="canvas__top">
-         <p class="canvas__title">Избранное:</p>
-         <button class="canvas__close"></button>
-      </div>
-      <div class="canvas-favorite">
-      </div>`;
-      return (locationRender.innerHTML = html);
-   }
-}
-
 export class CanvasSearch {
    constructor() {}
    render(locationRender) {
