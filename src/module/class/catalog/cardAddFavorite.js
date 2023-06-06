@@ -69,7 +69,6 @@ export class CardAddFavorite {
    #setMemoryStorageArrFavotite(storageKey, pushArr) {
       const dataStorage = this.#getStorageData(storageKey);
 
-      console.log(dataStorage);
       if (dataStorage !== false) {
          dataStorage.map((item) => {
             const currentElement = this.#getSingletNode(`.card__favorite[data-id="${item.id}"]`);
