@@ -73,7 +73,18 @@ export class GenerateCatalog {
    }
 
    #getStorageData(storageKey) {
-      return JSON.parse(localStorage.getItem(storageKey));
+      const isNan = this.#isStorageExist(storageKey);
+
+      if (isNan) {
+         const dataStorgae = JSON.parse(localStorage.getItem(storageKey));
+         const emptyOrder = Object.keys(dataStorgae).length === 0;
+
+         if (!emptyOrder) {
+            return JSON.parse(localStorage.getItem(storageKey));
+         } else {
+            return false;
+         }
+      }
    }
 
    #setStorageData(storageKey, dataStorage = []) {
@@ -81,17 +92,40 @@ export class GenerateCatalog {
    }
 
    #setMemoryStorageArrBacket(storageKey, pushArr) {
-      return this.#getStorageData(storageKey).map((item) => {
-         pushArr.push({
-            id: String(item.id),
-            article: String(item.article),
-            count: Number(item.count),
-            size: Number(item.size),
-            price: Number(item.price),
-            name: String(item.name),
-            img: String(item.img),
+      const dataStorage = this.#getStorageData(storageKey);
+
+      if (dataStorage !== false) {
+         dataStorage.map((item) => {
+            pushArr.push({
+               id: String(item.id),
+               article: String(item.article),
+               count: Number(item.count),
+               size: Number(item.size),
+               price: Number(item.price),
+               name: String(item.name),
+               img: String(item.img),
+            });
          });
-      });
+         return pushArr;
+      }
+   }
+
+   #setMemoryStorageArrFavotite(storageKey, pushArr) {
+      const dataStorage = this.#getStorageData(storageKey);
+
+      if (dataStorage !== false) {
+         dataStorage.map((item) => {
+            const currentElement = this.#getSingletNode(`.card__favorite[data-id="${item.id}"]`);
+            currentElement.dataset.select = true;
+            pushArr.push({
+               id: item.id,
+               title: item.title,
+               hero: item.hero,
+               code: item.code,
+            });
+         });
+         return pushArr;
+      }
    }
 
    #setArrBacketItem(eventData, arrSet) {
@@ -132,40 +166,32 @@ export class GenerateCatalog {
    #selectFavorite() {
       const arrFavoriteElements = [];
       const cardFavorite = this.#getNodeList(".card__favorite[data-type='favorite']");
-      const isExist = localStorage.getItem(GenerateCatalog.nameStorageItemsFavorite) !== null;
+      const isExist = this.#isStorageExist(GenerateCatalog.nameStorageItemsFavorite);
 
       if (isExist) {
-         const getFavoriteData = JSON.parse(localStorage.getItem(GenerateCatalog.nameStorageItemsFavorite));
-         getFavoriteData.map((item) => {
-            const currentElement = this.#getSingletNode(`.card__favorite[data-id="${item.id}"]`);
-            currentElement.dataset.select = true;
-            arrFavoriteElements.push({
-               id: item.id,
-               title: item.title,
-               hero: item.hero,
-               code: item.code,
-            });
-         });
+         this.#setMemoryStorageArrFavotite(GenerateCatalog.nameStorageItemsFavorite, arrFavoriteElements);
       }
 
       cardFavorite.forEach((element) => {
          element.addEventListener("click", (event) => {
-            const dataElement = this._data.find((dataElement) => dataElement.id == event.currentTarget.dataset.id);
-            const existElement = Boolean(arrFavoriteElements.find((item) => item.id == event.currentTarget.dataset.id));
-            if (event.currentTarget.dataset.select === "false") {
+            const { id, select } = event.currentTarget.dataset;
+            const { title, hero, code } = this._data.find((dataElement) => dataElement.id == id);
+            const existElement = arrFavoriteElements.find((item) => item.id == id) !== undefined;
+
+            if (select === "false") {
                event.currentTarget.dataset.select = true;
+
                if (!existElement) {
                   arrFavoriteElements.push({
-                     id: event.currentTarget.dataset.id,
-                     title: dataElement.title,
-                     hero: dataElement.hero,
-                     code: dataElement.code.small,
+                     id: id,
+                     title: title,
+                     hero: hero,
+                     code: code.small,
                   });
                   localStorage.setItem(GenerateCatalog.nameStorageItemsFavorite, JSON.stringify(arrFavoriteElements));
                }
             } else {
-               const existElement = arrFavoriteElements.find((item) => item.id == event.currentTarget.dataset.id);
-               const indexElement = arrFavoriteElements.indexOf(existElement);
+               const indexElement = arrFavoriteElements.findIndex((item) => item.id == id);
                event.currentTarget.dataset.select = false;
                arrFavoriteElements.splice(indexElement, 1);
                localStorage.setItem(GenerateCatalog.nameStorageItemsFavorite, JSON.stringify(arrFavoriteElements));
@@ -175,24 +201,25 @@ export class GenerateCatalog {
    }
 
    #changeSize() {
-      const changeContainer = this.#getNodeList(".card__size");
-      const dataSize = {};
+      const changeContainer = this.#getNodeList(".card__size-select");
       changeContainer.forEach((element) => {
          const selectSizeElement = element.querySelectorAll(".card__size-btn");
-
          element.addEventListener("click", (event) => {
-            const currnetId = event.target.dataset.id;
-            const currentCard = this.#getSingletNode(`.card[data-id="${currnetId}"]`);
-            const currentArticle = currentCard.querySelector(".card__article-size");
+            const { id, value, price, select, article } = event.target.dataset;
+            const currentCard = this.#getSingletNode(`.card[data-id="${id}"] .card__article-size`);
 
-            if (event.target.classList == "card__size-btn") {
-               dataSize.card = event.target.dataset.id;
-               dataSize.size = event.target.dataset.value;
-               dataSize.price = event.target.dataset.price;
-               dataSize.select = event.target.dataset.select;
-               dataSize.article = event.target.dataset.article;
-               currentArticle.dataset.value = dataSize.article;
-               currentArticle.textContent = dataSize.article;
+            if (event.target.className === "card__size-btn") {
+               const dataSize = {
+                  card: id,
+                  size: value,
+                  price: price,
+                  select: select,
+                  article: article,
+               };
+
+               currentCard.dataset.value = article;
+               currentCard.textContent = article;
+
                selectSizeElement.forEach((element) => {
                   element.dataset.select = false;
                   event.target.dataset.select = true;
@@ -212,10 +239,10 @@ export class GenerateCatalog {
 
    #incrementDecremenCount() {
       const btnCount = this.#getNodeList(".card__btn-count[data-type='count']");
+
       btnCount.forEach((element) => {
          element.addEventListener("click", (event) => {
             let dataValueCountChange = event.currentTarget.getAttribute("data-value");
-
             const cardcountValue = this.#getCustomSingleNode(event.currentTarget, ".card__count-value");
 
             if (event.target.dataset.type === "plus") {
