@@ -42,12 +42,12 @@ export class CardAddBacket {
 
    #getDataCard(eventData) {
       const { id } = eventData.currentTarget.dataset;
+      const { title, hero } = this._data.find((dataElement) => dataElement.id == id);
       const currentCard = this.#getSingletNode(`.card[data-id="${id}"]`);
       const currentPrice = this.#getCustomSingleNode(currentCard, ".card__price").dataset.value;
       const currentSize = this.#getCustomSingleNode(currentCard, ".card__size-btn[data-select='true']").dataset.value;
       const currentCount = this.#getCustomSingleNode(currentCard, ".card__btn-count[data-type='count']").dataset.value;
       const currentArticle = this.#getCustomSingleNode(currentCard, ".card__article-size[data-type='article']").dataset.value;
-      const cardData = this._data.find((dataElement) => dataElement.id == id);
 
       return {
          id: String(id),
@@ -55,8 +55,8 @@ export class CardAddBacket {
          count: Number(currentCount),
          size: Number(currentSize),
          price: Number(currentPrice),
-         name: String(cardData.title),
-         img: String(cardData.hero),
+         name: String(title),
+         img: String(hero),
       };
    }
 
