@@ -23,10 +23,10 @@ export class CardAddFavorite {
          element.addEventListener("click", (event) => {
             const { id, select } = event.currentTarget.dataset;
             const { title, hero, code } = this._data.find((dataElement) => dataElement.id == id);
-            const existElement = arrFavoriteElements.find((item) => item.id == id) !== undefined;
 
             if (select === "false") {
                event.currentTarget.dataset.select = true;
+               const existElement = arrFavoriteElements.find((item) => item.id == id) !== undefined;
 
                if (!existElement) {
                   arrFavoriteElements.push({
@@ -38,8 +38,8 @@ export class CardAddFavorite {
                   this.#setStorageData(CardAddFavorite.nameStorageItemsFavorite, arrFavoriteElements);
                }
             } else {
-               const indexElement = arrFavoriteElements.findIndex((item) => item.id == id);
                event.currentTarget.dataset.select = false;
+               const indexElement = arrFavoriteElements.findIndex((item) => item.id == id);
                arrFavoriteElements.splice(indexElement, 1);
                this.#setStorageData(CardAddFavorite.nameStorageItemsFavorite, arrFavoriteElements);
             }
@@ -57,17 +57,9 @@ export class CardAddFavorite {
 
    #getStorageData(storageKey) {
       const isNan = this.#isStorageExist(storageKey);
-
-      if (isNan) {
-         const dataStorgae = JSON.parse(localStorage.getItem(storageKey));
-         const emptyOrder = Object.keys(dataStorgae).length === 0;
-
-         if (!emptyOrder) {
-            return JSON.parse(localStorage.getItem(storageKey));
-         } else {
-            return false;
-         }
-      }
+      const dataStorgae = JSON.parse(localStorage.getItem(storageKey));
+      const emptyOrder = Object.keys(dataStorgae).length === 0;
+      return isNan && !emptyOrder ? JSON.parse(localStorage.getItem(storageKey)) : false;
    }
 
    #setStorageData(storageKey, dataStorage = []) {
@@ -77,6 +69,7 @@ export class CardAddFavorite {
    #setMemoryStorageArrFavotite(storageKey, pushArr) {
       const dataStorage = this.#getStorageData(storageKey);
 
+      console.log(dataStorage);
       if (dataStorage !== false) {
          dataStorage.map((item) => {
             const currentElement = this.#getSingletNode(`.card__favorite[data-id="${item.id}"]`);

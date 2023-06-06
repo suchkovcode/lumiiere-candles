@@ -12,17 +12,9 @@ export class CardAddBacket {
 
    #getStorageData(storageKey) {
       const isNan = this.#isStorageExist(storageKey);
-
-      if (isNan) {
-         const dataStorgae = JSON.parse(localStorage.getItem(storageKey));
-         const emptyOrder = Object.keys(dataStorgae).length === 0;
-
-         if (!emptyOrder) {
-            return JSON.parse(localStorage.getItem(storageKey));
-         } else {
-            return false;
-         }
-      }
+      const dataStorgae = JSON.parse(localStorage.getItem(storageKey));
+      const emptyOrder = Object.keys(dataStorgae).length === 0;
+      return isNan && !emptyOrder ? JSON.parse(localStorage.getItem(storageKey)) : false;
    }
 
    #setStorageData(storageKey, dataStorage = []) {
