@@ -22,7 +22,7 @@ export class CardAddFavorite {
       cardFavorite.forEach((element) => {
          element.addEventListener("click", (event) => {
             const { id, select } = event.currentTarget.dataset;
-            const { title, hero, code } = this._data.find((dataElement) => dataElement.id == id);
+            const { title, hero, code, price } = this._data.find((dataElement) => dataElement.id == id);
 
             if (select === "false") {
                event.currentTarget.dataset.select = true;
@@ -31,9 +31,10 @@ export class CardAddFavorite {
                if (!existElement) {
                   arrFavoriteElements.push({
                      id: id,
-                     title: title,
-                     hero: hero,
-                     code: code.small,
+                     name: title,
+                     img: hero,
+                     price: price.small,
+                     article: code.small,
                   });
                   this.#setStorageData(CardAddFavorite.nameStorageItemsFavorite, arrFavoriteElements);
                }
@@ -75,9 +76,10 @@ export class CardAddFavorite {
             currentElement.dataset.select = true;
             pushArr.push({
                id: item.id,
-               title: item.title,
-               hero: item.hero,
-               code: item.code,
+               name: item.title,
+               img: item.hero,
+               price: item.price,
+               article: item.code,
             });
          });
          return pushArr;
