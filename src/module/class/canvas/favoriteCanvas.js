@@ -17,35 +17,36 @@ export class Favorite {
    }
 
    init() {
-      this.open.addEventListener("click", this);
-      this.close.addEventListener("click", this);
       this.render();
-      this.#emptyChangeDataCard();
-      this.#updateFavoriteCountItem();
-      this.#removeItemBacket();
-   }
 
-   handleEvent() {
-      !this.favorite.classList.contains("active") ? this.favorite.classList.add("active") : this.favorite.classList.remove("active");
-      this.render();
-      this.#emptyChangeDataCard();
-      this.#updateFavoriteCountItem();
+      this.open.addEventListener("click", () => {
+         this.favorite.classList.add("active");
+         this.render();
+      });
+
+      this.close.addEventListener("click", () => {
+         this.favorite.classList.remove("active");
+      });
    }
 
    render() {
-      this.#isStorageExist(Favorite.nameStorageItemsFavorite)
-         ? (this.list.innerHTML = this.#getStorageData(Favorite.nameStorageItemsFavorite)
-              .map((item, index) => new CardFavorite(item, index).html())
-              .join(""))
-         : null;
+      if (this.#isStorageExist(Favorite.nameStorageItemsFavorite)) {
+         this.list.innerHTML = this.#getStorageData(Favorite.nameStorageItemsFavorite)
+            .map((item, index) => new CardFavorite(item, index).html())
+            .join("");
+         this.#emptyChangeDataCard();
+         this.#updateFavoriteCountItem();
+         this.#removeItemBacket();
+      } else {
+         return null;
+      }
    }
 
    #emptyChangeDataCard() {
       const emptyContainer = this.#getSingletNode(".favorite__empty");
       const productContainer = this.#getSingletNode(".favorite__list");
-      const isEmptyStorage = this.#isStorageExist(Favorite.nameStorageItemsFavorite);
 
-      if (isEmptyStorage) {
+      if (this.#isStorageExist(Favorite.nameStorageItemsFavorite)) {
          emptyContainer.classList.add("hidden");
          productContainer.classList.remove("hidden");
       } else {
@@ -96,16 +97,8 @@ export class Favorite {
       return localStorage.setItem(storageKey, JSON.stringify(dataStorage));
    }
 
-   #getCustomSingleNode(customParent, selectorNode) {
-      return customParent.querySelector(selectorNode);
-   }
-
    #getSingletNode(selectorNode) {
       return this.el.querySelector(selectorNode);
-   }
-
-   #getHtmlColletcion(selectorNode) {
-      return this.el.getElementsByClassName(selectorNode);
    }
 
    #isStorageExist(storageKey) {
