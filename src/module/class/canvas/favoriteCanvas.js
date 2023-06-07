@@ -40,7 +40,7 @@ export class Favorite {
          : null;
    }
 
-   async #emptyChangeDataCard() {
+   #emptyChangeDataCard() {
       const emptyContainer = this.#getSingletNode(".favorite__empty");
       const productContainer = this.#getSingletNode(".favorite__list");
       const isEmptyStorage = this.#isStorageExist(Favorite.nameStorageItemsFavorite);
@@ -60,7 +60,7 @@ export class Favorite {
       countBacketNumber.textContent = storageDataLenght;
    }
 
-  async #removeItemBacket() {
+   #removeItemBacket() {
       const emptyContainer = this.#getSingletNode(".favorite__empty");
       const listContainer = this.#getSingletNode(".favorite__list");
 
