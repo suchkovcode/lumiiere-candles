@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
 // @ts-nocheck
-import { CardBacket } from "./markup/cardBacketMarkup";
+import { CardBacket } from "../markup/cardBacketMarkup";
 
 export class Backet {
    static nameStorageItemsCard = "backetElements";
@@ -40,11 +40,8 @@ export class Backet {
    }
 
    updateBacketCountItem() {
-      const storageElement = localStorage.getItem(Backet.nameStorageItemsCard);
-      const isEmptyStorage = storageElement !== null;
-      const storageDataLenght = isEmptyStorage ? JSON.parse(storageElement).length : "0";
-      const countBacketContainer = this.el.querySelector(".header__btn-backet");
-      const countBacketNumber = countBacketContainer.querySelector(".header__icon-count");
+      const storageDataLenght = this.#isStorageExist(Backet.nameStorageItemsCard) ? this.#getStorageData(Backet.nameStorageItemsCard).length : "0";
+      const countBacketNumber = this.#getSingletNode(".header__icon-count[data-type='backet']");
       countBacketNumber.textContent = storageDataLenght;
    }
 
@@ -108,34 +105,28 @@ export class Backet {
    }
 
    #removeItemBacket() {
-      const emptyContainer = this.el.querySelector(".backet__empty");
-      const productContainer = this.el.querySelector(".backet__product");
-      const isEmptyStorage = localStorage.getItem(Backet.nameStorageItemsCard) !== null;
+      const emptyContainer = this.#getSingletNode(".backet__empty");
+      const productContainer = this.#getSingletNode(".backet__product");
 
-      if (isEmptyStorage) {
-         const allBacketItem = this.backet.getElementsByClassName("backet__product-item");
+      if (this.#isStorageExist(Backet.nameStorageItemsCard)) {
+         const allBacketItem = this.backet.getElementsByClassName("backet__product-remove");
          const allBacketItemArr = [...allBacketItem];
 
          allBacketItemArr.forEach((element) => {
-            element.addEventListener("click", (e) => {
-               const isRemoveBtn = e.target.classList.contains("backet__product-remove");
-               if (isRemoveBtn) {
-                  const storageElement = JSON.parse(localStorage.getItem(Backet.nameStorageItemsCard));
-                  const codeElement = e.target.dataset.code;
-                  const currentElement = this.backet.querySelector(`.backet__product-item[data-code='${codeElement}']`);
-                  currentElement.remove();
-                  this.#matchAllSum();
-                  const allBacketItemArr = [...allBacketItem];
-                  const newArr = storageElement.filter((item) => item.article !== codeElement);
-                  localStorage.setItem(Backet.nameStorageItemsCard, JSON.stringify(newArr));
+            element.addEventListener("click", (event) => {
+               const { code } = event.currentTarget.dataset;
+               this.backet.querySelector(`.backet__product-item[data-code='${code}']`).remove();
+               this.#matchAllSum();
+               const allBacketItemArr = [...allBacketItem];
+               const newArr = this.#getStorageData(Backet.nameStorageItemsCard).filter((item) => item.article !== code);
+               this.#setStorageData(Backet.nameStorageItemsCard, newArr);
 
-                  if (allBacketItemArr.length === 0) {
-                     emptyContainer.classList.remove("hidden");
-                     productContainer.classList.add("hidden");
-                     localStorage.removeItem(Backet.nameStorageItemsCard);
-                     this.updateBacketCountItem();
-                  }
+               if (allBacketItemArr.length === 0) {
+                  emptyContainer.classList.remove("hidden");
+                  productContainer.classList.add("hidden");
+                  localStorage.removeItem(Backet.nameStorageItemsCard);
                }
+               this.updateBacketCountItem();
             });
          });
       }
@@ -166,5 +157,27 @@ export class Backet {
             this.#matchAllSum();
          });
       });
+   }
+
+   #getStorageData(storageKey) {
+      const isNull = this.#isStorageExist(storageKey);
+      return isNull ? JSON.parse(localStorage.getItem(storageKey)) : false;
+   }
+
+   #getSingletNode(selectorNode) {
+      return this.el.querySelector(selectorNode);
+   }
+
+   #setStorageData(storageKey, dataStorage = []) {
+      return localStorage.setItem(storageKey, JSON.stringify(dataStorage));
+   }
+
+   #isStorageExist(storageKey) {
+      const isNull = localStorage.getItem(storageKey) !== null;
+      if (isNull) {
+         const dataStorage = JSON.parse(localStorage.getItem(storageKey));
+         const emptyOrder = Object.keys(dataStorage).length === 0;
+         return isNull && !emptyOrder ? true : false;
+      }
    }
 }
