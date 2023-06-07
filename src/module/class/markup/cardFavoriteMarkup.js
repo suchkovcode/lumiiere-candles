@@ -16,7 +16,7 @@ export class CardFavorite {
          <div class="favorite__list-count">
             <div class="favorite__list-sum">$<span class="backet__product-cost">${this.item.price}</span></div>
          </div>
-         <div class="favorite__list-remove" data-code="${this.item.article}"></div>
+         <div class="favorite__list-remove" data-id="${this.item.id}"></div>
       </div>`;
       return markup;
    }
