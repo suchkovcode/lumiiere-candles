@@ -1,9 +1,6 @@
-/* eslint-disable indent */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable max-len */
 // @ts-nocheck
-
 import { CardFavorite } from "../markup/cardFavoriteMarkup";
+import { CardAddFavorite } from "../catalog/cardAddFavorite";
 
 export class Favorite {
    static nameStorageItemsFavorite = "favoriteElements";
@@ -35,12 +32,51 @@ export class Favorite {
             .map((item, index) => new CardFavorite(item, index).html())
             .join("");
          this.#emptyChangeDataCard();
-         this.#updateFavoriteCountItem();
+         this.updateFavoriteCountItem();
          this.#removeItemBacket();
       } else {
          return null;
       }
    }
+
+   updateFavoriteCountItem = async () => {
+      const storageDataLenght = this.#isStorageExist(Favorite.nameStorageItemsFavorite)
+         ? this.#getStorageData(Favorite.nameStorageItemsFavorite).length
+         : "0";
+      const countBacketNumber = this.#getSingletNode(".header__icon-count[data-type='favorite']");
+      countBacketNumber.textContent = storageDataLenght;
+   };
+
+   #removeItemBacket = async () => {
+      const emptyContainer = this.#getSingletNode(".favorite__empty");
+      const listContainer = this.#getSingletNode(".favorite__list");
+
+      if (this.#isStorageExist(Favorite.nameStorageItemsFavorite)) {
+         const allFavoriteItem = this.favorite.getElementsByClassName("favorite__list-remove");
+         const allFavoriteItemArr = [...allFavoriteItem];
+
+         allFavoriteItemArr.forEach((element) => {
+            element.addEventListener("click", (event) => {
+               const { id } = event.currentTarget.dataset;
+               this.favorite.querySelector(`.favorite__list-item[data-id='${id}']`).remove();
+               const allFavoriteItemArr = [...allFavoriteItem];
+
+               const newArr = this.#getStorageData(Favorite.nameStorageItemsFavorite).filter(
+                  (item) => item.article !== id,
+               );
+               new CardAddFavorite().removeFavoriteItem(id, newArr);
+               this.#setStorageData(Favorite.nameStorageItemsFavorite, newArr);
+
+               if (allFavoriteItemArr.length === 0) {
+                  emptyContainer.classList.remove("hidden");
+                  listContainer.classList.add("hidden");
+                  localStorage.removeItem(Favorite.nameStorageItemsFavorite);
+               }
+               this.updateFavoriteCountItem();
+            });
+         });
+      }
+   };
 
    #emptyChangeDataCard() {
       const emptyContainer = this.#getSingletNode(".favorite__empty");
@@ -55,39 +91,6 @@ export class Favorite {
       }
    }
 
-   #updateFavoriteCountItem() {
-      const storageDataLenght = this.#isStorageExist(Favorite.nameStorageItemsFavorite) ? this.#getStorageData(Favorite.nameStorageItemsFavorite).length : "0";
-      const countBacketNumber = this.#getSingletNode(".header__icon-count[data-type='favorite']");
-      countBacketNumber.textContent = storageDataLenght;
-   }
-
-   #removeItemBacket() {
-      const emptyContainer = this.#getSingletNode(".favorite__empty");
-      const listContainer = this.#getSingletNode(".favorite__list");
-
-      if (this.#isStorageExist(Favorite.nameStorageItemsFavorite)) {
-         const allFavoriteItem = this.favorite.getElementsByClassName("favorite__list-remove");
-         const allFavoriteItemArr = [...allFavoriteItem];
-
-         allFavoriteItemArr.forEach((element) => {
-            element.addEventListener("click", (event) => {
-               const { id } = event.currentTarget.dataset;
-               this.favorite.querySelector(`.favorite__list-item[data-id='${id}']`).remove();
-               const allFavoriteItemArr = [...allFavoriteItem];
-               const newArr = this.#getStorageData(Favorite.nameStorageItemsFavorite).filter((item) => item.article !== id);
-               this.#setStorageData(Favorite.nameStorageItemsFavorite, newArr);
-
-               if (allFavoriteItemArr.length === 0) {
-                  emptyContainer.classList.remove("hidden");
-                  listContainer.classList.add("hidden");
-                  localStorage.removeItem(Favorite.nameStorageItemsFavorite);
-               }
-               this.#updateFavoriteCountItem();
-            });
-         });
-      }
-   }
-
    #getStorageData(storageKey) {
       const isNull = this.#isStorageExist(storageKey);
       return isNull ? JSON.parse(localStorage.getItem(storageKey)) : false;
@@ -98,7 +101,7 @@ export class Favorite {
    }
 
    #getSingletNode(selectorNode) {
-      return this.el.querySelector(selectorNode);
+      return document.querySelector(selectorNode);
    }
 
    #isStorageExist(storageKey) {
