@@ -1,7 +1,7 @@
 {
-   "name": "example",
+   "name": "lumiiere-candles",
    "version": "1.0.0",
-   "description": "example",
+   "description": "lumiiere-candles sites",
    "author": "Nikita Suchkov",
    "license": "MIT",
    "browserslist": "> 0.25%, last 1 versions, not dead",
