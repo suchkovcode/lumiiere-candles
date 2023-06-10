@@ -23,7 +23,6 @@
       "eol-last": "off",
       "arrow-body-style": ["error", "as-needed"],
       "prefer-arrow-callback": "off",
-      "prettier/prettier": ["error"],
       "comma-dangle": "off",
       "no-param-reassign": "off",
       "constructor-super": "error",
