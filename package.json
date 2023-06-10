@@ -36,7 +36,7 @@
       "sass-loader": "^13.3.2",
       "style-loader": "^3.3.3",
       "html-loader": "^4.2.0",
-      "postcss-loader": "^7.3.2",
+      "postcss-loader": "^7.3.3",
 
       "html-webpack-plugin": "^5.5.2",
       "mini-css-extract-plugin": "^2.7.6",
