@@ -17,4 +17,5 @@ node_modules/
 .js.map
 
 ## Config files
+package.json
 package-lock.json
