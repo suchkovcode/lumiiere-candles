@@ -17,7 +17,4 @@ node_modules/
 .js.map
 
 ## Config files
-.stylelintrc.json
-.prettierrc.json
-webpack.config.js
 package-lock.json
