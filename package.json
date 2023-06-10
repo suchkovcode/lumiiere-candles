@@ -17,7 +17,7 @@
       "docs:build": "jsdoc --configure jsdoc.json --verbose"
    },
    "lint-staged": {
-      "*.js": ["prettier --write", "eslint --fix --color"],
+      "*.js": ["prettier --write .", "eslint --cache --fix"],
       "*.scss": "stylelint --syntax=scss --fix"
    },
    "devDependencies": {
