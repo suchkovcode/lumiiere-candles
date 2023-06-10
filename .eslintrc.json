@@ -7,23 +7,23 @@
       "node": true
    },
    "extends": ["eslint:recommended", "prettier"],
-   "plugins": ["prettier"],
+   "plugins": ["prettier", "import"],
    "parserOptions": {
       "ecmaVersion": 13,
       "sourceType": "module"
    },
 
    "rules": {
-      "@typescript-eslint/member-ordering": ["error", { "default": ["signature", "method", "constructor", "field"] }],
       "no-undef": "off",
       "semi": "error",
-      "no-console": "warn",
+      "no-console": "error",
       "no-debugger": "error",
       "no-plusplus": "off",
       "no-var": "error",
       "eol-last": "off",
       "arrow-body-style": ["error", "as-needed"],
       "prefer-arrow-callback": "off",
+      "prettier/prettier": ["error"],
       "comma-dangle": "off",
       "no-param-reassign": "off",
       "constructor-super": "error",
