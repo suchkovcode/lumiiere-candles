@@ -11,7 +11,7 @@
    "arrowParens": "always",
    "rangeStart": 0,
    "requirePragma": false,
-   "insertPragma": true,
+   "insertPragma": false,
    "proseWrap": "always",
    "htmlWhitespaceSensitivity": "strict",
    "endOfLine": "lf",
