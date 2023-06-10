@@ -15,7 +15,6 @@ export class Favorite {
 
    init() {
       this.render();
-
       this.open.addEventListener("click", () => {
          this.favorite.classList.add("active");
          this.render();
@@ -32,11 +31,10 @@ export class Favorite {
             .map((item, index) => new CardFavorite(item, index).html())
             .join("");
          this.#emptyChangeDataCard();
-         this.updateFavoriteCountItem();
-         this.#removeItemBacket();
       } else {
          return null;
       }
+      this.#removeItemBacket();
    }
 
    updateFavoriteCountItem = async () => {
@@ -60,18 +58,18 @@ export class Favorite {
                const { id } = event.currentTarget.dataset;
                this.favorite.querySelector(`.favorite__list-item[data-id='${id}']`).remove();
                const allFavoriteItemArr = [...allFavoriteItem];
-
                const newArr = this.#getStorageData(Favorite.nameStorageItemsFavorite).filter(
                   (item) => item.article !== id,
                );
-               new CardAddFavorite().removeFavoriteItem(id, newArr);
-               this.#setStorageData(Favorite.nameStorageItemsFavorite, newArr);
 
                if (allFavoriteItemArr.length === 0) {
                   emptyContainer.classList.remove("hidden");
                   listContainer.classList.add("hidden");
                   localStorage.removeItem(Favorite.nameStorageItemsFavorite);
                }
+
+               new CardAddFavorite().removeFavoriteItem(id, newArr);
+               this.#setStorageData(Favorite.nameStorageItemsFavorite, newArr);
                this.updateFavoriteCountItem();
             });
          });

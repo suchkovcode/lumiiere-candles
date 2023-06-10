@@ -42,6 +42,7 @@ export class CardAddFavorite {
    }
 
    #selectFavorite() {
+      const favorite = new Favorite();
       const arrFavoriteElements = [];
       const cardFavorite = this.#getNodeList(".card__favorite[data-type='favorite']");
       const isExist = this.#isStorageExist(CardAddFavorite.nameStorageItemsFavorite);
@@ -55,12 +56,11 @@ export class CardAddFavorite {
             const { id, select } = event.currentTarget.dataset;
             if (select === "false") {
                this.addFavoriteItem(id, arrFavoriteElements);
-               new Favorite().updateFavoriteCountItem();
             }
             if (select === "true") {
                this.removeFavoriteItem(id, arrFavoriteElements);
-               new Favorite().updateFavoriteCountItem();
             }
+            favorite.updateFavoriteCountItem();
          });
       });
    }
