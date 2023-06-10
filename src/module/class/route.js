@@ -1,10 +1,10 @@
-/* eslint-disable no-empty */
 /* eslint-disable prefer-destructuring */
-/* eslint-disable no-constant-condition */
+// @ts-nocheck
+/* eslint-disable no-unused-vars */
 export class Router {
-   routes = [];
-   root = "/";
-   render = "main";
+   static routes = [];
+   static root = "/";
+   static render = "main";
 
    constructor(options) {
       this.routes = options.routes;
@@ -52,6 +52,7 @@ export class Router {
          if (matchLocation[1] === "") {
             fragmentLocation = "/";
          }
+
          if (matchLocation[1]) {
             fragmentLocation = matchLocation[1];
          }
@@ -69,7 +70,6 @@ export class Router {
       const renderHtml = this.#localStorage(location, html);
       this.#render(html);
       this.#chageMeta(route.meta.title, route.meta.description, window.location);
-
    };
 
    #localStorage(location, html) {
