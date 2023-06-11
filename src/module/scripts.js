@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
       new Backet().init();
       new Favorite().init();
       new GenerateCatalog("#popular-catalog", data).render();
-      // new Slider(".slider-wrapper");
+      new Slider(".slider-wrapper");
       new Tabs(".tabs", ".tab-content");
    }, 1500);
 });
