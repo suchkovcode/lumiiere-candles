@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable no-unused-vars */
 import "Root/routers/router";
 import "Root/module/class/route";
@@ -17,6 +18,6 @@ window.addEventListener("DOMContentLoaded", () => {
       new Favorite().init();
       new GenerateCatalog("#popular-catalog", data).render();
       // new Slider(".slider-wrapper");
-      // new Tabs(".tabs", ".tab-content");
+      new Tabs(".tabs", ".tab-content");
    }, 1500);
 });
