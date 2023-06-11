@@ -1,6 +1,7 @@
+// @ts-nocheck
+
 import { Backet } from "../canvas/backetCanvas";
 
-// @ts-nocheck
 export class CardAddBacket {
    static nameStorageItemsCard = "backetElements";
 
