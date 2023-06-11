@@ -18,7 +18,7 @@
    },
    "lint-staged": {
       "*.js": ["prettier --write", "eslint --cache --fix --color"],
-      "*.scss": "stylelint --syntax=scss --fix --color"
+      "*.scss": "stylelint --fix --color"
    },
    "devDependencies": {
       "cross-env": "^7.0.3",
