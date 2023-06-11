@@ -23,7 +23,7 @@
 
    @include sm {
       width: 130px;
-      height: auto;
+      height: 55px;
    }
    @include md {
       width: 140px;
@@ -31,5 +31,9 @@
 
    @include lg {
       width: 160px;
+   }
+
+   @include xl {
+      margin-right: 150px;
    }
 }
