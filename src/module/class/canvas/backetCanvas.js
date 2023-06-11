@@ -1,6 +1,5 @@
-/* eslint-disable max-len */
-/* eslint-disable no-unused-expressions */
 // @ts-nocheck
+// TODO: При удалении с корзины элемента необходимо отчишать перменную массива добавленых карточек в корзину
 import { CardBacket } from "../markup/cardBacketMarkup";
 
 export class Backet {
@@ -15,42 +14,40 @@ export class Backet {
    }
 
    init() {
-      this.open.addEventListener("click", this);
-      this.close.addEventListener("click", this);
       this.render();
-      this.updateBacketCountItem();
-      this.#updateAllDataAtributeItem();
-      this.#incrementDecrementCount();
-   }
+      this.open.addEventListener("click", () => {
+         this.backet.classList.add("active");
+         this.render();
+      });
 
-   handleEvent() {
-      !this.backet.classList.contains("active") ? this.backet.classList.add("active") : this.backet.classList.remove("active");
-      this.emptyChangeDataCard();
-      this.#matchAllSum();
-      this.#updateAllDataAtributeItem();
-      this.#removeItemBacket();
+      this.close.addEventListener("click", () => {
+         this.backet.classList.remove("active");
+      });
    }
 
    render() {
-      const storageElement = localStorage.getItem(Backet.nameStorageItemsCard);
-      const isEmptyStorage = storageElement !== null;
-      const backetItem = isEmptyStorage ? JSON.parse(localStorage.getItem(Backet.nameStorageItemsCard)) : [];
-      const dataRenderSort = backetItem.sort((a, b) => (a.name > b.name ? 1 : -1));
-      this.list.innerHTML = dataRenderSort.map((item, index) => new CardBacket(item, index).html()).join("");
-   }
+      if (this.#isStorageExist()) {
+         const storageElement = this.#getStorageData();
+         const backetItem = storageElement ? this.#getStorageData() : [];
+         const dataRenderSort = backetItem.sort((a, b) => (a.name > b.name ? 1 : -1));
+         this.list.innerHTML = dataRenderSort.map((item, index) => new CardBacket(item, index).html()).join("");
 
-   updateBacketCountItem() {
-      const storageDataLenght = this.#isStorageExist(Backet.nameStorageItemsCard) ? this.#getStorageData(Backet.nameStorageItemsCard).length : "0";
-      const countBacketNumber = this.#getSingletNode(".header__icon-count[data-type='backet']");
-      countBacketNumber.textContent = storageDataLenght;
+         this.emptyChangeDataCard();
+         this.#changeCountCard();
+         this.updateAllCardAtributes();
+         this.updateBacketCountItem();
+         this.updateBacketTotalSum();
+         this.#removeItemBacket();
+      } else {
+         return null;
+      }
    }
 
    emptyChangeDataCard() {
-      const emptyContainer = this.el.querySelector(".backet__empty");
-      const productContainer = this.el.querySelector(".backet__product");
-      const isEmptyStorage = localStorage.getItem(Backet.nameStorageItemsCard) !== null;
+      const emptyContainer = this.#getSingletNode(".backet__empty");
+      const productContainer = this.#getSingletNode(".backet__product");
 
-      if (isEmptyStorage) {
+      if (this.#isStorageExist(Backet.nameStorageItemsCard)) {
          emptyContainer.classList.add("hidden");
          productContainer.classList.remove("hidden");
       } else {
@@ -59,56 +56,66 @@ export class Backet {
       }
    }
 
-   #updateAllDataAtributeItem() {
-      const allElement = this.backet.querySelectorAll(".backet__product-item");
-      allElement.forEach((element) => {
+   updateBacketCountItem = async () => {
+      const storageDataLenght = this.#isStorageExist() ? this.#getStorageData().length : "0";
+      const countBacketNumber = this.#getSingletNode(".header__icon-count[data-type='backet']");
+      countBacketNumber.textContent = storageDataLenght;
+   };
+
+   updateAllCardAtributes() {
+      const itemCollection = this.#getHtmlColletcion("backet__product-item");
+      const allElementArr = [...itemCollection];
+
+      allElementArr.forEach((element) => {
+         const { count, cost } = element.dataset;
          const totalMatch = element.querySelector(".backet__product-cost");
-         const curentTotalCount = element.dataset.count;
-         const curentCost = element.dataset.cost;
-         const mathSum = Number(curentTotalCount) * Number(curentCost);
-         element.dataset.sum = parseFloat(mathSum.toFixed(4));
-         totalMatch.textContent = parseFloat(mathSum.toFixed(4));
-         this.#matchAllSum();
+         const mathSum = parseFloat((Number(count) * Number(cost)).toFixed(4));
+
+         element.dataset.sum = mathSum;
+         totalMatch.textContent = mathSum;
       });
    }
 
-   #updateCurrentDataAtributeItem(article) {
-      const isEmptyStorage = localStorage.getItem(Backet.nameStorageItemsCard) !== null;
-      const currentElementArticle = this.backet.querySelector(`.backet__product-item[data-code='${article}']`);
-      const curentTotalCount = currentElementArticle.querySelector(".backet__product-total");
-      const curentCost = currentElementArticle.querySelector(".backet__product-cost");
-      const mathSum = Number(currentElementArticle.dataset.cost) * Number(curentTotalCount.dataset.value);
-
-      currentElementArticle.dataset.count = curentTotalCount.dataset.value;
-      currentElementArticle.dataset.sum = parseFloat(mathSum.toFixed(4));
-      curentCost.textContent = parseFloat(mathSum.toFixed(4));
-
-      if (isEmptyStorage) {
-         const storageElement = JSON.parse(localStorage.getItem(Backet.nameStorageItemsCard));
-         const test = storageElement.find((item) => item.article === article);
-         test.count = Number(curentTotalCount.dataset.value);
-         localStorage.setItem(Backet.nameStorageItemsCard, JSON.stringify(storageElement));
-      }
-   }
-
-   #matchAllSum() {
+   updateBacketTotalSum() {
       const totalSum = this.backet.querySelector(".backet__product-value");
       const totalSumAtr = this.backet.querySelector(".backet__product-all");
       const itemDataSum = this.backet.querySelectorAll(".backet__product-item");
       const arrSum = [];
+
       itemDataSum.forEach((element) => {
          arrSum.push(Number(element.dataset.sum));
-         const sumOfNumbers = arrSum.reduce((acc, number) => acc + number, 0);
-         totalSum.textContent = parseFloat(sumOfNumbers.toFixed(4));
-         totalSumAtr.dataset.sum = parseFloat(sumOfNumbers.toFixed(4));
+         const sumOfNumbers = parseFloat(arrSum.reduce((acc, number) => acc + number, 0).toFixed(4));
+         totalSum.textContent = sumOfNumbers;
+         totalSumAtr.dataset.sum = sumOfNumbers;
       });
+   }
+
+   #updateCardAtributes(articleCode) {
+      const currentElementArticle = this.#getSingletNode(`.backet__product-item[data-code='${articleCode}']`);
+      const curentTotalCount = currentElementArticle.querySelector(".backet__product-total");
+      const curentCost = currentElementArticle.querySelector(".backet__product-cost");
+      const { value } = curentTotalCount.dataset;
+      const { cost } = currentElementArticle.dataset;
+      const mathSum = parseFloat((Number(cost) * Number(value)).toFixed(4));
+
+      currentElementArticle.dataset.count = value;
+      currentElementArticle.dataset.sum = mathSum;
+      curentCost.textContent = mathSum;
+
+      if (this.#isStorageExist()) {
+         const storageElement = this.#getStorageData();
+         const currentItem = storageElement.find((item) => item.article === articleCode);
+
+         currentItem.count = Number(value);
+         this.#setStorageData(Backet.nameStorageItemsCard, storageElement);
+      }
    }
 
    #removeItemBacket() {
       const emptyContainer = this.#getSingletNode(".backet__empty");
       const productContainer = this.#getSingletNode(".backet__product");
 
-      if (this.#isStorageExist(Backet.nameStorageItemsCard)) {
+      if (this.#isStorageExist()) {
          const allBacketItem = this.backet.getElementsByClassName("backet__product-remove");
          const allBacketItemArr = [...allBacketItem];
 
@@ -116,9 +123,11 @@ export class Backet {
             element.addEventListener("click", (event) => {
                const { code } = event.currentTarget.dataset;
                this.backet.querySelector(`.backet__product-item[data-code='${code}']`).remove();
-               this.#matchAllSum();
+
+               this.updateBacketTotalSum();
+
                const allBacketItemArr = [...allBacketItem];
-               const newArr = this.#getStorageData(Backet.nameStorageItemsCard).filter((item) => item.article !== code);
+               const newArr = this.#getStorageData().filter((item) => item.article !== code);
                this.#setStorageData(Backet.nameStorageItemsCard, newArr);
 
                if (allBacketItemArr.length === 0) {
@@ -132,47 +141,55 @@ export class Backet {
       }
    }
 
-   #incrementDecrementCount() {
-      const btnCount = this.backet.querySelectorAll(".backet__product-plusminus");
-      btnCount.forEach((element) => {
+   #changeCountCard() {
+      const btnCountCollection = this.#getHtmlColletcion("backet__product-plusminus");
+      const btnCountArr = [...btnCountCollection];
+      btnCountArr.forEach((element) => {
          element.addEventListener("click", (event) => {
+            const { type } = event.target.dataset;
             const totalCount = event.currentTarget.querySelector(".backet__product-total");
             let dataValueCountChange = Number(totalCount.textContent);
 
-            if (event.target.dataset.type === "plus") {
+            if (type === "plus") {
                dataValueCountChange++;
-               if (dataValueCountChange <= "10") {
+               if (dataValueCountChange <= 10) {
                   totalCount.setAttribute("data-value", dataValueCountChange);
                   totalCount.textContent = dataValueCountChange;
                }
             }
-            if (event.target.dataset.type === "minus") {
+
+            if (type === "minus") {
                dataValueCountChange--;
-               if (dataValueCountChange >= "1") {
+               if (dataValueCountChange >= 1) {
                   totalCount.setAttribute("data-value", dataValueCountChange);
                   totalCount.textContent = dataValueCountChange;
                }
             }
-            this.#updateCurrentDataAtributeItem(event.currentTarget.dataset.article);
-            this.#matchAllSum();
+
+            this.#updateCardAtributes(event.currentTarget.dataset.article);
+            this.updateBacketTotalSum();
          });
       });
    }
 
-   #getStorageData(storageKey) {
+   #getStorageData(storageKey = Backet.nameStorageItemsCard) {
       const isNull = this.#isStorageExist(storageKey);
       return isNull ? JSON.parse(localStorage.getItem(storageKey)) : false;
    }
 
    #getSingletNode(selectorNode) {
-      return this.el.querySelector(selectorNode);
+      return document.querySelector(selectorNode);
    }
 
-   #setStorageData(storageKey, dataStorage = []) {
+   #getHtmlColletcion(selectorNode) {
+      return document.getElementsByClassName(selectorNode);
+   }
+
+   #setStorageData(storageKey = Backet.nameStorageItemsCard, dataStorage = []) {
       return localStorage.setItem(storageKey, JSON.stringify(dataStorage));
    }
 
-   #isStorageExist(storageKey) {
+   #isStorageExist(storageKey = Backet.nameStorageItemsCard) {
       const isNull = localStorage.getItem(storageKey) !== null;
       if (isNull) {
          const dataStorage = JSON.parse(localStorage.getItem(storageKey));
