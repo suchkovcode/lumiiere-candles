@@ -1,4 +1,6 @@
 // @ts-nocheck
+// TODO: При удалении с корзины элемента необходимо отчишать перменную массива добавленых карточек в избарнное
+
 import { CardFavorite } from "../markup/cardFavoriteMarkup";
 import { CardAddFavorite } from "../catalog/cardAddFavorite";
 
@@ -30,6 +32,7 @@ export class Favorite {
          this.list.innerHTML = this.#getStorageData(Favorite.nameStorageItemsFavorite)
             .map((item, index) => new CardFavorite(item, index).html())
             .join("");
+
          this.#emptyChangeDataCard();
       } else {
          return null;
