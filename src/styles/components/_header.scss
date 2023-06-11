@@ -38,13 +38,12 @@
       background-color: var(--color_base);
       box-shadow: 0 25px 45px 0 rgba(107, 107, 106, 5%);
 
-
       @include sm {
          height: 90px;
          margin: 15px 20px 0 20px;
          padding: 20px 25px;
          border-radius: 25px;
-         background-color: rgba(255, 255, 255, 0.8);
+         background-color: rgba(255, 255, 255, 80%);
          box-shadow: 0 25px 45px 0 rgb(107, 107, 106, 10%);
          backdrop-filter: blur(10px);
       }
@@ -275,8 +274,8 @@
 
       &-drobdown {
          position: absolute;
-         top: 94px;
-         left: -110px;
+         top: 80px;
+         left: 0;
          display: none;
          padding: 25px 40px;
          border-radius: 20px;
@@ -316,11 +315,18 @@
       }
 
       &-nav {
+         position: absolute;
+         top: 15px;
+         right: 170px;
          display: none;
+         width: 140px;
+         text-align: center;
 
          &-item {
             cursor: pointer;
             position: relative;
+            display: inline-block;
+            width: fit-content;
 
             @include xl {
                font: 500 16px/1.5 "AvenirNextCyr";
@@ -349,6 +355,12 @@
             }
          }
 
+         &.active {
+            right: 75px;
+            width: 330px;
+            height: 340px;
+         }
+
          @include xl {
             display: block;
             margin-right: 60px;
@@ -359,5 +371,4 @@
          margin-top: 0;
       }
    }
-
 }
