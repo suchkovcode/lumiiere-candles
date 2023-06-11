@@ -1,28 +1,61 @@
+import { Backet } from "../canvas/backetCanvas";
+
+// @ts-nocheck
 export class CardAddBacket {
    static nameStorageItemsCard = "backetElements";
 
    constructor(element, data) {
       this.el = element;
-      this._data = data;
+      this.data = data;
    }
 
    init() {
       this.#setBacketCard();
    }
 
-   #getStorageData(storageKey) {
-      const isNan = this.#isStorageExist(storageKey);
-      const dataStorgae = JSON.parse(localStorage.getItem(storageKey));
-      const emptyOrder = Object.keys(dataStorgae).length === 0;
-      return isNan && !emptyOrder ? JSON.parse(localStorage.getItem(storageKey)) : false;
+   #getStorageData(storageKey = CardAddBacket.nameStorageItemsCard) {
+      const isNull = this.#isStorageExist(storageKey);
+      return isNull ? JSON.parse(localStorage.getItem(storageKey)) : false;
+   }
+
+   #getDataCard(eventData) {
+      const { id } = eventData.currentTarget.dataset;
+      const { title, hero } = this.data.find((dataElement) => dataElement.id == id);
+      const currentCard = this.#getSingletNode(`.card[data-id="${id}"]`);
+      const currentPrice = this.#getCustomSingleNode(currentCard, ".card__price");
+      const currentSize = this.#getCustomSingleNode(currentCard, ".card__size-btn[data-select='true']");
+      const currentCount = this.#getCustomSingleNode(currentCard, ".card__btn-count[data-type='count']");
+      const currentArticle = this.#getCustomSingleNode(currentCard, ".card__article-size[data-type='article']");
+
+      return {
+         id: String(id),
+         article: String(currentArticle.dataset.value),
+         count: Number(currentCount.dataset.value),
+         size: Number(currentSize.dataset.value),
+         price: Number(currentPrice.dataset.value),
+         name: String(title),
+         img: String(hero),
+      };
+   }
+
+   #getCustomSingleNode(customParent, selectorNode) {
+      return customParent.querySelector(selectorNode);
+   }
+
+   #getSingletNode(selectorNode) {
+      return document.querySelector(selectorNode);
+   }
+
+   #getHtmlColletcion(selectorNode) {
+      return document.getElementsByClassName(selectorNode);
    }
 
    #setStorageData(storageKey, dataStorage = []) {
       return localStorage.setItem(storageKey, JSON.stringify(dataStorage));
    }
 
-   #setMemoryStorageArrBacket(storageKey, pushArr) {
-      const dataStorage = this.#getStorageData(storageKey);
+   #setMemoryStorageArrBacket(pushArr) {
+      const dataStorage = this.#getStorageData();
 
       if (dataStorage !== false) {
          dataStorage.map((item) => {
@@ -38,26 +71,6 @@ export class CardAddBacket {
          });
          return pushArr;
       }
-   }
-
-   #getDataCard(eventData) {
-      const { id } = eventData.currentTarget.dataset;
-      const { title, hero } = this._data.find((dataElement) => dataElement.id == id);
-      const currentCard = this.#getSingletNode(`.card[data-id="${id}"]`);
-      const currentPrice = this.#getCustomSingleNode(currentCard, ".card__price").dataset.value;
-      const currentSize = this.#getCustomSingleNode(currentCard, ".card__size-btn[data-select='true']").dataset.value;
-      const currentCount = this.#getCustomSingleNode(currentCard, ".card__btn-count[data-type='count']").dataset.value;
-      const currentArticle = this.#getCustomSingleNode(currentCard, ".card__article-size[data-type='article']").dataset.value;
-
-      return {
-         id: String(id),
-         article: String(currentArticle),
-         count: Number(currentCount),
-         size: Number(currentSize),
-         price: Number(currentPrice),
-         name: String(title),
-         img: String(hero),
-      };
    }
 
    #setArrBacketItem(eventData, arrSet) {
@@ -79,35 +92,29 @@ export class CardAddBacket {
    }
 
    #setBacketCard() {
+      const backet = new Backet();
       const arrBacketElements = [];
       const cardAddBacket = this.#getHtmlColletcion("card__btn-add");
       const cardArr = [...cardAddBacket];
-      const isExist = this.#isStorageExist(CardAddBacket.nameStorageItemsCard);
 
-      if (isExist) {
-         this.#setMemoryStorageArrBacket(CardAddBacket.nameStorageItemsCard, arrBacketElements);
+      if (this.#isStorageExist()) {
+         this.#setMemoryStorageArrBacket(arrBacketElements);
       }
 
       cardArr.forEach((cardAdd) => {
          cardAdd.addEventListener("click", (event) => {
             this.#setStorageData(CardAddBacket.nameStorageItemsCard, this.#setArrBacketItem(event, arrBacketElements));
+            backet.render();
          });
       });
    }
 
-   #getCustomSingleNode(customParent, selectorNode) {
-      return customParent.querySelector(selectorNode);
-   }
-
-   #getSingletNode(selectorNode) {
-      return this.el.querySelector(selectorNode);
-   }
-
-   #getHtmlColletcion(selectorNode) {
-      return this.el.getElementsByClassName(selectorNode);
-   }
-
-   #isStorageExist(storageKey) {
-      return localStorage.getItem(storageKey) !== null;
+   #isStorageExist(storageKey = CardAddBacket.nameStorageItemsCard) {
+      const isNull = localStorage.getItem(storageKey) !== null;
+      if (isNull) {
+         const dataStorage = JSON.parse(localStorage.getItem(storageKey));
+         const emptyOrder = Object.keys(dataStorage).length === 0;
+         return isNull && !emptyOrder ? true : false;
+      }
    }
 }
