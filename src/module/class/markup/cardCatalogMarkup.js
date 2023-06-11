@@ -61,7 +61,7 @@ export class CardCatalog {
          </div>
       </main>
       <footer class="card__footer">
-         <a class="card__btn-more" href="#">Подробнее</a>
+         <a class="card__btn-more" href="/post/?id=${this.item.id}">Подробнее</a>
          <div class="card__btn-count" data-type="count" data-value="1">
             <button class="card__btn-minus" data-type="minus"></button>
             <p class="card__count-value">1</p>
