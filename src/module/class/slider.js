@@ -41,32 +41,23 @@ export class Slider {
       dotsItem.forEach((element) => {
          element.addEventListener("click", (event) => {
             const { index } = event.target.dataset;
-            sliderItem.forEach((element) => this.#sliderhHide(element));
-            dotsItem.forEach((element) => this.#dotHide(element));
-
-            this.#sliderShow(index);
-            this.#dotShow(index);
+            sliderItem.forEach((element) => this.#itemHide(element));
+            dotsItem.forEach((element) => this.#itemHide(element));
+            this.#itemShow(index);
          });
       });
    }
 
-   #sliderShow(indexItem) {
+   #itemShow(indexItem) {
       const sliderContainer = document.querySelector(this.el);
       const sliderItem = sliderContainer.querySelectorAll(".slider-item");
-      sliderItem[indexItem].classList.add("active");
-   }
-
-   #dotShow(indexItem) {
-      const sliderContainer = document.querySelector(this.el);
       const dotsItem = sliderContainer.querySelectorAll(".slider-dots__item");
+
+      sliderItem[indexItem].classList.add("active");
       dotsItem[indexItem].classList.add("active");
    }
 
-   #sliderhHide(item) {
-      item.classList.remove("active");
-   }
-
-   #dotHide(item) {
+   #itemHide(item) {
       item.classList.remove("active");
    }
 
