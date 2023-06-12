@@ -15,9 +15,9 @@ export class GenerateCatalog {
    }
 
    init(renderUrl) {
-      this.#getFragmentUrl() === renderUrl ? this.#render() : false;
+      this.#isRenderPage(renderUrl);
       window.addEventListener("hashchange", () => {
-         this.#getFragmentUrl() === renderUrl ? this.#render() : false;
+         this.#isRenderPage(renderUrl);
       });
    }
 
@@ -38,5 +38,9 @@ export class GenerateCatalog {
       let fragmentLocation = "";
       matchLocation === "" ? (fragmentLocation = "/") : (fragmentLocation = matchLocation);
       return fragmentLocation;
+   }
+
+   #isRenderPage(renderUrl) {
+      this.#getFragmentUrl() === renderUrl ? this.#render() : false;
    }
 }
