@@ -47,9 +47,9 @@ export class CardCatalog {
             <span class="card__article-size" data-type="article" data-value="${this.item.code.small}">${this.item.code.small}</span>
          </p>
          <p class="card__description">${description}</p>
-         <p class="card__price" data-value="${this.item.price.small}">
-            <span class="card__price-currency">$</span>
-            <span class="card__price-value">${this.item.price.small}</span>
+         <p class="price" data-value="${this.item.price.small}">
+            <span class="price__currency">$</span>
+            <span class="price__value">${this.item.price.small}</span>
          </p>
          <div class="changesize">
             <p class="changesize__title">Размер</p>

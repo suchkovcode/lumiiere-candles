@@ -39,8 +39,8 @@ export class CardFunctions {
    }
 
    #chagePrice(dataSize) {
-      const currentValue = this.#getSingletNode(`.card[data-id='${dataSize.card}'] .card__price`);
-      const currentPrice = this.#getSingletNode(`.card[data-id='${dataSize.card}'] .card__price-value`);
+      const currentValue = this.#getSingletNode(`.card[data-id='${dataSize.card}'] .price`);
+      const currentPrice = this.#getSingletNode(`.card[data-id='${dataSize.card}'] .price__value`);
       currentValue.dataset.value = dataSize.price;
       currentPrice.textContent = dataSize.price;
    }
