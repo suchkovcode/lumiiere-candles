@@ -36,6 +36,14 @@ new Router({
          },
       },
 
+      "/post": {
+         template: "/pages/post.html",
+         meta: {
+            title: "Lumiiere Candles | Карточка товар",
+            description: "Hello product",
+         },
+      },
+
       "/care": {
          template: "/pages/care.html",
          meta: {
