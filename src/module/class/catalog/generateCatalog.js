@@ -30,7 +30,7 @@ export class GenerateCatalog {
          new CardFunctions(renderContainer).init();
          new CardAddFavorite(renderContainer, this.data).init();
          new CardAddBacket(renderContainer, this.data).init();
-      }, 500);
+      }, 1000);
    }
 
    #getFragmentUrl() {
