@@ -2,6 +2,7 @@
 /* eslint-disable prefer-destructuring */
 // @ts-nocheck
 /* eslint-disable no-unused-vars */
+
 export class Router {
    static routes = [];
    static root = "/";
@@ -19,30 +20,28 @@ export class Router {
       window.addEventListener("hashchange", () => this.#route());
    }
 
+   #render(htmlTempalte) {
+      return (this.renderContainer.innerHTML = htmlTempalte);
+   }
+
    #route() {
+      this.#locationHandler();
+
       const allRoute = document.getElementsByClassName("route");
       const roteArr = [...allRoute];
 
       if (roteArr.length !== 0) {
          roteArr.forEach((routeItem) => {
             routeItem.addEventListener("click", (event) => {
-               event.preventDefault();
-               event.stopPropagation();
-               window.history.pushState({}, "", event.currentTarget.href);
                this.#locationHandler();
             });
          });
       }
-
       window.addEventListener("popstate", () => {
          this.#locationHandler();
       });
 
       window.route = this;
-   }
-
-   #render(htmlTempalte) {
-      return (this.renderContainer.innerHTML = htmlTempalte);
    }
 
    #getFragment() {
