@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable no-unused-vars */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -146,6 +148,12 @@ module.exports = {
       new HtmlWebpackPlugin({
          filename: "pages/catalog.html",
          template: path.resolve(__dirname, "./src/pages/catalog.html"),
+         inject: false,
+         minify: isDev ? false : true,
+      }),
+      new HtmlWebpackPlugin({
+         filename: "pages/post.html",
+         template: path.resolve(__dirname, "./src/pages/post.html"),
          inject: false,
          minify: isDev ? false : true,
       }),
