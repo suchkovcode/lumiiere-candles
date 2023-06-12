@@ -1,3 +1,6 @@
+// @ts-nocheck
+/* eslint-disable no-unused-expressions */
+/* eslint-disable prefer-destructuring */
 import { CardCatalog } from "../markup/cardCatalogMarkup";
 import { CardFunctions } from "./cardFunctionsActivation";
 import { CardAddFavorite } from "./cardAddFavorite";
@@ -7,16 +10,33 @@ export class GenerateCatalog {
    static nameStorageItemsCard = "backetElements";
 
    constructor(target, data) {
-      this.el = document.querySelector(target);
-      this._data = data;
+      this.el = target;
+      this.data = data;
    }
 
-   render() {
-      const markup = this._data.map((item, index) => new CardCatalog(item, index).html());
-      this.el.innerHTML = markup.join("");
+   init(renderUrl) {
+      this.#getFragmentUrl() === renderUrl ? this.#render() : false;
+      window.addEventListener("hashchange", () => {
+         this.#getFragmentUrl() === renderUrl ? this.#render() : false;
+      });
+   }
 
-      new CardFunctions(this.el).init();
-      new CardAddFavorite(this.el, this._data).init();
-      new CardAddBacket(this.el, this._data).init();
+   #render() {
+      setTimeout(() => {
+         const renderContainer = document.querySelector(this.el);
+         const markup = this.data.map((item, index) => new CardCatalog(item, index).html());
+         renderContainer.innerHTML = markup.join("");
+
+         new CardFunctions(renderContainer).init();
+         new CardAddFavorite(renderContainer, this.data).init();
+         new CardAddBacket(renderContainer, this.data).init();
+      }, 500);
+   }
+
+   #getFragmentUrl() {
+      const matchLocation = window.location.href.match(/#([^#]*)(\?.*)?$/)[1];
+      let fragmentLocation = "";
+      matchLocation === "" ? (fragmentLocation = "/") : (fragmentLocation = matchLocation);
+      return fragmentLocation;
    }
 }
