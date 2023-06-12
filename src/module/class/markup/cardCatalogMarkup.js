@@ -51,17 +51,17 @@ export class CardCatalog {
             <span class="card__price-currency">$</span>
             <span class="card__price-value">${this.item.price.small}</span>
          </p>
-         <div class="card__size">
-            <p class="card__size-title">Размер</p>
-            <div class="card__size-select">
-               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="0" data-value="40" data-article="${this.item.code.small}" data-price="${this.item.price.small}" data-select="true" >40 мл</button>
-               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="1" data-value="100" data-article="${this.item.code.medium}" data-price="${this.item.price.medium}" data-select="false" >100 мл</button>
-               <button class="card__size-btn" type="button" data-id="${this.item.id}" data-index="2" data-value="200" data-article="${this.item.code.large}" data-price="${this.item.price.large}" data-select="false">200 мл</button>
+         <div class="changesize">
+            <p class="changesize__title">Размер</p>
+            <div class="changesize__select">
+               <button class="changesize__btn" type="button" data-id="${this.item.id}" data-index="0" data-value="40" data-article="${this.item.code.small}" data-price="${this.item.price.small}" data-select="true" >40 мл</button>
+               <button class="changesize__btn" type="button" data-id="${this.item.id}" data-index="1" data-value="100" data-article="${this.item.code.medium}" data-price="${this.item.price.medium}" data-select="false" >100 мл</button>
+               <button class="changesize__btn" type="button" data-id="${this.item.id}" data-index="2" data-value="200" data-article="${this.item.code.large}" data-price="${this.item.price.large}" data-select="false">200 мл</button>
             </div>
          </div>
       </main>
       <footer class="card__footer">
-         <a class="card__btn-more" href="/post/?id=${this.item.id}">Подробнее</a>
+         <a class="card__btn-more route" href="#/post">Подробнее</a>
          <div class="card__btn-count" data-type="count" data-value="1">
             <button class="card__btn-minus" data-type="minus"></button>
             <p class="card__count-value">1</p>

@@ -9,14 +9,14 @@ export class CardFunctions {
    }
 
    #changeSize() {
-      const changeContainer = this.#getNodeList(".card__size-select");
+      const changeContainer = this.#getNodeList(".changesize__select");
       changeContainer.forEach((element) => {
-         const selectSizeElement = element.querySelectorAll(".card__size-btn");
+         const selectSizeElement = element.querySelectorAll(".changesize__btn");
          element.addEventListener("click", (event) => {
             const { id, value, price, select, article } = event.target.dataset;
             const currentCard = this.#getSingletNode(`.card[data-id="${id}"] .card__article-size`);
 
-            if (event.target.className === "card__size-btn") {
+            if (event.target.className === "changesize__btn") {
                const dataSize = {
                   card: id,
                   size: value,
