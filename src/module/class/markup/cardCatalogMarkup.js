@@ -62,10 +62,10 @@ export class CardCatalog {
       </main>
       <footer class="card__footer">
          <a class="card__btn-more route" href="#/post">Подробнее</a>
-         <div class="card__btn-count" data-type="count" data-value="1">
-            <button class="card__btn-minus" data-type="minus"></button>
-            <p class="card__count-value">1</p>
-            <button class="card__btn-plus" data-type="plus"></button>
+         <div class="btncount" data-type="count" data-value="1">
+            <button class="btncount__minus" data-type="minus"></button>
+            <p class="btncount__value">1</p>
+            <button class="btncount__plus" data-type="plus"></button>
          </div>
          <button class="card__btn-add" data-type="add" data-id="${this.item.id}">
             <svg class="card__btn-add-icon">

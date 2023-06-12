@@ -46,12 +46,12 @@ export class CardFunctions {
    }
 
    #chageCountCard() {
-      const btnCount = this.#getNodeList(".card__btn-count[data-type='count']");
+      const btnCount = this.#getNodeList(".btncount[data-type='count']");
 
       btnCount.forEach((element) => {
          element.addEventListener("click", (event) => {
             let dataValueCountChange = event.currentTarget.getAttribute("data-value");
-            const cardcountValue = this.#getCustomSingleNode(event.currentTarget, ".card__count-value");
+            const cardcountValue = this.#getCustomSingleNode(event.currentTarget, ".btncount__value");
 
             if (event.target.dataset.type === "plus") {
                dataValueCountChange++;
