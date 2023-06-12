@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
    new Backet().init();
    new Favorite().init();
    new GenerateCatalog("#popular-catalog", data).init("/");
-   new Slider(".slider-wrapper").init("/");
+   new Slider().init("/");
 
    // new Tabs(".tabs", ".tab-content");
 });
