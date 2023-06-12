@@ -62,9 +62,13 @@ export class Slider {
    }
 
    #getFragmentUrl() {
-      const matchLocation = window.location.href.match(/#([^#]*)(\?.*)?$/)[1];
+      const matchLocation = window.location.href.match(/#([^#]*)(\?.*)?$/);
       let fragmentLocation = "";
-      matchLocation === "" ? (fragmentLocation = "/") : (fragmentLocation = matchLocation);
+      if (matchLocation === null) {
+         fragmentLocation = "/";
+      } else {
+         matchLocation[1] === "" ? (fragmentLocation = "/") : (fragmentLocation = matchLocation[1]);
+      }
       return fragmentLocation;
    }
 
