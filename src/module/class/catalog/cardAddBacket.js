@@ -22,11 +22,11 @@ export class CardAddBacket {
    #getDataCard(eventData) {
       const { id } = eventData.currentTarget.dataset;
       const { title, hero } = this.data.find((dataElement) => dataElement.id == id);
-      const currentCard = this.#getSingletNode(`.card[data-id="${id}"]`);
-      const currentPrice = this.#getCustomSingleNode(currentCard, ".card__price");
-      const currentSize = this.#getCustomSingleNode(currentCard, ".card__size-btn[data-select='true']");
-      const currentCount = this.#getCustomSingleNode(currentCard, ".card__btn-count[data-type='count']");
-      const currentArticle = this.#getCustomSingleNode(currentCard, ".card__article-size[data-type='article']");
+      const currentCard = document.querySelector(`.card[data-id="${id}"]`);
+      const currentPrice = currentCard.querySelector(".price");
+      const currentSize = currentCard.querySelector(".changesize__btn[data-select='true']");
+      const currentCount = currentCard.querySelector(".btncount[data-type='count']");
+      const currentArticle = currentCard.querySelector(".card__article-size[data-type='article']");
 
       return {
          id: String(id),
@@ -38,19 +38,7 @@ export class CardAddBacket {
          img: String(hero),
       };
    }
-
-   #getCustomSingleNode(customParent, selectorNode) {
-      return customParent.querySelector(selectorNode);
-   }
-
-   #getSingletNode(selectorNode) {
-      return document.querySelector(selectorNode);
-   }
-
-   #getHtmlColletcion(selectorNode) {
-      return document.getElementsByClassName(selectorNode);
-   }
-
+   
    #setStorageData(storageKey, dataStorage = []) {
       return localStorage.setItem(storageKey, JSON.stringify(dataStorage));
    }
@@ -95,7 +83,7 @@ export class CardAddBacket {
    #setBacketCard() {
       const backet = new Backet();
       const arrBacketElements = [];
-      const cardAddBacket = this.#getHtmlColletcion("card__btn-add");
+      const cardAddBacket = document.getElementsByClassName("card__btn-add");
       const cardArr = [...cardAddBacket];
 
       if (this.#isStorageExist()) {
