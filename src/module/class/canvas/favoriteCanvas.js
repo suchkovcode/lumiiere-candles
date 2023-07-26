@@ -44,13 +44,13 @@ export class Favorite {
       const storageDataLenght = this.#isStorageExist(Favorite.nameStorageItemsFavorite)
          ? this.#getStorageData(Favorite.nameStorageItemsFavorite).length
          : "0";
-      const countBacketNumber = this.#getSingletNode(".header__icon-count[data-type='favorite']");
+      const countBacketNumber = document.querySelector(".header__icon-count[data-type='favorite']");
       countBacketNumber.textContent = storageDataLenght;
    };
 
    #removeItemBacket = async () => {
-      const emptyContainer = this.#getSingletNode(".favorite__empty");
-      const listContainer = this.#getSingletNode(".favorite__list");
+      const emptyContainer = document.querySelector(".favorite__empty");
+      const listContainer = document.querySelector(".favorite__list");
 
       if (this.#isStorageExist(Favorite.nameStorageItemsFavorite)) {
          const allFavoriteItem = this.favorite.getElementsByClassName("favorite__list-remove");
@@ -80,8 +80,8 @@ export class Favorite {
    };
 
    #emptyChangeDataCard() {
-      const emptyContainer = this.#getSingletNode(".favorite__empty");
-      const productContainer = this.#getSingletNode(".favorite__list");
+      const emptyContainer = document.querySelector(".favorite__empty");
+      const productContainer = document.querySelector(".favorite__list");
 
       if (this.#isStorageExist(Favorite.nameStorageItemsFavorite)) {
          emptyContainer.classList.add("hidden");
@@ -99,10 +99,6 @@ export class Favorite {
 
    #setStorageData(storageKey, dataStorage = []) {
       return localStorage.setItem(storageKey, JSON.stringify(dataStorage));
-   }
-
-   #getSingletNode(selectorNode) {
-      return document.querySelector(selectorNode);
    }
 
    #isStorageExist(storageKey) {
