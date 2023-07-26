@@ -9,12 +9,12 @@ export class CardFunctions {
    }
 
    #changeSize() {
-      const changeContainer = this.#getNodeList(".changesize__select");
+      const changeContainer = this.el.querySelectorAll(".changesize__select");
       changeContainer.forEach((element) => {
          const selectSizeElement = element.querySelectorAll(".changesize__btn");
          element.addEventListener("click", (event) => {
             const { id, value, price, select, article } = event.target.dataset;
-            const currentCard = this.#getSingletNode(`.card[data-id="${id}"] .card__article-size`);
+            const currentCard = this.el.querySelector(`.card[data-id="${id}"] .card__article-size`);
 
             if (event.target.className === "changesize__btn") {
                const dataSize = {
@@ -39,19 +39,19 @@ export class CardFunctions {
    }
 
    #chagePrice(dataSize) {
-      const currentValue = this.#getSingletNode(`.card[data-id='${dataSize.card}'] .price`);
-      const currentPrice = this.#getSingletNode(`.card[data-id='${dataSize.card}'] .price__value`);
+      const currentValue = this.el.querySelector(`.card[data-id='${dataSize.card}'] .price`);
+      const currentPrice = this.el.querySelector(`.card[data-id='${dataSize.card}'] .price__value`);
       currentValue.dataset.value = dataSize.price;
       currentPrice.textContent = dataSize.price;
    }
 
    #chageCountCard() {
-      const btnCount = this.#getNodeList(".btncount[data-type='count']");
+      const btnCount = this.el.querySelectorAll(".btncount[data-type='count']");
 
       btnCount.forEach((element) => {
          element.addEventListener("click", (event) => {
             let dataValueCountChange = event.currentTarget.getAttribute("data-value");
-            const cardcountValue = this.#getCustomSingleNode(event.currentTarget, ".btncount__value");
+            const cardcountValue = event.currentTarget.querySelector(".btncount__value");
 
             if (event.target.dataset.type === "plus") {
                dataValueCountChange++;
@@ -69,17 +69,5 @@ export class CardFunctions {
             }
          });
       });
-   }
-
-   #getCustomSingleNode(customParent, selectorNode) {
-      return customParent.querySelector(selectorNode);
-   }
-
-   #getSingletNode(selectorNode) {
-      return this.el.querySelector(selectorNode);
-   }
-
-   #getNodeList(selectorNode) {
-      return this.el.querySelectorAll(selectorNode);
    }
 }
