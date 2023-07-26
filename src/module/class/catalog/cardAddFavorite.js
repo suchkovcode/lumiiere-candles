@@ -13,7 +13,7 @@ export class CardAddFavorite {
    }
 
    addFavoriteItem(idItem, arrFavorite) {
-      const currentItem = this.#getSingletNode(`.card__favorite[data-id="${idItem}"]`);
+      const currentItem = document.querySelector(`.card__favorite[data-id="${idItem}"]`);
       const { title, hero, code, price } = this._data.find((dataElement) => dataElement.id == idItem);
       const existElement = arrFavorite.find((item) => item.id == idItem) !== undefined;
 
@@ -33,7 +33,7 @@ export class CardAddFavorite {
    }
 
    removeFavoriteItem(idItem, arrFavorite) {
-      const currentItem = this.#getSingletNode(`.card__favorite[data-id="${idItem}"]`);
+      const currentItem = document.querySelector(`.card__favorite[data-id="${idItem}"]`);
       const indexElement = arrFavorite.findIndex((item) => item.id == idItem);
       currentItem.dataset.select = false;
       arrFavorite.splice(indexElement, 1);
@@ -44,7 +44,7 @@ export class CardAddFavorite {
    #selectFavorite() {
       const favorite = new Favorite();
       const arrFavoriteElements = [];
-      const cardFavorite = this.#getNodeList(".card__favorite[data-type='favorite']");
+      const cardFavorite = document.querySelectorAll(".card__favorite[data-type='favorite']");
       const isExist = this.#isStorageExist(CardAddFavorite.nameStorageItemsFavorite);
 
       if (isExist) {
@@ -65,14 +65,6 @@ export class CardAddFavorite {
       });
    }
 
-   #getSingletNode(selectorNode) {
-      return document.querySelector(selectorNode);
-   }
-
-   #getNodeList(selectorNode) {
-      return document.querySelectorAll(selectorNode);
-   }
-
    #getStorageData(storageKey) {
       const isNull = this.#isStorageExist(storageKey);
       return isNull ? JSON.parse(localStorage.getItem(storageKey)) : false;
@@ -87,7 +79,7 @@ export class CardAddFavorite {
 
       if (dataStorage !== false) {
          dataStorage.map((item) => {
-            const currentElement = this.#getSingletNode(`.card__favorite[data-id="${item.id}"]`);
+            const currentElement = document.querySelector(`.card__favorite[data-id="${item.id}"]`);
 
             currentElement.dataset.select = true;
             pushArr.push({
