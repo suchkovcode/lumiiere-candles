@@ -62,7 +62,7 @@ export class Router {
       if (this.routes[location] === "/404") window.history.replaceState({}, "", "/404");
       const html = await fetch(route.template).then((response) => response.text());
       const renderHtml = this.#localStorage(location, html);
-      this.#render(html);
+      this.#render(renderHtml);
       this.#chageMeta(route.meta.title, route.meta.description, window.location);
    };
 
