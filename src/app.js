@@ -1,14 +1,14 @@
-import "Root/layouts/index.html";
-import "Root/pages/404.html";
-import "Root/pages/home.html";
-import "Root/pages/about.html";
-import "Root/pages/care.html";
-import "Root/pages/faq.html";
-import "Root/pages/partners.html";
-import "Root/pages/oferta.html";
-import "Root/pages/delivery.html";
-import "Root/pages/catalog.html";
-import "Root/pages/post.html";
+import { createApp } from "vue";
+import { createPinia } from 'pinia'
+import App from "./layouts/app.vue";
+import components from "@/components/index";
+import router from "@/router/router";
 
-import "Root/app.scss";
-import "Root/module/scripts";
+const app = createApp(App);
+const pinia = createPinia();
+
+components.forEach((component) => {
+   app.component(component.name, component);
+});
+
+app.use(router).use(pinia).mount("#root");

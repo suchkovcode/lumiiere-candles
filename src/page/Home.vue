@@ -1,0 +1,1523 @@
+<template>
+   <section class="hero">
+      <div class="container">
+         <div class="hero__content">
+            <img class="hero__icon" src="@/assets/img/svg/hero__icon.svg" alt="Иконка" width="210" height="60" />
+            <h1 class="title upercase hero__title">
+               <span class="hero__title-1">СОЕВЫЕ</span>
+               <span class="hero__title-2">свечи</span>
+               <span class="hero__title-3">
+                  ручной
+                  <br />
+                  работы
+               </span>
+            </h1>
+            <p class="subtitle hero__subtitle">Свечи, которые действительно пахнут!</p>
+            <a href="/" class="btn btn--hero hero__btn"> хочу </a>
+         </div>
+         <img class="hero__bg" src="@/assets/img/webp/home__hero-1.webp" alt="Главная картинка" width="340" height="800" />
+      </div>
+      <svg class="hero__wave-1" width="11700" height="90">
+         <use xlink:href="@/assets/img/svg/sprite.svg#wave-1"></use>
+      </svg>
+      <svg class="hero__wave-2" width="11700" height="90">
+         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+      </svg>
+   </section>
+   <section class="products">
+      <div class="container">
+         <div class="products__bullet">
+            <div class="products__bullet-item">
+               <div class="products__bullet-icon">
+                  <svg class="products__bullet-icon-svg">
+                     <use xlink:href="@/assets/img/svg/sprite.svg#homeProductIcon-1"></use>
+                  </svg>
+               </div>
+               <p class="products__bullet-title upercase">
+                  Свечи, которые
+                  <br />
+                  действительно пахнут
+               </p>
+            </div>
+            <div class="products__bullet-item">
+               <div class="products__bullet-icon">
+                  <svg class="products__bullet-icon-svg">
+                     <use xlink:href="@/assets/img/svg/sprite.svg#homeProductIcon-2"></use>
+                  </svg>
+               </div>
+               <p class="products__bullet-title upercase">
+                  Экологически чистый
+                  <br />
+                  соевый воск
+               </p>
+            </div>
+            <div class="products__bullet-item">
+               <div class="products__bullet-icon">
+                  <svg class="products__bullet-icon-svg">
+                     <use xlink:href="@/assets/img/svg/sprite.svg#homeProductIcon-3"></use>
+                  </svg>
+               </div>
+               <p class="products__bullet-title upercase">
+                  Безопасные аромамасла
+                  <br />
+                  с сертификатом IFRA
+               </p>
+            </div>
+         </div>
+         <div class="products__card">
+            <router-link class="products__card-item products__card-item-1" to="/catalog">
+               <div class="products__card-header">
+                  <h2 class="products__card-title">Органические свечи</h2>
+                  <p class="subtitle products__card-subtitle">Свечи с ароматными сюжетами!</p>
+               </div>
+               <img
+                  class="products__card-img transition"
+                  src="@/assets/img/webp/products__card-1.webp"
+                  loading="lazy"
+                  alt="Картинка 1"
+                  width="300"
+                  height="450" />
+               <svg class="products__card-icon-link">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
+               </svg>
+            </router-link>
+            <router-link class="products__card-item products__card-item-2" to="/catalog">
+               <div class="products__card-header">
+                  <h2 class="products__card-title">Спички</h2>
+                  <p class="subtitle products__card-subtitle">Зажигай, чтоб горело ясно</p>
+               </div>
+               <img
+                  class="products__card-img transition"
+                  src="@/assets/img/webp/products__card-2.webp"
+                  loading="lazy"
+                  alt="Картинка 2"
+                  width="300"
+                  height="450" />
+               <svg class="products__card-icon-link">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
+               </svg>
+            </router-link>
+            <router-link class="products__card-item products__card-item-3" to="/catalog">
+               <div class="products__card-header">
+                  <h2 class="products__card-title">Открытки</h2>
+                  <p class="subtitle products__card-subtitle">Для самых любимых!</p>
+               </div>
+               <img
+                  class="products__card-img transition"
+                  src="@/assets/img/webp/products__card-3.webp"
+                  loading="lazy"
+                  alt="Картинка 3"
+                  width="300"
+                  height="450" />
+               <svg class="products__card-icon-link">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
+               </svg>
+            </router-link>
+            <router-link class="products__card-item products__card-item-4" to="/catalog">
+               <div class="products__card-header">
+                  <h2 class="products__card-title">Наборы</h2>
+                  <p class="subtitle products__card-subtitle">
+                     Всего, да побольше, для тех,
+                     <br />
+                     кто не смог определиться.
+                  </p>
+               </div>
+               <img
+                  class="products__card-img transition"
+                  src="@/assets/img/webp/products__card-4.webp"
+                  loading="lazy"
+                  alt="Картинка 4"
+                  width="300"
+                  height="450" />
+               <svg class="products__card-icon-link">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
+               </svg>
+            </router-link>
+            <div class="products__card-item products__card-item-5" href="/">
+               <div class="products__card-header">
+                  <h2 class="products__card-title">
+                     СОБЕРИ СВОЮ
+                     <br />
+                     КОЛЛЕКЦИЮ
+                  </h2>
+               </div>
+               <svg class="products__card-icon-1">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardIcon-1"></use>
+               </svg>
+               <svg class="products__card-icon-2">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardIcon-2"></use>
+               </svg>
+               <svg class="products__card-icon-3">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardIcon-3"></use>
+               </svg>
+               <ul class="products__card-nav">
+                  <li class="products__card-nav-item">
+                     <router-link to="/catalog" class="products__card-nav-link transition"> Гарри Поттер </router-link>
+                  </li>
+                  <li class="products__card-nav-item">
+                     <router-link to="/catalog" class="products__card-nav-link transition"> Аниме </router-link>
+                  </li>
+                  <li class="products__card-nav-item">
+                     <router-link to="/catalog" class="products__card-nav-link transition"> Сериалы </router-link>
+                  </li>
+                  <li class="products__card-nav-item">
+                     <router-link to="/catalog" class="products__card-nav-link transition"> Фильмы </router-link>
+                  </li>
+                  <li class="products__card-nav-item">
+                     <router-link to="/catalog" class="products__card-nav-link transition"> Игры </router-link>
+                  </li>
+                  <li class="products__card-nav-item">
+                     <router-link to="/catalog" class="products__card-nav-link transition"> Без персонажей </router-link>
+                  </li>
+               </ul>
+               <img
+                  class="products__card-img transition"
+                  src="@/assets/img/webp/products__card-5.webp"
+                  loading="lazy"
+                  alt="Картинка 4"
+                  width="300"
+                  height="450" />
+            </div>
+         </div>
+      </div>
+      <svg class="hero__wave-2 hero__wave-2--white" width="11700" height="90">
+         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+      </svg>
+   </section>
+   <section class="slider">
+      <div class="container">
+         <div class="slider-wrapper">
+            <div class="slider-item" :class="{ active: currentSlider === 1 }">
+               <div class="slider-item__img-box">
+                  <div class="slider-item__bullet">
+                     <svg class="slider-item__bullet-icon">
+                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletIcon"></use>
+                     </svg>
+                     <svg class="slider-item__bullet-text">
+                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletText"></use>
+                     </svg>
+                  </div>
+                  <img
+                     class="slider-item__hero"
+                     src="@/assets/img/webp/slider__img-1.webp"
+                     loading="lazy"
+                     alt="picture"
+                     width="300"
+                     height="300" />
+               </div>
+               <div class="slider-item__content-box">
+                  <div class="slider-item__header">
+                     <svg class="slider-item__icon-1">
+                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-1"></use>
+                     </svg>
+                     <h2 class="title slider-item__title">
+                        Свеча месяца
+                        <svg class="slider-item__icon-2">
+                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-2"></use>
+                        </svg>
+                     </h2>
+                     <p class="slider-item__subtitle">
+                        Беспрецедентная акция, которую мы проводим каждый месяц! Свеча по самой классной цене :)
+                     </p>
+                  </div>
+                  <div class="slider-item__footer">
+                     <p class="slider-item__description">
+                        В этом месяце свече "пятый" не терпится вас согреть и окутать ароматом спелой черной вишни!
+                     </p>
+                     <div class="slider-item__btn-box">
+                        <a class="btn btn--slider slider-item__btn" href="/"> хочу свечу </a>
+                        <div class="slider-item__price">
+                           <p class="slider-item__price-new">$15</p>
+                           <p class="slider-item__price-old"><del>$20</del></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="slider-item" :class="{ active: currentSlider === 2 }">
+               <div class="slider-item__img-box">
+                  <div class="slider-item__bullet">
+                     <svg
+                        class="slider-item__bullet-icon"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1227_204)">
+                           <path
+                              opacity="0.9"
+                              d="M8.80905 36.3026L2.81114 46.9015C1.72962 48.8127 1.72962 51.1875 2.81114 53.0986L8.80905 63.6976C8.89899 63.8564 8.95421 64.0341 8.9708 64.2179L10.0805 76.4764C10.2804 78.6868 11.6163 80.6081 13.5664 81.49L24.3808 86.3808C24.5428 86.4541 24.6875 86.5639 24.8043 86.7023L32.5975 95.9383C34.0028 97.6037 36.1643 98.3375 38.2379 97.8533L49.7381 95.1679C49.9105 95.1276 50.0892 95.1276 50.2616 95.1679L61.7618 97.8533C63.8354 98.3375 65.9969 97.6037 67.4022 95.9383L75.1954 86.7023C75.3122 86.5639 75.4569 86.4541 75.619 86.3808L86.4334 81.49C88.3834 80.6081 89.7192 78.6868 89.9193 76.4764L91.0289 64.2179C91.0455 64.0341 91.1008 63.8564 91.1906 63.6976L97.1889 53.0986C98.2704 51.1875 98.2704 48.8127 97.1889 46.9015L91.1906 36.3026C91.1008 36.1437 91.0455 35.9661 91.0289 35.7823L89.9193 23.5237C89.7192 21.3133 88.3834 19.392 86.4334 18.5101L75.619 13.6193C75.4569 13.546 75.3122 13.4363 75.1954 13.2977L67.4022 4.06181C65.9969 2.39643 63.8354 1.66236 61.7618 2.14679L50.2616 4.83225C50.0892 4.87251 49.9105 4.87251 49.7381 4.83225L38.2379 2.14679C36.1643 1.66236 34.0028 2.39643 32.5975 4.06181L24.8043 13.2977C24.6875 13.4363 24.5428 13.546 24.3808 13.6193L13.5664 18.5101C11.6163 19.392 10.2804 21.3133 10.0805 23.5238L8.9708 35.7823C8.95421 35.9661 8.89899 36.1437 8.80905 36.3026Z"
+                              fill="url(#paint0_linear_1227_204)"
+                              stroke="white"
+                              stroke-width="4" />
+                        </g>
+                        <defs>
+                           <linearGradient id="paint0_linear_1227_204" x1="2" y1="50" x2="98" y2="50" gradientUnits="userSpaceOnUse">
+                              <stop offset="0.0254031" stop-color="#AA7738" />
+                              <stop offset="0.0255031" stop-color="#F4E089" />
+                              <stop offset="1" stop-color="#B47D3B" />
+                           </linearGradient>
+                           <clipPath id="clip0_1227_204">
+                              <rect width="100" height="100" fill="white" />
+                           </clipPath>
+                        </defs>
+                     </svg>
+                     <svg class="slider-item__bullet-text slider-item__bullet-text--ticket">
+                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletIcon-1"></use>
+                     </svg>
+                  </div>
+                  <img
+                     class="slider-item__hero"
+                     src="@/assets/img/webp/slider__img-2.webp"
+                     loading="lazy"
+                     alt="picture"
+                     width="300"
+                     height="300" />
+               </div>
+               <div class="slider-item__content-box">
+                  <div class="slider-item__header">
+                     <img
+                        class="slider-item__icon"
+                        src="@/assets/img/webp/slider__icon-2.webp"
+                        loading="lazy"
+                        alt="picture"
+                        width="100"
+                        height="20" />
+                     <h2 class="title slider-item__title">Золотой билет</h2>
+                     <p class="slider-item__subtitle">Переместись в мир сказок и шоколадных свечей, найди золотой билет в своём заказе!</p>
+                  </div>
+                  <div class="slider-item__footer">
+                     <p class="slider-item__label">GOLDENTICKET</p>
+                     <p class="slider-item__description">
+                        Используй промокод goldenticket при заказе от 2х тысяч и получи шанс выиграть крутой приз!
+                     </p>
+                     <a class="btn btn--slider slider-item__btn" href="/"> Подробнее </a>
+                  </div>
+               </div>
+            </div>
+            <div class="slider-item" :class="{ active: currentSlider === 3 }">
+               <div class="slider-item__img-box">
+                  <img
+                     class="slider-item__hero"
+                     src="@/assets/img/webp/slider__img-3.webp"
+                     loading="lazy"
+                     alt="picture"
+                     width="300"
+                     height="300" />
+               </div>
+               <div class="slider-item__content-box">
+                  <div class="slider-item__header">
+                     <svg class="slider-item__icon-1">
+                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-1"></use>
+                     </svg>
+                     <h2 class="title slider-item__title slider-item__title--slider-3">
+                        Скидка за отзыв
+                        <svg class="slider-item__icon-2 slider-item__icon-2--slider-3">
+                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-2"></use>
+                        </svg>
+                     </h2>
+                     <p class="slider-item__subtitle">
+                        Оставь отзыв под купленным товаром и свяжись со мной любым удобным способом указанным в контактах, чтобы получить
+                        промокод* на скидку 5%, булочка
+                     </p>
+                  </div>
+                  <div class="slider-item__footer">
+                     <div class="slider-item__btn-box">
+                        <a class="btn btn--slider slider-item__btn" href="/"> Оставить отзыв </a>
+                     </div>
+                     <p class="slider-item__description">*Действует 2 месяца с момента получения</p>
+                  </div>
+               </div>
+            </div>
+            <div class="slider-dots">
+               <span
+                  class="slider-dots__item"
+                  v-for="n in countClider"
+                  :key="n"
+                  :class="{ active: currentSlider === n }"
+                  @click="resetTimer(n)"></span>
+            </div>
+         </div>
+      </div>
+      <svg class="hero__wave-2 hero__wave-2--wave-1" width="11700" height="90">
+         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+      </svg>
+   </section>
+   <section class="catalog">
+      <div class="container">
+         <header class="catalog__header">
+            <img class="catalog__icon" src="@/assets/img/svg/home__catalog-icon.svg" loading="lazy" alt="Иконка" width="120" height="40" />
+            <h2 class="title catalog__title">Популярные товары</h2>
+            <p class="subtitle catalog__subtitle">Свечи, которые действительно пахнут!</p>
+            <router-link class="btn btn--catalog catalog__btn" to="/catalog"> Все товары </router-link>
+         </header>
+         <MyCatalog :dataItem="renderLimitProductCatalog" />
+         <button v-if="countProductCatalog < 16" class="catalog__btn-loading" @click="countProductCatalog += 4">Загрузить еще</button>
+      </div>
+      <svg class="hero__wave-2 hero__wave-2--white hero__wave-2--wave-1" width="11700" height="90">
+         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+      </svg>
+   </section>
+   <section class="subscribe">
+      <div class="container">
+         <BlockFallow />
+      </div>
+      <svg class="hero__wave-2" width="11700" height="90">
+         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+      </svg>
+   </section>
+</template>
+
+<script>
+import { mapState } from "pinia";
+import { useAppStore } from "@/store/appStore";
+
+export default {
+   name: "PageHome",
+
+   data() {
+      return {
+         countClider: 3,
+         currentSlider: 1,
+         timerData: null,
+         countProductCatalog: 8,
+      };
+   },
+
+   mounted() {
+      this.launchTimer();
+   },
+
+   methods: {
+      launchTimer() {
+         this.timerData = setInterval(() => {
+            this.currentSlider++;
+            this.currentSlider === 4 ? (this.currentSlider = 1) : this.currentSlider;
+         }, 5000);
+      },
+
+      resetTimer(number) {
+         this.currentSlider = number;
+         clearInterval(this.timerData);
+         this.launchTimer();
+      },
+   },
+
+   computed: {
+      ...mapState(useAppStore, ["products"]),
+
+      renderLimitProductCatalog() {
+         return this.products.slice(0, this.countProductCatalog);
+      },
+   },
+};
+</script>
+
+<style lang="scss" scoped>
+.hero {
+   overflow: hidden;
+   position: relative;
+   height: 750px;
+   padding: 20px;
+
+   &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 68%;
+
+      @include sm {
+         object-position: 73%;
+      }
+
+      @include md {
+         object-position: 55%;
+      }
+   }
+
+   &__icon {
+      position: absolute;
+      top: -50px;
+      left: calc(50% - 105px);
+      z-index: 10;
+      display: block;
+      width: 210px;
+      height: 100px;
+      margin: 0 auto;
+      fill: none;
+
+      @include sm {
+         top: -30px;
+      }
+
+      @include md {
+         left: 20px;
+      }
+   }
+
+   &__content {
+      position: relative;
+      margin-top: 200px;
+
+      @include sm {
+         margin-top: 250px;
+      }
+
+      @include lg {
+         margin-top: 300px;
+      }
+   }
+
+   &__title {
+      position: relative;
+      display: grid;
+      grid-template-areas:
+         "title_1 title_1"
+         "title_2 title_3";
+      max-width: 300px;
+      margin: 0 auto 30px auto;
+      text-align: center;
+
+      &-1 {
+         grid-area: title_1;
+         font-size: 70px;
+
+         @include sm {
+            font-size: 120px;
+         }
+
+         @include lg {
+            font-size: 130px;
+         }
+
+         @include xxxl {
+            font-size: 140px;
+         }
+      }
+
+      &-2 {
+         grid-area: title_2;
+         font-size: 55px;
+
+         @include sm {
+            font-size: 85px;
+         }
+
+         @include lg {
+            font-size: 95px;
+         }
+
+         @include xxxl {
+            font-size: 105px;
+         }
+      }
+
+      &-3 {
+         align-self: center;
+         grid-area: title_3;
+         font-size: 24px;
+
+         @include sm {
+            font-size: 34px;
+         }
+
+         @include lg {
+            font-size: 38px;
+         }
+
+         @include xxxl {
+            font-size: 42px;
+         }
+      }
+
+      @include sm {
+         max-width: 400px;
+      }
+
+      @include md {
+         margin: 0 0 30px 0;
+      }
+
+      @include lg {
+         max-width: 330px;
+      }
+   }
+
+   &__subtitle {
+      position: relative;
+      margin-bottom: 50px;
+   }
+
+   &__btn {
+      margin: 0 auto;
+
+      @include md {
+         margin: 0;
+      }
+   }
+
+   &__wave-1 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 15;
+      display: block;
+      fill: none;
+      color: #f7f7f6;
+      object-fit: cover;
+      animation: wave-1 70s linear infinite;
+
+      @include lg {
+         animation: wave-1 90s linear infinite;
+      }
+   }
+
+   &__wave-2 {
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      color: #f7f7f6;
+      animation: wave-2 80s linear infinite;
+
+      &--white {
+         color: #fff;
+      }
+
+      &--wave-1 {
+         right: 0;
+         left: initial;
+         animation: wave-1 80s linear infinite;
+      }
+
+      @include lg {
+         animation: wave-2 100s linear infinite;
+
+         &--wave-1 {
+            right: 0;
+            animation: wave-1 80s linear infinite;
+         }
+      }
+   }
+
+   @include sm {
+      height: 900px;
+      margin-top: -105px;
+   }
+
+   @include md {
+      padding: 30px;
+   }
+
+   @include lg {
+      height: 1000px;
+      margin-top: -115px;
+   }
+
+   @include xxl {
+      height: 100vh;
+      min-height: 1050px;
+      margin-top: -125px;
+   }
+}
+
+.products {
+   position: relative;
+   padding: 60px 20px;
+   background-color: var(--color_bg_grey);
+
+   &__bullet {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 50px;
+
+      &-item {
+         display: flex;
+         flex-flow: column;
+         align-items: center;
+         gap: 15px;
+
+         @include lg {
+            flex-flow: row;
+            gap: 30px;
+         }
+      }
+
+      &-icon {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 80px;
+         height: 80px;
+         border-radius: 50px;
+         background-color: var(--color_base);
+
+         &-svg {
+            width: 30px;
+            height: 30px;
+            fill: none;
+         }
+      }
+
+      &-title {
+         font: 400 12px/1.5 "AvenirNextCyr";
+         text-align: center;
+         color: var(--color_secondary);
+         opacity: 0.9;
+
+         @include lg {
+            text-align: left;
+         }
+
+         @include lg {
+            font: 400 14px/1.5 "AvenirNextCyr";
+         }
+
+         @include lg {
+            font: 400 16px/1.5 "AvenirNextCyr";
+         }
+      }
+
+      @include sm {
+         flex-flow: row;
+      }
+
+      @include xl {
+         justify-content: space-between;
+         gap: 50px;
+         margin-bottom: 80px;
+      }
+   }
+
+   &__card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      &-img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: 0;
+         width: 100%;
+         height: 100%;
+         border-radius: 24px;
+         object-fit: cover;
+         object-position: bottom;
+      }
+
+      &-item {
+         overflow: hidden;
+         position: relative;
+         display: block;
+         width: 100%;
+         height: 250px;
+         padding: 30px 20px;
+         border-radius: 24px;
+
+         &-1 {
+            height: 450px;
+
+            @include sm {
+               grid-area: item_1;
+               height: 400px;
+            }
+
+            @include lg {
+               height: 100%;
+            }
+         }
+
+         &-2 {
+            @include sm {
+               grid-area: item_2;
+               height: 275px;
+            }
+
+            @include xl {
+               height: 350px;
+            }
+         }
+
+         &-3 {
+            @include sm {
+               grid-area: item_3;
+               height: 275px;
+            }
+
+            @include xl {
+               height: 350px;
+            }
+         }
+
+         &-4 {
+            @include sm {
+               grid-area: item_4;
+               height: 275px;
+            }
+
+            @include xl {
+               height: 300px;
+            }
+         }
+
+         &-5 {
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            height: 440px;
+
+            @include sm {
+               grid-area: item_5;
+               height: 400px;
+            }
+
+            @include md {
+               align-items: flex-start;
+               /* stylelint-disable-next-line declaration-no-important */
+               padding: 30px 120px !important;
+            }
+
+            @include lg {
+               display: grid;
+               grid-template-columns: 0.6fr 1fr;
+               gap: 30px;
+               /* stylelint-disable-next-line declaration-no-important */
+               padding: 120px 80px 120px 240px !important;
+
+               .products__card-icon-1 {
+                  order: 3;
+                  margin-top: -50px;
+               }
+            }
+
+            @include xl {
+               grid-template-columns: 0.5fr 0.9fr;
+               gap: 0;
+               padding: 120px 80px 120px 280px !important;
+            }
+
+            @include xxl {
+               grid-template-columns: 0.4fr 0.7fr;
+               gap: 0;
+               padding: 120px 80px 120px 380px !important;
+            }
+         }
+
+         &:hover {
+            .products__card-img {
+               transform: scale(1.1);
+            }
+         }
+
+         @include md {
+            padding: 30px;
+         }
+      }
+
+      &-header {
+         position: relative;
+         z-index: 10;
+         display: flex;
+         flex-flow: column;
+         align-items: center;
+         gap: 15px;
+
+         .products__card-title {
+            font: 400 36px/1.3 "Karton";
+            text-align: center;
+            color: var(--color_base);
+
+            @include md {
+               text-align: left;
+            }
+
+            @include xl {
+               font: 400 40px/1.3 "Karton";
+            }
+         }
+
+         @include md {
+            align-items: flex-start;
+         }
+
+         @include xl {
+            width: fit-content;
+         }
+      }
+
+      &-nav {
+         position: relative;
+         z-index: 10;
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         gap: 10px;
+         width: 100%;
+
+         &-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            border: 1px dashed var(--color_base);
+            border-radius: 12px;
+            font: 500 14px/1.5 "AvenirNextCyr";
+            text-align: center;
+            color: var(--color_base);
+
+            &:hover {
+               color: var(--color_primary);
+               background-color: var(--color_base);
+            }
+
+            @include sm {
+               height: 65px;
+            }
+
+            @include lg {
+               height: 70px;
+            }
+         }
+
+         @include sm {
+            grid-template-columns: repeat(3, 1fr);
+         }
+      }
+
+      &-icon {
+         &-1 {
+            position: relative;
+            z-index: 10;
+            width: 110px;
+            height: 45px;
+            fill: none;
+
+            @include md {
+               width: 140px;
+               height: 60px;
+            }
+         }
+
+         &-2 {
+            position: absolute;
+            top: 120px;
+            left: -35px;
+            z-index: 10;
+            width: 80px;
+            height: 80px;
+            fill: none;
+            opacity: 0.6;
+            transform: rotate(-55deg);
+
+            @include md {
+               top: 50px;
+               right: 0;
+               left: auto;
+               width: 120px;
+               height: 120px;
+               transform: rotate(0deg);
+            }
+         }
+
+         &-3 {
+            position: absolute;
+            right: -10px;
+            bottom: -35px;
+            z-index: 10;
+            width: 80px;
+            height: 80px;
+            fill: none;
+            opacity: 0.6;
+            transform: rotate(95deg);
+
+            @include md {
+               bottom: 0;
+               transform: rotate(55deg);
+            }
+         }
+
+         &-link {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            fill: none;
+         }
+      }
+
+      @include sm {
+         grid-template-areas:
+            "item_1 item_1"
+            "item_2 item_3"
+            "item_4 item_4"
+            "item_5 item_5";
+         grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include lg {
+         grid-template-areas:
+            "item_1 item_2 item_3"
+            "item_1 item_4 item_4"
+            "item_5 item_5 item_5";
+         grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include xl {
+         grid-template-columns: 1.4fr 1fr 1fr;
+      }
+   }
+
+   @include md {
+      padding: 80px 30px;
+   }
+}
+
+.slider {
+   position: relative;
+   padding: 60px 20px 100px 20px;
+
+   &-wrapper {
+      position: relative;
+      height: 600px;
+
+      @include sm {
+         height: 650px;
+      }
+
+      @include md {
+         height: 600px;
+      }
+
+      @include lg {
+         height: 550px;
+      }
+   }
+
+   &-item {
+      display: none;
+
+      &__img-box {
+         display: none;
+
+         @include xl {
+            display: block;
+            height: 550px;
+         }
+      }
+
+      &__content-box {
+         position: relative;
+         display: flex;
+         flex-flow: column;
+         justify-content: space-between;
+         height: 600px;
+         padding: 30px 20px;
+         border: 2px dashed var(--color_border_slider);
+         border-radius: 22px;
+
+         @include sm {
+            height: 650px;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 50px 20px;
+         }
+
+         @include md {
+            height: 600px;
+            max-width: 580px;
+         }
+
+         @include lg {
+            width: 100%;
+            height: 550px;
+            max-width: 100%;
+            padding: 30px 50px;
+         }
+      }
+
+      &__header {
+         position: relative;
+         display: flex;
+         flex-flow: column;
+         justify-content: center;
+         gap: 20px;
+         max-width: 260px;
+         margin: 0 auto;
+
+         @include sm {
+            max-width: 380px;
+         }
+
+         @include md {
+            max-width: 460px;
+         }
+
+         @include lg {
+            margin: 0;
+         }
+
+         @include xl {
+            max-width: 540px;
+         }
+      }
+
+      &__footer {
+         display: flex;
+         flex-flow: column;
+         align-items: center;
+         gap: 15px;
+         max-width: 260px;
+         margin: 0 auto;
+
+         @include sm {
+            max-width: 380px;
+         }
+
+         @include lg {
+            align-items: flex-start;
+            margin: 0;
+         }
+      }
+
+      &__bullet {
+         &-icon {
+            width: 100px;
+            height: 100px;
+            fill: none;
+
+            @include xl {
+               position: absolute;
+               top: 0;
+               left: 0;
+               animation-name: bullet-icon;
+               animation-duration: 20s;
+               animation-timing-function: linear;
+               animation-iteration-count: infinite;
+            }
+         }
+
+         &-text {
+            width: 60px;
+            height: 25px;
+            fill: none;
+
+            @include xl {
+               position: absolute;
+               top: 35px;
+               left: 20px;
+
+               &--ticket {
+                  left: 15px;
+                  width: 70px;
+               }
+            }
+         }
+
+         @include xl {
+            position: absolute;
+            top: -25px;
+            left: -25px;
+         }
+      }
+
+      &__hero {
+         @include xl {
+            width: 100%;
+            height: 100%;
+            border-radius: 22px;
+            object-fit: cover;
+         }
+      }
+
+      &__icon-1 {
+         width: 30px;
+         height: 30px;
+         fill: none;
+
+         @include sm {
+            width: 45px;
+            height: 45px;
+         }
+      }
+
+      &__icon-2 {
+         position: absolute;
+         top: -25px;
+         right: 0;
+         width: 150px;
+         height: 100px;
+         fill: none;
+
+         &--slider-3 {
+            top: 15px;
+            right: 50%;
+            transform: translateX(50%);
+         }
+
+         @include sm {
+            top: -60px;
+            width: 220px;
+            height: 200px;
+
+            &--slider-3 {
+               top: 0;
+            }
+         }
+
+         @include md {
+            top: -90px;
+            right: 20px;
+            width: 240px;
+            height: 270px;
+
+            &--slider-3 {
+               top: -20px;
+               right: 230px;
+            }
+         }
+
+         @include lg {
+            right: 70px;
+
+            &--slider-3 {
+               top: -95px;
+               right: -35px;
+               transform: translateX(0);
+            }
+         }
+
+         @include xl {
+            right: 65px;
+
+            &--slider-3 {
+               top: -90px;
+               right: 5px;
+            }
+         }
+
+         @include xxl {
+            right: 130px;
+
+            &--slider-3 {
+               right: 5px;
+            }
+         }
+      }
+
+      &__title {
+         position: relative;
+         font-size: 30px;
+         letter-spacing: 3px;
+         color: var(--color_secandary);
+
+         @include sm {
+            font-size: 48px;
+         }
+
+         @include md {
+            font-size: 52px;
+            text-align: center;
+         }
+
+         @include lg {
+            text-align: left;
+         }
+      }
+
+      &__subtitle {
+         font: 500 16px/1.5 "AvenirNextCyr";
+         text-align: center;
+
+         @include md {
+            font: 500 18px/1.5 "AvenirNextCyr";
+         }
+
+         @include lg {
+            text-align: left;
+         }
+      }
+
+      &__description {
+         margin-bottom: 5px;
+         font: 400 16px/1.3 "AvenirNextCyr";
+         text-align: center;
+
+         @include lg {
+            text-align: left;
+         }
+      }
+
+      &__btn-box {
+         display: flex;
+         flex-flow: column;
+         align-items: center;
+         gap: 20px;
+
+         @include lg {
+            flex-flow: row;
+            gap: 50px;
+         }
+      }
+
+      &__price {
+         display: flex;
+         align-items: flex-end;
+         order: -1;
+         gap: 30px;
+
+         &-new {
+            font: 500 40px/1.5 "Karton";
+            color: var(--color_primary);
+         }
+
+         &-old {
+            font: 500 28px/1.5 "Karton";
+            text-decoration: line-through;
+            color: var(--color_border);
+         }
+
+         @include lg {
+            order: 0;
+         }
+      }
+
+      &__label {
+         margin-bottom: 15px;
+         padding: 15px 25px;
+         border-radius: 12px;
+         font: 600 18px/1.5 "AvenirNextCyr";
+         background-color: #f7f7f6;
+      }
+
+      &.active {
+         display: grid;
+      }
+
+      @include xl {
+         position: absolute;
+         top: 0;
+         left: 0;
+         display: none;
+         grid-template-columns: repeat(2, 1fr);
+         gap: 30px;
+         width: 100%;
+      }
+   }
+
+   &-dots {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      transform: translateX(-50%);
+
+      &__item {
+         cursor: pointer;
+         display: block;
+         width: 14px;
+         height: 14px;
+         border: 2px solid var(--color_border_slider);
+         border-radius: 50px;
+         background-color: transparent;
+         transition: all 0.2s ease-in-out;
+
+         &.active {
+            border-color: var(--color_primary);
+            background-color: var(--color_primary);
+         }
+      }
+   }
+
+   @include lg {
+      padding: 80px 30px 120px 30px;
+   }
+
+   @include xl {
+      padding: 100px 30px 120px 30px;
+   }
+
+   @include xxl {
+      padding: 120px 30px;
+   }
+}
+
+.catalog {
+   position: relative;
+   padding: 80px 0 60px 0;
+   background-color: var(--color_bg_grey);
+
+   &__header {
+      position: relative;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      gap: 15px;
+      max-width: 360px;
+      margin: 0 auto 50px auto;
+      padding: 0 20px;
+
+      @include md {
+         align-items: flex-start;
+         max-width: 100%;
+      }
+
+      @include lg {
+         display: grid;
+         grid-template-areas:
+            "title btn"
+            "subtitle btn";
+         grid-template-columns: 3fr 1fr;
+         padding: 0 30px;
+      }
+
+      @include xxl {
+         padding: 0;
+      }
+   }
+
+   &__icon {
+      position: absolute;
+      top: -30px;
+      left: calc(50% - 60px);
+
+      @include md {
+         left: 20px;
+         width: 140px;
+         height: 40px;
+      }
+   }
+
+   &__title {
+      letter-spacing: 2px;
+      color: var(--color_secondary);
+
+      @include md {
+         font-size: 48px;
+      }
+
+      @include lg {
+         grid-area: title;
+      }
+
+      @include xl {
+         font-size: 52px;
+      }
+   }
+
+   &__subtitle {
+      color: var(--color_secondary);
+      opacity: 0.8;
+
+      @include md {
+         text-align: left;
+      }
+
+      @include lg {
+         grid-area: subtitle;
+         font-size: 20px;
+      }
+   }
+
+   &__btn {
+      display: none;
+
+      @include lg {
+         display: flex;
+      }
+
+      @include lg {
+         justify-self: end;
+         align-self: center;
+         grid-area: btn;
+      }
+   }
+
+   &__btn-loading {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 45px;
+      margin: 0 auto;
+      padding: 0 30px;
+      border: 1px solid var(--color_primary);
+      border-radius: 55px;
+      font: 600 14px/1.3 "AvenirNextCyr";
+      color: var(--color_primary);
+      background-color: transparent;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+         color: var(--color_base);
+         background-color: var(--color_primary);
+      }
+   }
+
+   @include md {
+      padding: 100px 0 80px 0;
+   }
+
+   @include lg {
+      padding: 120px 0 100px 0;
+   }
+}
+
+.subscribe {
+   padding: 80px 20px 60px 20px;
+   background-color: var(--color_base);
+
+   @include md {
+      padding: 100px 20px 80px 20px;
+   }
+
+   @include lg {
+      padding: 100px 30px 100px 30px;
+   }
+}
+
+@include xl {
+   @keyframes bullet-icon {
+      0% {
+         transform: rotate(0deg);
+      }
+
+      100% {
+         transform: rotate(360deg);
+      }
+   }
+}
+
+@keyframes wave-1 {
+   0% {
+      transform: translateX(9500px);
+   }
+
+   100% {
+      transform: translateX(0);
+   }
+}
+
+@keyframes wave-2 {
+   0% {
+      transform: translateX(-9500px);
+   }
+
+   100% {
+      transform: translateX(0);
+   }
+}
+</style>

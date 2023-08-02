@@ -38,6 +38,7 @@ pnpm-debug.log*
 
 # Optional eslint cache
 .eslintcache
+.stylelintcache
 
 # dotenv environment variables file(s)
 .env
@@ -60,7 +61,7 @@ pnpm-debug.log*
 # *.sublime-project
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
