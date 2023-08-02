@@ -1,19 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAppStore } from "@/store/appStore";
 
-import Home from "@/page/Home.vue";
-import Catalog from "@/page/Catalog.vue";
-import Post from "@/page/Post.vue";
-import About from "@/page/About.vue";
-import Care from "@/page/Care.vue";
-import Faq from "@/page/Faq.vue";
-import Delivery from "@/page/Delivery.vue";
-import Partners from "@/page/Partners.vue";
-import Oferta from "@/page/Oferta.vue";
-import Policy from "@/page/Policy.vue";
-import NotFound from "@/page/404.vue";
-
-
 const routes = [
    {
       path: "",
@@ -21,7 +8,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | Главная",
       },
-      component: Home,
+      component: () => import("@/page/Home.vue"),
    },
    {
       path: "/catalog",
@@ -29,7 +16,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | Каталог",
       },
-      component: Catalog,
+      component: () => import("@/page/Catalog.vue"),
    },
    {
       path: "/catalog/:id",
@@ -37,7 +24,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | Старница товара",
       },
-      component: Post,
+      component: () => import("@/page/Post.vue"),
    },
    {
       path: "/about",
@@ -45,7 +32,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | О нас",
       },
-      component: About,
+      component: () => import("@/page/About.vue"),
    },
    {
       path: "/care",
@@ -53,7 +40,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | Уход",
       },
-      component: Care,
+      component: () => import("@/page/Care.vue"),
    },
    {
       path: "/faq",
@@ -61,7 +48,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | FAQ",
       },
-      component: Faq,
+      component: () => import("@/page/Faq.vue"),
    },
    {
       path: "/delivery",
@@ -69,7 +56,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | Доставка",
       },
-      component: Delivery,
+      component: () => import("@/page/Delivery.vue"),
    },
    {
       path: "/partners",
@@ -77,7 +64,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | Сотрудничество",
       },
-      component: Partners,
+      component: () => import("@/page/Partners.vue"),
    },
    {
       path: "/oferta",
@@ -85,7 +72,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | Публичная оферта",
       },
-      component: Oferta,
+      component: () => import("@/page/Oferta.vue"),
    },
    {
       path: "/policy",
@@ -93,7 +80,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | Политика конфиденциальности",
       },
-      component: Policy,
+      component: () => import("@/page/Policy.vue"),
    },
    {
       path: "/404",
@@ -101,7 +88,7 @@ const routes = [
       meta: {
          title: "Lumiiere Candles | 404",
       },
-      component: NotFound,
+      component: () => import("@/page/404.vue"),
    },
    {
       path: "/:pathMatch(.*)*",
