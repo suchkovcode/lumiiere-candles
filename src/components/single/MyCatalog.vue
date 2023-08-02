@@ -25,15 +25,10 @@ export default {
    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
    gap: 20px;
    margin-bottom: 30px;
-   padding: 0 20px;
 
    @include lg {
       margin-bottom: 50px;
       padding: 0 30px;
-   }
-
-   @include xxl {
-      padding: 0;
    }
 }
 </style>
