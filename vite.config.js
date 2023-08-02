@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
-import inspect from 'vite-plugin-inspect'
+import { visualizer } from "rollup-plugin-visualizer";
+import inspect from "vite-plugin-inspect";
 import stylelint from "vite-plugin-stylelint";
 import eslint from "vite-plugin-eslint";
 import vue from "@vitejs/plugin-vue";
@@ -14,6 +15,7 @@ export default defineConfig({
    build: {
       outDir: "../dist/",
       manifest: false,
+      cssCodeSplit: true,
    },
    resolve: {
       alias: {
@@ -25,6 +27,10 @@ export default defineConfig({
       open: true,
    },
    plugins: [
+      visualizer({
+         emitFile: true,
+         filename: "stats.html",
+      }),
       inspect(),
       vue(),
       stylelint(),
@@ -51,9 +57,9 @@ export default defineConfig({
    ],
    css: {
       preprocessorOptions: {
-          scss: {
-              additionalData: `@import "@/styles/mixin";`,
-          },
+         scss: {
+            additionalData: `@import "@/styles/mixin";`,
+         },
       },
-  },
+   },
 });
