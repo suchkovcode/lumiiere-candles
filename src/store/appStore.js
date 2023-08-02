@@ -67,7 +67,7 @@ export const useAppStore = defineStore("appStore", {
                isFavorite: false,
             },
             {
-               id: "card-100-4",
+               id: "card-100-3",
                date: "04.01.2023",
                title: "Гарри Поттер",
                description: "",
@@ -93,7 +93,7 @@ export const useAppStore = defineStore("appStore", {
                isFavorite: false,
             },
             {
-               id: "card-100-5",
+               id: "card-100-4",
                date: "04.01.2023",
                title: "Рон Уизли",
                description: "",
@@ -119,7 +119,7 @@ export const useAppStore = defineStore("appStore", {
                isFavorite: false,
             },
             {
-               id: "card-100-6",
+               id: "card-100-5",
                date: "04.01.2023",
                title: "Гермиона",
                description: "",
@@ -145,7 +145,7 @@ export const useAppStore = defineStore("appStore", {
                isFavorite: false,
             },
             {
-               id: "card-100-7",
+               id: "card-100-6",
                date: "04.01.2023",
                title: "Драко",
                description: "",
@@ -171,7 +171,7 @@ export const useAppStore = defineStore("appStore", {
                isFavorite: false,
             },
             {
-               id: "card-100-8",
+               id: "card-100-7",
                date: "04.01.2023",
                title: "Итачи",
                description: "",
@@ -197,7 +197,7 @@ export const useAppStore = defineStore("appStore", {
                isFavorite: false,
             },
             {
-               id: "card-100-9",
+               id: "card-100-8",
                date: "04.01.2023",
                title: "Какаши",
                description: "",
