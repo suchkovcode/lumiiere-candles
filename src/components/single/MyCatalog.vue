@@ -28,7 +28,6 @@ export default {
 
    @include lg {
       margin-bottom: 50px;
-      padding: 0 30px;
    }
 }
 </style>
