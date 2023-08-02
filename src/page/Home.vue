@@ -414,7 +414,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hero {
    overflow: hidden;
    position: relative;

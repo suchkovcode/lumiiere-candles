@@ -439,7 +439,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .documents {
    &__header {
       position: relative;
@@ -464,7 +464,7 @@ export default {
             height: auto;
          }
       }
-      
+
       @include lg {
          grid-area: header;
       }

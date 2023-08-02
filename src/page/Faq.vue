@@ -92,7 +92,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .answers {
    &__header {
       position: relative;

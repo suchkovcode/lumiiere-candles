@@ -495,7 +495,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .about {
    &__grid {
       @include lg {

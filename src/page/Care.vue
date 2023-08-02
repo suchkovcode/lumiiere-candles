@@ -128,7 +128,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .list {
    &__header {
       position: relative;
