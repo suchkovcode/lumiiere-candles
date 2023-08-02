@@ -1,5 +1,5 @@
 <template>
-   <a class="cardBtnMore" @click="$router.push(`/catalog/${cardId}`)"> Подробнее </a>
+   <router-link class="cardBtnMore" :to="`/catalog/${cardId}`"> Подробнее </router-link>
 </template>
 
 <script>
