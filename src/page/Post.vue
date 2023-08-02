@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 .post {
    &__container {
       display: flex;
@@ -136,6 +136,7 @@ export default {
    }
 
    &__btn {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 10px;
