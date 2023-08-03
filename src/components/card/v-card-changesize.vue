@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import { useStorage } from "@vueuse/core";
-
 export default {
    name: "v-card-changesize",
 
