@@ -19,13 +19,14 @@ export default {
 
    data() {
       return {
-         selectBtn: useStorage(`size-${this.cardId}`, "small"),
+         selectBtn: this.cardData.cardSizeData,
       };
    },
 
    mounted() {
       this.$emit("cardsize", this.selectBtn);
    },
+
 
    methods: {
       selectBtnHandler(event) {
@@ -35,8 +36,8 @@ export default {
    },
 
    props: {
-      cardId: {
-         type: String,
+      cardData: {
+         type: Object,
          required: true,
       },
    },

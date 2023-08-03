@@ -2,9 +2,6 @@
    <article class="card">
       <header class="card__header">
          <v-card-favorite :cardId="cardData.id" :isFavorite="cardData.isFavorite" />
-
-
-
          <img class="card__hero" :src="cardData.hero" alt="Картинка продукта" width="140" height="180" loading="lazy" />
       </header>
       <main class="card__body">
@@ -16,7 +13,9 @@
          <p class="card__article">Артикул: {{ cardArticle }}</p>
          <p class="card__description">{{ categoryJoin }}</p>
          <v-card-price :priceData="cardPrice" />
-         <v-card-changesize :cardId="cardData.id" @cardsize="updateSize" />
+
+
+         <v-card-changesize :cardData="currentCardData" @cardsize="updateSize" />
       </main>
       <footer class="card__footer">
          <v-card-btn-more :cardId="cardData.id" />
