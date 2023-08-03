@@ -465,11 +465,11 @@ export default {
       margin-top: 200px;
 
       @include sm {
-         margin-top: 250px;
+         margin-top: 370px;
       }
 
       @include lg {
-         margin-top: 300px;
+         margin-top: 420px;
       }
    }
 
