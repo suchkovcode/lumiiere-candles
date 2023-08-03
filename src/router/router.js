@@ -110,9 +110,9 @@ const router = createRouter({
 
 router.beforeEach((to) => {
    const store = useAppStore();
-   document.title = to.meta?.title ?? "Lumiiere Candles";
    store.updateFavoriteCanvas(false);
    store.updateBacketCanvas(false);
+   document.title = to.meta?.title ?? "Lumiiere Candles";
 });
 
 export default router;
