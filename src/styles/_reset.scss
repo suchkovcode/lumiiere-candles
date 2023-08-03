@@ -208,6 +208,7 @@ a {
 }
 
 html {
+   overflow-x: hidden;
    height: 100%;
    font: 300 16px/1.5 "AvenirNextCyr";
    -webkit-font-smoothing: antialiased;
@@ -220,7 +221,6 @@ html {
 }
 
 body {
-   overflow-x: hidden;
    position: relative;
    width: 100%;
    height: 100%;
