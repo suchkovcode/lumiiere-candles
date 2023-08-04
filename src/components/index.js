@@ -16,6 +16,7 @@ import canvasMenu from "@/components/canvas/v-canvas-menu.vue";
 import canvasFavorite from "@/components/canvas/v-canvas-favorite.vue";
 import canvasFavoriteItem from "@/components/canvas/v-canvas-favoriteItem.vue";
 import canvasBacket from "@/components/canvas/v-canvas-backet.vue";
+import canvasBackeItem from "@/components/canvas/v-canvas-backetItem.vue";
 
 import BlockFallow from "@/components/block/BlockFallow.vue";
 
@@ -42,6 +43,7 @@ export default [
    canvasFavorite,
    canvasFavoriteItem,
    canvasBacket,
+   canvasBackeItem,
 
    BlockFallow,
    BaseBreadcrumbs,
