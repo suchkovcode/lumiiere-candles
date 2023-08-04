@@ -12,7 +12,7 @@ export default {
 
    data() {
       return {
-         countItem: 1,
+         countItem: this.countItemData,
       };
    },
 
