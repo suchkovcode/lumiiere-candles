@@ -36,7 +36,6 @@ export const useBacketStore = defineStore("backetStore", {
 
       sumCard(codeCard) {
          const indexCardStore = this.cards.findIndex((item) => item.code === codeCard);
-         console.log(codeCard);
          const sumPrice = Number(parseFloat(this.cards[indexCardStore].price * this.cards[indexCardStore].count).toFixed(2));
          this.cards[indexCardStore].total = sumPrice;
       },
