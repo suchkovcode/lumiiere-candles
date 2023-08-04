@@ -1,8 +1,8 @@
 <template>
    <div class="btncount">
-      <button class="btncount__minus" aria-label="Btn card minus" @click="coutCardData('minus')"></button>
-      <p class="btncount__value">{{ countCard }}</p>
-      <button class="btncount__plus" aria-label="Btn card plus" @click="coutCardData('plus')"></button>
+      <button class="btncount__minus" aria-label="Btn card minus" @click="countIncrement"></button>
+      <p class="btncount__value">{{ countItem }}</p>
+      <button class="btncount__plus" aria-label="Btn card plus" @click="countDecrement"></button>
    </div>
 </template>
 
@@ -12,18 +12,34 @@ export default {
 
    data() {
       return {
-         countCard: 1,
+         countItem: 1,
       };
    },
 
+   watch: {
+      countItem() {
+         this.$emit("countItem", this.countItem);
+      },
+
+      countItemData(newValue) {
+         this.countItem = newValue;
+      },
+   },
+
    methods: {
-      coutCardData(type) {
-         if (type === "minus") {
-            this.countCard === 1 ? (this.countCard = 1) : this.countCard--;
-         } else {
-            this.countCard === 10 ? (this.countCard = 10) : this.countCard++;
-         }
-         this.$emit("countcard", this.countCard);
+      countDecrement() {
+         this.countItem === 10 ? (this.countItem = 10) : this.countItem++;
+      },
+
+      countIncrement() {
+         this.countItem === 1 ? (this.countItem = 1) : this.countItem--;
+      },
+   },
+
+   props: {
+      countItemData: {
+         type: Number,
+         required: true,
       },
    },
 };
