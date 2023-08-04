@@ -14,7 +14,7 @@
          </div>
          <div class="backetItem__sum">${{ backetItem.total }}</div>
       </div>
-      <div class="backetItem__remove"></div>
+      <div class="backetItem__remove" @click="delcard(backetItem.code)"></div>
    </div>
 </template>
 
@@ -46,7 +46,7 @@ export default {
    },
 
    methods: {
-      ...mapActions(useBacketStore, { incrementCount: "incrementCountCard", decrementCount: "decrementCountCard" }),
+      ...mapActions(useBacketStore, { incrementCount: "incrementCountCard", decrementCount: "decrementCountCard",  delcard: "delCardBacket" }),
    },
 
    props: {
