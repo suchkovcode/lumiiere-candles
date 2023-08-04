@@ -32,13 +32,7 @@ export default {
       ...mapActions(useFavoriteStore, { addCardFavorite: "addCardFavorite", delCardFavorite: "delCardFavorite" }),
 
       toggleCard() {
-         if (!this.clickBtn) {
-            this.addCardFavorite(this.cardId);
-            this.clickBtn = true;
-         } else {
-            this.delCardFavorite(this.cardId);
-            this.clickBtn = false;
-         }
+         !this.favoriteState ? this.addCardFavorite(this.cardId) : this.delCardFavorite(this.cardId);
       },
    },
 
