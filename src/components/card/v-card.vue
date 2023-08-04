@@ -30,7 +30,7 @@ export default {
 
    data() {
       return {
-         currentCardData: {
+         currentCardData: useStorage(this.cardData.id, {
             id: this.cardData.id,
             title: this.cardData.title,
             hero: this.cardData.hero,
@@ -41,7 +41,7 @@ export default {
             ratingSelect: 0,
             ratingVote: 0,
             ratingClick: false,
-         },
+         }),
       };
    },
 

@@ -4,7 +4,7 @@ import { useStorage } from "@vueuse/core";
 export const useBacketStore = defineStore("backetStore", {
    state: () => {
       return {
-         cards: [],
+         cards: useStorage("backet-items", []),
       };
    },
 
