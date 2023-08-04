@@ -1,34 +1,17 @@
 <template>
    <div class="backet" :class="{ active: activeState }">
       <v-canvas-header @closeCanvas="emitCloseCanvas"> Корзина: </v-canvas-header>
-      <p class="backet__empty">Корзина пуста</p>
-      <div class="backet__product hidden">
+      <div v-if="cards.length && !checkout" class="backet__product">
          <div class="backet__product-list">
-            <div class="backet__product-item">
-               <img class="backet__product-img" src="" alt="Картинка товара" width="70" height="70" />
-               <div class="backet__product-options">
-                  <a class="backet__product-name" href="#"></a>
-                  <p class="backet__product-size">Размер: <span class="backet__product-option"></span> мл</p>
-                  <p class="backet__product-code"></p>
-               </div>
-               <div class="backet__product-count">
-                  <div class="backet__product-plusminus">
-                     <div class="backet__product-minus" data-type="minus"></div>
-                     <div class="backet__product-total" data-value=""></div>
-                     <div class="backet__product-plus" data-type="plus"></div>
-                  </div>
-                  <div class="backet__product-sum">$<span class="backet__product-cost"></span></div>
-               </div>
-               <div class="backet__product-remove"></div>
-            </div>
+            <v-canvas-backet-item v-for="item in cards" :key="item.id" :backetItem="item"></v-canvas-backet-item>
          </div>
          <div class="backet__product-all">
-            Итого: $
-            <span class="backet__product-value">0</span>
+            Итого: $ {{ sumAddition}}
          </div>
-         <button class="btn backet__product-btn" type="button">Оформить</button>
+         <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
       </div>
-      <form class="backet__form hidden" action="#" method="post">
+      <p v-else-if="!cards.length && !checkout" class="backet__empty">Корзина пуста</p>
+      <form v-if="checkout" class="backet__form" action="#" method="post">
          <div class="backet__form-contact">
             <h2 class="backet__tittle">Оформить заказ</h2>
             <div class="backet__form-input-box">
@@ -70,13 +53,26 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "pinia";
+import { useBacketStore } from "@/store/backetStore";
+
 export default {
    name: "v-canvas-backet",
+
+   data() {
+      return {
+         checkout: false,
+      };
+   },
 
    methods: {
       emitCloseCanvas() {
          this.$emit("closeCanvas", false);
       },
+   },
+
+   computed: {
+      ...mapState(useBacketStore, ["cards", "sumAddition"]),
    },
 
    props: {
@@ -90,6 +86,7 @@ export default {
 
 <style lang="scss" scoped>
 .backet {
+   overflow: hidden;
    position: fixed;
    top: 0;
    right: -100%;
@@ -106,13 +103,11 @@ export default {
       padding: 25px;
       border-radius: 12px;
       background-color: var(--color_input);
-
-      &.hidden {
-         display: none;
-      }
    }
 
    &__product {
+      overflow-y: scroll;
+      height: 100%;
       padding: 25px;
 
       &-list {
@@ -120,189 +115,6 @@ export default {
          flex-flow: column;
          gap: 20px;
          margin-bottom: 20px;
-      }
-
-      &-item {
-         display: grid;
-         grid-template-areas:
-            "img options remove"
-            "count count count";
-         grid-template-columns: 70px 1fr 15%;
-         gap: 15px;
-         padding-bottom: 20px;
-         border-bottom: 1px solid var(--color_border);
-
-         @include lg {
-            grid-template-areas: "img options count remove";
-            grid-template-columns: 70px 1fr 0.9fr 80px;
-         }
-      }
-
-      &-img {
-         grid-area: img;
-         width: 70px;
-         height: 70px;
-         border-radius: 8px;
-         object-fit: cover;
-      }
-
-      &-options {
-         grid-area: options;
-      }
-
-      &-name {
-         font: 700 14px/1.5 "AvenirNextCyr";
-         color: var(--color_secondary);
-      }
-
-      &-size {
-         font: 500 13px/1.5 "AvenirNextCyr";
-         color: var(--color_backet);
-      }
-
-      &-code {
-         font: 500 13px/1.5 "AvenirNextCyr";
-         color: var(--color_backet);
-      }
-
-      &-count {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         grid-area: count;
-      }
-
-      &-plusminus {
-         position: relative;
-         display: flex;
-         align-items: center;
-         gap: 10px;
-      }
-
-      &-minus {
-         cursor: pointer;
-         position: relative;
-         width: 20px;
-         height: 20px;
-         border: 1px solid var(--color_backet);
-         border-radius: 100%;
-         transition: all 0.2s ease-in-out;
-
-         &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: calc(50% - 5px);
-            display: block;
-            width: 10px;
-            height: 1px;
-            background-color: var(--color_backet);
-            transition: all 0.2s ease-in-out;
-         }
-
-         &:hover {
-            border: 1px solid var(--color_secondary);
-
-            &::after {
-               background-color: var(--color_secondary);
-            }
-         }
-      }
-
-      &-plus {
-         cursor: pointer;
-         position: relative;
-         width: 20px;
-         height: 20px;
-         border: 1px solid var(--color_backet);
-         border-radius: 100%;
-         transition: all 0.2s ease-in-out;
-
-         &::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: calc(50% - 5px);
-            display: block;
-            width: 10px;
-            height: 1px;
-            background-color: var(--color_backet);
-            transform: rotate(90deg);
-            transition: all 0.2s ease-in-out;
-         }
-
-         &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: calc(50% - 5px);
-            display: block;
-            width: 10px;
-            height: 1px;
-            background-color: var(--color_backet);
-            transition: all 0.2s ease-in-out;
-         }
-
-         &:hover {
-            border: 1px solid var(--color_secondary);
-
-            &::after {
-               background-color: var(--color_secondary);
-            }
-         }
-      }
-
-      &-total {
-         font: 500 14px/1.3 "AvenirNextCyr";
-         color: var(--color_secondary);
-      }
-
-      &-sum {
-         font: 600 16px/1.3 "AvenirNextCyr";
-         color: var(--color_secondary);
-      }
-
-      &-remove {
-         cursor: pointer;
-         position: relative;
-         align-self: center;
-         grid-area: remove;
-         width: 22px;
-         height: 22px;
-         margin-left: auto;
-         border: 1px solid var(--color_backet);
-         border-radius: 100%;
-         transition: all 0.2s ease-in-out;
-
-         &::before,
-         &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: calc(50% - 7px);
-            display: block;
-            width: 14px;
-            height: 1px;
-            background-color: var(--color_backet);
-            transition: all 0.2s ease-in-out;
-         }
-
-         &::before {
-            transform: rotate(45deg);
-         }
-
-         &::after {
-            transform: rotate(-45deg);
-         }
-
-         &:hover {
-            border: 1px solid red;
-
-            &::before,
-            &::after {
-               background-color: red;
-            }
-         }
       }
 
       &-all {
@@ -313,10 +125,6 @@ export default {
 
       &-btn {
          margin-top: 30px;
-      }
-
-      &.hidden {
-         display: none;
       }
    }
 
@@ -397,7 +205,6 @@ export default {
    }
 
    &.active {
-      overflow-y: auto;
       right: 0;
    }
 
