@@ -65,7 +65,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .goods {
    margin-bottom: 20px;
    padding: 20px;
