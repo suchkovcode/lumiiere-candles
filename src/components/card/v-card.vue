@@ -5,42 +5,43 @@
          <img class="card__hero" :src="cardData.hero" alt="Картинка продукта" width="140" height="180" loading="lazy" />
       </header>
       <main class="card__body">
-         <v-card-rating
-            :ratingStorage="currentCardData"
-            @ratingData="addRatingData" />
-
+         <v-card-rating :ratingStorage="currentCardData" @ratingData="addRatingData" />
          <h3 class="card__title">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
          <p class="card__description">{{ categoryJoin }}</p>
          <v-card-price :priceData="cardPrice" />
-
-
-         <v-card-changesize :cardData="currentCardData" @cardsize="updateSize" />
+         <v-card-changesize :sizeItemData="currentCardData.size" @cardsize="updateSize" />
       </main>
       <footer class="card__footer">
          <v-card-btn-more :cardId="cardData.id" />
-         <v-card-count @countcard="updateCount" />
-         <v-card-btn-add @click="getDataCard(cardData.id)" />
+         <v-card-count :countItemData="currentCardData.count" @countItem="updateCount" />
+         <v-card-btn-add @click="addCardBacket" />
       </footer>
    </article>
 </template>
 
 <script>
+import { mapActions } from "pinia";
 import { useStorage } from "@vueuse/core";
+import { useBacketStore } from "@/store/backetStore";
 
 export default {
    name: "v-card",
 
    data() {
       return {
-         currentCardData: useStorage(`data-${this.cardData.id}`, {
+         currentCardData: {
             id: this.cardData.id,
-            cardSizeData: "small",
-            cardCountData: 1,
+            title: this.cardData.title,
+            hero: this.cardData.hero,
+            code: this.cardData.code.small,
+            price: this.cardData.price.small,
+            size: "small",
+            count: 1,
             ratingSelect: 0,
             ratingVote: 0,
             ratingClick: false,
-         }),
+         },
       };
    },
 
@@ -50,21 +51,32 @@ export default {
       },
 
       cardArticle() {
-         return this.cardData.code[this.currentCardData.cardSizeData].toUpperCase();
+         return this.cardData.code[this.currentCardData.size].toUpperCase();
       },
 
       cardPrice() {
-         return this.cardData.price[this.currentCardData.cardSizeData];
+         return this.cardData.price[this.currentCardData.size];
       },
    },
 
    methods: {
+      ...mapActions(useBacketStore, { addBacketCard: "addCardBacket" }),
+
       updateSize(data) {
-         this.currentCardData.cardSizeData = data;
+         this.currentCardData.size = data;
+         this.currentCardData.code = this.cardData.code[data];
+         this.currentCardData.price = this.cardData.price[data];
       },
 
       updateCount(data) {
-         this.currentCardData.cardCountData = data;
+         this.currentCardData.count = data;
+      },
+
+      async addCardBacket() {
+         const cardData = Object.assign({}, this.currentCardData);
+         this.addBacketCard(cardData);
+         this.currentCardData.count = 1;
+         this.currentCardData.size = "small";
       },
 
       addRatingData(event) {
