@@ -15,7 +15,7 @@ export default defineConfig({
    build: {
       outDir: "../dist/",
       manifest: false,
-      cssCodeSplit: true,
+      cssCodeSplit: false,
    },
    resolve: {
       alias: {
