@@ -103,6 +103,7 @@ export default {
       overflow-y: scroll;
       height: 100%;
       padding: 25px;
+      padding-bottom: 120px;
 
       &-list {
          display: flex;
