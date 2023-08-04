@@ -9,7 +9,7 @@
          <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
       </div>
       <p v-else-if="!cards.length && !checkout" class="backet__empty">Корзина пуста</p>
-      <form v-if="checkout" class="backet__form" action="#" method="post">
+      <form v-if="checkout" class="backet__form" action="#" method="post" @click.prevent.stop>
          <div class="backet__form-contact">
             <h2 class="backet__tittle">Оформить заказ</h2>
             <div class="backet__form-input-box">
@@ -37,11 +37,7 @@
                <input class="backet__form-input" type="text" placeholder="Подпись для коробки" value="" />
             </label>
          </div>
-         <p class="backet__form-sum">
-            Итоговая сумма:
-            <span class="backet__form-currency">$</span>
-            <span class="backet__form-count">0</span>
-         </p>
+         <p class="backet__form-sum">Итоговая сумма: <strong>${{ sumAddition }}</strong></p>
          <div class="backet__form-button-box">
             <button class="backet__form-btn btn" type="submit">Купить</button>
             <p class="backet__form-policy">Нажимая на кнопку «Купить» Вы соглашаетесь с нашей Политикой конфиденциальности</p>
@@ -51,7 +47,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "pinia";
+import { mapState } from "pinia";
 import { useBacketStore } from "@/store/backetStore";
 
 export default {
@@ -170,14 +166,6 @@ export default {
 
       &-sum {
          margin-bottom: 30px;
-         font: 400 18px/1.5 "AvenirNextCyr";
-      }
-
-      &-currency {
-         font: 600 18px/1.5 "AvenirNextCyr";
-      }
-
-      &-count {
          font: 600 18px/1.5 "AvenirNextCyr";
       }
 
