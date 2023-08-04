@@ -11,8 +11,10 @@
   <a href="https://github.com/vuejs/pinia">
     <img src="https://img.shields.io/badge/pinia-2.1.6-brightgreen.svg" alt="pinia">
   </a>
+   <a href="https://github.com/vuejs/vue">
+    <img src="https://img.shields.io/badge/vite-4.4.8-brightgreen.svg" alt="vue">
+  </a>
 <a href="https://app.netlify.com/sites/lumiiere-candles/deploys"><img src="https://api.netlify.com/api/v1/badges/0ac5e962-e3e8-420e-97dd-bfc32f23bbab/deploy-status" alt="Netlify Status"></a>
-
 
 </p>
 <!-- 
@@ -20,7 +22,6 @@
 
 v3-admin-vite is a free and open source middle and background management system basic solution, based on mainstream framework such as Vue3,
 TypeScript, Element Plus, Pinia and Vite.
-
 
 ## Feature
 
