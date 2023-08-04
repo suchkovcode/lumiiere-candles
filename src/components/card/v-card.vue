@@ -47,7 +47,7 @@ export default {
 
    computed: {
       categoryJoin() {
-         return this.cardData.category.join(" | ");
+         return this.cardData.tag.join(" | ");
       },
 
       cardArticle() {
