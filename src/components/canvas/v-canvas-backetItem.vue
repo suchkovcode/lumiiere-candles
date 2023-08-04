@@ -8,17 +8,20 @@
       </div>
       <div class="backetItem__count">
          <div class="backetItem__plusminus">
-            <div class="backetItem__minus"></div>
+            <div class="backetItem__minus" @click="decrementCount(backetItem.code)"></div>
             <div class="backetItem__total">{{ backetItem.count }}</div>
-            <div class="backetItem__plus"></div>
+            <div class="backetItem__plus" @click="incrementCount(backetItem.code)"></div>
          </div>
-         <div class="backetItem__sum">$ {{ backetItem.price }}</div>
+         <div class="backetItem__sum">${{ backetItem.total }}</div>
       </div>
       <div class="backetItem__remove"></div>
    </div>
 </template>
 
 <script>
+import { mapActions } from "pinia";
+import { useBacketStore } from "@/store/backetStore";
+
 export default {
    name: "v-canvas-backet-item",
 
@@ -40,6 +43,10 @@ export default {
 
          return size;
       },
+   },
+
+   methods: {
+      ...mapActions(useBacketStore, { incrementCount: "incrementCountCard", decrementCount: "decrementCountCard" }),
    },
 
    props: {
