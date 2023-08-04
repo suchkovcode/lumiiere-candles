@@ -30,16 +30,13 @@ export default {
 
    methods: {
       ...mapActions(useFavoriteStore, { addCardFavorite: "addCardFavorite", delCardFavorite: "delCardFavorite" }),
-      ...mapActions(useAppStore, { updateFavorite: "updateFavorite" }),
 
       toggleCard() {
          if (!this.clickBtn) {
             this.addCardFavorite(this.cardId);
-            this.updateFavorite(this.cardId, true);
             this.clickBtn = true;
          } else {
             this.delCardFavorite(this.cardId);
-            this.updateFavorite(this.cardId, false);
             this.clickBtn = false;
          }
       },
