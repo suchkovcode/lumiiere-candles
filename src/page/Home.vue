@@ -1,5 +1,5 @@
 <template>
-   <!-- <section class="hero">
+   <section class="hero">
       <div class="container">
          <div class="hero__content">
             <img class="hero__icon" src="@/assets/img/svg/hero__icon.svg" alt="Иконка" width="210" height="60" />
@@ -183,7 +183,7 @@
       <svg class="hero__wave-2 hero__wave-2--white" width="11700" height="90">
          <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
       </svg>
-   </section> -->
+   </section>
    <section class="slider">
       <div class="container">
          <div class="slider-wrapper">
