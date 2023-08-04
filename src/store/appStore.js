@@ -15,7 +15,6 @@ import img_11 from "@/assets/img/webp/hero__card-11.webp";
 import img_12 from "@/assets/img/webp/hero__card-12.webp";
 import img_13 from "@/assets/img/webp/hero__card-13.webp";
 
-
 export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
@@ -43,9 +42,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["имбирный пряник", "бобы тонка", "ваниль", "сахар", "Джингл Беллс"],
+               tag: ["имбирный пряник", "бобы тонка", "ваниль", "сахар", "Джингл Беллс"],
                aroma: "Десертные",
                collection: "Новый год",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -72,9 +72,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["перечная мята", "корица ", "чай", "ваниль", "гвоздика", "чудо"],
+               tag: ["перечная мята", "корица ", "чай", "ваниль", "гвоздика", "чудо"],
                aroma: "Свежие",
                collection: "Новый год",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -101,9 +102,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["пряный тыквенный латте", "золотой снитч"],
+               tag: ["пряный тыквенный латте", "золотой снитч"],
                aroma: "Десертные",
                collection: "Гарри Поттер",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -130,9 +132,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["ром", "изюм", "карамель", "сливочное масло", "ириска", "веснушки"],
+               tag: ["ром", "изюм", "карамель", "сливочное масло", "ириска", "веснушки"],
                aroma: "Десертные",
                collection: "Гарри Поттер",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -159,9 +162,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["шоколадное печенье", "Вингардиум ЛевиОсса"],
+               tag: ["шоколадное печенье", "Вингардиум ЛевиОсса"],
                aroma: "Десертные",
                collection: "Гарри Поттер",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -188,9 +192,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["вербена", "сандал", "ирис", "зелёное яблоко", "амбра", "чистая кровь"],
+               tag: ["вербена", "сандал", "ирис", "зелёное яблоко", "амбра", "чистая кровь"],
                aroma: "Мужественные",
                collection: "Гарри Поттер",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -217,9 +222,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["миндаль", "черный кофе", "перо ворона"],
+               tag: ["миндаль", "черный кофе", "перо ворона"],
                aroma: "Мужественные",
                collection: "Аниме",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -246,9 +252,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["кокос", "бамбук", "дерево", "чидори"],
+               tag: ["кокос", "бамбук", "дерево", "чидори"],
                aroma: "Природные",
                collection: "Аниме",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -275,9 +282,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["лимон", "цветок хлопка", "фиалка", "кашемир", "сандал", "пудра", "чистота"],
+               tag: ["лимон", "цветок хлопка", "фиалка", "кашемир", "сандал", "пудра", "чистота"],
                aroma: "Природные",
                collection: "Аниме",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -304,9 +312,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["вишневые леденцы", "лимонад", "лайм", "апельсин", "мозгошмыги"],
+               tag: ["вишневые леденцы", "лимонад", "лайм", "апельсин", "мозгошмыги"],
                aroma: "Фруктовые",
                collection: "Гарри Поттер",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -332,9 +341,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["миндаль", "черный кофе", "перо ворона"],
+               tag: ["миндаль", "черный кофе", "перо ворона"],
                aroma: "Мужественные",
                collection: "Гарри Поттер",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -361,9 +371,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["яблочный штрудель", "шалость удалась"],
+               tag: ["яблочный штрудель", "шалость удалась"],
                aroma: "Фруктовые",
                collection: "Гарри Поттер",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -390,9 +401,10 @@ export const useAppStore = defineStore("appStore", {
                   large: "400",
                },
 
-               category: ["лаванда", "полынь", "пачули", "шалфей"],
+               tag: ["лаванда", "полынь", "пачули", "шалфей"],
                aroma: "Природные",
                collection: "Гарри Поттер",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
