@@ -23,11 +23,11 @@
          </div>
       </div>
    </section>
-   <section class="catalog">
+   <section class="allcatalog">
       <div class="container">
-         <div class="catalog__grid">
+         <div class="allcatalog__grid">
             <MyFilter />
-            <MyCatalog class="catalog__card" :dataItem="products" />
+            <MyCatalog class="allcatalog__cards" :dataItem="products" />
          </div>
       </div>
    </section>
@@ -70,6 +70,7 @@ export default {
    margin-bottom: 20px;
    padding: 20px;
    padding-top: 120px;
+   background-color: var(--color_base);
 
    &__header {
       position: relative;
@@ -257,7 +258,9 @@ export default {
    }
 }
 
-.catalog {
+.allcatalog {
+   background-color: var(--color_base);
+
    &__grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -274,7 +277,7 @@ export default {
       }
    }
 
-   &__card {
+   &__cards {
       .card {
          border: 1px solid var(--color_border) !important;
       }
