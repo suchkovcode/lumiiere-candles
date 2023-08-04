@@ -3,11 +3,7 @@
       <p class="header__message">100% VEGAN. CRUELTY FREE.</p>
       <div class="container">
          <div class="header__left">
-            <div
-               class="header__left-catalog"
-               :class="{ active: isActiveLeft }"
-               @mouseover="menuLeftActive"
-               @mouseout="isActiveLeft = false">
+            <div class="header__left-catalog" :class="{ active: isActiveLeft }" @mouseover="menuLeftActive" @mouseout="isActiveLeft = false">
                <button class="header__btn-menu" aria-label="Catalog button" @click="openMobileMenu">
                   <svg class="header__icon" fill="#EB4A00">
                      <use xlink:href="@/assets/img/svg/sprite.svg#catalog"></use>
@@ -59,13 +55,13 @@
                <svg class="header__icon">
                   <use xlink:href="@/assets/img/svg/sprite.svg#favorite"></use>
                </svg>
-               <span class="header__icon-count"> {{ cards.length }} </span>
+               <span class="header__icon-count"> {{ cardsFavorite.length }} </span>
             </button>
             <button class="header__btn-backet" @click="togllerBacket(true)">
                <svg class="header__icon">
                   <use xlink:href="@/assets/img/svg/sprite.svg#backet"></use>
                </svg>
-               <span class="header__icon-count"> 0 </span>
+               <span class="header__icon-count"> {{ cardsBacket.length }} </span>
             </button>
          </div>
       </div>
@@ -78,6 +74,7 @@
 <script>
 import { mapState, mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
+import { useBacketStore } from "@/store/backetStore";
 import { useFavoriteStore } from "@/store/favoriteStore";
 
 export default {
@@ -93,7 +90,8 @@ export default {
 
    computed: {
       ...mapState(useAppStore, ["nav", "isActiveFavorite", "isActiveBacket"]),
-      ...mapState(useFavoriteStore, ["cards"]),
+      ...mapState(useBacketStore, { cardsBacket: "cards" }),
+      ...mapState(useFavoriteStore, { cardsFavorite: "cards" }),
    },
 
    methods: {
