@@ -356,6 +356,7 @@ export default {
 .goods {
    margin-bottom: 20px;
    padding: 20px;
+   padding-top: 120px;
 
    &__header {
       position: relative;
@@ -530,10 +531,17 @@ export default {
 
    @include sm {
       padding: 30px 20px;
+      padding-top: 170px;
+
    }
 
    @include lg {
       padding: 30px;
+      padding-top: 170px;
+   }
+
+   @include xl {
+      padding-top: 200px;
    }
 }
 
