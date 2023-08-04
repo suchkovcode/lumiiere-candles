@@ -5,9 +5,7 @@
          <div class="backet__product-list">
             <v-canvas-backet-item v-for="item in cards" :key="item.id" :backetItem="item"></v-canvas-backet-item>
          </div>
-         <div class="backet__product-all">
-            Итого: $ {{ sumAddition}}
-         </div>
+         <p class="backet__product-all">Итого: ${{ sumAddition }}</p>
          <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
       </div>
       <p v-else-if="!cards.length && !checkout" class="backet__empty">Корзина пуста</p>
