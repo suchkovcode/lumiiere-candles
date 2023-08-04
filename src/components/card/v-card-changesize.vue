@@ -17,14 +17,15 @@ export default {
 
    data() {
       return {
-         selectBtn: this.cardData.cardSizeData,
+         selectBtn: "small",
       };
    },
 
-   mounted() {
-      this.$emit("cardsize", this.selectBtn);
+   watch: {
+      sizeItemData(newValue) {
+         this.selectBtn = newValue;
+      },
    },
-
 
    methods: {
       selectBtnHandler(event) {
@@ -34,8 +35,8 @@ export default {
    },
 
    props: {
-      cardData: {
-         type: Object,
+      sizeItemData: {
+         type: String,
          required: true,
       },
    },
