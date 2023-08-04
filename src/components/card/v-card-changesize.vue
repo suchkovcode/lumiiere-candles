@@ -15,7 +15,7 @@ export default {
 
    data() {
       return {
-         selectBtn: "small",
+         selectBtn: this.sizeItemData,
       };
    },
 
