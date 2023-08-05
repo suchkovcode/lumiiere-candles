@@ -18,8 +18,8 @@
          <p class="filter__name">Фильтры</p>
       </div>
 
-      <div class="filter__sort">
-         <button class="filter__sort-btn">Сортировка</button>
+      <div class="filter__sort" :class="{ active: isClickSort }">
+         <button class="filter__sort-btn" @click="isClickSort = !isClickSort">Сортировка</button>
          <div class="filter__sort-drobdown">
             <label class="filter__label">
                <input class="filter__input" type="radio" value="new" v-model="filter.sort" />
@@ -40,8 +40,8 @@
          </div>
       </div>
 
-      <div class="filter__sort">
-         <button class="filter__sort-btn">Аромат</button>
+      <div class="filter__sort" :class="{ active: isClickAroma }">
+         <button class="filter__sort-btn" @click="isClickAroma = !isClickAroma">Аромат</button>
          <div class="filter__sort-drobdown filter__sort-drobdown--gap">
             <label class="filter__label filter__label--checkbox">
                <input class="filter__checkbox" type="checkbox" value="Десертные" v-model="filter.aroma" />
@@ -78,8 +78,8 @@
          </div>
       </div>
 
-      <div class="filter__sort">
-         <button class="filter__sort-btn">Коллекция</button>
+      <div class="filter__sort" :class="{ active: isClickCollection }">
+         <button class="filter__sort-btn" @click="isClickCollection = !isClickCollection">Коллекция</button>
          <div class="filter__sort-drobdown filter__sort-drobdown--gap">
             <label class="filter__label filter__label--checkbox">
                <input class="filter__checkbox" type="checkbox" value="Аниме" v-model="filter.collection" />
@@ -129,6 +129,10 @@ export default {
             aroma: [],
             collection: [],
          },
+
+         isClickSort: false,
+         isClickAroma: false,
+         isClickCollection: false,
       };
    },
 
