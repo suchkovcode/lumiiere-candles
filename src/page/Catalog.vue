@@ -14,12 +14,12 @@
          </div>
          <div class="goods__search">
             <form class="goods__search-container" action="" method="">
-               <input class="goods__search-input" type="text" placeholder="Что нужно найти?" @input="serchUpdate($event.target.value)" />
+               <input class="goods__search-input" type="text" placeholder="Что нужно найти?" @input="searchQuery = $event.target.value" />
                <svg class="goods__search-icon" fill="none" stroke="rgb(182, 182, 182)">
                   <use xlink:href="@/assets/img/svg/sprite.svg#search"></use>
                </svg>
             </form>
-            <button class="goods__search-btn" type="submit">Найти</button>
+            <button class="goods__search-btn" @click="serchUpdate(searchQuery)">Найти</button>
          </div>
       </div>
    </section>
@@ -59,6 +59,8 @@ export default {
                last: true,
             },
          ],
+
+         searchQuery: "",
       };
    },
 
