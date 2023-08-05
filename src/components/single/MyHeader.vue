@@ -10,9 +10,34 @@
                   </svg>
                </button>
                <ul class="header__left-drobdown" :class="{ active: isActiveLeft }">
-                  <li v-for="item in nav.firstNav" :key="item.id" class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" :to="item.to">
-                        {{ item.name }}
+                  <li class="header__left-drobdown-item">
+                     <router-link class="header__left-drobdown-link" to="/catalog">
+                        Мелтсы
+                     </router-link>
+                  </li>
+                  <li class="header__left-drobdown-item">
+                     <router-link class="header__left-drobdown-link" to="/catalog">
+                        Спички
+                     </router-link>
+                  </li>
+                  <li class="header__left-drobdown-item">
+                     <router-link class="header__left-drobdown-link" to="/catalog">
+                        Наборы
+                     </router-link>
+                  </li>
+                  <li class="header__left-drobdown-item">
+                     <router-link class="header__left-drobdown-link" to="/catalog">
+                        Открытки
+                     </router-link>
+                  </li>
+                  <li class="header__left-drobdown-item">
+                     <router-link class="header__left-drobdown-link" to="/catalog">
+                        Бестселлеры
+                     </router-link>
+                  </li>
+                  <li class="header__left-drobdown-item">
+                     <router-link class="header__left-drobdown-link" to="/catalog">
+                        Соевые свечи
                      </router-link>
                   </li>
                </ul>
@@ -43,9 +68,39 @@
                <li class="header__right-nav-item" :class="{ active: isActiveRight }">Для клиента</li>
                <li class="header__right-drobdown">
                   <ul class="header__right-drobdown-list">
-                     <li v-for="item in nav.secondNav" :key="item.id" class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" :to="item.to">
-                           {{ item.name }}
+                     <li class="header__right-drobdown-item">
+                        <router-link class="header__right-drobdown-link" to="/care">
+                           Уход
+                        </router-link>
+                     </li>
+                     <li class="header__right-drobdown-item">
+                        <router-link class="header__right-drobdown-link" to="/about">
+                           О нас
+                        </router-link>
+                     </li>
+                     <li class="header__right-drobdown-item">
+                        <router-link class="header__right-drobdown-link" to="/partners">
+                           Сотрудничество
+                        </router-link>
+                     </li>
+                     <li class="header__right-drobdown-item">
+                        <router-link class="header__right-drobdown-link" to="/faq">
+                           Ответы на вопросы
+                        </router-link>
+                     </li>
+                     <li class="header__right-drobdown-item">
+                        <router-link class="header__right-drobdown-link" to="/delivery">
+                           Доставка и оплата
+                        </router-link>
+                     </li>
+                     <li class="header__right-drobdown-item">
+                        <router-link class="header__right-drobdown-link" to="/oferta">
+                           Договор оферты
+                        </router-link>
+                     </li>
+                     <li class="header__right-drobdown-item">
+                        <router-link class="header__right-drobdown-link" to="/policy">
+                           Политика конфиденциальности
                         </router-link>
                      </li>
                   </ul>
@@ -89,7 +144,7 @@ export default {
    },
 
    computed: {
-      ...mapState(useAppStore, ["nav", "isActiveFavorite", "isActiveBacket"]),
+      ...mapState(useAppStore, ["isActiveFavorite", "isActiveBacket"]),
       ...mapState(useBacketStore, { cardsBacket: "cards" }),
       ...mapState(useFavoriteStore, { cardsFavorite: "cards" }),
    },
