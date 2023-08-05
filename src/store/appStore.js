@@ -25,7 +25,7 @@ import img_20 from "@/assets/img/webp/hero__card-20.webp";
 export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
-         products: [
+         products: useStorage("products-items",  [
             {
                id: "card-100-1",
                date: 1,
@@ -625,7 +625,7 @@ export const useAppStore = defineStore("appStore", {
                intensity: 4,
                isFavorite: false,
             },
-         ],
+         ]),
 
          filterData: {
             category: "",
