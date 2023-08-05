@@ -14,7 +14,7 @@
          </div>
          <div class="goods__search">
             <form class="goods__search-container" action="" method="">
-               <input class="goods__search-input" type="search" placeholder="Что нужно найти?" />
+               <input class="goods__search-input" type="text" placeholder="Что нужно найти?" @input="serchUpdate($event.target.value)" />
                <svg class="goods__search-icon" fill="none" stroke="rgb(182, 182, 182)">
                   <use xlink:href="@/assets/img/svg/sprite.svg#search"></use>
                </svg>
@@ -26,9 +26,9 @@
    <section class="allcatalog">
       <div class="container">
          <div class="allcatalog__grid">
-            <MyFilter :categoryData="getCategotyData" @filter="filterData = $event" />
+            <MyFilter :categoryData="uniqueCategories" @filter="filterData = $event" />
             <div>
-               <MyCatalog class="allcatalog__cards" :dataItem="getLimitCard" />
+               <MyCatalog class="allcatalog__cards" :dataItem="filteredBySearchQuery" />
                <MyPagination />
             </div>
          </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
+import { mapActions, mapState } from "pinia";
 import { useAppStore } from "@/store/appStore";
 
 export default {
@@ -62,8 +62,12 @@ export default {
       };
    },
 
+   methods: {
+      ...mapActions(useAppStore, {serchUpdate: "updateSearchQuery"})
+   },
+
    computed: {
-      ...mapState(useAppStore, ["getCategotyData", "filterCollection", "getLimitCard"]),
+      ...mapState(useAppStore, ["uniqueCategories", "filteredBySearchQuery"]),
    },
 };
 </script>

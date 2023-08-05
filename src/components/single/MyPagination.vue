@@ -1,7 +1,7 @@
 <template>
    <div class="pagination">
       <button
-         v-for="n in getCountCardPagination"
+         v-for="n in cardPaginationCount"
          :key="n"
          class="pagination__item"
          :class="{ active: n === pageNumber }"
@@ -29,7 +29,7 @@ export default {
    },
 
    computed: {
-      ...mapState(useAppStore, ["getCountCardPagination"]),
+      ...mapState(useAppStore, ["cardPaginationCount"]),
    },
 };
 </script>

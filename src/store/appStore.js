@@ -637,26 +637,16 @@ export const useAppStore = defineStore("appStore", {
          isActiveFavorite: false,
          isActiveBacket: false,
          pageNumber: 1,
+         searchQuery: "",
       };
    },
 
    getters: {
-      getCategotyData(state) {
-         const categorySet = new Set(state.products.map((item) => item.category));
-         return Array.from(categorySet).sort((a, b) => b.localeCompare(a));
+      uniqueCategories(state) {
+         return [...new Set(state.products.map((item) => item.category))].sort((a, b) => b.localeCompare(a));
       },
 
-      getLimitCard(state) {
-         const startIndex = (state.pageNumber - 1) * 6;
-         const endIndex = startIndex + 6;
-         return this.filterCollection.slice(startIndex, endIndex);
-      },
-
-      getCountCardPagination(state) {
-         return Number(Math.ceil(this.filterCollection.length / 6));
-      },
-
-      filterCategory(state) {
+      filteredByCategory(state) {
          const selectedCategory = state.filterData.category;
          if (selectedCategory === "все") {
             return state.products;
@@ -664,8 +654,7 @@ export const useAppStore = defineStore("appStore", {
          return state.products.filter((item) => item.category === selectedCategory);
       },
 
-      filterSort(state) {
-         const sortedCategory = [...this.filterCategory];
+      sortedProducts(state) {
          const sortingFunctions = {
             new: (a, b) => a.date - b.date,
             old: (a, b) => b.date - a.date,
@@ -673,28 +662,48 @@ export const useAppStore = defineStore("appStore", {
             end: (a, b) => a.title.localeCompare(b.title),
          };
          const sortingFunction = sortingFunctions[state.filterData.sort];
+         const sortedByCategory = [...this.filteredByCategory];
          if (sortingFunction) {
-            return sortedCategory.sort(sortingFunction);
+            return sortedByCategory.sort(sortingFunction);
          }
-         return sortedCategory;
+         return sortedByCategory;
       },
 
-      filterAroma(state) {
+      filteredByAroma(state) {
          const selectedAromas = state.filterData.aroma;
          if (selectedAromas.length === 0) {
-            return this.filterSort;
+            return this.sortedProducts;
          }
-         const filteredByAroma = this.filterSort.filter((item) => selectedAromas.includes(item.aroma));
+         const filteredByAroma = this.sortedProducts.filter((item) => selectedAromas.includes(item.aroma));
          return Array.from(new Set(filteredByAroma));
       },
 
-      filterCollection(state) {
+      filteredByCollection(state) {
          const selectedCollections = state.filterData.collection;
          if (selectedCollections.length === 0) {
-            return this.filterAroma;
+            return this.filteredByAroma;
          }
-         const filteredByCollection = this.filterAroma.filter((item) => selectedCollections.includes(item.collection));
+         const filteredByCollection = this.filteredByAroma.filter((item) => selectedCollections.includes(item.collection));
          return Array.from(new Set(filteredByCollection));
+      },
+
+      limitedCards(state) {
+         const startIndex = (state.pageNumber - 1) * 6;
+         const endIndex = startIndex + 6;
+         return this.filteredByCollection.slice(startIndex, endIndex);
+      },
+
+      filteredBySearchQuery(state) {
+         const searchQuery = state.searchQuery.trim().toLowerCase();
+         if (!searchQuery) {
+            return this.limitedCards;
+         }
+         return this.limitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
+      },
+
+      cardPaginationCount(state) {
+         const itemCount = state.searchQuery.length > 0 ? this.filteredBySearchQuery.length : this.filteredByCollection.length;
+         return Math.ceil(itemCount / 6);
       },
    },
 
@@ -718,6 +727,10 @@ export const useAppStore = defineStore("appStore", {
 
       updatePageNumber(data) {
          this.pageNumber = data;
+      },
+
+      updateSearchQuery(data) {
+         this.searchQuery = data;
       },
    },
 });
