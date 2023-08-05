@@ -12,16 +12,19 @@ export const useFavoriteStore = defineStore("favoriteStore", {
    actions: {
       addCardFavorite(cardId) {
          const store = useAppStore();
-         const isExistsCard = !!this.cards.find((item) => item.id === cardId);
-         const currentElement = store.products.filter((item) => item.id === cardId);
-         isExistsCard ? false : this.cards.push(...currentElement), store.updateFavorite(cardId, true);
+         const isExistsCard = this.cards.some((item) => item.id === cardId);
+
+         if (!isExistsCard) {
+            const currentElement = store.products.find((item) => item.id === cardId);
+            this.cards.push(currentElement);
+            store.updateFavorite(cardId, true);
+         }
       },
 
       delCardFavorite(cardId) {
          const store = useAppStore();
-         const currentElement = this.cards.filter((item) => item.id !== cardId);
-         store.updateFavorite(cardId, false)
-         this.cards = currentElement;
+         this.cards = this.cards.filter((item) => item.id !== cardId);
+         store.updateFavorite(cardId, false);
       },
    },
 });
