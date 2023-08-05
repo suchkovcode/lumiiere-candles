@@ -10,8 +10,7 @@ export default {
 
    props: {
       dataItem: {
-         type: Array,
-         required: true,
+         type: [Array, Object],
       },
    },
 };

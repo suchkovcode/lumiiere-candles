@@ -26,8 +26,8 @@
    <section class="allcatalog">
       <div class="container">
          <div class="allcatalog__grid">
-            <MyFilter />
-            <MyCatalog class="allcatalog__cards" :dataItem="products" />
+            <MyFilter :categoryData="getCategotyData" @filter="filterData = $event" />
+            <MyCatalog class="allcatalog__cards" :dataItem="filterCollection" />
          </div>
       </div>
    </section>
@@ -60,7 +60,7 @@ export default {
    },
 
    computed: {
-      ...mapState(useAppStore, ["products"]),
+      ...mapState(useAppStore, ["getCategotyData", "filterCollection"]),
    },
 };
 </script>

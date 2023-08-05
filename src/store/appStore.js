@@ -18,10 +18,10 @@ import img_13 from "@/assets/img/webp/hero__card-13.webp";
 export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
-         products: useStorage("product-items", [
+         products: [
             {
                id: "card-100-1",
-               date: "04.01.2023",
+               date: 1,
                title: "Волшебству быть.",
                description:
                   "Помните, как вы дергали маму за куртку и спрашивали 'А мы купим этот пряничный домик?'. Зажигая эту свечу Ваш дом наполнит аромат самого настоящего Нового года. Если вы, как и я, любите слушать ароматы всего, что вас окружает, то это запах того самого пряника, когда вы его откусили.",
@@ -45,13 +45,13 @@ export const useAppStore = defineStore("appStore", {
                tag: ["имбирный пряник", "бобы тонка", "ваниль", "сахар", "Джингл Беллс"],
                aroma: "Десертные",
                collection: "Новый год",
-               category: "свечи",
+               category: "дополнительно",
                intensity: 5,
                isFavorite: false,
             },
             {
                id: "card-100-2",
-               date: "04.01.2023",
+               date: 2,
                title: "ALL I WANT FOR XMAS IS YOU",
                description:
                   "Всегда при наступлении холодов, нашей душонке хочется как-то согреться и мы бежим в теплых носочках заваривать себе чай или кофеек, но зимой нам хочется чего-то особенного и мы добавляем туда корицы/ванили и сразу как-то согревает немного сильнее и настроение становится намного лучше. Вот это оно, только с легким ароматом перечной мяты :)",
@@ -75,13 +75,13 @@ export const useAppStore = defineStore("appStore", {
                tag: ["перечная мята", "корица ", "чай", "ваниль", "гвоздика", "чудо"],
                aroma: "Свежие",
                collection: "Новый год",
-               category: "свечи",
+               category: "наборы",
                intensity: 5,
                isFavorite: false,
             },
             {
                id: "card-100-3",
-               date: "04.01.2023",
+               date: 3,
                title: "Гарри Поттер",
                description:
                   "Поттер, учишься балету? Представь, что ты на завтраке в Хогсмиде, повсюду аромат тыквенного сока, сливочного пива, карамели и кофе. Обволакивающий, тёплый, уютный, просто отвал всего. Пахнет, как твой настоящий друг.",
@@ -111,7 +111,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-4",
-               date: "04.01.2023",
+               date: 4,
                title: "Рон Уизли",
                description:
                   "Тёплый и сладкий аромат домашней выпечки, уюта и веснушек, как в доме у миссис Уизли. Если уткнуться носиком носом в бордовый свитер Рона, который связала ему матушка, от него будет пахнуть именно так. Эта свеча точно разыграет твой аппетит!",
@@ -141,7 +141,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-5",
-               date: "04.01.2023",
+               date: 5,
                title: "Гермиона",
                description:
                   "Малышка Грейнджер пахнет настоящим домашним шоколадным печеньем, заклинаниями, которые нужно произносить правильно, а также отвагой и добротой.",
@@ -171,7 +171,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-6",
-               date: "04.01.2023",
+               date: 6,
                title: "Драко",
                description:
                   "Мужественный и пленительный аромат с нотками сочного зелёного яблока. Такой же как и сам Драко. Если вы хотите, чтобы у вас дома пахло секси мужиком, вам точно нужна эта свеча.",
@@ -201,7 +201,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-7",
-               date: "04.01.2023",
+               date: 7,
                title: "Итачи",
                description:
                   "Мастер гендзюцу, опасный боец и просто красавчик, который пахнет черным кофе и миндалем. Мы влюблены. А техника такого уровня на него не действует!",
@@ -231,7 +231,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-8",
-               date: "04.01.2023",
+               date: 8,
                title: "Какаши",
                description:
                   "У этого парня есть все шансы стать твоим крашем, и не только потому, что он сказочно красив, но и потому, что он пахнет нежным кокосиком и свежим бамбуком. Еще у него белоснежные волосы, а весь секрет в кокосовом масле. Только тссс…",
@@ -261,7 +261,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-9",
-               date: "04.01.2023",
+               date: 9,
                title: "Леви",
                description:
                   "Представьте, как вы утыкаетесь носом в выстиранную, глаженную белоснежную рубашку. Аромат «Хрустит» от чистоты. Потому, что Леви напрямую ассоциируется с идеалом и чистотой.",
@@ -291,7 +291,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-10",
-               date: "04.01.2023",
+               date: 10,
                title: "Полумна",
                description:
                   "В детстве я всегда мечтала об очках, как у Полумны. Ее странность и абсолютная непохожесть на других героев Поттерианы покоряла меня до глубины души. А вы задумывались, как пахнут мозгошмыги? Этот аромат проникнет в вашу душу и сведет с ума. (Но мозг не размягчит, обещаю) Экстравагантный, яркий и безумно насыщенный, сладкий и такой необычный. Именно так, пахнет Полумна. P.s. Раньше этот аромат принадлежал Вики, но он ей абсолютно не подходил, а сейчас, он нашел свою настоящую хозяйку :)",
@@ -321,7 +321,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-11",
-               date: "04.01.2023",
+               date: 11,
                title: "Том Реддл",
                description: "в процессе придумывания :)",
                hero: img_11,
@@ -350,7 +350,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-12",
-               date: "04.01.2023",
+               date: 12,
                title: "Фред и Джордж",
                description:
                   "Короли Хогвартских розыгрышей. Знамениты своими сумасшедшими выходками и шалостями. Ребята, которые свели с ума всех персонажей Поттерианы. И нас, честно говоря, тоже.",
@@ -380,7 +380,7 @@ export const useAppStore = defineStore("appStore", {
             },
             {
                id: "card-100-13",
-               date: "04.01.2023",
+               date: 13,
                title: "Профессор Снейп",
                description:
                   "Снейп.. Как мы ненавидели его в начале, и как мы полюбили его в конце. Потрясающий, многогранный, бесчувственный и такой любящий одновременно. Все ради любви, даже после стольких лет.",
@@ -408,7 +408,14 @@ export const useAppStore = defineStore("appStore", {
                intensity: 5,
                isFavorite: false,
             },
-         ]),
+         ],
+
+         filterData: {
+            category: "",
+            sort: "",
+            aroma: [],
+            collection: [],
+         },
 
          nav: {
             firstNav: [
@@ -490,6 +497,54 @@ export const useAppStore = defineStore("appStore", {
       };
    },
 
+   getters: {
+      getCategotyData(state) {
+         const categorySet = new Set(state.products.map((item) => item.category));
+         return Array.from(categorySet).sort((a, b) => b.localeCompare(a));
+      },
+
+      filterCategory(state) {
+         const selectedCategory = state.filterData.category;
+         if (selectedCategory === "все") {
+            return state.products;
+         }
+         return state.products.filter((item) => item.category === selectedCategory);
+      },
+
+      filterSort(state) {
+         const sortedCategory = [...this.filterCategory];
+         const sortingFunctions = {
+            new: (a, b) => a.date - b.date,
+            old: (a, b) => b.date - a.date,
+            start: (a, b) => b.title.localeCompare(a.title),
+            end: (a, b) => a.title.localeCompare(b.title),
+         };
+         const sortingFunction = sortingFunctions[state.filterData.sort];
+         if (sortingFunction) {
+            return sortedCategory.sort(sortingFunction);
+         }
+         return sortedCategory;
+      },
+
+      filterAroma(state) {
+         const selectedAromas = state.filterData.aroma;
+         if (selectedAromas.length === 0) {
+            return this.filterSort;
+         }
+         const filteredByAroma = this.filterSort.filter((item) => selectedAromas.includes(item.aroma));
+         return Array.from(new Set(filteredByAroma));
+      },
+
+      filterCollection(state) {
+         const selectedCollections = state.filterData.collection;
+         if (selectedCollections.length === 0) {
+            return this.filterAroma;
+         }
+         const filteredByCollection = this.filterAroma.filter((item) => selectedCollections.includes(item.collection));
+         return Array.from(new Set(filteredByCollection));
+      },
+   },
+
    actions: {
       updateFavorite(cardId, state) {
          const index = this.products.findIndex((element) => element.id === cardId);
@@ -502,6 +557,10 @@ export const useAppStore = defineStore("appStore", {
 
       updateBacketCanvas(state) {
          this.isActiveBacket = state;
+      },
+
+      updateFilterData(data) {
+         this.filterData = data;
       },
    },
 });
