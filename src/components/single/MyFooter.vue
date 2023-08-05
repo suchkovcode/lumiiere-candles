@@ -137,15 +137,8 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import { useAppStore } from "@/store/appStore";
-
 export default {
    name: "MyFooter",
-
-   computed: {
-      ...mapState(useAppStore, ["nav"]),
-   },
 };
 </script>
 
