@@ -595,7 +595,6 @@ export const useAppStore = defineStore("appStore", {
                intensity: 4,
                isFavorite: false,
             },
-
             {
                id: "card-100-20",
                date: 20,
@@ -637,6 +636,7 @@ export const useAppStore = defineStore("appStore", {
 
          isActiveFavorite: false,
          isActiveBacket: false,
+         pageNumber: 1,
       };
    },
 
@@ -644,6 +644,16 @@ export const useAppStore = defineStore("appStore", {
       getCategotyData(state) {
          const categorySet = new Set(state.products.map((item) => item.category));
          return Array.from(categorySet).sort((a, b) => b.localeCompare(a));
+      },
+
+      getLimitCard(state) {
+         const startIndex = (state.pageNumber - 1) * 6;
+         const endIndex = startIndex + 6;
+         return this.filterCollection.slice(startIndex, endIndex);
+      },
+
+      getCountCardPagination(state) {
+         return Number(Math.ceil(this.filterCollection.length / 6));
       },
 
       filterCategory(state) {
@@ -704,6 +714,10 @@ export const useAppStore = defineStore("appStore", {
 
       updateFilterData(data) {
          this.filterData = data;
+      },
+
+      updatePageNumber(data) {
+         this.pageNumber = data;
       },
    },
 });

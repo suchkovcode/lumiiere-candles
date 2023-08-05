@@ -2,6 +2,7 @@ import myHeader from "@/components/single/MyHeader.vue";
 import myFooter from "@/components/single/MyFooter.vue";
 import myCatalog from "@/components/single/MyCatalog.vue";
 import myFilter from "@/components/single/MyFilter.vue";
+import myPagination from "@/components/single/MyPagination.vue";
 
 import card from "@/components/card/v-card.vue";
 import cardFavorite from "@/components/card/v-card-favorite.vue";
@@ -31,6 +32,7 @@ export default [
    myFooter,
    myCatalog,
    myFilter,
+   myPagination,
 
    card,
    cardFavorite,
