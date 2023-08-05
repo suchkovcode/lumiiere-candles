@@ -11,39 +11,25 @@
                </button>
                <ul class="header__left-drobdown" :class="{ active: isActiveLeft }">
                   <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog">
-                        Все товары
-                     </router-link>
+                     <router-link class="header__left-drobdown-link" to="/catalog"> Все товары </router-link>
                   </li>
                   <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog">
-                        Мелтсы
-                     </router-link>
+                     <router-link class="header__left-drobdown-link" to="/catalog"> Мелтсы </router-link>
                   </li>
                   <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog">
-                        Спички
-                     </router-link>
+                     <router-link class="header__left-drobdown-link" to="/catalog"> Спички </router-link>
                   </li>
                   <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog">
-                        Наборы
-                     </router-link>
+                     <router-link class="header__left-drobdown-link" to="/catalog"> Наборы </router-link>
                   </li>
                   <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog">
-                        Открытки
-                     </router-link>
+                     <router-link class="header__left-drobdown-link" to="/catalog"> Открытки </router-link>
                   </li>
                   <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog">
-                        Бестселлеры
-                     </router-link>
+                     <router-link class="header__left-drobdown-link" to="/catalog"> Бестселлеры </router-link>
                   </li>
                   <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog">
-                        Соевые свечи
-                     </router-link>
+                     <router-link class="header__left-drobdown-link" to="/catalog"> Соевые свечи </router-link>
                   </li>
                </ul>
             </div>
@@ -74,39 +60,25 @@
                <li class="header__right-drobdown">
                   <ul class="header__right-drobdown-list">
                      <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/care">
-                           Уход
-                        </router-link>
+                        <router-link class="header__right-drobdown-link" to="/care"> Уход </router-link>
                      </li>
                      <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/about">
-                           О нас
-                        </router-link>
+                        <router-link class="header__right-drobdown-link" to="/about"> О нас </router-link>
                      </li>
                      <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/partners">
-                           Сотрудничество
-                        </router-link>
+                        <router-link class="header__right-drobdown-link" to="/partners"> Сотрудничество </router-link>
                      </li>
                      <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/faq">
-                           Ответы на вопросы
-                        </router-link>
+                        <router-link class="header__right-drobdown-link" to="/faq"> Ответы на вопросы </router-link>
                      </li>
                      <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/delivery">
-                           Доставка и оплата
-                        </router-link>
+                        <router-link class="header__right-drobdown-link" to="/delivery"> Доставка и оплата </router-link>
                      </li>
                      <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/oferta">
-                           Договор оферты
-                        </router-link>
+                        <router-link class="header__right-drobdown-link" to="/oferta"> Договор оферты </router-link>
                      </li>
                      <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/policy">
-                           Политика конфиденциальности
-                        </router-link>
+                        <router-link class="header__right-drobdown-link" to="/policy"> Политика конфиденциальности </router-link>
                      </li>
                   </ul>
                </li>
@@ -181,37 +153,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header .container {
-   position: relative;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   height: 67px;
-   padding: 20px;
-   background-color: var(--color_base);
-   box-shadow: 0 25px 45px 0 rgba(107, 107, 106, 5%);
+.header {
+   .container {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 67px;
+      padding: 20px;
+      background-color: var(--color_base);
+      box-shadow: 0 25px 45px 0 rgba(107, 107, 106, 5%);
 
-   @include sm {
-      height: 90px;
-      margin: 15px 20px 0 20px;
-      padding: 20px 25px;
-      border-radius: 25px;
-      background-color: rgba(255, 255, 255, 70%);
-      box-shadow: 0 25px 45px 0 rgb(107, 107, 106, 10%);
-      backdrop-filter: blur(10px);
-   }
+      @include sm {
+         height: 90px;
+         margin: 15px 20px 0 20px;
+         padding: 20px 25px;
+         border-radius: 25px;
+         background-color: rgba(255, 255, 255, 70%);
+         box-shadow: 0 25px 45px 0 rgb(107, 107, 106, 10%);
+         backdrop-filter: blur(10px);
+      }
 
-   @include md {
-      margin: 15px 30px 0 30px;
-   }
+      @include md {
+         margin: 15px 30px 0 30px;
+      }
 
-   @include lg {
-      height: 100px;
-   }
+      @include lg {
+         height: 100px;
+      }
 
-   @include xxl {
-      height: 110px;
-      margin: 15px auto 0 auto;
+      @include xxl {
+         height: 110px;
+         margin: 15px auto 0 auto;
+      }
    }
 }
 
