@@ -29,5 +29,9 @@ export default {
       justify-items: start;
       margin-bottom: 50px;
    }
+
+   @include lg {
+      grid-template-columns: 1fr 1fr 1fr;
+   }
 }
 </style>
