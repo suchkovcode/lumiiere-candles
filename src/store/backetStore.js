@@ -22,11 +22,11 @@ export const useBacketStore = defineStore("backetStore", {
 
    actions: {
       addCardBacket(cardData) {
-         const isExistsCard = !!this.cards.find((item) => item.code === cardData.code);
-         if (isExistsCard) {
-            const indexCardStore = this.cards.findIndex((item) => item.code === cardData.code);
-            const sumCount = (this.cards[indexCardStore].count += cardData.count);
-            sumCount >= 10 ? (this.cards[indexCardStore].count = 10) : (this.cards[indexCardStore].count = sumCount);
+         const existingCardIndex = this.cards.findIndex((item) => item.code === cardData.code);
+
+         if (existingCardIndex !== -1) {
+            const existingCard = this.cards[existingCardIndex];
+            existingCard.count = Math.min(existingCard.count + cardData.count, 10);
             this.sumCard(cardData.code);
          } else {
             this.cards.push(cardData);
@@ -35,26 +35,30 @@ export const useBacketStore = defineStore("backetStore", {
       },
 
       sumCard(codeCard) {
-         const indexCardStore = this.cards.findIndex((item) => item.code === codeCard);
-         const sumPrice = Number(parseFloat(this.cards[indexCardStore].price * this.cards[indexCardStore].count).toFixed(2));
-         this.cards[indexCardStore].total = sumPrice;
+         const card = this.cards.find((item) => item.code === codeCard);
+         if (card) {
+            card.total = parseFloat((card.price * card.count).toFixed(2));
+         }
       },
 
       delCardBacket(cardCode) {
-         const currentElement = this.cards.filter((item) => item.code !== cardCode);
-         this.cards = currentElement;
+         this.cards = this.cards.filter((item) => item.code !== cardCode);
       },
 
       incrementCountCard(codeCard) {
-         const currentCard = this.cards.find((item) => item.code === codeCard);
-         currentCard.count === 10 ? (currentCard.count = 10) : currentCard.count++;
-         this.sumCard(codeCard);
+         const card = this.cards.find((item) => item.code === codeCard);
+         if (card) {
+            card.count = Math.min(card.count + 1, 10);
+            this.sumCard(codeCard);
+         }
       },
 
       decrementCountCard(codeCard) {
-         const currentCard = this.cards.find((item) => item.code === codeCard);
-         currentCard.count === 1 ? (currentCard.count = 1) : currentCard.count--;
-         this.sumCard(codeCard);
+         const card = this.cards.find((item) => item.code === codeCard);
+         if (card) {
+            card.count = Math.max(card.count - 1, 1);
+            this.sumCard(codeCard);
+         }
       },
    },
 });
