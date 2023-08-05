@@ -12,6 +12,11 @@
                <ul class="header__left-drobdown" :class="{ active: isActiveLeft }">
                   <li class="header__left-drobdown-item">
                      <router-link class="header__left-drobdown-link" to="/catalog">
+                        Все товары
+                     </router-link>
+                  </li>
+                  <li class="header__left-drobdown-item">
+                     <router-link class="header__left-drobdown-link" to="/catalog">
                         Мелтсы
                      </router-link>
                   </li>

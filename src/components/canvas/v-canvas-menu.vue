@@ -10,6 +10,9 @@
                   </span>
                   <ul class="menu__drobdown-submenu">
                      <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/catalog"> Все товары </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
                         <router-link class="menu__drobdown-link" to="/catalog"> Мелтсы </router-link>
                      </li>
                      <li class="menu__drobdown-item">
