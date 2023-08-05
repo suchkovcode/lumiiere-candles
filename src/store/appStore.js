@@ -14,6 +14,13 @@ import img_10 from "@/assets/img/webp/hero__card-10.webp";
 import img_11 from "@/assets/img/webp/hero__card-11.webp";
 import img_12 from "@/assets/img/webp/hero__card-12.webp";
 import img_13 from "@/assets/img/webp/hero__card-13.webp";
+import img_14 from "@/assets/img/webp/hero__card-14.webp";
+import img_15 from "@/assets/img/webp/hero__card-15.webp";
+import img_16 from "@/assets/img/webp/hero__card-16.webp";
+import img_17 from "@/assets/img/webp/hero__card-17.webp";
+import img_18 from "@/assets/img/webp/hero__card-18.webp";
+import img_19 from "@/assets/img/webp/hero__card-19.webp";
+import img_20 from "@/assets/img/webp/hero__card-20.webp";
 
 export const useAppStore = defineStore("appStore", {
    state: () => {
@@ -406,6 +413,217 @@ export const useAppStore = defineStore("appStore", {
                collection: "Гарри Поттер",
                category: "свечи",
                intensity: 5,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-14",
+               date: 14,
+               title: "Хината",
+               description:
+                  "Свеча 'Хината' сочетает в себе не только щепотку магии, но и чувственный аромат лаванды, стручков ванили и цедры апельсина, Эта свечуля создана для тех, кто ценит прекрасное и ищет покой и умиротворение. Если бы Наруто был знаком с магазином Lumiiere, он бы сказал: 'Свечка 'Хината' - это то, что мне нужно'. Помнишь известную фразу Хинаты 'Никто не знает, что произойдет в следующую секунду. Так почему бы не принимать каждый миг, как дар?' Прислушайся к Хинате и наслаждайся каждым мгновением, зажигая эту свечу?",
+               hero: img_14,
+               code: {
+                  small: "CNDL-HNTL-S",
+                  medium: "CNDL-HNTL-M",
+                  large: "CNDL-HNTL-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["лаванда", "стручки ванили", "цедра апельсина", "Бьякуган"],
+               aroma: "Цветочные",
+               collection: "Аниме",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-15",
+               date: 15,
+               title: "Тоторо",
+               description:
+                  "Приготовься окунуться в волшебный мир Тоторо! Ощути ароматы арбуза, лимонада и пушистого пузика, которые вместе творят чудеса, словно сам Тоторо взмахивает лохматой лапкой. Зажги свечу и позволь ей наполнить твой дом магией лесных духов и сказочными приключениями. Представь, что ты прогуливаешься с Тоторо под зонтиком в дождливый день или летаешь на кошачьем автобусе вместе с Мэй и Сацуки. А кто знает, может быть, тебе удастся познакомиться с озорными духами-дустеликами и научиться вызывать их с помощью свечи? Ведь волшебство всегда рядом, когда ты веришь в него!",
+               hero: img_15,
+               code: {
+                  small: "CNDL-WDS-S",
+                  medium: "CNDL-WDS-M",
+                  large: "CNDL-WDS-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["арбуз", "лимонад", "пушистое пузико"],
+               aroma: "Свежие",
+               collection: "Аниме",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-16",
+               date: 16,
+               title: "Наруто",
+               description:
+                  "Свеча для тех, кто хочет стать Хокаге! Взрывной и немного сумасшедший персонаж с ароматом дерзких цитрусов. Парень, который свернул горы, покорил стихии и наши нежные сердца. Это путь ниндзя, датте баё!",
+               hero: img_16,
+               code: {
+                  small: "CNDL-NARU-S",
+                  medium: "CNDL-NARU-M",
+                  large: "CNDL-NARU-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["грейпфрут", "лимон", "мандарин", "цитрон", "нарутомаки"],
+               aroma: "Фруктовые",
+               collection: "Аниме",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-17",
+               date: 17,
+               title: "Саске",
+               description:
+                  "Молчаливый, скрытный и загадочный с идеально подходящим ему ароматом черной смородины и жасмина. Словно ястреб, распахнувший крылья.",
+               hero: img_17,
+               code: {
+                  small: "CNDL-SAS-S",
+                  medium: "CNDL-SAS-M",
+                  large: "CNDL-SAS-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["жасмин", "черная смородина", "аматерасу"],
+               aroma: "Природные",
+               collection: "Аниме",
+               category: "свечи",
+               intensity: 4,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-18",
+               date: 18,
+               title: "Зачарованные",
+               description:
+                  "Сказка из нашего детства! Если ты последний вышел во двор, то роль Фиби и Пайпер всегда были заняты, оставались лишь Прю и Пейдж. А как все девчонки мечтали вырасти и выйти за Коула? Аромат этой свечи, как на чердаке у Зачарованных, где среди старой деревянной мебели лежит пыльная книга таинств, закипает зелье с дикими ягодами, а сестры, произносят сильные заклинания, держась за руки.",
+               hero: img_18,
+               code: {
+                  small: "CNDL-CHARM-S",
+                  medium: "CNDL-CHARM-M",
+                  large: "CNDL-CHARM-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["тиковое дерево", "шелковица", "морошка", "клевер", "травы", "книга таинств"],
+               aroma: "Десертные",
+               collection: "Игры",
+               category: "свечи",
+               intensity: 4,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-19",
+               date: 19,
+               title: "Мальбонте",
+               description:
+                  "И в Мальбонте есть два начала: темное и светлое, и в нашей свече есть терпкость соснового леса и нежность озера в лесу. Пахнет энергией, природой и силой.",
+               hero: img_19,
+               code: {
+                  small: "CNDL-BONT-S",
+                  medium: "CNDL-BONT-M",
+                  large: "CNDL-BONT-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["река", "сосновые ветки", "цветы", "энергия", "тьма и свет"],
+               aroma: "Природные",
+               collection: "Игры",
+               category: "свечи",
+               intensity: 4,
+               isFavorite: false,
+            },
+
+            {
+               id: "card-100-20",
+               date: 20,
+               title: "Венти",
+               description:
+                  "Все знают, как пахнут одуванчики? Этот весенний аромат с легкой горчинкой, свежестью зеленого клевера и алое. Можно было бы подумать, что Венти, как девчонка с его нежным ароматом, но он же такой милашка! Как можно было подобрать ему что-то иное? Поле с одуванчиками, поющая лира, и песни барда. Романтика...",
+               hero: img_20,
+               code: {
+                  small: "CNDL-VENT-S",
+                  medium: "CNDL-VENT-M",
+                  large: "CNDL-VENT-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["одуванчик", "алое", "полевые цветы", "клевер", "зеленый чай", "груша", "лира"],
+               aroma: "Природные",
+               collection: "Игры",
+               category: "свечи",
+               intensity: 4,
                isFavorite: false,
             },
          ],
