@@ -1447,7 +1447,7 @@ export default {
       }
    }
 
-   & .catalogs[data-v-56871dbe] {
+   & .catalogs {
       padding: 0 20px;
 
       @include md {
