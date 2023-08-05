@@ -156,6 +156,12 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 100;
+   width: 100%;
+
    &__container {
       position: relative;
       display: flex;
@@ -189,14 +195,6 @@ export default {
          margin: 15px auto 0 auto;
       }
    }
-}
-
-.header {
-   position: fixed;
-   top: 0;
-   left: 0;
-   z-index: 100;
-   width: 100%;
 
    &__message {
       display: flex;
