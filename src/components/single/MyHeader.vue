@@ -2,99 +2,101 @@
    <header class="header">
       <p class="header__message">100% VEGAN. CRUELTY FREE.</p>
       <div class="container">
-         <div class="header__left">
-            <div class="header__left-catalog" :class="{ active: isActiveLeft }" @mouseover="menuLeftActive" @mouseout="isActiveLeft = false">
-               <button class="header__btn-menu" aria-label="Catalog button" @click="openMobileMenu">
-                  <svg class="header__icon" fill="#EB4A00">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#catalog"></use>
-                  </svg>
-               </button>
-               <ul class="header__left-drobdown" :class="{ active: isActiveLeft }">
-                  <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog"> Все товары </router-link>
-                  </li>
-                  <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog"> Мелтсы </router-link>
-                  </li>
-                  <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog"> Спички </router-link>
-                  </li>
-                  <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog"> Наборы </router-link>
-                  </li>
-                  <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog"> Открытки </router-link>
-                  </li>
-                  <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog"> Бестселлеры </router-link>
-                  </li>
-                  <li class="header__left-drobdown-item">
-                     <router-link class="header__left-drobdown-link" to="/catalog"> Соевые свечи </router-link>
-                  </li>
-               </ul>
-            </div>
-            <button class="header__btn-search" aria-label="Search button">
-               <svg class="header__icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#search"></use>
-               </svg>
-            </button>
-            <div>
-               <ul class="header__left-nav">
-                  <li class="header__left-nav-item">
-                     <router-link class="header__left-nav-link" to="/about"> О нас </router-link>
-                  </li>
-                  <li class="header__left-nav-item">
-                     <span class="header__left-nav-link" ref="footerLink" @click="toScrollFooter"> Контакты </span>
-                  </li>
-               </ul>
-            </div>
-         </div>
-         <router-link class="header__logo" to="/" aria-label="Logo link">
-            <svg class="header__logo-icon">
-               <use xlink:href="@/assets/img/svg/sprite.svg#logo"></use>
-            </svg>
-         </router-link>
-         <div class="header__right">
-            <ul class="header__right-nav" :class="{ active: isActiveRight }" @mouseover="menuRightActive" @mouseout="isActiveRight = false">
-               <li class="header__right-nav-item" :class="{ active: isActiveRight }">Для клиента</li>
-               <li class="header__right-drobdown">
-                  <ul class="header__right-drobdown-list">
-                     <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/care"> Уход </router-link>
+         <div class="header__container">
+            <div class="header__left">
+               <div class="header__left-catalog" :class="{ active: isActiveLeft }" @mouseover="menuLeftActive" @mouseout="isActiveLeft = false">
+                  <button class="header__btn-menu" aria-label="Catalog button" @click="openMobileMenu">
+                     <svg class="header__icon" fill="#EB4A00">
+                        <use xlink:href="@/assets/img/svg/sprite.svg#catalog"></use>
+                     </svg>
+                  </button>
+                  <ul class="header__left-drobdown" :class="{ active: isActiveLeft }">
+                     <li class="header__left-drobdown-item">
+                        <router-link class="header__left-drobdown-link" to="/catalog"> Все товары </router-link>
                      </li>
-                     <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/about"> О нас </router-link>
+                     <li class="header__left-drobdown-item">
+                        <router-link class="header__left-drobdown-link" to="/catalog"> Мелтсы </router-link>
                      </li>
-                     <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/partners"> Сотрудничество </router-link>
+                     <li class="header__left-drobdown-item">
+                        <router-link class="header__left-drobdown-link" to="/catalog"> Спички </router-link>
                      </li>
-                     <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/faq"> Ответы на вопросы </router-link>
+                     <li class="header__left-drobdown-item">
+                        <router-link class="header__left-drobdown-link" to="/catalog"> Наборы </router-link>
                      </li>
-                     <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/delivery"> Доставка и оплата </router-link>
+                     <li class="header__left-drobdown-item">
+                        <router-link class="header__left-drobdown-link" to="/catalog"> Открытки </router-link>
                      </li>
-                     <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/oferta"> Договор оферты </router-link>
+                     <li class="header__left-drobdown-item">
+                        <router-link class="header__left-drobdown-link" to="/catalog"> Бестселлеры </router-link>
                      </li>
-                     <li class="header__right-drobdown-item">
-                        <router-link class="header__right-drobdown-link" to="/policy"> Политика конфиденциальности </router-link>
+                     <li class="header__left-drobdown-item">
+                        <router-link class="header__left-drobdown-link" to="/catalog"> Соевые свечи </router-link>
                      </li>
                   </ul>
-               </li>
-            </ul>
-            <button class="header__btn-favorite" @click="togllerFavorite(true)">
-               <svg class="header__icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#favorite"></use>
+               </div>
+               <button class="header__btn-search" aria-label="Search button">
+                  <svg class="header__icon">
+                     <use xlink:href="@/assets/img/svg/sprite.svg#search"></use>
+                  </svg>
+               </button>
+               <div>
+                  <ul class="header__left-nav">
+                     <li class="header__left-nav-item">
+                        <router-link class="header__left-nav-link" to="/about"> О нас </router-link>
+                     </li>
+                     <li class="header__left-nav-item">
+                        <span class="header__left-nav-link" ref="footerLink" @click="toScrollFooter"> Контакты </span>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <router-link class="header__logo" to="/" aria-label="Logo link">
+               <svg class="header__logo-icon">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#logo"></use>
                </svg>
-               <span class="header__icon-count"> {{ cardsFavorite.length }} </span>
-            </button>
-            <button class="header__btn-backet" @click="togllerBacket(true)">
-               <svg class="header__icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#backet"></use>
-               </svg>
-               <span class="header__icon-count"> {{ cardsBacket.length }} </span>
-            </button>
+            </router-link>
+            <div class="header__right">
+               <ul class="header__right-nav" :class="{ active: isActiveRight }" @mouseover="menuRightActive" @mouseout="isActiveRight = false">
+                  <li class="header__right-nav-item" :class="{ active: isActiveRight }">Для клиента</li>
+                  <li class="header__right-drobdown">
+                     <ul class="header__right-drobdown-list">
+                        <li class="header__right-drobdown-item">
+                           <router-link class="header__right-drobdown-link" to="/care"> Уход </router-link>
+                        </li>
+                        <li class="header__right-drobdown-item">
+                           <router-link class="header__right-drobdown-link" to="/about"> О нас </router-link>
+                        </li>
+                        <li class="header__right-drobdown-item">
+                           <router-link class="header__right-drobdown-link" to="/partners"> Сотрудничество </router-link>
+                        </li>
+                        <li class="header__right-drobdown-item">
+                           <router-link class="header__right-drobdown-link" to="/faq"> Ответы на вопросы </router-link>
+                        </li>
+                        <li class="header__right-drobdown-item">
+                           <router-link class="header__right-drobdown-link" to="/delivery"> Доставка и оплата </router-link>
+                        </li>
+                        <li class="header__right-drobdown-item">
+                           <router-link class="header__right-drobdown-link" to="/oferta"> Договор оферты </router-link>
+                        </li>
+                        <li class="header__right-drobdown-item">
+                           <router-link class="header__right-drobdown-link" to="/policy"> Политика конфиденциальности </router-link>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+               <button class="header__btn-favorite" @click="togllerFavorite(true)">
+                  <svg class="header__icon">
+                     <use xlink:href="@/assets/img/svg/sprite.svg#favorite"></use>
+                  </svg>
+                  <span class="header__icon-count"> {{ cardsFavorite.length }} </span>
+               </button>
+               <button class="header__btn-backet" @click="togllerBacket(true)">
+                  <svg class="header__icon">
+                     <use xlink:href="@/assets/img/svg/sprite.svg#backet"></use>
+                  </svg>
+                  <span class="header__icon-count"> {{ cardsBacket.length }} </span>
+               </button>
+            </div>
          </div>
       </div>
       <v-canvas-menu :activeState="isActiveCanvasMenu" @closeCanvas="isActiveCanvasMenu = $event" />
@@ -154,7 +156,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-   .container {
+   &__container {
       position: relative;
       display: flex;
       justify-content: space-between;
