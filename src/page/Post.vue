@@ -4,7 +4,7 @@
          <div class="container">
             <BaseBreadcrumbs :roterLink="roterData" />
             <article class="post__container">
-               <img class="post__img" src="@/assets/img/png/hero__card-1.jpg" loading="lazy" alt="" width="260" height="260" />
+               <img class="post__img" src="@/assets/img/png/hero__card-1.png" loading="lazy" alt="" width="260" height="260" />
                <div class="post__content">
                   <header class="post__content-header">
                      <v-card-rating :ratingStorage="storageDataCard" />
