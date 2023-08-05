@@ -197,13 +197,7 @@
                         <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletText"></use>
                      </svg>
                   </div>
-                  <img
-                     class="slider-item__hero"
-                     src="@/assets/img/webp/slider__img-1.webp"
-                     loading="lazy"
-                     alt="picture"
-                     width="300"
-                     height="300" />
+                  <img class="slider-item__hero" src="@/assets/img/webp/slider__img-1.webp" loading="lazy" alt="picture" width="300" height="300" />
                </div>
                <div class="slider-item__content-box">
                   <div class="slider-item__header">
@@ -216,9 +210,7 @@
                            <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-2"></use>
                         </svg>
                      </h2>
-                     <p class="slider-item__subtitle">
-                        Беспрецедентная акция, которую мы проводим каждый месяц! Свеча по самой классной цене :)
-                     </p>
+                     <p class="slider-item__subtitle">Беспрецедентная акция, которую мы проводим каждый месяц! Свеча по самой классной цене :)</p>
                   </div>
                   <div class="slider-item__footer">
                      <p class="slider-item__description">
@@ -267,13 +259,7 @@
                         <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletIcon-1"></use>
                      </svg>
                   </div>
-                  <img
-                     class="slider-item__hero"
-                     src="@/assets/img/webp/slider__img-2.webp"
-                     loading="lazy"
-                     alt="picture"
-                     width="300"
-                     height="300" />
+                  <img class="slider-item__hero" src="@/assets/img/webp/slider__img-2.webp" loading="lazy" alt="picture" width="300" height="300" />
                </div>
                <div class="slider-item__content-box">
                   <div class="slider-item__header">
@@ -298,13 +284,7 @@
             </div>
             <div class="slider-item" :class="{ active: currentSlider === 3 }">
                <div class="slider-item__img-box">
-                  <img
-                     class="slider-item__hero"
-                     src="@/assets/img/webp/slider__img-3.webp"
-                     loading="lazy"
-                     alt="picture"
-                     width="300"
-                     height="300" />
+                  <img class="slider-item__hero" src="@/assets/img/webp/slider__img-3.webp" loading="lazy" alt="picture" width="300" height="300" />
                </div>
                <div class="slider-item__content-box">
                   <div class="slider-item__header">
@@ -318,8 +298,8 @@
                         </svg>
                      </h2>
                      <p class="slider-item__subtitle">
-                        Оставь отзыв под купленным товаром и свяжись со мной любым удобным способом указанным в контактах, чтобы получить
-                        промокод* на скидку 5%, булочка
+                        Оставь отзыв под купленным товаром и свяжись со мной любым удобным способом указанным в контактах, чтобы получить промокод* на
+                        скидку 5%, булочка
                      </p>
                   </div>
                   <div class="slider-item__footer">
@@ -1464,6 +1444,19 @@ export default {
       &:hover {
          color: var(--color_base);
          background-color: var(--color_primary);
+      }
+   }
+
+   & .catalogs[data-v-56871dbe] {
+      padding: 0 20px;
+
+      @include md {
+         padding: 0 30px;
+      }
+
+      @include xl {
+         grid-template-columns: 1fr 1fr 1fr 1fr !important;
+         padding: 0;
       }
    }
 
