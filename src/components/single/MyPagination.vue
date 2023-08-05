@@ -1,5 +1,5 @@
 <template>
-   <div class="pagination">
+   <div class="pagination" v-if="cardPaginationCount > 1">
       <button
          v-for="n in cardPaginationCount"
          :key="n"
