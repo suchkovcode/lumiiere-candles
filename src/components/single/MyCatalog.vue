@@ -27,6 +27,7 @@ export default {
    margin-bottom: 30px;
 
    @include lg {
+      justify-items: start;
       margin-bottom: 50px;
    }
 }
