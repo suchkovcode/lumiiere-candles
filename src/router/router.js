@@ -96,16 +96,18 @@ const routes = [
    },
 ];
 
+const scrollBehaviorFunction = () => {
+   return new Promise((resolve) => {
+      setTimeout(() => {
+         resolve({ el: "#root", left: 0, top: 0, behavior: "smooth" });
+      }, 200);
+   });
+};
+
 const router = createRouter({
    history: createWebHistory(),
    routes,
-   scrollBehavior() {
-      return new Promise((resolve) => {
-         setTimeout(() => {
-            resolve({ el: "#root", left: 0, top: 0, behavior: "smooth" });
-         }, 200);
-      });
-   },
+   scrollBehavior: scrollBehaviorFunction,
 });
 
 router.beforeEach((to) => {
