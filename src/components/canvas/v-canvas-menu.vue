@@ -5,17 +5,27 @@
          <nav class="menu__nav" @click="closeMenuClick">
             <ul class="menu__nav-list">
                <li class="menu__nav-item menu__drobdown">
-                  <span
-                     class="menu__nav-link menu__drobdown-title"
-                     :class="{ active: isActiveCatalog }"
-                     @click="isActiveCatalog = !isActiveCatalog">
+                  <span class="menu__nav-link menu__drobdown-title" :class="{ active: isActiveCatalog }" @click="isActiveCatalog = !isActiveCatalog">
                      КАТАЛОГ
                   </span>
                   <ul class="menu__drobdown-submenu">
-                     <li v-for="item in nav.firstNav" :key="item.id" class="menu__drobdown-item">
-                        <router-link class="menu__drobdown-link" :to="item.to">
-                           {{ item.name }}
-                        </router-link>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/catalog"> Мелтсы </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/catalog"> Спички </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/catalog"> Наборы </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/catalog"> Открытки </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/catalog"> Бестселлеры </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/catalog"> Соевые свечи </router-link>
                      </li>
                   </ul>
                </li>
@@ -23,17 +33,30 @@
                   <router-link class="menu__nav-link" to="/about" @click="emitCloseCanvas">О НАС</router-link>
                </li>
                <li class="menu__nav-item menu__drobdown">
-                  <span
-                     class="menu__nav-link menu__drobdown-title"
-                     :class="{ active: isActiveClient }"
-                     @click="isActiveClient = !isActiveClient">
+                  <span class="menu__nav-link menu__drobdown-title" :class="{ active: isActiveClient }" @click="isActiveClient = !isActiveClient">
                      Для клиента
                   </span>
                   <ul class="menu__drobdown-submenu">
-                     <li v-for="item in nav.secondNav" :key="item.id" class="menu__drobdown-item">
-                        <router-link class="menu__drobdown-link" :to="item.to">
-                           {{ item.name }}
-                        </router-link>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/care"> Уход </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/about"> О нас </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/partners"> Сотрудничество</router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/faq"> Ответы на вопросы </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/delivery"> Доставка и оплата </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/oferta"> Договор оферты </router-link>
+                     </li>
+                     <li class="menu__drobdown-item">
+                        <router-link class="menu__drobdown-link" to="/policy"> Политика конфиденциальности </router-link>
                      </li>
                   </ul>
                </li>
