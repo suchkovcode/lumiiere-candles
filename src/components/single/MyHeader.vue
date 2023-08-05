@@ -181,7 +181,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.header .container {
    position: relative;
    display: flex;
    justify-content: space-between;
