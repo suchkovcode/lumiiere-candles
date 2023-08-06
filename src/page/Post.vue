@@ -144,11 +144,8 @@ export default {
       flex-flow: column;
       gap: 20px;
 
-      @include md {
-         flex-flow: row;
-      }
-
       @include lg {
+         flex-flow: row;
          gap: 30px;
       }
    }
@@ -159,7 +156,12 @@ export default {
       height: auto;
       max-width: 560px;
       max-height: 560px;
+      margin: 0 auto;
       object-fit: cover;
+
+      @include lg {
+         margin: 0;
+      }
    }
 
    &__content {
