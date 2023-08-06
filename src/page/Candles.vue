@@ -183,8 +183,8 @@ export default {
       @include lg {
          grid-template-columns: 1fr 1fr 1fr 1fr !important;
       }
-      
-      @include xl {
+
+      @include xxl {
          padding: 0;
       }
    }
