@@ -107,7 +107,7 @@ export default {
    flex-flow: column;
    justify-content: space-between;
    width: 100%;
-   height: fit-content;
+   height: auto;
    max-width: 340px;
    border-radius: 18px;
    background-color: var(--color_base);
