@@ -475,7 +475,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
-               isStock: true,
+               isStock: false,
             },
             {
                id: "card-100-15",
@@ -568,7 +568,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 4,
                isFavorite: false,
-               isStock: true,
+               isStock: false,
             },
             {
                id: "card-100-18",
@@ -934,7 +934,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 3,
                isFavorite: false,
-               isStock: true,
+               isStock: false,
             },
             {
                id: "postcard-1",
