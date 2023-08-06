@@ -24,6 +24,9 @@ import img_20 from "@/assets/img/webp/hero__card-20.webp";
 import img_30 from "@/assets/img/webp/hero__card-21.webp";
 import img_31 from "@/assets/img/webp/hero__card-22.webp";
 import img_32 from "@/assets/img/webp/hero__card-23.webp";
+import img_33 from "@/assets/img/webp/hero__card-24.webp";
+import img_34 from "@/assets/img/webp/hero__card-25.webp";
+import img_35 from "@/assets/img/webp/hero__card-26.webp";
 
 import img_21 from "@/assets/img/webp/hero__postcard-1.webp";
 import img_22 from "@/assets/img/webp/hero__postcard-2.webp";
@@ -728,16 +731,93 @@ export const useAppStore = defineStore("appStore", {
                intensity: 5,
                isFavorite: false,
             },
-
-
-
-
-
-
-
-
-
-
+            {
+               id: "card-100-25",
+               date: 25,
+               title: "Уэнсдей",
+               description:
+                  "Погрузись в атмосферу школы Невермор и познакомься со свечой, вдохновленной ароматом Уэнсдей. Эта чертовка улыбается только тогда, когда замышляет какую-то гадость, и ты никогда точно не можешь знать, о чем она думает. Поэтому мы подобрали для нее загадочный и мрачный аромат, ноты которого состоят из тумана, бобов тонка и ветивера, изящно переплетающихся с черным юмором семейства Аддамс. Кто знает, может быть, тебе удастся повторить ее знаменитый танец из TikTok под песню 'Dance with My Hands'?",
+               hero: img_33,
+               code: {
+                  small: "CNDL-WDS-S",
+                  medium: "CNDL-WDS-M",
+                  large: "CNDL-WDS-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+               tag: ["туман", "бобы тонка", "палисандр", "ветки кедра", "корень ветивера", "смола амбры"],
+               aroma: "Свежие",
+               collection: "Сериалы",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-26",
+               date: 26,
+               title: "Гравити Фолз",
+               description:
+                  "Приключения и тайны ждут тебя со свечой 'Гравити Фолс'! Сладкий и нежный аромат маршмеллоу, поджаренный на костре, перенесет тебя в таинственный городок, где Диппер и Мейбл иcследуют журнал #3, сталкиваются с необычными существами и получают по шапке от дяди Стена. Аромат маршмеллоу создаст уют и тепло в твоем доме, напоминая о приятных летних воспоминаниях и детстве.",
+               hero: img_34,
+               code: {
+                  small: "CNDL-FOLZ-S",
+                  medium: "CNDL-FOLZ-M",
+                  large: "CNDL-FOLZ-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+               tag: ["маршмеллоу", "костер", "паранормальные явления",],
+               aroma: "Десертные",
+               collection: "Сериалы",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-27",
+               date: 27,
+               title: "Спанч Боб",
+               description:
+                  "Непревзойденный балбес телеканала Nickelodeon и всеми любимый непоседа губка боб теперь в нашей прекрасной свечной коллекции.  Зажигайте ее и переноситесь во всегда солнечный бикини-боттом! Заказывайте ее быстрее! Нам нашептали что злостный Планктон после неудач с крабс-бургером хочет украсть все наши запасы.",
+               hero: img_35,
+               code: {
+                  small: "CNDL-SPONGE-S",
+                  medium: "CNDL-SPONGE-M",
+                  large: "CNDL-SPONGE-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+               tag: ["ананас", "зеленые листья", "анис", "шалфей", "сахар", "губка"],
+               aroma: "Фруктовые",
+               collection: "Сериалы",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+            },
             {
                id: "postcard-1",
                date: 21,
