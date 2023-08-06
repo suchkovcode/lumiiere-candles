@@ -58,7 +58,7 @@ export default {
    margin-bottom: 20px;
    padding: 20px;
    padding-top: 120px;
-   background-color: var(--color_bg_grey);
+   background-color: var(--color_base);
 
    &__header {
       position: relative;
