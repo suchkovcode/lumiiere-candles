@@ -1191,6 +1191,10 @@ export const useAppStore = defineStore("appStore", {
       getCandlesCard(state) {
          return state.products.filter((item) => item.category === "свечи");
       },
+
+      getMeltsCard(state) {
+         return state.products.filter((item) => item.category === "Мелтсы");
+      },
    },
 
    actions: {

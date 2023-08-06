@@ -27,6 +27,14 @@ const routes = [
       component: () => import("@/page/Candles.vue"),
    },
    {
+      path: "/catalog/melts",
+      name: "candles",
+      meta: {
+         title: "Lumiiere Candles | Мельтсы",
+      },
+      component: () => import("@/page/Melts.vue"),
+   },
+   {
       path: "/catalog/:id",
       name: "post",
       meta: {
