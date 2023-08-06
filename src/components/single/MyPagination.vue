@@ -1,11 +1,6 @@
 <template>
    <div class="pagination" v-if="cardPaginationCount > 1">
-      <button
-         v-for="n in cardPaginationCount"
-         :key="n"
-         class="pagination__item"
-         :class="{ active: n === pageNumber }"
-         @click="(pageNumber = n), updatePageNumber(n)">
+      <button v-for="n in cardPaginationCount" :key="n" class="pagination__item" :class="{ active: n === pageNumber }" @click="paginationHandler(n)">
          {{ n }}
       </button>
    </div>
@@ -26,6 +21,11 @@ export default {
 
    methods: {
       ...mapActions(useAppStore, ["updatePageNumber"]),
+
+      paginationHandler(n) {
+         this.pageNumber = n;
+         this.updatePageNumber(n);
+      },
    },
 
    computed: {

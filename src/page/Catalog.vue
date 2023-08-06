@@ -28,8 +28,8 @@
          <div class="allcatalog__grid">
             <MyFilter :categoryData="uniqueCategories" @filter="filterData = $event" />
             <div>
+               <MyPagination class="allcatalog__pagination" />
                <MyCatalog class="allcatalog__cards" :dataItem="filteredBySearchQuery" />
-               <MyPagination />
             </div>
          </div>
       </div>
@@ -289,6 +289,14 @@ export default {
    &__cards {
       .card {
          border: 1px solid var(--color_border) !important;
+      }
+   }
+
+   &__pagination {
+      margin-bottom: 30px;
+
+      @include md {
+         justify-content: flex-end !important;
       }
    }
 
