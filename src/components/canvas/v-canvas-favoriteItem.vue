@@ -121,7 +121,7 @@ export default {
       }
    }
 
-   @include lg {
+   @include sm {
       grid-template-areas: "img options count remove";
       grid-template-columns: 70px 1fr 0.9fr 80px;
    }

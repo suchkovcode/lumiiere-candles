@@ -64,11 +64,14 @@ export default {
    }
 
    &__list {
+      overflow-y: scroll;
       display: flex;
       flex-flow: column;
       gap: 20px;
+      height: 100%;
       margin-bottom: 20px;
       padding: 25px;
+      padding-bottom: 120px;
    }
 
    &__tittle {
@@ -76,7 +79,7 @@ export default {
    }
 
    &.active {
-      overflow-y: auto;
+      overflow: hidden;
       right: 0;
    }
 
