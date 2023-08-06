@@ -72,7 +72,7 @@ export default {
          this.currentCardData.count = data;
       },
 
-      async addCardBacket() {
+      addCardBacket() {
          const cardData = Object.assign({}, this.currentCardData);
          this.addBacketCard(cardData);
          this.currentCardData.count = 1;
