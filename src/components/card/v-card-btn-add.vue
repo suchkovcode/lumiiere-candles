@@ -22,6 +22,7 @@ export default {
    align-items: center;
    gap: 10px;
    height: 45px;
+   min-width: 120px;
    border-radius: 55px;
    font: 500 14px/1.3 "AvenirNextCyr";
    color: var(--color_base);
