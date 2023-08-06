@@ -4,44 +4,43 @@
          <div class="container">
             <BaseBreadcrumbs :roterLink="roterData" />
             <article class="post__container">
-               <img class="post__img" src="@/assets/img/png/hero__card-1.png" loading="lazy" alt="" width="260" height="260" />
+               <img class="post__img" :src="cardData.hero" loading="lazy" alt="картинка товара" width="260" height="260" />
                <div class="post__content">
                   <header class="post__content-header">
-                     <v-card-rating :ratingStorage="storageDataCard" />
-                     <h3 class="post__title">Гарри Поттер</h3>
-                     <p class="post__article">
-                        Артикул:
-                        <span class="post__article-size" data-type="article" data-value=""> CNDL-HAR-S </span>
-                     </p>
-                     <v-card-price :priceData="'4.99'" />
-                     <v-card-changesize />
+                     <v-card-rating :ratingStorage="storageData" @ratingData="addRatingData" />
+                     <h1 class="post__title">{{ cardData.title }}</h1>
+                     <p class="post__article">Артикул: {{ cardArticle }}</p>
+                     <v-card-price :priceData="cardPrice" />
+                     <v-card-changesize :sizeItemData="storageData.size" @cardsize="updateSize" />
+
                      <div class="post__btn">
-                        <v-card-count />
-                        <v-card-btn-add class="post__btn-add" />
-                        <v-card-favorite class="post__favorite" :cardId="cardIdData" :isFavorite="storageDataCard.isFavorite" />
+                        <v-card-count :countItemData="storageData.count" @countItem="updateCount" />
+                        <v-card-btn-add class="post__btn-add" @click="addCardBacket" />
+                        <v-card-favorite class="post__favorite" :cardId="cardData.id" :isFavorite="cardData.isFavorite" />
                      </div>
                   </header>
                   <main class="post__content-body">
-                     <p class="post__key">пряный тыквенный латте | золотой снитч</p>
-                     <p class="post__description">
-                        Поттер, учишься балету? Представь, что ты на завтраке в Хогсмиде, повсюду аромат тыквенного сока, сливочного пива,
-                        карамели и кофе. Обволакивающий, тёплый, уютный, просто отвал всего. Пахнет, как твой настоящий друг.
-                     </p>
+                     <p class="post__key">{{ categoryJoin }}</p>
+                     <p class="post__description">{{ cardData.description }}</p>
                      <p class="post__info">
                         Интенсивность:
                         <span class="post__info-circles">
-                           <span class="post__info-circle active"></span>
-                           <span class="post__info-circle active"></span>
-                           <span class="post__info-circle active"></span>
-                           <span class="post__info-circle active"></span>
-                           <span class="post__info-circle"></span>
+                           <span v-for="n in 5" :key="n" class="post__info-circle" :class="{ active: n <= cardData.intensity }"></span>
                         </span>
                      </p>
                   </main>
+
                   <footer class="post__content-footer">
-                     <p class="post__category" data-category="aroma">Аромат: <span>Десертные</span></p>
-                     <p class="post__category" data-category="collection">Коллекция: <span>Гарри Поттер</span></p>
-                     <p class="post__category" data-category="weight">Вес: <span>115</span>г</p>
+                     <p class="post__category">
+                        Аромат: <span>{{ cardData.aroma }}</span>
+                     </p>
+                     <p class="post__category">
+                        Коллекция: <span>{{ cardData.collection }}</span>
+                     </p>
+                     <p class="post__category">
+                        Вес: <span>{{ cardData.weight[this.storageData.size] }}</span
+                        >г
+                     </p>
                   </footer>
                </div>
             </article>
@@ -51,6 +50,11 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "pinia";
+import { useAppStore } from "@/store/appStore";
+import { useBacketStore } from "@/store/backetStore";
+import { useStorage } from "@vueuse/core";
+
 export default {
    name: "PagePost",
 
@@ -71,14 +75,64 @@ export default {
             },
             {
                id: 2,
-               name: "Карточка товара",
-               to: "/:id",
+               name: "",
+               to: this.$router.currentRoute.value.params.id,
                last: true,
             },
          ],
-         cardIdData: this.$route.params.id,
-         storageDataCard: JSON.parse(localStorage.getItem(`data-${this.$route.params.id}`)),
+
+         storageData: useStorage(this.$router.currentRoute.value.params.id, {}),
+         cardData: {},
       };
+   },
+
+   created() {
+      const prod = this.products.find((item) => item.id === this.$router.currentRoute.value.params.id);
+      this.cardData = prod;
+      this.roterData[2].name = this.cardData.title;
+   },
+
+   computed: {
+      ...mapState(useAppStore, ["products"]),
+
+      categoryJoin() {
+         return this.cardData.tag.join(" | ");
+      },
+
+      cardArticle() {
+         return this.cardData.code[this.storageData.size].toUpperCase();
+      },
+
+      cardPrice() {
+         return this.cardData.price[this.storageData.size];
+      },
+   },
+
+   methods: {
+      ...mapActions(useBacketStore, { addBacketCard: "addCardBacket" }),
+
+      addCardBacket() {
+         const cardData = Object.assign({}, this.storageData);
+         this.addBacketCard(cardData);
+         this.storageData.count = 1;
+         this.storageData.size = "small";
+      },
+
+      updateSize(data) {
+         this.storageData.size = data;
+         this.storageData.code = this.cardData.code[data];
+         this.storageData.price = this.cardData.price[data];
+      },
+
+      addRatingData(event) {
+         this.storageData.ratingSelect = event.hoverItem;
+         this.storageData.ratingVote = event.countVote;
+         this.storageData.ratingClick = event.clickUser;
+      },
+
+      updateCount(data) {
+         this.storageData.count = data;
+      },
    },
 };
 </script>
@@ -104,6 +158,7 @@ export default {
       width: 100%;
       height: auto;
       max-width: 560px;
+      max-height: 560px;
       object-fit: cover;
    }
 
@@ -111,6 +166,7 @@ export default {
       display: flex;
       flex-flow: column;
       gap: 20px;
+      width: 100%;
       max-width: 560px;
 
       &-footer {
