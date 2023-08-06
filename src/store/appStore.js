@@ -1195,6 +1195,10 @@ export const useAppStore = defineStore("appStore", {
       getMeltsCard(state) {
          return state.products.filter((item) => item.category === "Мелтсы");
       },
+
+      getBoxesCard(state) {
+         return state.products.filter((item) => item.category === "Наборы свечей");
+      },
    },
 
    actions: {

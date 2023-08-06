@@ -28,11 +28,19 @@ const routes = [
    },
    {
       path: "/catalog/melts",
-      name: "candles",
+      name: "melts",
       meta: {
          title: "Lumiiere Candles | Мельтсы",
       },
       component: () => import("@/page/Melts.vue"),
+   },
+   {
+      path: "/catalog/boxes",
+      name: "boxes",
+      meta: {
+         title: "Lumiiere Candles | Наборы",
+      },
+      component: () => import("@/page/Boxes.vue"),
    },
    {
       path: "/catalog/:id",
