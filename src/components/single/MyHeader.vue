@@ -15,16 +15,16 @@
                         <router-link class="header__left-drobdown-link" to="/catalog"> Все товары </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" to="/catalog"> Мелтсы </router-link>
+                        <router-link class="header__left-drobdown-link" to="/catalog/melts"> Мелтсы </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" to="/catalog"> Наборы </router-link>
+                        <router-link class="header__left-drobdown-link" to="/catalog/boxes"> Наборы </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
                         <router-link class="header__left-drobdown-link" to="/catalog"> Открытки </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" to="/catalog"> Соевые свечи </router-link>
+                        <router-link class="header__left-drobdown-link" to="/catalog/candles"> Соевые свечи </router-link>
                      </li>
                   </ul>
                </div>
