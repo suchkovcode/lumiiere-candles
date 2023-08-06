@@ -15,7 +15,7 @@
       <footer class="card__footer">
          <v-card-btn-more :cardId="cardData.id" />
          <v-card-count :countItemData="currentCardData.count" @countItem="updateCount" />
-         <v-card-btn-add @click="addCardBacket" />
+         <v-card-btn-add :isEmpty="cardData.isStock" @click="addCardBacket" />
       </footer>
    </article>
 </template>
@@ -75,10 +75,12 @@ export default {
       },
 
       addCardBacket() {
-         const cardData = Object.assign({}, this.currentCardData);
-         this.addBacketCard(cardData);
-         this.currentCardData.count = 1;
-         this.currentCardData.size = "small";
+         if (this.cardData.isStock) {
+            const cardData = Object.assign({}, this.currentCardData);
+            this.addBacketCard(cardData);
+            this.currentCardData.count = 1;
+            this.currentCardData.size = "small";
+         }
       },
 
       addRatingData(event) {

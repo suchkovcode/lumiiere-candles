@@ -1,15 +1,25 @@
 <template>
-   <button class="cardBtn">
+   <button v-if="isEmpty" class="cardBtn">
       <svg class="cardBtn__icon">
          <use xlink:href="@/assets/img/svg/sprite.svg#cardBtnAddIcon"></use>
       </svg>
       <span>В корзину</span>
+   </button>
+   <button v-else class="cardBtn cardBtn--empty">
+      <svg class="cardBtn__icon">
+         <use xlink:href="@/assets/img/svg/sprite.svg#cardBtnAddIcon"></use>
+      </svg>
+      <span>Нет в наличии</span>
    </button>
 </template>
 
 <script>
 export default {
    name: "v-card-btn-add",
+
+   props: {
+      isEmpty: Boolean,
+   },
 };
 </script>
 
@@ -37,6 +47,15 @@ export default {
 
    &:hover {
       background-color: #ff6219;
+   }
+
+   &--empty {
+      cursor: default;
+      opacity: 0.5;
+
+      &:hover {
+         background-color: var(--color_primary);
+      }
    }
 
    @include md {
