@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .favoriteItem {
    display: grid;
    grid-template-areas:

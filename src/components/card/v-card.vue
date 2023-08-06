@@ -8,9 +8,9 @@
          <v-card-rating :ratingStorage="currentCardData" @ratingData="addRatingData" />
          <h3 class="card__title">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
-         <p class="card__description">{{ categoryJoin }}</p>
+         <p class="card__description" v-show="isPostcard">{{ categoryJoin }}</p>
          <v-card-price :priceData="cardPrice" />
-         <v-card-changesize :sizeItemData="currentCardData.size" @cardsize="updateSize" />
+         <v-card-changesize v-show="isPostcard" :sizeItemData="currentCardData.size" @cardsize="updateSize" />
       </main>
       <footer class="card__footer">
          <v-card-btn-more :cardId="cardData.id" />
@@ -42,6 +42,8 @@ export default {
             ratingVote: 0,
             ratingClick: false,
          }),
+
+         isPostcard: this.cardData.id.replace(/(poscode|card).*/, "$1") === "card",
       };
    },
 
