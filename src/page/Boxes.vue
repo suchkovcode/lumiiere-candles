@@ -167,6 +167,7 @@ export default {
 }
 
 .catalog {
+   background-color: var(--color_base);
    .catalogs {
       padding: 20px;
       background-color: var(--color_base);
