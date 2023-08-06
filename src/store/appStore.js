@@ -808,7 +808,7 @@ export const useAppStore = defineStore("appStore", {
                   medium: "270",
                   large: "400",
                },
-               tag: ["маршмеллоу", "костер", "паранормальные явления",],
+               tag: ["маршмеллоу", "костер", "паранормальные явления"],
                aroma: "Десертные",
                collection: "Сериалы",
                category: "свечи",
@@ -1186,6 +1186,10 @@ export const useAppStore = defineStore("appStore", {
       cardPaginationCount(state) {
          const itemCount = state.searchQuery.length > 0 ? this.filteredBySearchQuery.length : this.filteredByCollection.length;
          return Math.ceil(itemCount / 6);
+      },
+
+      getCandlesCard(state) {
+         return state.products.filter((item) => item.category === "свечи");
       },
    },
 

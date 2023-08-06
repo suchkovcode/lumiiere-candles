@@ -19,6 +19,14 @@ const routes = [
       component: () => import("@/page/Catalog.vue"),
    },
    {
+      path: "/catalog/candles",
+      name: "candles",
+      meta: {
+         title: "Lumiiere Candles | Свечи",
+      },
+      component: () => import("@/page/Candles.vue"),
+   },
+   {
       path: "/catalog/:id",
       name: "post",
       meta: {
