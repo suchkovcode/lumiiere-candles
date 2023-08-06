@@ -27,7 +27,9 @@ import img_32 from "@/assets/img/webp/hero__card-23.webp";
 import img_33 from "@/assets/img/webp/hero__card-24.webp";
 import img_34 from "@/assets/img/webp/hero__card-25.webp";
 import img_35 from "@/assets/img/webp/hero__card-26.webp";
-
+import img_36 from "@/assets/img/webp/hero__card-27.webp";
+import img_37 from "@/assets/img/webp/hero__card-28.webp";
+import img_38 from "@/assets/img/webp/hero__card-29.webp";
 import img_21 from "@/assets/img/webp/hero__postcard-1.webp";
 import img_22 from "@/assets/img/webp/hero__postcard-2.webp";
 import img_23 from "@/assets/img/webp/hero__postcard-3.webp";
@@ -71,6 +73,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-2",
@@ -101,6 +104,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-3",
@@ -131,6 +135,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-4",
@@ -161,6 +166,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-5",
@@ -191,6 +197,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-6",
@@ -221,6 +228,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-7",
@@ -251,6 +259,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-8",
@@ -281,6 +290,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-9",
@@ -311,6 +321,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-10",
@@ -341,6 +352,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-11",
@@ -370,6 +382,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-12",
@@ -400,6 +413,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-13",
@@ -430,6 +444,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-14",
@@ -460,6 +475,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-15",
@@ -490,6 +506,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-16",
@@ -520,6 +537,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-17",
@@ -550,6 +568,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 4,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-18",
@@ -580,6 +599,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 4,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-19",
@@ -610,6 +630,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 4,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-20",
@@ -640,6 +661,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 4,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-21",
@@ -670,6 +692,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 3,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-23",
@@ -700,6 +723,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-24",
@@ -730,6 +754,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-25",
@@ -759,6 +784,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-26",
@@ -788,6 +814,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "card-100-27",
@@ -817,6 +844,97 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
+               isStock: true,
+            },
+            {
+               id: "card-100-28",
+               date: 28,
+               title: "Пойдем в Кино?",
+               description:
+                  "Аромат момента из детства, когда вы с родителями пошли в кино. Ты помнишь этот фильм, запах попкорна и непередаваемый детский восторг от громких звуков и огромного экрана!",
+               hero: img_36,
+               code: {
+                  small: "CNDL-CINEMA-S",
+                  medium: "CNDL-CINEMA-M",
+                  large: "CNDL-CINEMA-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+               tag: ["карамельный попкорн", "незабываемые эмоции"],
+               aroma: "Десертные",
+               collection: "Без персонажей",
+               category: "свечи",
+               intensity: 4,
+               isFavorite: false,
+               isStock: true,
+            },
+            {
+               id: "card-100-29",
+               date: 29,
+               title: "Ты пахнешь, как любовь.",
+               description:
+                  "Что такое любовь, и как она пахнет? Яркий аромат свежесрезанных роз и глубокий аромат кедра. Как Инь и Янь, как две половины одного целого, как первое свидание, первые подаренные розы, как улицы в день всех влюбленных!",
+               hero: img_37,
+               code: {
+                  small: "CNDL-LOVE-S",
+                  medium: "CNDL-LOVE-M",
+                  large: "CNDL-LOVE-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+               tag: ["свежесрезанные розы", "кедр"],
+               aroma: "Цветочные",
+               collection: "Без персонажей",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+               isStock: true,
+            },
+            {
+               id: "card-100-30",
+               date: 30,
+               title: "Зажги, когда все за*бало",
+               description:
+                  "Та свеча, которая поможет тебе расслабиться после ужасного дня. Просто подожги фитиль, как мог бы поджечь всех, кто тебя выбесил,и смотри на это игривое пламя.",
+               hero: img_38,
+               code: {
+                  small: "CNDL-ZAE-S",
+                  medium: "CNDL-ZAE-M",
+                  large: "CNDL-ZAE-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+               tag: ["красное дерево", "ши", "кокос", "миндаль"],
+               aroma: "Свежие",
+               collection: "Без персонажей",
+               category: "свечи",
+               intensity: 3,
+               isFavorite: false,
+               isStock: true,
             },
             {
                id: "postcard-1",
@@ -854,6 +972,7 @@ export const useAppStore = defineStore("appStore", {
                tag: [],
                aroma: "",
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "postcard-3",
@@ -872,6 +991,7 @@ export const useAppStore = defineStore("appStore", {
                tag: [],
                aroma: "",
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "postcard-4",
@@ -890,6 +1010,7 @@ export const useAppStore = defineStore("appStore", {
                tag: [],
                aroma: "",
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "postcard-5",
@@ -908,6 +1029,7 @@ export const useAppStore = defineStore("appStore", {
                tag: [],
                aroma: "",
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "postcard-6",
@@ -926,6 +1048,7 @@ export const useAppStore = defineStore("appStore", {
                tag: [],
                aroma: "",
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "postcard-7",
@@ -944,6 +1067,7 @@ export const useAppStore = defineStore("appStore", {
                tag: [],
                aroma: "",
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "postcard-8",
@@ -962,6 +1086,7 @@ export const useAppStore = defineStore("appStore", {
                tag: [],
                aroma: "",
                isFavorite: false,
+               isStock: true,
             },
             {
                id: "postcard-9",
@@ -980,6 +1105,7 @@ export const useAppStore = defineStore("appStore", {
                tag: [],
                aroma: "",
                isFavorite: false,
+               isStock: true,
             },
          ]),
 
