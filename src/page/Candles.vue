@@ -15,7 +15,7 @@
          </div>
       </div>
    </section>
-   <section class="catalog">
+   <section class="candlesCatalog">
       <div class="container">
          <MyCatalog :dataItem="getCandlesCard" />
       </div>
@@ -172,7 +172,7 @@ export default {
    }
 }
 
-.catalog {
+.candlesCatalog {
    background-color: var(--color_base);
 
    .catalogs {

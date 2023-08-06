@@ -15,7 +15,7 @@
          </div>
       </div>
    </section>
-   <section class="catalog">
+   <section class="boxesCatalog">
       <div class="container">
          <MyCatalog :dataItem="getBoxesCard" />
       </div>
@@ -166,9 +166,9 @@ export default {
    }
 }
 
-.catalog {
+.boxesCatalog {
    background-color: var(--color_base);
-   
+
    .catalogs {
       padding: 20px;
       background-color: var(--color_base);

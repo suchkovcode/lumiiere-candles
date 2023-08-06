@@ -8,7 +8,7 @@
          </div>
       </div>
    </section>
-   <section class="catalog">
+   <section class="meltsCatalog">
       <div class="container">
          <MyCatalog :dataItem="getMeltsCard" />
       </div>
@@ -140,7 +140,7 @@ export default {
    }
 }
 
-.catalog {
+.meltsCatalog {
    background-color: var(--color_base);
 
    .catalogs {
