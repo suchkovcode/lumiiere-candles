@@ -26,16 +26,10 @@
                      <router-link class="footer__catalog-nav-link transition" to="/catalog"> Мелтсы </router-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <router-link class="footer__catalog-nav-link transition" to="/catalog"> Спички </router-link>
-                  </li>
-                  <li class="footer__catalog-nav-item">
                      <router-link class="footer__catalog-nav-link transition" to="/catalog"> Наборы </router-link>
                   </li>
                   <li class="footer__catalog-nav-item">
                      <router-link class="footer__catalog-nav-link transition" to="/catalog"> Открытки </router-link>
-                  </li>
-                  <li class="footer__catalog-nav-item">
-                     <router-link class="footer__catalog-nav-link transition" to="/catalog"> Бестселлеры </router-link>
                   </li>
                   <li class="footer__catalog-nav-item">
                      <router-link class="footer__catalog-nav-link transition" to="/catalog"> Соевые свечи </router-link>

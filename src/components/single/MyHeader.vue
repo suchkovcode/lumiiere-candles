@@ -18,16 +18,10 @@
                         <router-link class="header__left-drobdown-link" to="/catalog"> Мелтсы </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" to="/catalog"> Спички </router-link>
-                     </li>
-                     <li class="header__left-drobdown-item">
                         <router-link class="header__left-drobdown-link" to="/catalog"> Наборы </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
                         <router-link class="header__left-drobdown-link" to="/catalog"> Открытки </router-link>
-                     </li>
-                     <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" to="/catalog"> Бестселлеры </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
                         <router-link class="header__left-drobdown-link" to="/catalog"> Соевые свечи </router-link>
