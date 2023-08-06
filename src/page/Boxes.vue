@@ -127,7 +127,7 @@ export default {
    &__subtitle {
       max-width: 500px;
       text-align: center;
-      background-color: var(--color_bg_grey);
+      color: var(--color_secondary);
 
       &-icon {
          position: absolute;
@@ -169,6 +169,7 @@ export default {
 .catalog {
    .catalogs {
       padding: 20px;
+      background-color: var(--color_base);
 
       @include md {
          padding: 30px;

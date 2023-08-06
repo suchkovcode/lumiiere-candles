@@ -143,6 +143,7 @@ export default {
 .catalog {
    .catalogs {
       padding: 20px;
+      background-color: var(--color_base);
 
       @include md {
          padding: 30px;
