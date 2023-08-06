@@ -127,7 +127,7 @@ export default {
    &__subtitle {
       max-width: 500px;
       text-align: center;
-      color: var(--color_secondary);
+      background-color: var(--color_bg_grey);
 
       &-icon {
          position: absolute;
