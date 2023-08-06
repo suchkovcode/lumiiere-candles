@@ -22,10 +22,20 @@ import img_18 from "@/assets/img/webp/hero__card-18.webp";
 import img_19 from "@/assets/img/webp/hero__card-19.webp";
 import img_20 from "@/assets/img/webp/hero__card-20.webp";
 
+import img_21 from "@/assets/img/webp/hero__postcard-1.webp";
+import img_22 from "@/assets/img/webp/hero__postcard-2.webp";
+import img_23 from "@/assets/img/webp/hero__postcard-3.webp";
+import img_24 from "@/assets/img/webp/hero__postcard-4.webp";
+import img_25 from "@/assets/img/webp/hero__postcard-5.webp";
+import img_26 from "@/assets/img/webp/hero__postcard-6.webp";
+import img_27 from "@/assets/img/webp/hero__postcard-7.webp";
+import img_28 from "@/assets/img/webp/hero__postcard-8.webp";
+import img_29 from "@/assets/img/webp/hero__postcard-9.webp";
+
 export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
-         products: useStorage("products-items",  [
+         products: useStorage("products-items", [
             {
                id: "card-100-1",
                date: 1,
@@ -52,7 +62,7 @@ export const useAppStore = defineStore("appStore", {
                tag: ["имбирный пряник", "бобы тонка", "ваниль", "сахар", "Джингл Беллс"],
                aroma: "Десертные",
                collection: "Новый год",
-               category: "дополнительно",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -82,7 +92,7 @@ export const useAppStore = defineStore("appStore", {
                tag: ["перечная мята", "корица ", "чай", "ваниль", "гвоздика", "чудо"],
                aroma: "Свежие",
                collection: "Новый год",
-               category: "наборы",
+               category: "свечи",
                intensity: 5,
                isFavorite: false,
             },
@@ -623,6 +633,170 @@ export const useAppStore = defineStore("appStore", {
                collection: "Игры",
                category: "свечи",
                intensity: 4,
+               isFavorite: false,
+            },
+
+            {
+               id: "postcard-1",
+               date: 21,
+               title: "Открытка “Рядом с тобой мне тепло”",
+               description:
+                  "Открытка для самых близких, дорогих и теплых людей, что может быть лучше, чем испытывать чувство уюта рядом с ними? Скажи им об этом с помощью открытки и добавь ее к заказу.  Кстати, мы можем подписать открытку от руки с обратной стороны. Оставь комментарий при заказе.",
+               hero: img_21,
+               code: {
+                  small: "POSTCARD-WARM",
+               },
+               price: {
+                  small: "4.99",
+               },
+               category: "Открытки",
+               tag: [],
+               aroma: "",
+               collection: "Игры",
+               isFavorite: false,
+            },
+            {
+               id: "postcard-2",
+               date: 22,
+               title: "Открытка “Подожги мой фитилек”",
+               description:
+                  "Открытка для дерзких подарков. Например, для любимой девушки или парня, уверены, твой партнер ее точно оценит:)  Кстати, мы можем подписать открытку от руки с обратной стороны. Оставь комментарий при заказе.",
+               hero: img_22,
+               code: {
+                  small: "POSTCARD-WICK",
+               },
+               price: {
+                  small: "4.99",
+               },
+               category: "Открытки",
+               tag: [],
+               aroma: "",
+               isFavorite: false,
+            },
+            {
+               id: "postcard-3",
+               date: 23,
+               title: "Открытка “Меня плавит без тебя”",
+               description:
+                  "Открытка, которая покажет, как сильно ты скучаешь по человеку. Без лишних слов. Кстати, мы можем подписать открытку от руки с обратной стороны. Оставь комментарий при заказе.",
+               hero: img_23,
+               code: {
+                  small: "POSTCARD-CANDLE",
+               },
+               price: {
+                  small: "4.99",
+               },
+               category: "Открытки",
+               tag: [],
+               aroma: "",
+               isFavorite: false,
+            },
+            {
+               id: "postcard-4",
+               date: 24,
+               title: "Набор из 3х свечей 40мл",
+               description:
+                  "Отличная идея для подарка, которая как бы говорит получателю “Бро, я тебя люблю” смотри, я нашел для тебя небольшой подарок, который тебе точно понравится!”  Еще этот набор подойдет тебе, если ты просто не можешь определиться, какую свечу ты хочешь в 100мл объеме. Закажи 3 малютки и выбери лучшую!",
+               hero: img_24,
+               code: {
+                  small: "BOX-3PSC",
+               },
+               price: {
+                  small: "14.99",
+               },
+               category: "Наборы свечей",
+               tag: [],
+               aroma: "",
+               isFavorite: false,
+            },
+            {
+               id: "postcard-5",
+               date: 25,
+               title: "Набор из 4х свечей 40мл",
+               description:
+                  "Признаться честно, этот набор был создан только потому, что в коробочку идеально встают 4 свечи. Посыл такой же как и у набора из 3х малюток, только на одну больше. Все просто, не будем усложнять! Пробуй и выбирай лучшую.",
+               hero: img_25,
+               code: {
+                  small: "BOX-4PSC",
+               },
+               price: {
+                  small: "19.99",
+               },
+               category: "Наборы свечей",
+               tag: [],
+               aroma: "",
+               isFavorite: false,
+            },
+            {
+               id: "postcard-6",
+               date: 26,
+               title: "Набор из 6 свечей 40мл",
+               description:
+                  "Этот набор тебе жизненно необходим, если ты хочешь попробовать все и сразу! Ты можешь сделать собственное комбо из свечей из разных коллекций. Получится практически так же, как трусы “Неделька”. Каждый день можно зажигать новую свечу, пн, вт, ср, чт…только исключи субботу. Потому, что в субботу нужно тусить, а не свечи жечь.",
+               hero: img_26,
+               code: {
+                  small: "BOX-6PSC",
+               },
+               price: {
+                  small: "24.99",
+               },
+               category: "Наборы свечей",
+               tag: [],
+               aroma: "",
+               isFavorite: false,
+            },
+            {
+               id: "postcard-7",
+               date: 27,
+               title: "ALL INCLUSIVE BOX #1",
+               description:
+                  "О друг, если ты еще не знаком с ароматическими лапками, то этот набор - великолепный способ познакомиться с ними. Здесь есть все, чтобы насладиться на максимум. (пссс, а еще он немножко выгоднее, в сравнении со сбором всех элементов набора по отдельности)",
+               hero: img_27,
+               code: {
+                  small: "BOX-MELTS-1",
+               },
+               price: {
+                  small: "19.99",
+               },
+               category: "Мелтсы",
+               tag: [],
+               aroma: "",
+               isFavorite: false,
+            },
+            {
+               id: "postcard-8",
+               date: 28,
+               title: "ALL INCLUSIVE BOX #2",
+               description:
+                  "О друг, если ты еще не знаком с ароматическими лапками, то этот набор - великолепный способ познакомиться с ними. Здесь есть все, чтобы насладиться на максимум. (пссс, а еще он немножко выгоднее, в сравнении со сбором всех элементов набора по отдельности)",
+               hero: img_28,
+               code: {
+                  small: "BOX-MELTS-2",
+               },
+               price: {
+                  small: "19.99",
+               },
+               category: "Мелтсы",
+               tag: [],
+               aroma: "",
+               isFavorite: false,
+            },
+            {
+               id: "postcard-9",
+               date: 29,
+               title: "Набор Мелтсов (природные)",
+               description:
+                  "Арома-лапки из этого набора нельзя описать одним словом. Они пропитаны нотами, которые мы слышим прогуливаясь в сосновом лесу, находясь в головокружительных горах или чилля на морском побережье.",
+               hero: img_29,
+               code: {
+                  small: "BOX-MELTS-NATUR",
+               },
+               price: {
+                  small: "19.99",
+               },
+               category: "Мелтсы",
+               tag: [],
+               aroma: "",
                isFavorite: false,
             },
          ]),
