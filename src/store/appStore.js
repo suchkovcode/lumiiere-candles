@@ -73,7 +73,7 @@ export const useAppStore = defineStore("appStore", {
                category: "свечи",
                intensity: 5,
                isFavorite: false,
-               isStock: true,
+               isStock: false,
             },
             {
                id: "card-100-2",
