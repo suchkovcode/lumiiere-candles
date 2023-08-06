@@ -21,6 +21,9 @@ import img_17 from "@/assets/img/webp/hero__card-17.webp";
 import img_18 from "@/assets/img/webp/hero__card-18.webp";
 import img_19 from "@/assets/img/webp/hero__card-19.webp";
 import img_20 from "@/assets/img/webp/hero__card-20.webp";
+import img_30 from "@/assets/img/webp/hero__card-21.webp";
+import img_31 from "@/assets/img/webp/hero__card-22.webp";
+import img_32 from "@/assets/img/webp/hero__card-23.webp";
 
 import img_21 from "@/assets/img/webp/hero__postcard-1.webp";
 import img_22 from "@/assets/img/webp/hero__postcard-2.webp";
@@ -635,6 +638,105 @@ export const useAppStore = defineStore("appStore", {
                intensity: 4,
                isFavorite: false,
             },
+            {
+               id: "card-100-21",
+               date: 21,
+               title: "Принцесса Лея",
+               description:
+                  "Представьте мудрую и сильную принцессу Лею. Как бы она пахла? Мы думаем, что аромат должен быть сложным и интересным. Кислинка малины и нежность пачули - perfect match!",
+               hero: img_30,
+               code: {
+                  small: "CNDL-LEYA-S",
+                  medium: "CNDL-LEYA-M",
+                  large: "CNDL-LEYA-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["малина", "пачули", "капелька смелости"],
+               aroma: "Природные",
+               collection: "Фильмы",
+               category: "свечи",
+               intensity: 3,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-23",
+               date: 23,
+               title: "Мастер Йода",
+               description:
+                  "Эссенция мудрости и силы в маленькой баночке для настоящих джедаев. Свежий, зелёный аромат, который накроет тебя ощущением прогулки по мокрому лесу. Да пребудет с тобой сила!",
+               hero: img_31,
+               code: {
+                  small: "CNDL-YODA-S",
+                  medium: "CNDL-YODA-M",
+                  large: "CNDL-YODA-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["лес после дождя", "липа", "мудрость"],
+               aroma: "Природные",
+               collection: "Фильмы",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+            },
+            {
+               id: "card-100-24",
+               date: 24,
+               title: "Дарт Вейдер",
+               description:
+                  "Почему нам всем так нравятся плохие парни? От них исходит какой-то умопомрачительный вайб. Вот это прям про Дарта, глубокий аромат горького шоколада и табака, такой же тёмный и мрачный, как и сам Дарт. Переходи на темную сторону!",
+               hero: img_32,
+               code: {
+                  small: "CNDL-DART-S",
+                  medium: "CNDL-DART-M",
+                  large: "CNDL-DART-L",
+               },
+               price: {
+                  small: "4.99",
+                  medium: "9.99",
+                  large: "14.99",
+               },
+               weight: {
+                  small: "115",
+                  medium: "270",
+                  large: "400",
+               },
+
+               tag: ["табак", "темный шоколад", "кашемир", "темная сторона"],
+               aroma: "Десертные",
+               collection: "Фильмы",
+               category: "свечи",
+               intensity: 5,
+               isFavorite: false,
+            },
+
+
+
+
+
+
+
+
+
 
             {
                id: "postcard-1",
