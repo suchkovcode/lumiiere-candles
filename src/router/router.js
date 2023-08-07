@@ -12,6 +12,7 @@ const routes = [
    },
    {
       path: "/catalog",
+      
       children: [
          {
             path: "",
@@ -19,7 +20,7 @@ const routes = [
             meta: {
                title: "Lumiiere Candles | Каталог",
             },
-            component: () => import("@/page/Catalog.vue"),
+            component: () => import("@/page/catalog/Catalog.vue"),
          },
 
          {
@@ -28,7 +29,7 @@ const routes = [
             meta: {
                title: "Lumiiere Candles | Старница товара",
             },
-            component: () => import("@/page/Post.vue"),
+            component: () => import("@/page/catalog/CatalogPost.vue"),
          },
 
          {
@@ -37,7 +38,7 @@ const routes = [
             meta: {
                title: "Lumiiere Candles | Свечи",
             },
-            component: () => import("@/page/Candles.vue"),
+            component: () => import("@/page/catalog/CatalogCandles.vue"),
          },
 
          {
@@ -46,7 +47,7 @@ const routes = [
             meta: {
                title: "Lumiiere Candles | Мельтсы",
             },
-            component: () => import("@/page/Melts.vue"),
+            component: () => import("@/page/catalog/CtalogMelts.vue"),
          },
          {
             path: "boxes",
@@ -54,7 +55,7 @@ const routes = [
             meta: {
                title: "Lumiiere Candles | Наборы",
             },
-            component: () => import("@/page/Boxes.vue"),
+            component: () => import("@/page/catalog/CatalogBoxes.vue"),
          },
          {
             path: "postcard",
@@ -62,7 +63,7 @@ const routes = [
             meta: {
                title: "Lumiiere Candles | Открытки",
             },
-            component: () => import("@/page/Postcard.vue"),
+            component: () => import("@/page/catalog/CatalogPostcard.vue"),
          },
       ],
    },
