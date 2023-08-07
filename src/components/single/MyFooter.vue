@@ -23,16 +23,16 @@
                </div>
                <ul class="footer__catalog-nav">
                   <li class="footer__catalog-nav-item">
-                     <router-link class="footer__catalog-nav-link transition" to="/catalog/melts"> Мелтсы </router-link>
+                     <router-link class="footer__catalog-nav-link transition" :to="{ name: 'melts'}"> Мелтсы </router-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <router-link class="footer__catalog-nav-link transition" to="/catalog/boxes"> Наборы </router-link>
+                     <router-link class="footer__catalog-nav-link transition" :to="{ name: 'boxes'}"> Наборы </router-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <router-link class="footer__catalog-nav-link transition" to="/catalog/postcard"> Открытки </router-link>
+                     <router-link class="footer__catalog-nav-link transition" :to="{ name: 'postcard'}"> Открытки </router-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <router-link class="footer__catalog-nav-link transition" to="/catalog/candles"> Соевые свечи </router-link>
+                     <router-link class="footer__catalog-nav-link transition" :to="{ name: 'candles'}"> Соевые свечи </router-link>
                   </li>
                </ul>
             </nav>

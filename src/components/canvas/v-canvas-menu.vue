@@ -10,19 +10,19 @@
                   </span>
                   <ul class="menu__drobdown-submenu">
                      <li class="menu__drobdown-item">
-                        <router-link class="menu__drobdown-link" to="/catalog"> Все товары </router-link>
+                        <router-link class="menu__drobdown-link" :to="{ name: 'catalog'}"> Все товары </router-link>
                      </li>
                      <li class="menu__drobdown-item">
-                        <router-link class="menu__drobdown-link" to="/catalog/melts"> Мелтсы </router-link>
+                        <router-link class="menu__drobdown-link" :to="{ name: 'melts'}"> Мелтсы </router-link>
                      </li>
                      <li class="menu__drobdown-item">
-                        <router-link class="menu__drobdown-link" to="/catalog/boxes"> Наборы </router-link>
+                        <router-link class="menu__drobdown-link" :to="{ name: 'boxes'}"> Наборы </router-link>
                      </li>
                      <li class="menu__drobdown-item">
-                        <router-link class="menu__drobdown-link" to="/catalog/postcard"> Открытки </router-link>
+                        <router-link class="menu__drobdown-link" :to="{ name: 'postcard'}"> Открытки </router-link>
                      </li>
                      <li class="menu__drobdown-item">
-                        <router-link class="menu__drobdown-link" to="/catalog/candles"> Соевые свечи </router-link>
+                        <router-link class="menu__drobdown-link" :to="{ name: 'candles'}"> Соевые свечи </router-link>
                      </li>
                   </ul>
                </li>
