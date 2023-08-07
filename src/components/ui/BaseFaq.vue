@@ -72,6 +72,7 @@ export default {
       cursor: pointer;
       border-top: 1px solid var(--color_border);
       outline: none;
+      list-style: none;
 
       &:last-of-type {
          border-bottom: 1px solid var(--color_border);
@@ -102,11 +103,21 @@ export default {
       gap: 20px;
       padding: 15px 0;
       font: 500 16px/1.3 "AvenirNextCyr";
+      text-align: left;
       text-transform: uppercase;
+      list-style: none;
+
+      &::-webkit-details-marker {
+         display: none;
+         width: 0;
+         height: 0;
+      }
 
       &:focus-visible {
          outline: none;
       }
+
+
 
       @include xl {
          padding: 20px 0;
