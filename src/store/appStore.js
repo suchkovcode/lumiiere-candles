@@ -954,7 +954,6 @@ export const useAppStore = defineStore("appStore", {
                category: "Открытки",
                tag: [],
                aroma: "",
-               collection: "Игры",
                isFavorite: false,
             },
             {
