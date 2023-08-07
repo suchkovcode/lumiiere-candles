@@ -43,6 +43,14 @@ const routes = [
       component: () => import("@/page/Boxes.vue"),
    },
    {
+      path: "/catalog/postcard",
+      name: "postcard",
+      meta: {
+         title: "Lumiiere Candles | Открытки",
+      },
+      component: () => import("@/page/Postcard.vue"),
+   },
+   {
       path: "/catalog/:id",
       name: "post",
       meta: {

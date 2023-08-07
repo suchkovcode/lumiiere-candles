@@ -1199,6 +1199,10 @@ export const useAppStore = defineStore("appStore", {
       getBoxesCard(state) {
          return state.products.filter((item) => item.category === "Наборы свечей");
       },
+
+      getPostcardCard(state) {
+         return state.products.filter((item) => item.category === "Открытки");
+      },
    },
 
    actions: {
