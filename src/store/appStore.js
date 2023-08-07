@@ -30,6 +30,7 @@ import img_35 from "@/assets/img/webp/hero__card-26.webp";
 import img_36 from "@/assets/img/webp/hero__card-27.webp";
 import img_37 from "@/assets/img/webp/hero__card-28.webp";
 import img_38 from "@/assets/img/webp/hero__card-29.webp";
+
 import img_21 from "@/assets/img/webp/hero__postcard-1.webp";
 import img_22 from "@/assets/img/webp/hero__postcard-2.webp";
 import img_23 from "@/assets/img/webp/hero__postcard-3.webp";
@@ -39,6 +40,7 @@ import img_26 from "@/assets/img/webp/hero__postcard-6.webp";
 import img_27 from "@/assets/img/webp/hero__postcard-7.webp";
 import img_28 from "@/assets/img/webp/hero__postcard-8.webp";
 import img_29 from "@/assets/img/webp/hero__postcard-9.webp";
+import img_39 from "@/assets/img/webp/hero__postcard-10.webp";
 
 export const useAppStore = defineStore("appStore", {
    state: () => {
@@ -1097,6 +1099,25 @@ export const useAppStore = defineStore("appStore", {
                hero: img_29,
                code: {
                   small: "BOX-MELTS-NATUR",
+               },
+               price: {
+                  small: "19.99",
+               },
+               category: "Мелтсы",
+               tag: [],
+               aroma: "",
+               isFavorite: false,
+               isStock: true,
+            },
+            {
+               id: "postcard-10",
+               date: 30,
+               title: "Набор Мелтсов (свежие)",
+               description:
+                  "Ну эти ароматы точно нельзя назвать душнилами. Арома-лапки, которые хоть и нагреваются, но все равно освежают пространство вокруг!",
+               hero: img_39,
+               code: {
+                  small: "BOX-FRESH-NATUR",
                },
                price: {
                   small: "19.99",
