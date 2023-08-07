@@ -21,7 +21,7 @@
                         <router-link class="header__left-drobdown-link" to="/catalog/boxes"> Наборы </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" to="/catalog"> Открытки </router-link>
+                        <router-link class="header__left-drobdown-link" to="/catalog/postcard"> Открытки </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
                         <router-link class="header__left-drobdown-link" to="/catalog/candles"> Соевые свечи </router-link>
