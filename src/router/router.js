@@ -12,52 +12,61 @@ const routes = [
    },
    {
       path: "/catalog",
-      name: "catalog",
-      meta: {
-         title: "Lumiiere Candles | Каталог",
-      },
-      component: () => import("@/page/Catalog.vue"),
+      children: [
+         {
+            path: "",
+            name: "catalog",
+            meta: {
+               title: "Lumiiere Candles | Каталог",
+            },
+            component: () => import("@/page/Catalog.vue"),
+         },
+
+         {
+            path: ":id",
+            name: "post",
+            meta: {
+               title: "Lumiiere Candles | Старница товара",
+            },
+            component: () => import("@/page/Post.vue"),
+         },
+
+         {
+            path: "candles",
+            name: "candles",
+            meta: {
+               title: "Lumiiere Candles | Свечи",
+            },
+            component: () => import("@/page/Candles.vue"),
+         },
+
+         {
+            path: "melts",
+            name: "melts",
+            meta: {
+               title: "Lumiiere Candles | Мельтсы",
+            },
+            component: () => import("@/page/Melts.vue"),
+         },
+         {
+            path: "boxes",
+            name: "boxes",
+            meta: {
+               title: "Lumiiere Candles | Наборы",
+            },
+            component: () => import("@/page/Boxes.vue"),
+         },
+         {
+            path: "postcard",
+            name: "postcard",
+            meta: {
+               title: "Lumiiere Candles | Открытки",
+            },
+            component: () => import("@/page/Postcard.vue"),
+         },
+      ],
    },
-   {
-      path: "/catalog/candles",
-      name: "candles",
-      meta: {
-         title: "Lumiiere Candles | Свечи",
-      },
-      component: () => import("@/page/Candles.vue"),
-   },
-   {
-      path: "/catalog/melts",
-      name: "melts",
-      meta: {
-         title: "Lumiiere Candles | Мельтсы",
-      },
-      component: () => import("@/page/Melts.vue"),
-   },
-   {
-      path: "/catalog/boxes",
-      name: "boxes",
-      meta: {
-         title: "Lumiiere Candles | Наборы",
-      },
-      component: () => import("@/page/Boxes.vue"),
-   },
-   {
-      path: "/catalog/postcard",
-      name: "postcard",
-      meta: {
-         title: "Lumiiere Candles | Открытки",
-      },
-      component: () => import("@/page/Postcard.vue"),
-   },
-   {
-      path: "/catalog/:id",
-      name: "post",
-      meta: {
-         title: "Lumiiere Candles | Старница товара",
-      },
-      component: () => import("@/page/Post.vue"),
-   },
+
    {
       path: "/about",
       name: "about",
