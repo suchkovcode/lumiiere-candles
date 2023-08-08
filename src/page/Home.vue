@@ -13,7 +13,7 @@
                </span>
             </h1>
             <p class="subtitle hero__subtitle">Свечи, которые действительно пахнут!</p>
-            <a href="/" class="btn btn--hero hero__btn"> хочу </a>
+            <router-link class="btn btn--hero hero__btn" :to="{ name: 'catalog' }"> хочу </router-link>
          </div>
          <img class="hero__bg" src="@/assets/img/webp/home__hero-1.webp" alt="Главная картинка" width="340" height="800" />
       </div>
@@ -65,7 +65,7 @@
             </div>
          </div>
          <div class="products__card">
-            <router-link class="products__card-item products__card-item-1" :to="{name: 'candles'}">
+            <router-link class="products__card-item products__card-item-1" :to="{ name: 'candles' }">
                <div class="products__card-header">
                   <h2 class="products__card-title">Органические свечи</h2>
                   <p class="subtitle products__card-subtitle">Свечи с ароматными сюжетами!</p>
@@ -97,7 +97,7 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
                </svg>
             </router-link>
-            <router-link class="products__card-item products__card-item-3" :to="{name: 'postcard'}">
+            <router-link class="products__card-item products__card-item-3" :to="{ name: 'postcard' }">
                <div class="products__card-header">
                   <h2 class="products__card-title">Открытки</h2>
                   <p class="subtitle products__card-subtitle">Для самых любимых!</p>
@@ -113,7 +113,7 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
                </svg>
             </router-link>
-            <router-link class="products__card-item products__card-item-4" :to="{name: 'boxes'}">
+            <router-link class="products__card-item products__card-item-4" :to="{ name: 'boxes' }">
                <div class="products__card-header">
                   <h2 class="products__card-title">Наборы</h2>
                   <p class="subtitle products__card-subtitle">
@@ -370,7 +370,7 @@ export default {
    },
 
    methods: {
-      ...mapActions(useAppStore, {setCollection: 'setCollectionFilter'}),
+      ...mapActions(useAppStore, { setCollection: "setCollectionFilter" }),
 
       launchTimer() {
          this.timerData = setInterval(() => {
