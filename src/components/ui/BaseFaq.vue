@@ -117,8 +117,6 @@ export default {
          outline: none;
       }
 
-
-
       @include xl {
          padding: 20px 0;
       }
