@@ -11,18 +11,18 @@
                      <h1 class="post__title">{{ cardData.title }}</h1>
                      <p class="post__article">Артикул: {{ cardArticle }}</p>
                      <v-card-price :priceData="cardPrice" />
-                     <v-card-changesize :sizeItemData="storageData.size" @cardsize="updateSize" />
+                     <v-card-changesize v-if="isPostcard" :sizeItemData="storageData.size" @cardsize="updateSize" />
 
                      <div class="post__btn">
                         <v-card-count :countItemData="storageData.count" @countItem="updateCount" />
-                        <v-card-btn-add class="post__btn-add" @click="addCardBacket" />
+                        <v-card-btn-add class="post__btn-add" :isEmpty="cardData.isStock" @click="addCardBacket" />
                         <v-card-favorite class="post__favorite" :cardId="cardData.id" :isFavorite="cardData.isFavorite" />
                      </div>
                   </header>
                   <main class="post__content-body">
                      <p class="post__key">{{ categoryJoin }}</p>
                      <p class="post__description">{{ cardData.description }}</p>
-                     <p class="post__info">
+                     <p class="post__info" v-if="isPostcard">
                         Интенсивность:
                         <span class="post__info-circles">
                            <span v-for="n in 5" :key="n" class="post__info-circle" :class="{ active: n <= cardData.intensity }"></span>
@@ -30,7 +30,7 @@
                      </p>
                   </main>
 
-                  <footer class="post__content-footer">
+                  <footer class="post__content-footer" v-if="isPostcard">
                      <p class="post__category">
                         Аромат: <span>{{ cardData.aroma }}</span>
                      </p>
@@ -38,8 +38,7 @@
                         Коллекция: <span>{{ cardData.collection }}</span>
                      </p>
                      <p class="post__category">
-                        Вес: <span>{{ cardData.weight[this.storageData.size] }}</span
-                        >г
+                        Вес: <span>{{ cardData.weight[this.storageData.size] }}</span>г
                      </p>
                   </footer>
                </div>
@@ -83,6 +82,7 @@ export default {
 
          storageData: useStorage(this.$router.currentRoute.value.params.id, {}),
          cardData: {},
+         isPostcard: this.$router.currentRoute.value.params.id.replace(/(poscode|card).*/, "$1") === "card",
       };
    },
 
@@ -90,6 +90,7 @@ export default {
       const prod = this.products.find((item) => item.id === this.$router.currentRoute.value.params.id);
       this.cardData = prod;
       this.roterData[2].name = this.cardData.title;
+      document.title = `Lumiiere Candles | ${this.cardData.title}`;
    },
 
    computed: {
