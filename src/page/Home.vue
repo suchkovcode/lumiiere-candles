@@ -65,7 +65,7 @@
             </div>
          </div>
          <div class="products__card">
-            <router-link class="products__card-item products__card-item-1" to="/catalog">
+            <router-link class="products__card-item products__card-item-1" :to="{name: 'candles'}">
                <div class="products__card-header">
                   <h2 class="products__card-title">Органические свечи</h2>
                   <p class="subtitle products__card-subtitle">Свечи с ароматными сюжетами!</p>
@@ -97,7 +97,7 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
                </svg>
             </router-link>
-            <router-link class="products__card-item products__card-item-3" to="/catalog">
+            <router-link class="products__card-item products__card-item-3" :to="{name: 'postcard'}">
                <div class="products__card-header">
                   <h2 class="products__card-title">Открытки</h2>
                   <p class="subtitle products__card-subtitle">Для самых любимых!</p>
@@ -113,7 +113,7 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
                </svg>
             </router-link>
-            <router-link class="products__card-item products__card-item-4" to="/catalog">
+            <router-link class="products__card-item products__card-item-4" :to="{name: 'boxes'}">
                <div class="products__card-header">
                   <h2 class="products__card-title">Наборы</h2>
                   <p class="subtitle products__card-subtitle">
@@ -151,22 +151,22 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardIcon-3"></use>
                </svg>
                <ul class="products__card-nav">
-                  <li class="products__card-nav-item">
+                  <li class="products__card-nav-item" @click="setCollection('Гарри Поттер')">
                      <router-link to="/catalog" class="products__card-nav-link transition"> Гарри Поттер </router-link>
                   </li>
-                  <li class="products__card-nav-item">
+                  <li class="products__card-nav-item" @click="setCollection('Аниме')">
                      <router-link to="/catalog" class="products__card-nav-link transition"> Аниме </router-link>
                   </li>
-                  <li class="products__card-nav-item">
+                  <li class="products__card-nav-item" @click="setCollection('Сериалы')">
                      <router-link to="/catalog" class="products__card-nav-link transition"> Сериалы </router-link>
                   </li>
-                  <li class="products__card-nav-item">
+                  <li class="products__card-nav-item" @click="setCollection('Фильмы')">
                      <router-link to="/catalog" class="products__card-nav-link transition"> Фильмы </router-link>
                   </li>
-                  <li class="products__card-nav-item">
+                  <li class="products__card-nav-item" @click="setCollection('Игры')">
                      <router-link to="/catalog" class="products__card-nav-link transition"> Игры </router-link>
                   </li>
-                  <li class="products__card-nav-item">
+                  <li class="products__card-nav-item" @click="setCollection('Без персонажей')">
                      <router-link to="/catalog" class="products__card-nav-link transition"> Без персонажей </router-link>
                   </li>
                </ul>
@@ -350,7 +350,7 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
+import { mapActions, mapState } from "pinia";
 import { useAppStore } from "@/store/appStore";
 
 export default {
@@ -370,6 +370,8 @@ export default {
    },
 
    methods: {
+      ...mapActions(useAppStore, {setCollection: 'setCollectionFilter'}),
+
       launchTimer() {
          this.timerData = setInterval(() => {
             this.currentSlider++;
