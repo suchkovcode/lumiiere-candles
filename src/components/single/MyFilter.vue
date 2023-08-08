@@ -117,18 +117,20 @@
 <script>
 import { mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
+import { useStorage } from "@vueuse/core";
+
 
 export default {
    name: "MyFilter",
 
    data() {
       return {
-         filter: {
+         filter: useStorage("filter-data", {
             category: "все",
             sort: "new",
             aroma: [],
             collection: [],
-         },
+         }),
 
          isClickSort: false,
          isClickAroma: false,

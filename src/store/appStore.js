@@ -1129,12 +1129,12 @@ export const useAppStore = defineStore("appStore", {
             },
          ]),
 
-         filterData: {
-            category: "",
-            sort: "",
+         filterData: useStorage("filter-data", {
+            category: "все",
+            sort: "new",
             aroma: [],
             collection: [],
-         },
+         }),
 
          isActiveFavorite: false,
          isActiveBacket: false,
