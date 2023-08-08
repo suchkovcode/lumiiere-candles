@@ -1226,6 +1226,10 @@ export const useAppStore = defineStore("appStore", {
    },
 
    actions: {
+      setCollectionFilter(caollectionName) {
+         this.filterData.collection.push(caollectionName);
+      },
+
       updateFavorite(cardId, state) {
          const index = this.products.findIndex((element) => element.id === cardId);
          this.products[index].isFavorite = state;
