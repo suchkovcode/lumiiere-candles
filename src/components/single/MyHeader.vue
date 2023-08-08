@@ -12,27 +12,22 @@
                   </button>
                   <ul class="header__left-drobdown" :class="{ active: isActiveLeft }">
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" :to="{ name: 'catalog'}"> Все товары </router-link>
+                        <router-link class="header__left-drobdown-link" :to="{ name: 'catalog' }"> Все товары </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" :to="{ name: 'melts'}"> Мелтсы </router-link>
+                        <router-link class="header__left-drobdown-link" :to="{ name: 'melts' }"> Мелтсы </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" :to="{ name: 'boxes'}"> Наборы </router-link>
+                        <router-link class="header__left-drobdown-link" :to="{ name: 'boxes' }"> Наборы </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" :to="{ name: 'postcard'}"> Открытки </router-link>
+                        <router-link class="header__left-drobdown-link" :to="{ name: 'postcard' }"> Открытки </router-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <router-link class="header__left-drobdown-link" :to="{ name: 'candles'}"> Соевые свечи </router-link>
+                        <router-link class="header__left-drobdown-link" :to="{ name: 'candles' }"> Соевые свечи </router-link>
                      </li>
                   </ul>
                </div>
-               <button class="header__btn-search" aria-label="Search button">
-                  <svg class="header__icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#search"></use>
-                  </svg>
-               </button>
                <div>
                   <ul class="header__left-nav">
                      <li class="header__left-nav-item">
@@ -250,22 +245,6 @@ export default {
          }
       }
 
-      &-search {
-         display: none;
-
-         @include sm {
-            cursor: pointer;
-            position: relative;
-            z-index: 100;
-            display: block;
-            margin-left: 130px;
-         }
-
-         @include xl {
-            margin-left: 145px;
-         }
-      }
-
       &-favorite {
          cursor: pointer;
          position: relative;
@@ -329,6 +308,18 @@ export default {
       justify-content: center;
       align-items: center;
       margin-top: -10px;
+
+      @include sm {
+         margin-left: 110px;
+      }
+
+      @include md {
+         margin-left: 180px;
+      }
+
+      @include xl {
+         margin-left: 60px;
+      }
    }
 
    &__icon-count {
@@ -405,7 +396,7 @@ export default {
       &-catalog {
          @include sm {
             position: absolute;
-            top: -15px;
+            top: -28px;
             left: -10px;
             display: flex;
             justify-content: center;
@@ -419,14 +410,13 @@ export default {
          }
 
          @include xl {
+            top: -15px;
             left: 0;
          }
       }
 
       &-nav {
          display: none;
-         gap: 30px;
-         margin-left: 40px;
 
          &-link {
             cursor: pointer;
@@ -440,6 +430,8 @@ export default {
 
          @include xl {
             display: flex;
+            gap: 30px;
+            margin-left: 150px;
          }
       }
 
