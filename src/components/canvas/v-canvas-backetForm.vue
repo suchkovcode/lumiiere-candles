@@ -1,30 +1,61 @@
 <template>
-   <form class="backetForm" action="#" method="post" @click.prevent.stop>
+   <form class="backetForm" @submit.prevent="onSubmit">
       <div class="backetForm__contact">
          <h2 class="backetForm__title">Оформить заказ</h2>
          <div class="backetForm__input-box">
-            <input class="backetForm__input" type="text" placeholder="Ваше имя" value="" />
+            <input
+               class="backetForm__input"
+               name="name"
+               type="text"
+               placeholder="Ваше имя"
+               :class="{ invalid: v$.name.$error }"
+               v-model.trim="name"
+               @blur="v$.name.$touch" />
+            <span v-if="v$.name.$error" class="backetForm__input-err">{{ v$.name.$errors[0].$message }}</span>
          </div>
          <div class="backetForm__input-box">
-            <input class="backetForm__input" type="email" placeholder="Электронная почта" value="" />
+            <input
+               class="backetForm__input"
+               name="email"
+               type="email"
+               placeholder="Электронная почта"
+               :class="{ invalid: v$.email.$error }"
+               v-model.trim="email"
+               @blur="v$.email.$touch" />
+            <span v-if="v$.email.$error" class="backetForm__input-err">{{ v$.email.$errors[0].$message }}</span>
          </div>
          <div class="backetForm__input-box">
-            <input class="backetForm__input" type="tel" placeholder="+38 (999) 999 99-99" value="" />
+            <input
+               class="backetForm__input"
+               name="phone"
+               type="tel"
+               placeholder="+38 (999) 999 99-99"
+               :class="{ invalid: v$.tel.$error }"
+               v-model.trim="tel"
+               @blur="v$.tel.$touch" />
+            <span v-if="v$.tel.$error" class="backetForm__input-err">{{ v$.tel.$errors[0].$message }}</span>
          </div>
       </div>
       <div class="backetForm__delivery">
          <h2 class="backetForm__title">Доставка</h2>
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Город</span>
-            <input class="backetForm__input" type="search" placeholder="Киев" value="" />
+            <input
+               class="backetForm__input"
+               type="text"
+               placeholder="Киев"
+               :class="{ invalid: v$.city.$error }"
+               v-model.trim="city"
+               @blur="v$.city.$touch" />
+            <span v-if="v$.city.$error" class="backetForm__input-err">{{ v$.city.$errors[0].$message }}</span>
          </label>
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Промокод:</span>
-            <input class="backetForm__input" type="text" placeholder="Введите промокод" value="" />
+            <input class="backetForm__input" type="text" placeholder="Введите промокод" v-model.trim="code" />
          </label>
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Как подписать заказ?</span>
-            <input class="backetForm__input" type="text" placeholder="Подпись для коробки" value="" />
+            <input class="backetForm__input" type="text" placeholder="Подпись для коробки" v-model.trim="sign" />
          </label>
       </div>
       <p class="backetForm__sum">
@@ -38,8 +69,50 @@
 </template>
 
 <script>
+import { useVuelidate } from "@vuelidate/core";
+import { required, email, minLength, helpers, numeric } from "@vuelidate/validators";
+
 export default {
    name: "v-canvas-backet-form",
+
+   data() {
+      return {
+         v$: useVuelidate(),
+         name: null,
+         email: null,
+         tel: null,
+         city: null,
+         code: null,
+         sign: null,
+      };
+   },
+
+   validations() {
+      return {
+         name: {
+            required: helpers.withMessage("Обязательное поле", required),
+            minLength: helpers.withMessage("Минимальное количество символов 3", minLength(3)),
+         },
+         email: {
+            required: helpers.withMessage("Обязательное поле", required),
+            email: helpers.withMessage("Введите корректный email", email),
+         },
+         tel: {
+            required: helpers.withMessage("Обязательное поле", required),
+            numeric: helpers.withMessage("Введите корректный номер", numeric),
+         },
+         city: {
+            required: helpers.withMessage("Обязательное поле", required),
+            minLength: helpers.withMessage("Минимальное количество символов 3", minLength(3)),
+         },
+      };
+   },
+
+   methods: {
+      onSubmit() {
+         this.v$.$validate();
+      },
+   },
 
    props: {
       sumData: {
@@ -77,7 +150,6 @@ export default {
 
    &__title {
       font: 500 18px/1.5 "AvenirNextCyr";
-
    }
 
    &__subtitle {
@@ -89,6 +161,14 @@ export default {
       padding: 20px;
       border-radius: 50px;
       background-color: var(--color_input);
+
+      &-err {
+         color: red;
+      }
+
+      &.invalid {
+         border: 1px solid red;
+      }
    }
 
    &__delivery {
