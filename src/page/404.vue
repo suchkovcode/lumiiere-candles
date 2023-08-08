@@ -6,11 +6,7 @@
             Такой страницы не существует <br />
             или она була удалена
          </p>
-         <router-link
-            class="btn error__btn"
-            to="/">
-            вернуться на галвную
-         </router-link>
+         <router-link class="btn error__btn" to="/"> вернуться на галвную </router-link>
       </div>
    </section>
 </template>
@@ -22,10 +18,6 @@ export default {
 </script>
 
 <style lang="scss">
-.container {
-   padding: 20px;
-}
-
 .error {
    display: flex;
    justify-content: center;
@@ -51,6 +43,10 @@ export default {
    &__btn {
       color: var(--color_secondar);
       background-color: var(--color_base);
+   }
+
+   .container {
+      padding: 20px;
    }
 }
 </style>
