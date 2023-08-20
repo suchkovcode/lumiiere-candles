@@ -1,10 +1,14 @@
 #Build generated and folder
-dist/
-build/
-admin/
-public/
-node_modules/
-bower_components/
+dist
+build
+admin
+public
+node_modules
+bower_components
+.output
+.nuxt
+.nitro
+.cache
 
 # Config files
 package-lock.json
@@ -101,3 +105,6 @@ $RECYCLE.BIN/
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+
+# Local Netlify folder
+.netlify
