@@ -74,10 +74,6 @@ export default {
       padding-bottom: 120px;
    }
 
-   &__tittle {
-      font: 500 18px/1.5 "AvenirNextCyr";
-   }
-
    &.active {
       overflow: hidden;
       right: 0;
