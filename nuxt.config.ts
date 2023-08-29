@@ -6,12 +6,6 @@ export default defineNuxtConfig({
    ssr: true,
    builder: "vite",
 
-   runtimeConfig: {
-      AIRTABLE_API_TOKEN: process.env.AIRTABLE_API_TOKEN,
-      AIRTABLE_API_BASE_PRODUCT: process.env.AIRTABLE_API_BASE_PRODUCT,
-      AIRTABLE_API_TABLE_ALL: process.env.AAIRTABLE_API_TABLE_ALL,
-   },
-
    app: {
       pageTransition: false,
       layoutTransition: false,
@@ -38,7 +32,11 @@ export default defineNuxtConfig({
       inlineSSRStyles: false,
       payloadExtraction: false,
       headNext: false,
+      noScripts: false,
+      renderJsonPayloads: false,
+      crossOriginPrefetch: false,
    },
+
 
    vite: {
       css: {
