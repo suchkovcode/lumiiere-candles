@@ -9,7 +9,7 @@ import ogImage from "@/assets/img/png/preview.png";
 
 export default {
    setup() {
-      
+
       useHead({
          htmlAttrs: {
             lang: "ru",
@@ -17,7 +17,7 @@ export default {
       }),
 
       useSeoMeta({
-         title: "lumiiere-candles",
+         title: "Lumiiere Candles | App",
 
          viewport: "width=device-width, initial-scale=1",
          meta: [
