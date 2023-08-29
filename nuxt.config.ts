@@ -6,6 +6,19 @@ export default defineNuxtConfig({
    ssr: true,
    builder: "vite",
 
+   hooks: {
+      "build:manifest": (manifest) => {
+         for (const key in manifest) {
+            const file = manifest[key];
+            if (file.assets) {
+               file.assets = file.assets.filter(
+                  (asset) => !asset.endsWith(".webp") && !asset.endsWith(".jpg") && !asset.endsWith(".png") && !asset.endsWith(".svg"),
+               );
+            }
+         }
+      },
+   },
+
    app: {
       pageTransition: false,
       layoutTransition: false,
@@ -37,7 +50,6 @@ export default defineNuxtConfig({
       crossOriginPrefetch: false,
    },
 
-
    vite: {
       css: {
          preprocessorOptions: {
@@ -49,8 +61,7 @@ export default defineNuxtConfig({
    },
 
    nitro: {
-      // preset: "cloudflare",
-      serveStatic: true,
+      serveStatic: false,
    },
 
    eslint: {
