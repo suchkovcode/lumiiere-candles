@@ -1,18 +1,18 @@
 import { defineStore } from "pinia";
-import { useStorage } from "@vueuse/core";
-import { PRODUCTS } from "@/assets/data/product"
+import { PRODUCTS } from "@/assets/data/product";
 
 export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
-         products: useStorage("products-items", PRODUCTS),
+         test: [],
+         products: PRODUCTS,
 
-         filterData: useStorage("filter-data", {
+         filterData: {
             category: "все",
             sort: "new",
             aroma: [],
             collection: [],
-         }),
+         },
 
          isActiveFavorite: false,
          isActiveBacket: false,
@@ -104,6 +104,22 @@ export const useAppStore = defineStore("appStore", {
    },
 
    actions: {
+      // downloadGallery(context) {
+      //    return new Promise((resolve, reject) => {
+      //       axios
+      //          .get("http://localhost:1337/api/galleries")
+      //          .then((response) => {
+      //             var array = response.data.data;
+      //             context.commit("load", array);
+      //             resolve();
+      //          })
+      //          .catch((err) => {
+      //             alert(err.message);
+      //             reject(err.message);
+      //          });
+      //    });
+      // },
+
       setCollectionFilter(caollectionName) {
          this.filterData.collection.push(caollectionName);
       },

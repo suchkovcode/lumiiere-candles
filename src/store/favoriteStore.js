@@ -1,11 +1,10 @@
 import { defineStore } from "pinia";
 import { useAppStore } from "@/store/appStore";
-import { useStorage } from "@vueuse/core";
 
 export const useFavoriteStore = defineStore("favoriteStore", {
    state: () => {
       return {
-         cards: useStorage("favorite-items", []),
+         cards: [],
       };
    },
 

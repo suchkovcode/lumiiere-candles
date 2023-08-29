@@ -6,7 +6,7 @@
       "commonjs": true,
       "node": true
    },
-   "extends": ["plugin:vue/vue3-essential"],
+   "extends": ["plugin:vue/vue3-essential", "plugin:vue/vue3-recommended"],
    "plugins": ["import"],
    "parserOptions": {
       "ecmaVersion": 13,
@@ -14,6 +14,75 @@
    },
 
    "rules": {
-      "vue/html-indent": ["error", 3]
+      "vue/html-indent": ["error", 3],
+      "vue/multi-word-component-names": [
+         "error",
+         {
+            "ignores": [
+               "index",
+               "default",
+               "catalog",
+               "error",
+               "rating",
+               "card",
+               "policy",
+               "header",
+               "favorite",
+               "backet",
+               "menu",
+               "breadcrumbs",
+               "faq",
+               "tabs",
+               "[id]",
+               "[slug]",
+               "boxes",
+               "candles",
+               "melts",
+               "postcard",
+               "about",
+               "care",
+               "oferta",
+               "delivery",
+               "partners"
+            ]
+         }
+      ],
+      "vue/max-attributes-per-line": [
+         "error",
+         {
+            "singleline": {
+               "max": 8
+            }
+         }
+      ],
+      "vue/html-closing-bracket-newline": [
+         "error",
+         {
+            "singleline": "never",
+            "multiline": "never"
+         }
+      ],
+
+      "vue/html-self-closing": [
+         "error",
+         {
+            "html": {
+               "void": "any",
+               "normal": "any",
+               "component": "any"
+            },
+            "svg": "never",
+            "math": "always"
+         }
+      ],
+
+      "vue/singleline-html-element-content-newline": [
+         "error",
+         {
+            "ignoreWhenNoAttributes": true,
+            "ignoreWhenEmpty": true,
+            "ignores": ["pre", "textarea", "NuxtLink", "p", "span", "h3", "h2", "h1", "button", "li", "a"]
+         }
+      ]
    }
 }

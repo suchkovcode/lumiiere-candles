@@ -69,7 +69,7 @@ export const PRODUCTS = [
       category: "свечи",
       intensity: 5,
       isFavorite: false,
-      isStock: false,
+      isStock: true,
    },
    {
       id: "card-100-2",
@@ -440,7 +440,7 @@ export const PRODUCTS = [
       category: "свечи",
       intensity: 5,
       isFavorite: false,
-      isStock: true,
+      isStock: false,
    },
    {
       id: "card-100-14",

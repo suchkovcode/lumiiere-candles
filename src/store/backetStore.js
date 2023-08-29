@@ -1,10 +1,9 @@
 import { defineStore } from "pinia";
-import { useStorage } from "@vueuse/core";
 
 export const useBacketStore = defineStore("backetStore", {
    state: () => {
       return {
-         cards: useStorage("backet-items", []),
+         cards: [],
       };
    },
 
