@@ -13,6 +13,7 @@ export default {
          htmlAttrs: {
             lang: "ru",
          },
+         title: "lumiiere-candles",
          charset: "utf-8",
          viewport: "width=device-width, initial-scale=1",
          meta: [
