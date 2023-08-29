@@ -9,6 +9,7 @@ import ogImage from "@/assets/img/png/preview.png";
 
 export default {
    setup() {
+      
       useHead({
          htmlAttrs: {
             lang: "ru",
