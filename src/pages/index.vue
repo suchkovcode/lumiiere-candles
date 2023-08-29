@@ -133,7 +133,7 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
                </svg>
             </nuxt-link>
-            <div class="products__card-item products__card-item-5" href="/">
+            <div class="products__card-item products__card-item-5">
                <div class="products__card-header">
                   <h2 class="products__card-title">
                      СОБЕРИ СВОЮ
