@@ -37,7 +37,7 @@ export default defineNuxtConfig({
    experimental: {
       inlineSSRStyles: false,
       payloadExtraction: false,
-      headNext: true,
+      headNext: false,
    },
 
    vite: {
@@ -51,7 +51,7 @@ export default defineNuxtConfig({
    },
 
    nitro: {
-      // preset: "cloudflare",
+      preset: "cloudflare",
       serveStatic: true,
    },
 
@@ -75,10 +75,6 @@ export default defineNuxtConfig({
       dir: "assets/img",
    },
 
-   site: {
-      url: process.env.NUXT_SITE_URL || "https://lumiiere-candles.suchkov.cc",
-   },
-
    robots: {
       sitemap: ["/sitemap.xml"],
       credits: false,
@@ -92,11 +88,10 @@ export default defineNuxtConfig({
 
    strapi: {
       devtools: false,
-      url: process.env.STRAPI_URL || 'http://localhost:1337',
-      prefix: '/api',
-      version: 'v4',
+      prefix: "/api",
+      version: "v4",
       cookie: {},
-      cookieName: ''
+      cookieName: "",
    },
 
    modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "@nuxt/image", "@nuxtjs/strapi", "@nuxtjs/i18n", "nuxt-simple-robots", "nuxt-simple-sitemap"],
