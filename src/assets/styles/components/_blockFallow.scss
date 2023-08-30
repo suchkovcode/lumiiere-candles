@@ -5,12 +5,19 @@
    margin: 0 auto;
    padding: 60px 20px;
    border-radius: 35px;
-   background-image: url("@/assets/img/webp/home__subscribe-bg.webp");
-   background-position: 50% 30%;
-   background-repeat: no-repeat;
+
+   &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
 
    &__header {
       position: relative;
+      z-index: 10;
    }
 
    &__icon {
@@ -58,6 +65,8 @@
    }
 
    &__subtitle {
+      position: relative;
+      z-index: 10;
       max-width: 460px;
       margin: 0 auto;
       margin-bottom: 30px;
@@ -79,6 +88,7 @@
 
    &__form {
       position: relative;
+      z-index: 10;
       display: flex;
       flex-flow: column;
       gap: 15px;
