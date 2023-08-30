@@ -1,10 +1,10 @@
 <template>
    <section class="error">
       <div class="container">
-         <h1 class="error__title">404</h1>
+         <h1 class="error__title">{{ error.statusCode }}</h1>
          <p class="error__text">
-            Такой страницы не существует <br />
-            или она была удалена
+            Ой произошла ошибка <br />
+            {{ error.message }}
          </p>
          <NuxtLink class="btn error__btn" to="/"> Вернуться на главную </NuxtLink>
       </div>
@@ -13,6 +13,13 @@
 
 <script>
 export default {
+   props: {
+      error: {
+         type: Object,
+         required: true,
+      },
+   },
+
    setup() {
       useHead({
          htmlAttrs: {
