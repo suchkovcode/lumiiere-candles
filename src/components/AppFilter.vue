@@ -1,5 +1,5 @@
 <template>
-   <div class="filter">
+   <aside class="filter">
       <div class="filter__radio">
          <label class="filter__label">
             <input v-model="filter.category" class="filter__input" type="radio" value="все" />
@@ -111,7 +111,7 @@
             </label>
          </div>
       </div>
-   </div>
+   </aside>
 </template>
 
 <script>
