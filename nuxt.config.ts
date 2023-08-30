@@ -12,7 +12,12 @@ export default defineNuxtConfig({
             const file = manifest[key];
             if (file.assets) {
                file.assets = file.assets.filter(
-                  (asset) => !asset.endsWith(".webp") && !asset.endsWith(".jpg") && !asset.endsWith(".png") && !asset.endsWith(".svg"),
+                  (asset) =>
+                     !asset.endsWith(".webp") &&
+                     !asset.endsWith(".jpg") &&
+                     !asset.endsWith(".png") &&
+                     !asset.endsWith(".jpeg") &&
+                     !asset.endsWith(".svg"),
                );
             }
          }
@@ -79,7 +84,7 @@ export default defineNuxtConfig({
    },
 
    site: {
-      url: "https://example.com",
+      url: "https://lumiiere-candles.com",
    },
 
    strapi: {
