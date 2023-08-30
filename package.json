@@ -38,7 +38,8 @@
       "sass": "^1.66.1",
       "stylelint": "^15.10.2",
       "stylelint-config-standard-scss": "^10.0.0",
-      "stylelint-order": "^6.0.3"
+      "stylelint-order": "^6.0.3",
+      "vite-plugin-favicon2": "^1.1.5"
    },
    "dependencies": {
       "@vuelidate/core": "^2.0.3",
