@@ -2,7 +2,6 @@ import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
 
 const isDev = process.env.NODE_ENV !== "production";
 
-
 export default defineNuxtConfig({
    builder: "vite",
    srcDir: "./src/",
@@ -54,6 +53,7 @@ export default defineNuxtConfig({
          }),
       ],
    },
+
 
    sourcemap: {
       server: isDev ? true : false,
@@ -118,13 +118,5 @@ export default defineNuxtConfig({
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: [
-      "@nuxtjs/eslint-module",
-      "@pinia/nuxt",
-      "@nuxt/image",
-      "@nuxtjs/strapi",
-      "@nuxtjs/i18n",
-      "nuxt-simple-robots",
-      "nuxt-simple-sitemap"
-   ],
+   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "@nuxt/image", "@nuxtjs/strapi", "@nuxtjs/i18n", "nuxt-simple-robots", "nuxt-simple-sitemap"],
 });
