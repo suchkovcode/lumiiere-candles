@@ -64,7 +64,7 @@
                   <a
                      class="partners__contact-email"
                      href="mailto:info@lumiiere.candles.com">
-                     info@lumiiere.candles.com
+                     info@lumiiere-candles.com
                   </a>
                </div>
             </div>
