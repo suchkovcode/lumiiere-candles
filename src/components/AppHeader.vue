@@ -88,9 +88,6 @@
             </div>
          </div>
       </div>
-      <canvas-menu :active-state="isActiveCanvasMenu" @close-canvas="isActiveCanvasMenu = $event" />
-      <canvas-favorite :active-state="isActiveFavorite" @close-canvas="togllerFavorite($event)" />
-      <canvas-backet :active-state="isActiveBacket" @close-canvas="togllerBacket($event)" />
    </header>
 </template>
 
@@ -103,25 +100,18 @@ import { useFavoriteStore } from "@/store/favoriteStore";
 export default {
    data() {
       return {
-         isActiveCanvasMenu: false,
          isActiveRight: false,
          isActiveLeft: false,
       };
    },
 
    computed: {
-      ...mapState(useAppStore, ["isActiveFavorite", "isActiveBacket"]),
       ...mapState(useBacketStore, { cardsBacket: "cards" }),
       ...mapState(useFavoriteStore, { cardsFavorite: "cards" }),
    },
 
    methods: {
       ...mapActions(useAppStore, { togllerFavorite: "updateFavoriteCanvas", togllerBacket: "updateBacketCanvas" }),
-
-      openMobileMenu() {
-         const breakpoint = window.matchMedia("(max-width: 1200px)");
-         breakpoint.matches ? (this.isActiveCanvasMenu = true) : (this.isActiveCanvasMenu = false);
-      },
 
       toScrollFooter() {
          const footer = document.querySelector("#footer");
