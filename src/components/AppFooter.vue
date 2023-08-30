@@ -128,7 +128,6 @@
          </div>
       </div>
    </footer>
-   <canvas-menu :active-state="isActiveCanvasMenu" @close-canvas="isActiveCanvasMenu = $event" />
    <canvas-favorite :active-state="isActiveFavorite" @close-canvas="togllerFavorite($event)" />
    <canvas-backet :active-state="isActiveBacket" @close-canvas="togllerBacket($event)" />
 </template>
@@ -137,25 +136,13 @@
 import { mapState, mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
 
-
 export default {
-   data() {
-      return {
-         isActiveCanvasMenu: false,
-      };
-   },
-
    computed: {
       ...mapState(useAppStore, ["isActiveFavorite", "isActiveBacket"]),
    },
 
    methods: {
       ...mapActions(useAppStore, { togllerFavorite: "updateFavoriteCanvas", togllerBacket: "updateBacketCanvas" }),
-
-      openMobileMenu() {
-         const breakpoint = window.matchMedia("(max-width: 1200px)");
-         breakpoint.matches ? (this.isActiveCanvasMenu = true) : (this.isActiveCanvasMenu = false);
-      },
    },
 };
 </script>

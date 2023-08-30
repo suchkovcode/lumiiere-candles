@@ -89,6 +89,7 @@
          </div>
       </div>
    </header>
+   <canvas-menu :active-state="isActiveCanvasMenu" @close-canvas="isActiveCanvasMenu = $event" />
 </template>
 
 <script>
@@ -100,6 +101,7 @@ import { useFavoriteStore } from "@/store/favoriteStore";
 export default {
    data() {
       return {
+         isActiveCanvasMenu: false,
          isActiveRight: false,
          isActiveLeft: false,
       };
@@ -116,6 +118,11 @@ export default {
       toScrollFooter() {
          const footer = document.querySelector("#footer");
          footer.scrollIntoView({ behavior: "smooth" });
+      },
+
+      openMobileMenu() {
+         const breakpoint = window.matchMedia("(max-width: 1200px)");
+         breakpoint.matches ? (this.isActiveCanvasMenu = true) : (this.isActiveCanvasMenu = false);
       },
 
       menuRightActive() {
