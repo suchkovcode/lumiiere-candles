@@ -72,9 +72,14 @@ export default defineNuxtConfig({
    },
 
    sitemap: {
+      sitemaps: false,
       xsl: false,
       xslTips: false,
       discoverImages: true,
+   },
+
+   site: {
+      url: "https://example.com",
    },
 
    strapi: {
