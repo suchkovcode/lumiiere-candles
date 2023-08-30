@@ -15,11 +15,3 @@ export default {
    },
 };
 </script>
-
-<style lang="scss" scoped>
-.price {
-   margin-bottom: 20px;
-   font: 500 24px/1.3 "Karton";
-   color: var(--color_primary);
-}
-</style>

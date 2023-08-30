@@ -1,0 +1,71 @@
+.backetForm {
+   overflow-y: scroll;
+   width: 100%;
+   height: 100%;
+   padding: 25px;
+   padding-bottom: 120px;
+
+   &__order {
+      margin-bottom: 50px;
+   }
+
+   &__contact {
+      display: flex;
+      flex-flow: column;
+      gap: 25px;
+      margin-bottom: 50px;
+   }
+
+   &__input-box {
+      display: flex;
+      flex-flow: column;
+      gap: 5px;
+   }
+
+   &__title {
+      font: 500 18px/1.5 "AvenirNextCyr";
+   }
+
+   &__subtitle {
+      font: 400 16px/1.5 "AvenirNextCyr";
+      color: var(--color_secondary);
+   }
+
+   &__input {
+      padding: 20px;
+      border-radius: 50px;
+      background-color: var(--color_input);
+
+      &-err {
+         color: red;
+      }
+
+      &.invalid {
+         border: 1px solid red;
+      }
+   }
+
+   &__delivery {
+      display: flex;
+      flex-flow: column;
+      gap: 25px;
+      margin-bottom: 50px;
+   }
+
+   &__sum {
+      margin-bottom: 30px;
+      font: 600 18px/1.5 "AvenirNextCyr";
+   }
+
+   &__button-box {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      gap: 15px;
+   }
+
+   &__policy {
+      font: 400 16px/1.5 "AvenirNextCyr";
+      text-align: center;
+   }
+}

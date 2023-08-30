@@ -1,0 +1,219 @@
+.partners {
+   overflow: hidden;
+   position: relative;
+
+   &__header {
+      position: relative;
+      margin-bottom: 50px;
+
+      &-icon {
+         position: absolute;
+         top: 0;
+         left: calc(50% - 45px);
+
+         @include md {
+            width: 100px;
+            height: auto;
+         }
+
+         @include lg {
+            left: 25px;
+            width: 110px;
+         }
+
+         @include xxl {
+            width: 120px;
+            height: auto;
+         }
+      }
+
+      @include lg {
+         grid-area: header;
+      }
+
+      @include xl {
+         margin-bottom: 80px;
+      }
+   }
+
+   &__title {
+      padding-top: 30px;
+      font-size: 34px;
+      letter-spacing: 2px;
+      color: var(--color_secondary);
+
+      @include sm {
+         font-size: 42px;
+      }
+
+      @include md {
+         font-size: 46px;
+         text-align: center;
+      }
+
+      @include lg {
+         font-size: 52px;
+         text-align: left;
+      }
+
+      @include xl {
+         font-size: 56px;
+      }
+
+      @include xxl {
+         font-size: 58px;
+      }
+   }
+
+   &__content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      max-width: 460px;
+      margin: 0 auto;
+
+      @include sm {
+         gap: 50px;
+      }
+
+      @include lg {
+         max-width: 100%;
+         margin: 0;
+      }
+
+      @include xl {
+         grid-template-columns: 1fr 1fr;
+      }
+   }
+
+   &__offer {
+      display: flex;
+      flex-flow: column;
+      gap: 15px;
+
+      &-title {
+         font: 500 20px/1.3 "AvenirNextCyr";
+         text-align: center;
+
+         @include lg {
+            font-size: 24px;
+            text-align: left;
+         }
+      }
+
+      &-text {
+         text-align: center;
+
+         &--bold {
+            font-weight: 500;
+         }
+
+         @include lg {
+            font-size: 18px;
+            text-align: left;
+         }
+      }
+
+      @include lg {
+         gap: 20px;
+      }
+   }
+
+   &__contact {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      gap: 30px;
+      max-width: 520px;
+      padding: 30px;
+      border-radius: 22px;
+      background-color: var(--color_bg_grey);
+
+      &-title {
+         font: 500 20px/1.3 "AvenirNextCyr";
+         text-align: center;
+
+         @include lg {
+            font-size: 24px;
+            text-align: left;
+         }
+      }
+
+      &-email-text {
+         text-align: center;
+
+         @include lg {
+            text-align: left;
+         }
+      }
+
+      &-email {
+         display: block;
+         font: 600 20px/1.3 "AvenirNextCyr";
+         text-align: center;
+         color: var(--color_primary);
+
+         &:hover {
+            color: var(--color_btn_hover);
+         }
+
+         @include sm {
+            font-size: 28px;
+         }
+
+         @include lg {
+            font-size: 32px;
+            text-align: left;
+         }
+      }
+
+      @include sm {
+         padding: 40px;
+      }
+
+      @include xl {
+         padding: 50px;
+      }
+   }
+
+   &__img-1 {
+      display: none;
+
+      @include lg {
+         position: absolute;
+         bottom: -50px;
+         left: -260px;
+         display: block;
+         transform: rotate(200deg);
+      }
+
+      @include xl {
+         bottom: -20px;
+         left: -250px;
+      }
+   }
+
+   &__img-2 {
+      display: none;
+
+      @include lg {
+         position: absolute;
+         right: -150px;
+         bottom: -100px;
+         display: block;
+      }
+
+      @include xl {
+         right: -120px;
+         bottom: -60px;
+      }
+   }
+
+   @include lg {
+      padding-bottom: 240px;
+   }
+
+   @include xl {
+      padding-bottom: 280px;
+   }
+}

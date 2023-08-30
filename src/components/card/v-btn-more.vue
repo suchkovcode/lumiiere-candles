@@ -12,28 +12,3 @@ export default {
    },
 };
 </script>
-
-<style lang="scss" scoped>
-.cardBtnMore {
-   cursor: pointer;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 45px;
-   border: 1px solid var(--color_primary);
-   border-radius: 55px;
-   font: 600 14px/1.3 "AvenirNextCyr";
-   color: var(--color_primary);
-   background-color: var(--color_base);
-   transition: all 0.2s ease-in-out;
-
-   &:hover {
-      color: var(--color_base);
-      background-color: var(--color_primary);
-   }
-
-   @include md {
-      flex: 1 1 100%;
-   }
-}
-</style>

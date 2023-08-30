@@ -1,10 +1,10 @@
 const isDev = process.env.NODE_ENV !== "production";
 
 export default defineNuxtConfig({
+   builder: "vite",
    srcDir: "./src/",
    telemetry: false,
    ssr: true,
-   builder: "vite",
 
    hooks: {
       "build:manifest": (manifest) => {
@@ -50,31 +50,12 @@ export default defineNuxtConfig({
       crossOriginPrefetch: false,
    },
 
-   vite: {
-      css: {
-         preprocessorOptions: {
-            scss: {
-               additionalData: '@use "@/assets/styles/_mixin.scss" as *;',
-            },
-         },
-      },
-   },
-
    nitro: {
-      serveStatic: false,
+      serveStatic: true,
    },
 
    eslint: {
       lintOnStart: false,
-   },
-
-   postcss: {
-      plugins: {
-         "autoprefixer": {},
-         "postcss-combine-media-query": {},
-         "postcss-combine-duplicated-selectors": {},
-         "cssnano": ["default", { discardComments: { removeAll: true }, discardEmpty: true, discardDuplicates: true, minifyFontValues: true }],
-      },
    },
 
    image: {
@@ -97,11 +78,8 @@ export default defineNuxtConfig({
 
    strapi: {
       devtools: false,
-      prefix: "/api",
-      version: "v4",
-      cookie: {},
-      cookieName: "",
    },
 
+   css: ["@/assets/styles/app.scss"],
    modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "@nuxt/image", "@nuxtjs/strapi", "@nuxtjs/i18n", "nuxt-simple-robots", "nuxt-simple-sitemap"],
 });

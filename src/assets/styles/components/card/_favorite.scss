@@ -1,0 +1,39 @@
+.cardFavorite {
+   cursor: pointer;
+   position: absolute;
+   top: 15px;
+   right: 15px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 40px;
+   height: 40px;
+   border-radius: 100%;
+   background-color: var(--color_base);
+
+   &__icon {
+      width: 24px;
+      height: 20px;
+      fill: transparent;
+      transition: all 0.2s ease-in-out;
+   }
+
+   &:hover {
+      .cardFavorite__icon {
+         transform: scale(1.2);
+         transition: all 0.2s ease-in-out;
+      }
+   }
+
+   &[data-select="true"] {
+      .cardFavorite__icon {
+         fill: var(--color_primary);
+      }
+   }
+
+   &[data-select="false"] {
+      .cardFavorite__icon {
+         fill: none;
+      }
+   }
+}

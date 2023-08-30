@@ -1,15 +1,6 @@
 {
-   "processors": [
-      [
-         "@mapbox/stylelint-processor-arbitrary-tags",
-         {
-            "fileFilterRegex": ".vue"
-         }
-      ]
-   ],
    "extends": [
-      "stylelint-config-standard-scss",
-      "stylelint-config-recommended-vue"
+      "stylelint-config-standard-scss"
    ],
    "plugins": [
       "stylelint-order"

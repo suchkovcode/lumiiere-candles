@@ -1,0 +1,52 @@
+/* stylelint-disable at-rule-empty-line-before */
+@import "@/assets/styles/base/reset";
+@import "@/assets/styles/base/fonts";
+@import "@/assets/styles/base/var";
+@import "@/assets/styles/base/mixin";
+@import "@/assets/styles/base/global";
+@import "@/assets/styles/base/text";
+@import "@/assets/styles/base/btn";
+
+@import "@/assets/styles/components/base/breadcrumbs";
+@import "@/assets/styles/components/base/faq";
+@import "@/assets/styles/components/base/tabs";
+
+@import "@/assets/styles/components/canvas/backet";
+@import "@/assets/styles/components/canvas/backetForm";
+@import "@/assets/styles/components/canvas/backetItem";
+@import "@/assets/styles/components/canvas/favorite";
+@import "@/assets/styles/components/canvas/favoriteItem";
+@import "@/assets/styles/components/canvas/menu";
+@import "@/assets/styles/components/canvas/header";
+
+@import "@/assets/styles/components/card/card";
+@import "@/assets/styles/components/card/cardBtnAdd";
+@import "@/assets/styles/components/card/cardBtnMore";
+@import "@/assets/styles/components/card/changesize";
+@import "@/assets/styles/components/card/count";
+@import "@/assets/styles/components/card/favorite";
+@import "@/assets/styles/components/card/price";
+@import "@/assets/styles/components/card/rating";
+
+@import "@/assets/styles/components/appCatalog";
+@import "@/assets/styles/components/appFilter";
+@import "@/assets/styles/components/appFooter";
+@import "@/assets/styles/components/appHeader";
+@import "@/assets/styles/components/appPagination";
+@import "@/assets/styles/components/blockFallow";
+
+@import "@/assets/styles/pages/index";
+@import "@/assets/styles/pages/about";
+@import "@/assets/styles/pages/catalog";
+@import "@/assets/styles/pages/delivery";
+@import "@/assets/styles/pages/parthners";
+@import "@/assets/styles/pages/post";
+@import "@/assets/styles/pages/faq";
+@import "@/assets/styles/pages/boxes";
+@import "@/assets/styles/pages/candles";
+@import "@/assets/styles/pages/care";
+@import "@/assets/styles/pages/melts";
+@import "@/assets/styles/pages/postcard";
+@import "@/assets/styles/pages/oferta";
+@import "@/assets/styles/pages/policy";
+@import "@/assets/styles/pages/error";

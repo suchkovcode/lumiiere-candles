@@ -1,9 +1,9 @@
 <template>
-   <div class="header">
-      <p class="header__title">
+   <div class="headerCanvas">
+      <p class="headerCanvas__title">
          <slot></slot>
       </p>
-      <button class="header__close" aria-label="Close canvas btn" @click="$emit('closeCanvas', false)"></button>
+      <button class="headerCanvas__close" aria-label="Close canvas btn" @click="$emit('closeCanvas', false)"></button>
    </div>
 </template>
 
@@ -19,65 +19,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.header {
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   padding: 30px 25px;
-   border-bottom: 1px solid var(--color_border);
-
-   &__title {
-      display: block;
-      width: 100%;
-      font: 600 20px/1.3 "AvenirNextCyr";
-   }
-
-   &__close {
-      cursor: pointer;
-      position: relative;
-      width: 24px;
-      height: 24px;
-
-      &::before {
-         content: "";
-         position: absolute;
-         top: calc(50% - 1px);
-         left: 0;
-         display: block;
-         width: 100%;
-         height: 2px;
-         background-color: var(--color_secondary);
-         transform: rotate(45deg);
-         transition: left 0.3s ease-in-out;
-      }
-
-      &::after {
-         content: "";
-         position: absolute;
-         top: calc(50% - 1px);
-         left: 0;
-         display: block;
-         width: 100%;
-         height: 2px;
-         background-color: var(--color_secondary);
-         transform: rotate(-45deg);
-         transition: left 0.3s ease-in-out;
-      }
-
-      &:hover {
-         &::before {
-            background-color: var(--color_primary);
-         }
-
-         &::after {
-            background-color: var(--color_primary);
-         }
-      }
-   }
-
-   @include lg {
-      padding: 30px;
-   }
-}
-</style>
