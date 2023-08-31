@@ -35,7 +35,7 @@
                @filter="filterData = $event" />
             <div>
                <AppPagination class="allcatalog__pagination" />
-               <AppCatalog v-if="filteredBySearchQuery.length" :data-item="filteredBySearchQuery" />
+               <AppCatalog v-if="filteredBySearchQuery.length" :data-item="filteredBySearchQuery" class="allcatalog__cards" />
                <p v-else class="emptyData">Список пуст</p>
             </div>
          </div>
