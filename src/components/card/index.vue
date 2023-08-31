@@ -1,20 +1,27 @@
 <template>
    <article class="card">
       <header class="card__header">
-         <card-v-favorite :card-id="cardData.id" :is-favorite="cardData.isFavorite" />
-         <img class="card__hero" :src="cardData.hero" alt="Картинка продукта" width="140" height="180" loading="lazy" />
+         <card-v-favorite :card-id="cardData.uid" :is-favorite="card.isFavorite" @is-favorite="card.isFavorite = $event" />
+         <img
+            class="card__hero"
+            :src="cardData.img.url"
+            :alt="cardData.img.alternativeText"
+            :title="cardData.img.caption"
+            width="140"
+            height="180"
+            loading="lazy" />
       </header>
       <div class="card__body">
-         <card-v-rating :rating-storage="currentCardData" @rating-data="addRatingData" />
+         <card-v-rating :rating-storage="card" @rating-data="addRatingData" />
          <h3 class="card__title">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
-         <p v-show="isPostcard" class="card__description">{{ categoryJoin }}</p>
-         <card-v-price :price-data="cardPrice" />
-         <card-v-changesize v-show="isPostcard" :size-item-data="currentCardData.size" @cardsize="updateSize" />
+         <p class="card__description">{{ categoryJoin }}</p>
+         <card-v-price :price-value="cardPrice" :price-currency="cardData.price.currency" />
+         <card-v-changesize :size-item-data="card.size" @cardsize="updateSize" />
       </div>
       <footer class="card__footer">
-         <card-v-btn-more :card-id="cardData.id" />
-         <card-v-count :count-item-data="currentCardData.count" @count-item="updateCount" />
+         <card-v-btn-more :card-id="cardData.uid" />
+         <card-v-count @count-item="updateCount" />
          <card-v-btn-add :is-empty="cardData.isStock" @click="addCardBacket" />
       </footer>
    </article>
@@ -34,34 +41,33 @@ export default {
 
    data() {
       return {
-         currentCardData: {
-            id: this.cardData.id,
+         card: {
+            id: this.cardData.uid,
             title: this.cardData.title,
-            hero: this.cardData.hero,
-            code: this.cardData.code.small,
+            img: this.cardData.img.url,
+            currency: this.cardData.price.currency,
             price: this.cardData.price.small,
             size: "small",
             count: 1,
             ratingSelect: 0,
             ratingVote: 0,
             ratingClick: false,
+            isFavorite: false,
          },
-
-         isPostcard: this.cardData.id.replace(/(poscode|card).*/, "$1") === "card",
       };
    },
 
    computed: {
       categoryJoin() {
-         return this.cardData.tag.join(" | ");
+         return this.cardData.tags.join(" | ");
       },
 
       cardArticle() {
-         return this.cardData.code[this.currentCardData.size].toUpperCase();
+         return this.cardData.article[this.card.size].toUpperCase();
       },
 
       cardPrice() {
-         return this.cardData.price[this.currentCardData.size];
+         return this.cardData.price[this.card.size];
       },
    },
 
@@ -69,28 +75,26 @@ export default {
       ...mapActions(useBacketStore, { addBacketCard: "addCardBacket" }),
 
       updateSize(data) {
-         this.currentCardData.size = data;
-         this.currentCardData.code = this.cardData.code[data];
-         this.currentCardData.price = this.cardData.price[data];
+         this.card.size = data;
       },
 
       updateCount(data) {
-         this.currentCardData.count = data;
+         this.card.count = data;
       },
 
       addCardBacket() {
-         if (this.cardData.isStock) {
-            const cardData = Object.assign({}, this.currentCardData);
+         if (this.card.isStock) {
+            const cardData = { ...this.card };
             this.addBacketCard(cardData);
-            this.currentCardData.count = 1;
-            this.currentCardData.size = "small";
+            this.card.count = 1;
+            this.card.size = "small";
          }
       },
 
       addRatingData(event) {
-         this.currentCardData.ratingSelect = event.hoverItem;
-         this.currentCardData.ratingVote = event.countVote;
-         this.currentCardData.ratingClick = event.clickUser;
+         this.card.ratingSelect = event.hoverItem;
+         this.card.ratingVote = event.countVote;
+         this.card.ratingClick = event.clickUser;
       },
    },
 };
