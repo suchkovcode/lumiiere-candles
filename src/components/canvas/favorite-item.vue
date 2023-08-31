@@ -6,7 +6,7 @@
             {{ favoriteItem.title }}
          </nuxt-link>
          <p class="favoriteItem__size">Размер: 40 мл</p>
-         <p class="favoriteItem__code">{{ favoriteItem.code.small }}</p>
+         <p class="favoriteItem__code">{{ favoriteItem.article.small }}</p>
       </div>
       <div class="favoriteItem__count">
          <div class="favoriteItem__sum">
