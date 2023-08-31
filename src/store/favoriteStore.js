@@ -11,10 +11,10 @@ export const useFavoriteStore = defineStore("favoriteStore", {
    actions: {
       addCardFavorite(cardId) {
          const store = useAppStore();
-         const isExistsCard = this.cards.some((item) => item.id === cardId);
+         const isExistsCard = this.cards.some((item) => item.uid === cardId);
 
          if (!isExistsCard) {
-            const currentElement = store.products.find((item) => item.id === cardId);
+            const currentElement = store.products.find((item) => item.uid === cardId);
             this.cards.push(currentElement);
             store.updateFavorite(cardId, true);
          }
@@ -22,7 +22,7 @@ export const useFavoriteStore = defineStore("favoriteStore", {
 
       delCardFavorite(cardId) {
          const store = useAppStore();
-         this.cards = this.cards.filter((item) => item.id !== cardId);
+         this.cards = this.cards.filter((item) => item.uid !== cardId);
          store.updateFavorite(cardId, false);
       },
    },
