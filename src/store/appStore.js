@@ -69,7 +69,7 @@ export const useAppStore = defineStore("appStore", {
          return filteredByCollection.length === 0 ? this.filteredByAroma : Array.from(new Set(filteredByCollection));
       },
 
-      limitedCards(state) {
+      filteredByLimitedCards(state) {
          const startIndex = (state.pageNumber - 1) * 6;
          const endIndex = startIndex + 6;
          return this.filteredByCollection.slice(startIndex, endIndex);
@@ -77,16 +77,13 @@ export const useAppStore = defineStore("appStore", {
 
       filteredBySearchQuery(state) {
          const searchQuery = state.searchQuery.trim().toLowerCase();
-         return !searchQuery ? this.limitedCards : this.limitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
-      },
-
-      cardPaginationCount(state) {
-         const itemCount = state.searchQuery.length > 0 ? this.filteredBySearchQuery.length : this.filteredByCollection.length;
-         return Math.ceil(itemCount / 6);
+         return !searchQuery
+            ? this.filteredByLimitedCards
+            : this.filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
       },
 
       getCandlesCard(state) {
-         return state.products.filter((item) => item.category === "Cвечи");
+         return state.products.filter((item) => item.category === "Свечи");
       },
 
       getMeltsCard(state) {
@@ -103,6 +100,11 @@ export const useAppStore = defineStore("appStore", {
 
       getPostcardMore(state) {
          return state.products.filter((item) => item.category === "Дополнительно");
+      },
+
+      cardPaginationCount(state) {
+         const itemCount = state.searchQuery.length > 0 ? this.filteredBySearchQuery.length : this.filteredByCollection.length;
+         return Math.ceil(itemCount / 6);
       },
    },
 
