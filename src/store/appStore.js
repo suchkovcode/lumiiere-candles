@@ -1,11 +1,17 @@
 import { defineStore } from "pinia";
-import { PRODUCTS } from "@/assets/data/product";
+import { Axios } from "@/api/request";
 
 export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
-         test: [],
-         products: PRODUCTS,
+         products: [],
+         meta: {},
+         params: {
+            "pagination[page]": 1,
+            "pagination[pageSize]": 10,
+            "locale": "ru",
+            "populate": "*",
+         },
 
          filterData: {
             category: "все",
@@ -104,29 +110,43 @@ export const useAppStore = defineStore("appStore", {
    },
 
    actions: {
-      // downloadGallery(context) {
-      //    return new Promise((resolve, reject) => {
-      //       axios
-      //          .get("http://localhost:1337/api/galleries")
-      //          .then((response) => {
-      //             var array = response.data.data;
-      //             context.commit("load", array);
-      //             resolve();
-      //          })
-      //          .catch((err) => {
-      //             alert(err.message);
-      //             reject(err.message);
-      //          });
-      //    });
-      // },
+      async getProductList() {
+         try {
+            const { data } = await Axios.get("/products", { params: this.params });
+            const arrayCard = data.data.map((item) => {
+               const {
+                  Aroma: { data: aromaData },
+                  Category: { data: categoryData },
+                  Collection: { data: collectionData },
+                  img,
+                  tags,
+                  ...attributes
+               } = item.attributes;
+
+               const tagNames = tags.map((tag) => tag.name);
+
+               return {
+                  ...attributes,
+                  img: img.data.attributes,
+                  aroma: aromaData.attributes.name,
+                  category: categoryData.attributes.name,
+                  collection: collectionData.attributes.name,
+                  tags: tagNames,
+               };
+            });
+            this.setProducData(arrayCard, data.meta);
+         } catch (error) {
+            console.error(error.message);
+         }
+      },
+
+      setProducData(productData, productMeta) {
+         this.products = productData;
+         this.meta = productMeta;
+      },
 
       setCollectionFilter(caollectionName) {
          this.filterData.collection.push(caollectionName);
-      },
-
-      updateFavorite(cardId, state) {
-         const index = this.products.findIndex((element) => element.id === cardId);
-         this.products[index].isFavorite = state;
       },
 
       updateFavoriteCanvas(state) {
