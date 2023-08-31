@@ -28,7 +28,11 @@
    <section class="allcatalog">
       <div class="container">
          <div class="allcatalog__grid">
-            <AppFilter :category-data="uniqueCategories" @filter="filterData = $event" />
+            <AppFilter
+               :category-data="uniqueCategories"
+               :aroma-data="uniqueAroma"
+               :collection-data="uniqueCollection"
+               @filter="filterData = $event" />
             <div>
                <AppPagination class="allcatalog__pagination" />
                <AppCatalog class="allcatalog__cards" :data-item="filteredBySearchQuery" />
@@ -65,9 +69,9 @@ export default {
    },
 
    computed: {
-      ...mapState(useAppStore, ["uniqueCategories", "filteredBySearchQuery"]),
+      ...mapState(useAppStore, ["uniqueCategories", "uniqueAroma", "uniqueCollection", "filteredBySearchQuery"]),
    },
-
+   
    methods: {
       ...mapActions(useAppStore, { serchUpdate: "updateSearchQuery" }),
    },
