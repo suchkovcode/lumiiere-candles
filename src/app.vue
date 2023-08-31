@@ -5,8 +5,10 @@
 </template>
 
 <script>
+import { useAppStore } from "@/store/appStore";
+
 export default {
-   setup() {
+   async setup() {
       useHead({
          htmlAttrs: {
             lang: "ru",
@@ -32,13 +34,17 @@ export default {
             { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
             { hid: "canonical", rel: "canonical", href: "https://lumiiere-candles.com" },
          ],
-      }),
-         useSeoMeta({
-            title: "Lumiiere Candles | App",
-            description: "Описание не длиннее 155 символов",
-         });
+      });
 
+      useSeoMeta({
+         title: "Lumiiere Candles | App",
+         description: "Описание не длиннее 155 символов",
+      });
+      
       defineRobotMeta();
+
+      const store = useAppStore();
+      await useAsyncData("products", () => store.getProductList());
    },
 };
 </script>
