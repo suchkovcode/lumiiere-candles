@@ -30,6 +30,7 @@ export default defineNuxtConfig({
       pageTransition: false,
       layoutTransition: false,
    },
+
    vite: {
       plugins: [
          ViteFaviconsPlugin({
@@ -53,7 +54,6 @@ export default defineNuxtConfig({
          }),
       ],
    },
-
 
    sourcemap: {
       server: isDev ? true : false,
@@ -114,6 +114,7 @@ export default defineNuxtConfig({
    },
 
    strapi: {
+      url: process.env.STRAPI_URL || 'http://localhost:1337',
       devtools: false,
    },
 
