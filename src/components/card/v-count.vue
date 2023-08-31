@@ -8,18 +8,11 @@
 
 <script>
 export default {
-   props: {
-      countItemData: {
-         type: Number,
-         required: true,
-      },
-   },
-
    emits: ["countItem"],
 
    data() {
       return {
-         countItem: this.countItemData,
+         countItem: 1,
       };
    },
 
