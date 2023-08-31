@@ -59,7 +59,8 @@
    </section>
    <section class="meltsCatalog">
       <div class="container">
-         <AppCatalog :data-item="getMeltsCard" />
+         <AppCatalog v-if="getMeltsCard.length" :data-item="getMeltsCard" />
+         <p v-else class="emptyData">Список пуст</p>
       </div>
    </section>
 </template>

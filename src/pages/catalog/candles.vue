@@ -17,7 +17,8 @@
    </section>
    <section class="candlesCatalog">
       <div class="container">
-         <AppCatalog :data-item="getCandlesCard" />
+         <AppCatalog v-if="getCandlesCard.length" :data-item="getCandlesCard" />
+         <p v-else class="emptyData">Список пуст</p>
       </div>
    </section>
 </template>

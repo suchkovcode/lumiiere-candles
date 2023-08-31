@@ -42,7 +42,8 @@
    </section>
    <section class="postcardCatalog">
       <div class="container">
-         <AppCatalog :data-item="getPostcardCard" />
+         <AppCatalog v-if="getPostcardCard.length" :data-item="getPostcardCard" />
+         <p v-else class="emptyData">Список пуст</p>
       </div>
    </section>
 </template>

@@ -43,7 +43,8 @@
    </section>
    <section class="boxesCatalog">
       <div class="container">
-         <AppCatalog :data-item="getBoxesCard" />
+         <AppCatalog v-if="getBoxesCard.length" :data-item="getBoxesCard" />
+         <p v-else class="emptyData">Список пуст</p>
       </div>
    </section>
 </template>
