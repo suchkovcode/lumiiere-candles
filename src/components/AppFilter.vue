@@ -2,7 +2,7 @@
    <aside class="filter">
       <div class="filter__radio">
          <label class="filter__label">
-            <input v-model="filter.category" class="filter__input" type="radio" value="все" />
+            <input v-model="filter.category" class="filter__input" type="radio" value="Все" />
             <span class="filter__name">Все</span>
          </label>
          <label v-for="item in categoryData" :key="item" class="filter__label">
@@ -83,7 +83,7 @@ export default {
    data() {
       return {
          filter: {
-            category: "все",
+            category: "Все",
             sort: "new",
             aroma: [],
             collection: [],
