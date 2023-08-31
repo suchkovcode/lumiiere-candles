@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { Axios } from "@/api/request";
+import { getProduct } from "@/api/request";
 
 export const useAppStore = defineStore("appStore", {
    state: () => {
@@ -112,29 +112,8 @@ export const useAppStore = defineStore("appStore", {
    actions: {
       async getProductList() {
          try {
-            const { data } = await Axios.get("/products", { params: this.params });
-            const arrayCard = data.data.map((item) => {
-               const {
-                  Aroma: { data: aromaData },
-                  Category: { data: categoryData },
-                  Collection: { data: collectionData },
-                  img,
-                  tags,
-                  ...attributes
-               } = item.attributes;
-
-               const tagNames = tags.map((tag) => tag.name);
-
-               return {
-                  ...attributes,
-                  img: img.data.attributes,
-                  aroma: aromaData.attributes.name,
-                  category: categoryData.attributes.name,
-                  collection: collectionData.attributes.name,
-                  tags: tagNames,
-               };
-            });
-            this.setProducData(arrayCard, data.meta);
+            const { card, meta } = await getProduct(this.params);
+            this.setProducData(card, meta);
          } catch (error) {
             console.error(error.message);
          }
