@@ -1,5 +1,5 @@
 <template>
-   <button class="cardFavorite" :data-select="favoriteState" aria-label="Favorite btn add" @click="toggleCard()">
+   <button class="cardFavorite" aria-label="Favorite btn add" :data-select="isFavorite" @click="toggleCard()">
       <svg class="cardFavorite__icon">
          <use xlink:href="@/assets/img/svg/sprite.svg#cardFavoriteIcon"></use>
       </svg>
@@ -8,8 +8,7 @@
 
 <script>
 import { useFavoriteStore } from "@/store/favoriteStore";
-import { useAppStore } from "@/store/appStore";
-import { mapActions, mapState } from "pinia";
+import { mapActions } from "pinia";
 
 export default {
    props: {
@@ -24,25 +23,21 @@ export default {
       },
    },
 
+   emits: ["isFavorite"],
+
    data() {
       return {
-         clickBtn: false,
+         selectFavorite: false,
       };
-   },
-
-   computed: {
-      ...mapState(useAppStore, ["products"]),
-
-      favoriteState() {
-         return this.products.find((item) => item.id === this.cardId).isFavorite;
-      },
    },
 
    methods: {
       ...mapActions(useFavoriteStore, { addCardFavorite: "addCardFavorite", delCardFavorite: "delCardFavorite" }),
 
       toggleCard() {
-         !this.favoriteState ? this.addCardFavorite(this.cardId) : this.delCardFavorite(this.cardId);
+         const newFavoriteState = !this.isFavorite;
+         this.$emit("isFavorite", newFavoriteState);
+         newFavoriteState ? this.addCardFavorite(this.cardId) : this.delCardFavorite(this.cardId);
       },
    },
 };
