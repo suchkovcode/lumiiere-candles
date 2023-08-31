@@ -32,6 +32,14 @@ export const useAppStore = defineStore("appStore", {
          return [...new Set(state.products.map((item) => item.category))].sort((a, b) => b.localeCompare(a));
       },
 
+      uniqueCollection(state) {
+         return [...new Set(state.products.map((item) => item.collection))].sort((a, b) => b.localeCompare(a));
+      },
+
+      uniqueAroma(state) {
+         return [...new Set(state.products.map((item) => item.aroma))].sort((a, b) => b.localeCompare(a));
+      },
+
       filteredByCategory(state) {
          const selectedCategory = state.filterData.category;
          if (selectedCategory === "все") {
