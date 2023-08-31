@@ -14,7 +14,7 @@ export const useAppStore = defineStore("appStore", {
          },
 
          filterData: {
-            category: "все",
+            category: "Все",
             sort: "new",
             aroma: [],
             collection: [],
@@ -42,43 +42,31 @@ export const useAppStore = defineStore("appStore", {
 
       filteredByCategory(state) {
          const selectedCategory = state.filterData.category;
-         if (selectedCategory === "все") {
-            return state.products;
-         }
-         return state.products.filter((item) => item.category === selectedCategory);
+         return selectedCategory === "Все" ? state.products : state.products.filter(item => item.category === selectedCategory);
       },
 
       sortedProducts(state) {
          const sortingFunctions = {
-            new: (a, b) => a.date - b.date,
-            old: (a, b) => b.date - a.date,
+            new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
+            old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
             start: (a, b) => b.title.localeCompare(a.title),
             end: (a, b) => a.title.localeCompare(b.title),
          };
          const sortingFunction = sortingFunctions[state.filterData.sort];
          const sortedByCategory = [...this.filteredByCategory];
-         if (sortingFunction) {
-            return sortedByCategory.sort(sortingFunction);
-         }
-         return sortedByCategory;
+         return sortingFunction ? sortedByCategory.sort(sortingFunction) : sortedByCategory;
       },
 
       filteredByAroma(state) {
-         const selectedAromas = state.filterData.aroma;
-         if (selectedAromas.length === 0) {
-            return this.sortedProducts;
-         }
-         const filteredByAroma = this.sortedProducts.filter((item) => selectedAromas.includes(item.aroma));
-         return Array.from(new Set(filteredByAroma));
+         const selectedAromas = new Set(state.filterData.aroma);
+         const filteredByAroma = this.sortedProducts.filter((item) => selectedAromas.has(item.aroma));
+         return filteredByAroma.length === 0 ? this.sortedProducts : Array.from(new Set(filteredByAroma));
       },
 
       filteredByCollection(state) {
-         const selectedCollections = state.filterData.collection;
-         if (selectedCollections.length === 0) {
-            return this.filteredByAroma;
-         }
-         const filteredByCollection = this.filteredByAroma.filter((item) => selectedCollections.includes(item.collection));
-         return Array.from(new Set(filteredByCollection));
+         const selectedCollections = new Set(state.filterData.aroma);
+         const filteredByCollection = this.filteredByAroma.filter((item) => selectedCollections.has(item.collection));
+         return filteredByCollection.length === 0 ? this.filteredByAroma : Array.from(new Set(filteredByCollection));
       },
 
       limitedCards(state) {
@@ -89,10 +77,7 @@ export const useAppStore = defineStore("appStore", {
 
       filteredBySearchQuery(state) {
          const searchQuery = state.searchQuery.trim().toLowerCase();
-         if (!searchQuery) {
-            return this.limitedCards;
-         }
-         return this.limitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
+         return !searchQuery ? this.limitedCards : this.limitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
       },
 
       cardPaginationCount(state) {
