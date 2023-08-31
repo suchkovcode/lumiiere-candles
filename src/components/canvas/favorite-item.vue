@@ -1,8 +1,8 @@
 <template>
    <div class="favoriteItem">
-      <img class="favoriteItem__img" :src="favoriteItem.hero" alt="Картинка товара" width="70" height="70" />
+      <img class="favoriteItem__img" :src="favoriteItem.img.url" alt="Картинка товара" width="70" height="70" />
       <div class="favoriteItem__options">
-         <nuxt-link class="favoriteItem__name" :to="`/catalog/${favoriteItem.id}`" @click="$emit('closeCanvas', false)">
+         <nuxt-link class="favoriteItem__name" :to="`/catalog/${favoriteItem.uid}`" @click="$emit('closeCanvas', false)">
             {{ favoriteItem.title }}
          </nuxt-link>
          <p class="favoriteItem__size">Размер: 40 мл</p>
