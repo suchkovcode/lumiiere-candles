@@ -101,7 +101,7 @@ export const useAppStore = defineStore("appStore", {
       },
 
       getCandlesCard(state) {
-         return state.products.filter((item) => item.category === "свечи");
+         return state.products.filter((item) => item.category === "Cвечи");
       },
 
       getMeltsCard(state) {
@@ -114,6 +114,10 @@ export const useAppStore = defineStore("appStore", {
 
       getPostcardCard(state) {
          return state.products.filter((item) => item.category === "Открытки");
+      },
+
+      getPostcardMore(state) {
+         return state.products.filter((item) => item.category === "Дополнительно");
       },
    },
 
