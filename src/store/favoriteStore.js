@@ -16,14 +16,11 @@ export const useFavoriteStore = defineStore("favoriteStore", {
          if (!isExistsCard) {
             const currentElement = store.products.find((item) => item.uid === cardId);
             this.cards.push(currentElement);
-            store.updateFavorite(cardId, true);
          }
       },
 
       delCardFavorite(cardId) {
-         const store = useAppStore();
          this.cards = this.cards.filter((item) => item.uid !== cardId);
-         store.updateFavorite(cardId, false);
       },
    },
 });
