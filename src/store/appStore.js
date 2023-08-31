@@ -118,32 +118,32 @@ export const useAppStore = defineStore("appStore", {
          }
       },
 
-      setProducData(productData, productMeta) {
+      async setProducData(productData, productMeta) {
          this.products = productData;
          this.meta = productMeta;
       },
 
-      setCollectionFilter(caollectionName) {
-         this.filterData.collection.push(caollectionName);
+      async setCollectionFilter(collectionName) {
+         this.filterData.collection.push(collectionName);
       },
 
-      updateFavoriteCanvas(state) {
+      async updateFavoriteCanvas(state) {
          this.isActiveFavorite = state;
       },
 
-      updateBacketCanvas(state) {
+      async updateBacketCanvas(state) {
          this.isActiveBacket = state;
       },
 
-      updateFilterData(data) {
+      async updateFilterData(data) {
          this.filterData = data;
       },
 
-      updatePageNumber(data) {
+      async updatePageNumber(data) {
          this.pageNumber = data;
       },
 
-      updateSearchQuery(data) {
+      async updateSearchQuery(data) {
          this.searchQuery = data;
       },
    },
