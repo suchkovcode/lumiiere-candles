@@ -42,7 +42,7 @@ export const useAppStore = defineStore("appStore", {
 
       filteredByCategory(state) {
          const selectedCategory = state.filterData.category;
-         return selectedCategory === "Все" ? state.products : state.products.filter(item => item.category === selectedCategory);
+         return selectedCategory === "Все" ? state.products : state.products.filter((item) => item.category === selectedCategory);
       },
 
       sortedProducts(state) {
