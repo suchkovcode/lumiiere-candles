@@ -1,7 +1,6 @@
 {
    "name": "lumiiere-candles",
    "version": "1.0.0",
-   "description": "Created a small adaptive and cross-browser Ecommerce SPA site for a store selling handmade soy candles",
    "author": "Nikita Suchkov",
    "license": "MIT",
    "repository": "https://github.com/suchkovcode/lumiiere-candles",
