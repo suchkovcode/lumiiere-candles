@@ -59,7 +59,7 @@
          </label>
       </div>
       <p class="backetForm__sum">
-         Итоговая сумма: <strong>${{ sumData }}</strong>
+         Итоговая сумма: <strong>{{ sumData }} {{ currencyData }}</strong>
       </p>
       <div class="backetForm__button-box">
          <button class="backetForm__btn btn" type="submit">Купить</button>
@@ -75,7 +75,12 @@ import { required, email, minLength, helpers, numeric } from "@vuelidate/validat
 export default {
    props: {
       sumData: {
-         type: Number,
+         type: String,
+         required: true,
+      },
+
+      currencyData: {
+         type: String,
          required: true,
       },
    },
