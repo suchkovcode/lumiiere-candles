@@ -12,7 +12,7 @@
             loading="lazy" />
       </header>
       <div class="card__body">
-         <card-v-rating :rating-storage="card" @rating-data="addRatingData" />
+         <card-v-rating :rating-storage="card" />
          <h3 class="card__title">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
          <p class="card__description">{{ categoryJoin }}</p>
@@ -44,14 +44,11 @@ export default {
          card: {
             id: this.cardData.uid,
             title: this.cardData.title,
-            img: this.cardData.img.url,
+            img: this.cardData.img,
             currency: this.cardData.price.currency,
             price: this.cardData.price.small,
             size: "small",
             count: 1,
-            ratingSelect: 0,
-            ratingVote: 0,
-            ratingClick: false,
             isFavorite: false,
          },
       };
@@ -89,12 +86,6 @@ export default {
             this.card.count = 1;
             this.card.size = "small";
          }
-      },
-
-      addRatingData(event) {
-         this.card.ratingSelect = event.hoverItem;
-         this.card.ratingVote = event.countVote;
-         this.card.ratingClick = event.clickUser;
       },
    },
 };
