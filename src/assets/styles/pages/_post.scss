@@ -80,7 +80,7 @@
    }
 
    &__favorite {
-      cursor: pointer ;
+      cursor: pointer;
       position: relative;
       top: 0;
       left: 0;
@@ -101,6 +101,38 @@
       margin-bottom: 15px;
       font: 400 14px/1.3 "AvenirNextCyr";
       color: var(--color_secondary);
+
+      & p {
+         margin-bottom: 15px;
+      }
+
+      & ul {
+         margin-bottom: 15px;
+         margin-left: 15px;
+         list-style-type: disc;
+
+         & p {
+            margin-bottom: 5px;
+         }
+
+         & li {
+            list-style-type: disc;
+         }
+      }
+
+      & ol {
+         margin-bottom: 15px;
+         margin-left: 15px;
+         list-style-type: decimal;
+
+         & p {
+            margin-bottom: 5px;
+         }
+
+         & li {
+            list-style-type: decimal;
+         }
+      }
 
       @include md {
          font-size: 16px;
