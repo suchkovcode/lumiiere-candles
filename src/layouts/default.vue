@@ -1,7 +1,9 @@
 <template>
    <AppHeader />
    <main id="main" class="main">
-      <slot />
+      <div>
+         <slot />
+      </div>
    </main>
    <AppFooter />
 </template>
