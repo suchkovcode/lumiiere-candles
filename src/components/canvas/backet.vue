@@ -5,13 +5,13 @@
       </canvas-header>
       <div v-if="cards.length && !checkout" class="backet__product">
          <div class="backet__product-list">
-            <canvas-backet-item v-for="item in cards" :key="item.id" :backet-item="item"></canvas-backet-item>
+            <canvas-backet-item v-for="item in cards" :key="item.id" :backet-item="item" />
          </div>
-         <p class="backet__product-all">Итого: ${{ sumAddition }}</p>
+         <p class="backet__product-all">Итого: {{ getSumAddition }} {{ getCurrency }}</p>
          <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
       </div>
       <p v-else-if="!cards.length && !checkout" class="backet__empty">Корзина пуста</p>
-      <canvas-backet-form v-if="checkout" :sum-data="sumAddition" />
+      <canvas-backet-form v-if="checkout" :sum-data="getSumAddition" :currency-data="getCurrency" />
    </div>
 </template>
 
@@ -36,7 +36,7 @@ export default {
    },
 
    computed: {
-      ...mapState(useBacketStore, ["cards", "sumAddition"]),
+      ...mapState(useBacketStore, ["cards", "getSumAddition", "getCurrency"]),
    },
 
    methods: {
