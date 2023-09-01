@@ -1,30 +1,31 @@
 <template>
    <div class="backetItem">
-      <img class="backetItem__img" :src="backetItem.hero" alt="Картинка товара" width="70" height="70" />
+      <img class="backetItem__img" :src="img.url" :alt="img.alternativeText" :title="img.caption" width="70" height="70" />
       <div class="backetItem__options">
-         <nuxt-link class="backetItem__name" :to="`/catalog/${backetItem.id}`">{{ backetItem.title }}</nuxt-link>
+         <nuxt-link class="backetItem__name" :to="`/catalog/${backetItem.id}`">{{ title }}</nuxt-link>
          <p class="backetItem__size">Размер: {{ sizeArticleData }} мл</p>
-         <p class="backetItem__code">{{ backetItem.code }}</p>
+         <p class="backetItem__code">{{ backetItem.article }}</p>
       </div>
       <div class="backetItem__count">
          <div class="backetItem__plusminus">
-            <div class="backetItem__minus" @click="decrementCount(backetItem.code)"></div>
+            <div class="backetItem__minus" @click="decrementCount(backetItem.article)"></div>
             <div class="backetItem__total">
                {{ backetItem.count }}
             </div>
-            <div class="backetItem__plus" @click="incrementCount(backetItem.code)"></div>
+            <div class="backetItem__plus" @click="incrementCount(backetItem.article)"></div>
          </div>
          <div class="backetItem__sum">
-            ${{ backetItem.total }}
+            {{ backetItem.total }} {{ backetItem.currency }}
          </div>
       </div>
-      <div class="backetItem__remove" @click="delcard(backetItem.code)"></div>
+      <div class="backetItem__remove" @click="delcard(backetItem.article)"></div>
    </div>
 </template>
 
 <script>
-import { mapActions } from "pinia";
+import { mapActions, mapState } from "pinia";
 import { useBacketStore } from "@/store/backetStore";
+import { useAppStore } from "~/store/appStore";
 
 export default {
    props: {
@@ -34,28 +35,35 @@ export default {
       },
    },
 
+   data() {
+      return {
+         img: {},
+         title: "",
+      };
+   },
+
    computed: {
+      ...mapState(useAppStore, ["products"]),
+
       sizeArticleData() {
-         let size;
+         const sizeMapping = {
+            small: "40",
+            medium: "100",
+            large: "200",
+         };
 
-         if (this.backetItem.size === "small") {
-            size = "40";
-         }
-
-         if (this.backetItem.size === "medium") {
-            size = "100";
-         }
-
-         if (this.backetItem.size === "large") {
-            size = "200";
-         }
-
-         return size;
+         return sizeMapping[this.backetItem.size] || "";
       },
    },
 
+   mounted() {
+      const cardData = this.products.find((item) => item.uid === this.backetItem.id);
+      this.img = cardData.img;
+      this.title = cardData.title;
+   },
+
    methods: {
-      ...mapActions(useBacketStore, { incrementCount: "incrementCountCard", decrementCount: "decrementCountCard",  delcard: "delCardBacket" }),
+      ...mapActions(useBacketStore, { incrementCount: "incrementCountCard", decrementCount: "decrementCountCard", delcard: "delCardBacket" }),
    },
 };
 </script>
