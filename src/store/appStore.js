@@ -5,7 +5,6 @@ export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
          products: [],
-         meta: {},
          params: {
             "pagination[page]": 1,
             "pagination[pageSize]": 10,
@@ -13,7 +12,7 @@ export const useAppStore = defineStore("appStore", {
             "populate": "*",
          },
 
-         filterData: {
+         filter: {
             category: "Все",
             sort: "new",
             aroma: [],
@@ -41,7 +40,7 @@ export const useAppStore = defineStore("appStore", {
       },
 
       filteredByCategory(state) {
-         const selectedCategory = state.filterData.category;
+         const selectedCategory = state.filter.category;
          return selectedCategory === "Все" ? state.products : state.products.filter((item) => item.category === selectedCategory);
       },
 
@@ -52,19 +51,19 @@ export const useAppStore = defineStore("appStore", {
             start: (a, b) => b.title.localeCompare(a.title),
             end: (a, b) => a.title.localeCompare(b.title),
          };
-         const sortingFunction = sortingFunctions[state.filterData.sort];
+         const sortingFunction = sortingFunctions[state.filter.sort];
          const sortedByCategory = [...this.filteredByCategory];
          return sortingFunction ? sortedByCategory.sort(sortingFunction) : sortedByCategory;
       },
 
       filteredByAroma(state) {
-         const selectedAromas = new Set(state.filterData.aroma);
+         const selectedAromas = new Set(state.filter.aroma);
          const filteredByAroma = this.sortedProducts.filter((item) => selectedAromas.has(item.aroma));
          return filteredByAroma.length === 0 ? this.sortedProducts : Array.from(new Set(filteredByAroma));
       },
 
       filteredByCollection(state) {
-         const selectedCollections = new Set(state.filterData.aroma);
+         const selectedCollections = new Set(state.filter.aroma);
          const filteredByCollection = this.filteredByAroma.filter((item) => selectedCollections.has(item.collection));
          return filteredByCollection.length === 0 ? this.filteredByAroma : Array.from(new Set(filteredByCollection));
       },
@@ -111,20 +110,19 @@ export const useAppStore = defineStore("appStore", {
    actions: {
       async getProductList() {
          try {
-            const { card, meta } = await getProduct(this.params);
-            this.setProducData(card, meta);
+            const { card } = await getProduct(this.params);
+            this.setProducData(card);
          } catch (error) {
             console.error(error.message);
          }
       },
 
-      async setProducData(productData, productMeta) {
+      async setProducData(productData) {
          this.products = productData;
-         this.meta = productMeta;
       },
 
       async setCollectionFilter(collectionName) {
-         this.filterData.collection.push(collectionName);
+         this.filter.collection.push(collectionName);
       },
 
       async updateFavoriteCanvas(state) {
@@ -136,7 +134,7 @@ export const useAppStore = defineStore("appStore", {
       },
 
       async updateFilterData(data) {
-         this.filterData = data;
+         this.filter = data;
       },
 
       async updatePageNumber(data) {

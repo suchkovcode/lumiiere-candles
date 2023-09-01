@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useAppStore } from "@/store/appStore";
 
 export const useBacketStore = defineStore("backetStore", {
    state: () => {
@@ -8,54 +9,67 @@ export const useBacketStore = defineStore("backetStore", {
    },
 
    getters: {
-      sumAddition() {
-         let sumArr = [];
-         this.cards.forEach((element) => {
-            const multiplysum = element.price * element.count;
-            sumArr.push(Number(multiplysum));
-         });
-         sumArr = parseFloat(sumArr.reduce((acc, number) => acc + number, 0).toFixed(2));
-         return sumArr;
+      getSumAddition() {
+         return this.cards
+            .reduce((total, element) => {
+               const multiplySum = element.price * element.count;
+               return total + multiplySum;
+            }, 0)
+            .toFixed(2);
+      },
+
+      getCurrency() {
+         const store = useAppStore();
+         const currency = store.products[0].price.currency;
+         return currency;
       },
    },
 
    actions: {
-      addCardBacket(cardData) {
-         const existingCardIndex = this.cards.findIndex((item) => item.code === cardData.code);
+      async addCardBacket(cardData) {
+         const store = useAppStore();
+         const card = store.products.find((item) => item.uid === cardData.id);
+         const existingCard = this.cards.find((item) => item.article === card.article[cardData.size]);
 
-         if (existingCardIndex !== -1) {
-            const existingCard = this.cards[existingCardIndex];
+         if (existingCard) {
             existingCard.count = Math.min(existingCard.count + cardData.count, 10);
-            this.sumCard(cardData.code);
+            this.sumCard(existingCard.article);
          } else {
-            this.cards.push(cardData);
-            this.sumCard(cardData.code);
+            const newCardData = {
+               id: cardData.id,
+               article: card.article[cardData.size],
+               count: cardData.count,
+               price: card.price[cardData.size],
+               currency: card.price.currency,
+               size: cardData.size,
+            };
+            this.cards.push(newCardData);
+            this.sumCard(newCardData.article);
          }
       },
-
-      sumCard(codeCard) {
-         const card = this.cards.find((item) => item.code === codeCard);
+      async sumCard(codeCard) {
+         const card = this.cards.find((item) => item.article === codeCard);
          if (card) {
             card.total = parseFloat((card.price * card.count).toFixed(2));
          }
       },
 
-      delCardBacket(cardCode) {
-         this.cards = this.cards.filter((item) => item.code !== cardCode);
+      async delCardBacket(cardCode) {
+         this.cards = this.cards.filter((item) => item.article !== cardCode);
       },
 
-      incrementCountCard(codeCard) {
-         const card = this.cards.find((item) => item.code === codeCard);
-         if (card) {
-            card.count = Math.min(card.count + 1, 10);
+      async incrementCountCard(codeCard) {
+         const card = this.cards.find((item) => item.article === codeCard);
+         if (card && card.count < 10) {
+            card.count += 1;
             this.sumCard(codeCard);
          }
       },
 
-      decrementCountCard(codeCard) {
-         const card = this.cards.find((item) => item.code === codeCard);
-         if (card) {
-            card.count = Math.max(card.count - 1, 1);
+      async decrementCountCard(codeCard) {
+         const card = this.cards.find((item) => item.article === codeCard);
+         if (card && card.count > 1) {
+            card.count -= 1;
             this.sumCard(codeCard);
          }
       },
