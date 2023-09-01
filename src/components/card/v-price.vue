@@ -1,7 +1,7 @@
 <template>
    <p class="price">
+      <span class="price__value">{{ priceValue }}</span> 
       <span class="price__currency">{{ priceCurrency }}</span>
-      <span class="price__value">{{ priceValue }}</span>
    </p>
 </template>
 
