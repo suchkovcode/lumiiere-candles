@@ -43,10 +43,6 @@ export default {
       return {
          card: {
             id: this.cardData.uid,
-            title: this.cardData.title,
-            img: this.cardData.img,
-            currency: this.cardData.price.currency,
-            price: this.cardData.price.small,
             size: "small",
             count: 1,
             isFavorite: false,
