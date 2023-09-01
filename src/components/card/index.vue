@@ -21,7 +21,7 @@
       </div>
       <footer class="card__footer">
          <card-v-btn-more :card-id="cardData.uid" />
-         <card-v-count @count-item="updateCount" />
+         <card-v-count :count-data="card.count" @count-item="updateCount" />
          <card-v-btn-add :is-empty="cardData.isStock" @click="addCardBacket" />
       </footer>
    </article>
@@ -76,7 +76,7 @@ export default {
       },
 
       addCardBacket() {
-         if (this.card.isStock) {
+         if (this.cardData.isStock) {
             const cardData = { ...this.card };
             this.addBacketCard(cardData);
             this.card.count = 1;
