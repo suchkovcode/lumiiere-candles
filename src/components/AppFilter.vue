@@ -37,20 +37,20 @@
             </label>
          </div>
       </div>
-      <div class="filter__sort" :class="{ active: isClickAroma }">
-         <button class="filter__sort-btn" @click="isClickAroma = !isClickAroma">Аромат</button>
-         <div class="filter__sort-drobdown filter__sort-drobdown--gap">
-            <label v-for="item in aromaData" :key="item" class="filter__label filter__label--checkbox">
-               <input v-model="filter.aroma" class="filter__checkbox" type="checkbox" :value="item" />
-               <span class="filter__name">{{ item }}</span>
-            </label>
-         </div>
-      </div>
       <div class="filter__sort" :class="{ active: isClickCollection }">
          <button class="filter__sort-btn" @click="isClickCollection = !isClickCollection">Коллекция</button>
          <div class="filter__sort-drobdown filter__sort-drobdown--gap">
             <label v-for="item in collectionData" :key="item" class="filter__label filter__label--checkbox">
                <input v-model="filter.collection" class="filter__checkbox" type="checkbox" :value="item" />
+               <span class="filter__name">{{ item }}</span>
+            </label>
+         </div>
+      </div>
+      <div class="filter__sort" :class="{ active: isClickAroma }">
+         <button class="filter__sort-btn" @click="isClickAroma = !isClickAroma">Аромат</button>
+         <div class="filter__sort-drobdown filter__sort-drobdown--gap">
+            <label v-for="item in aromaData" :key="item" class="filter__label filter__label--checkbox">
+               <input v-model="filter.aroma" class="filter__checkbox" type="checkbox" :value="item" />
                <span class="filter__name">{{ item }}</span>
             </label>
          </div>
