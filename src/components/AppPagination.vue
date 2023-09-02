@@ -20,10 +20,6 @@ export default {
       ...mapState(useAppStore, ["filteredProducts"]),
    },
 
-   mounted() {
-      console.log(this.filteredProducts.cardPaginationCount);
-   },
-
    methods: {
       ...mapActions(useAppStore, ["updatePageNumber"]),
 
