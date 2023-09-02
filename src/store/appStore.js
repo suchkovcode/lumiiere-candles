@@ -39,12 +39,8 @@ export const useAppStore = defineStore("appStore", {
          return [...new Set(state.products.map((item) => item.aroma))].sort((a, b) => b.localeCompare(a));
       },
 
-      filteredByCategory(state) {
+      filteredProducts(state) {
          const selectedCategory = state.filter.category;
-         return selectedCategory === "Все" ? state.products : state.products.filter((item) => item.category === selectedCategory);
-      },
-
-      sortedProducts(state) {
          const sortingFunctions = {
             new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
             old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
@@ -52,34 +48,42 @@ export const useAppStore = defineStore("appStore", {
             end: (a, b) => a.title.localeCompare(b.title),
          };
          const sortingFunction = sortingFunctions[state.filter.sort];
-         const sortedByCategory = [...this.filteredByCategory];
-         return sortingFunction ? sortedByCategory.sort(sortingFunction) : sortedByCategory;
-      },
-
-      filteredByAroma(state) {
          const selectedAromas = new Set(state.filter.aroma);
-         const filteredByAroma = this.sortedProducts.filter((item) => selectedAromas.has(item.aroma));
-         return filteredByAroma.length === 0 ? this.sortedProducts : Array.from(new Set(filteredByAroma));
-      },
-
-      filteredByCollection(state) {
-         const selectedCollections = new Set(state.filter.aroma);
-         const filteredByCollection = this.filteredByAroma.filter((item) => selectedCollections.has(item.collection));
-         return filteredByCollection.length === 0 ? this.filteredByAroma : Array.from(new Set(filteredByCollection));
-      },
-
-      filteredByLimitedCards(state) {
+         const selectedCollections = new Set(state.filter.collection);
          const startIndex = (state.pageNumber - 1) * 6;
          const endIndex = startIndex + 6;
-         return this.filteredByCollection.slice(startIndex, endIndex);
+         const searchQuery = state.searchQuery.trim().toLowerCase();
+
+         // Фильтрация по категории
+         const filteredByCategory = selectedCategory === "Все" ? state.products : state.products.filter((item) => item.category === selectedCategory);
+
+         // Сортировка
+         const sortedByCategory = sortingFunction ? [...filteredByCategory].sort(sortingFunction) : [...filteredByCategory];
+
+         // Фильтрация по ароматам
+         const filteredByAroma = selectedAromas.size === 0 ? sortedByCategory : sortedByCategory.filter((item) => selectedAromas.has(item.aroma));
+
+         // Фильтрация по коллекциям
+         const filteredByCollection = selectedCollections.size === 0 ? filteredByAroma : filteredByAroma.filter((item) => selectedCollections.has(item.collection));
+
+         // Пагинация
+         const filteredByLimitedCards = filteredByCollection.slice(startIndex, endIndex);
+
+         // Фильтрация по поисковому запросу
+         const filteredBySearchQuery = !searchQuery
+            ? filteredByLimitedCards
+            : filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
+
+         // cardPaginationCount
+         const itemCount = state.searchQuery.length > 0 ? filteredBySearchQuery.length : filteredByCollection.length;
+         const cardPaginationCount = Math.ceil(itemCount / 6);
+
+         return {
+            filteredProducts: filteredBySearchQuery,
+            cardPaginationCount: cardPaginationCount,
+         };
       },
 
-      filteredBySearchQuery(state) {
-         const searchQuery = state.searchQuery.trim().toLowerCase();
-         return !searchQuery
-            ? this.filteredByLimitedCards
-            : this.filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
-      },
 
       getCandlesCard(state) {
          return state.products.filter((item) => item.category === "Свечи");
@@ -99,11 +103,6 @@ export const useAppStore = defineStore("appStore", {
 
       getPostcardMore(state) {
          return state.products.filter((item) => item.category === "Дополнительно");
-      },
-
-      cardPaginationCount(state) {
-         const itemCount = state.searchQuery.length > 0 ? this.filteredBySearchQuery.length : this.filteredByCollection.length;
-         return Math.ceil(itemCount / 6);
       },
    },
 
