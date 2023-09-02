@@ -35,7 +35,7 @@
                @filter="filterData = $event" />
             <div>
                <AppPagination class="allcatalog__pagination" />
-               <AppCatalog v-if="filteredBySearchQuery.length" :data-item="filteredBySearchQuery" class="allcatalog__cards" />
+               <AppCatalog v-if="filteredProducts.filteredProducts.length" :data-item="filteredProducts.filteredProducts" class="allcatalog__cards" />
                <p v-else class="emptyData">Список пуст</p>
             </div>
          </div>
@@ -70,7 +70,7 @@ export default {
    },
 
    computed: {
-      ...mapState(useAppStore, ["uniqueCategories", "uniqueAroma", "uniqueCollection", "filteredBySearchQuery"]),
+      ...mapState(useAppStore, ["uniqueCategories", "uniqueAroma", "uniqueCollection", "filteredProducts"]),
    },
 
    methods: {

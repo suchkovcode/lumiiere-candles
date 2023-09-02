@@ -1,6 +1,6 @@
 <template>
-   <div v-if="cardPaginationCount > 1" class="pagination">
-      <button v-for="n in cardPaginationCount" :key="n" class="pagination__item" :class="{ active: n === pageNumber }" @click="paginationHandler(n)">
+   <div v-if="filteredProducts.cardPaginationCount > 1" class="pagination">
+      <button v-for="n in filteredProducts.cardPaginationCount" :key="n" class="pagination__item" :class="{ active: n === pageNumber }" @click="paginationHandler(n)">
          {{ n }}
       </button>
    </div>
@@ -17,7 +17,11 @@ export default {
       };
    },
    computed: {
-      ...mapState(useAppStore, ["cardPaginationCount"]),
+      ...mapState(useAppStore, ["filteredProducts"]),
+   },
+
+   mounted() {
+      console.log(this.filteredProducts.cardPaginationCount);
    },
 
    methods: {
