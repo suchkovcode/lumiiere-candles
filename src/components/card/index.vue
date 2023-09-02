@@ -16,7 +16,7 @@
          <h3 class="card__title">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
          <p class="card__description">{{ categoryJoin }}</p>
-         <card-v-price :price-value="cardPrice" :price-currency="cardData.price.currency" />
+         <card-v-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cardData.price.currency" />
          <card-v-changesize :size-item-data="card.size" @cardsize="updateSize" />
       </div>
       <footer class="card__footer">
@@ -59,8 +59,12 @@ export default {
          return this.cardData.article[this.card.size].toUpperCase();
       },
 
-      cardPrice() {
-         return this.cardData.price[this.card.size];
+      cardPriceNew() {
+         return this.cardData.price.new[this.card.size];
+      },
+
+      cardPriceOld() {
+         return this.cardData.price.old ? this.cardData.price.old[this.card.size] : false;
       },
    },
 

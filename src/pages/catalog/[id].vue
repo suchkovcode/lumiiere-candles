@@ -19,7 +19,7 @@
                      <p class="post__article">
                         Артикул: <span class="post__article-size"> {{ cardArticle }} </span>
                      </p>
-                     <card-v-price :price-value="cardPrice" :price-currency="cardData.price.currency" />
+                     <card-v-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cardData.price.currency" />
                      <card-v-changesize :size-item-data="card.size" @cardsize="updateSize" />
                      <div class="post__btn">
                         <card-v-count :count-data="card.count" @count-item="updateCount" />
@@ -112,8 +112,12 @@ export default {
          return this.cardData.article[this.card.size].toUpperCase();
       },
 
-      cardPrice() {
-         return this.cardData.price[this.card.size];
+      cardPriceNew() {
+         return this.cardData.price.new[this.card.size];
+      },
+
+      cardPriceOld() {
+         return this.cardData.price.old ? this.cardData.price.old[this.card.size] : false;
       },
 
       cardWeight() {

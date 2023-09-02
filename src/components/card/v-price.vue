@@ -1,15 +1,26 @@
 <template>
    <p class="price">
-      <span class="price__value">{{ priceValue }}</span> 
-      <span class="price__currency">{{ priceCurrency }}</span>
+      <span class="price__new">
+         <span class="price__value">{{ priceNew }}</span>
+         <span class="price__currency">{{ priceCurrency }}</span>
+      </span>
+      <span v-if="priceOld" class="price__old">
+         <span class="price__value">{{ priceOld }}</span>
+         <span class="price__currency--old">{{ priceCurrency }}</span>
+      </span>
    </p>
 </template>
 
 <script>
 export default {
    props: {
-      priceValue: {
+      priceNew: {
          type: Number,
+         required: true,
+      },
+
+      priceOld: {
+         type: [Number, Boolean],
          required: true,
       },
 
