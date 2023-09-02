@@ -7,9 +7,25 @@ export const useAppStore = defineStore("appStore", {
          products: [],
          params: {
             "pagination[page]": 1,
-            "pagination[pageSize]": 10,
+            "pagination[pageSize]": 100,
             "locale": "ru",
-            "populate": "*",
+            "populate": [
+               "Category",
+               "Collection",
+               "Aroma",
+               "img",
+               "tags",
+               "price.new",
+               "price.old",
+               "article",
+               "weight",
+               "SEO.metaTitle",
+               "SEO.metaDescription",
+               "SEO.keywords",
+               "SEO.metaRobots",
+               "SEO.canonicalURL",
+               "SEO.metaSocial"
+             ]
          },
 
          filter: {
