@@ -17,12 +17,6 @@ export const useBacketStore = defineStore("backetStore", {
             }, 0)
             .toFixed(2);
       },
-
-      getCurrency() {
-         const store = useAppStore();
-         const currency = store.products[0].price.currency;
-         return currency;
-      },
    },
 
    actions: {
