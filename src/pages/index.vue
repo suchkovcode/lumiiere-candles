@@ -190,7 +190,6 @@
          <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
       </svg>
    </section>
-
    <section class="catalog">
       <div class="container">
          <header class="catalog__header">
@@ -217,10 +216,28 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "pinia";
+import { mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
+import { getProduct } from "@/api/request";
 
 export default {
+   async setup() {
+      const store = useAppStore();
+      const { data } = await useAsyncData(() =>
+         getProduct({
+            "locale": store.params.locale,
+            "populate": store.params.populate,
+            "pagination[page]": store.params.page,
+            "pagination[pageSize]": 24,
+         }),
+      );
+
+      return {
+         card: data.value.card,
+         meta: data.value.meta,
+      };
+   },
+
    data() {
       return {
          countProductCatalog: 8,
@@ -228,10 +245,8 @@ export default {
    },
 
    computed: {
-      ...mapState(useAppStore, ["products"]),
-
       renderLimitProductCatalog() {
-         return this.products.slice(0, this.countProductCatalog);
+         return this.card.slice(0, this.countProductCatalog);
       },
    },
 
