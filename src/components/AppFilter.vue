@@ -5,7 +5,7 @@
             <input v-model="filter.category" class="filter__input" type="radio" value="Все" />
             <span class="filter__name">Все</span>
          </label>
-         <label v-for="item in categoryData" :key="item" class="filter__label">
+         <label v-for="item in category" :key="item" class="filter__label">
             <input v-model="filter.category" class="filter__input" type="radio" :value="item" />
             <span class="filter__name">{{ item.slice(0, 1).toUpperCase() + item.slice(1) }}</span>
          </label>
@@ -40,7 +40,7 @@
       <div class="filter__sort" :class="{ active: isClickCollection }">
          <button class="filter__sort-btn" @click="isClickCollection = !isClickCollection">Коллекция</button>
          <div class="filter__sort-drobdown filter__sort-drobdown--gap">
-            <label v-for="item in collectionData" :key="item" class="filter__label filter__label--checkbox">
+            <label v-for="item in collection" :key="item" class="filter__label filter__label--checkbox">
                <input v-model="filter.collection" class="filter__checkbox" type="checkbox" :value="item" />
                <span class="filter__name">{{ item }}</span>
             </label>
@@ -49,7 +49,7 @@
       <div class="filter__sort" :class="{ active: isClickAroma }">
          <button class="filter__sort-btn" @click="isClickAroma = !isClickAroma">Аромат</button>
          <div class="filter__sort-drobdown filter__sort-drobdown--gap">
-            <label v-for="item in aromaData" :key="item" class="filter__label filter__label--checkbox">
+            <label v-for="item in aroma" :key="item" class="filter__label filter__label--checkbox">
                <input v-model="filter.aroma" class="filter__checkbox" type="checkbox" :value="item" />
                <span class="filter__name">{{ item }}</span>
             </label>
@@ -59,25 +59,21 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import { useAppStore } from "@/store/appStore";
+import { getUniqueCategories, getUniqueCollection, getUniqueAroman } from "@/api/request";
 
 export default {
-   props: {
-      categoryData: {
-         type: Array,
-         required: true,
-      },
+   emits: ["filterHandler"],
 
-      aromaData: {
-         type: Array,
-         required: true,
-      },
+   async setup() {
+      const category = await useAsyncData(() => getUniqueCategories());
+      const collection = await useAsyncData(() => getUniqueCollection());
+      const aroma = await useAsyncData(() => getUniqueAroman());
 
-      collectionData: {
-         type: Array,
-         required: true,
-      },
+      return {
+         category: category.data.value,
+         collection: collection.data.value,
+         aroma: aroma.data.value,
+      };
    },
 
    data() {
@@ -98,18 +94,14 @@ export default {
    watch: {
       filter: {
          handler(newValue) {
-            this.updateStateFilter(newValue);
+            this.$emit("filterHandler", newValue);
          },
          deep: true,
       },
    },
 
    created() {
-      this.updateStateFilter(this.filter);
-   },
-
-   methods: {
-      ...mapActions(useAppStore, { updateStateFilter: "updateFilterData" }),
+      this.$emit("filterHandler", this.filter);
    },
 };
 </script>
