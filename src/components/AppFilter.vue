@@ -7,7 +7,7 @@
          </label>
          <label v-for="item in category" :key="item" class="filter__label">
             <input v-model="filter.category" class="filter__input" type="radio" :value="item" />
-            <span class="filter__name">{{ item.slice(0, 1).toUpperCase() + item.slice(1) }}</span>
+            <span class="filter__name">{{ item }}</span>
          </label>
       </div>
       <div class="filter__title">
