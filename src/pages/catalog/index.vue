@@ -28,15 +28,15 @@
    <section class="allcatalog">
       <div class="container">
          <div class="allcatalog__grid">
-            <AppFilter
-               :category-data="uniqueCategories"
-               :aroma-data="uniqueAroma"
-               :collection-data="uniqueCollection"
-               @filter="filterData = $event" />
+            <AppFilter @filter-handler="filter = $event" />
             <div>
-               <AppPagination class="allcatalog__pagination" />
-               <AppCatalog v-if="filteredProducts.filteredProducts.length" :data-item="filteredProducts.filteredProducts" class="allcatalog__cards" />
+               <AppCatalog v-if="filteredProducts.products.length" :data-item="filteredProducts.products" class="allcatalog__cards" />
                <p v-else class="emptyData">Список пуст</p>
+               <AppPagination
+                  class="allcatalog__pagination"
+                  :pagination-data="filteredProducts.pagination"
+                  :page-data="pageNumber"
+                  @page-number="pageNumber = $event" />
             </div>
          </div>
       </div>
@@ -44,10 +44,27 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "pinia";
 import { useAppStore } from "@/store/appStore";
+import { getProduct } from "@/api/request";
 
 export default {
+   async setup() {
+      const store = useAppStore();
+      const { data } = await useAsyncData(() =>
+         getProduct({
+            "locale": store.params.locale,
+            "populate": store.params.populate,
+            "pagination[page]": 1,
+            "pagination[pageSize]": 100,
+         }),
+      );
+
+
+      return {
+         card: data.value.card,
+      };
+   },
+
    data() {
       return {
          roterData: [
@@ -64,17 +81,51 @@ export default {
                last: true,
             },
          ],
-
+         pageNumber: 1,
+         filter: {},
          searchQuery: "",
       };
    },
 
    computed: {
-      ...mapState(useAppStore, ["uniqueCategories", "uniqueAroma", "uniqueCollection", "filteredProducts"]),
-   },
+      filteredProducts() {
+         const selectedCategory = this.filter.category;
+         const sortingFunctions = {
+            new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
+            old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
+            start: (a, b) => b.title.localeCompare(a.title),
+            end: (a, b) => a.title.localeCompare(b.title),
+         };
+         const sortingFunction = sortingFunctions[this.filter.sort];
+         const selectedAromas = new Set(this.filter.aroma);
+         const selectedCollections = new Set(this.filter.collection);
+         const startIndex = (this.pageNumber - 1) * 6;
+         const endIndex = startIndex + 6;
+         const searchQuery = this.searchQuery.trim().toLowerCase();
 
-   methods: {
-      ...mapActions(useAppStore, { serchUpdate: "updateSearchQuery" }),
+         const filteredByCategory = selectedCategory === "Все" ? this.card : this.card.filter((item) => item.category === selectedCategory);
+
+         const sortedByCategory = sortingFunction ? [...filteredByCategory].sort(sortingFunction) : [...filteredByCategory];
+
+         const filteredByAroma = selectedAromas.size === 0 ? sortedByCategory : sortedByCategory.filter((item) => selectedAromas.has(item.aroma));
+
+         const filteredByCollection =
+            selectedCollections.size === 0 ? filteredByAroma : filteredByAroma.filter((item) => selectedCollections.has(item.collection));
+
+         const filteredByLimitedCards = filteredByCollection.slice(startIndex, endIndex);
+
+         const filteredBySearchQuery = !searchQuery
+            ? filteredByLimitedCards
+            : filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
+
+         const itemCount = searchQuery.length > 0 ? filteredBySearchQuery.length : filteredByCollection.length;
+         const cardPaginationCount = Math.ceil(itemCount / 6);
+
+         return {
+            products: filteredBySearchQuery,
+            pagination: cardPaginationCount,
+         };
+      },
    },
 };
 </script>

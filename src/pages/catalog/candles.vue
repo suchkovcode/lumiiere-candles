@@ -17,17 +17,24 @@
    </section>
    <section class="candlesCatalog">
       <div class="container">
-         <AppCatalog v-if="getCandlesCard.length" :data-item="getCandlesCard" />
+         <AppCatalog v-if="card.length > 0" :data-item="card" />
          <p v-else class="emptyData">Список пуст</p>
       </div>
    </section>
 </template>
 
 <script>
-import { mapState } from "pinia";
-import { useAppStore } from "@/store/appStore";
+import { getCandlesCard } from "@/api/request";
 
 export default {
+   async setup() {
+      const { data } = await useAsyncData(() => getCandlesCard());
+
+      return {
+         card: data.value,
+      };
+   },
+
    data() {
       return {
          roterData: [
@@ -51,10 +58,6 @@ export default {
             },
          ],
       };
-   },
-
-   computed: {
-      ...mapState(useAppStore, ["getCandlesCard"]),
    },
 };
 </script>

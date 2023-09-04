@@ -59,17 +59,23 @@
    </section>
    <section class="meltsCatalog">
       <div class="container">
-         <AppCatalog v-if="getMeltsCard.length" :data-item="getMeltsCard" />
+         <AppCatalog v-if="card.length" :data-item="card" />
          <p v-else class="emptyData">Список пуст</p>
       </div>
    </section>
 </template>
 
 <script>
-import { mapState } from "pinia";
-import { useAppStore } from "@/store/appStore";
+import { getMeltsCard } from "@/api/request";
 
 export default {
+   async setup() {
+      const { data } = await useAsyncData(() => getMeltsCard());
+      return {
+         card: data.value,
+      };
+   },
+
    data() {
       return {
          roterData: [
@@ -93,10 +99,6 @@ export default {
             },
          ],
       };
-   },
-
-   computed: {
-      ...mapState(useAppStore, ["getMeltsCard"]),
    },
 };
 </script>

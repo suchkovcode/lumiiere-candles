@@ -43,17 +43,23 @@
    </section>
    <section class="boxesCatalog">
       <div class="container">
-         <AppCatalog v-if="getBoxesCard.length" :data-item="getBoxesCard" />
+         <AppCatalog v-if="card.length" :data-item="card" />
          <p v-else class="emptyData">Список пуст</p>
       </div>
    </section>
 </template>
 
 <script>
-import { mapState } from "pinia";
-import { useAppStore } from "@/store/appStore";
+import { getBoxesCard } from "@/api/request";
 
 export default {
+   async setup() {
+      const { data } = await useAsyncData(() => getBoxesCard());
+      return {
+         card: data.value,
+      };
+   },
+
    data() {
       return {
          roterData: [
@@ -79,8 +85,5 @@ export default {
       };
    },
 
-   computed: {
-      ...mapState(useAppStore, ["getBoxesCard"]),
-   },
 };
 </script>
