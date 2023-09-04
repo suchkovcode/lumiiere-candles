@@ -19,8 +19,8 @@
                      <p class="post__article">
                         Артикул: <span class="post__article-size"> {{ cardArticle }} </span>
                      </p>
-                     <card-v-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cardData.price.currency" />
-                     <card-v-changesize :size-item-data="card.size" @cardsize="updateSize" />
+                     <card-v-price :price-new="cardPriceNew" :price-old="cardPriceOld" />
+                     <card-v-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="updateSize" />
                      <div class="post__btn">
                         <card-v-count :count-data="card.count" @count-item="updateCount" />
                         <card-v-btn-add class="post__btn-add" :is-empty="cardData.isStock" @click="addCardBacket" />
@@ -32,17 +32,17 @@
                      </div>
                   </header>
                   <div class="post__content-body">
-                     <p class="post__key">{{ categoryJoin }}</p>
+                     <p v-if="isCandles" class="post__key">{{ categoryJoin }}</p>
                      <p class="post__description">{{ cardData.description }}</p>
                      <div v-if="cardData.moreInfo" class="post__description" v-html="cardData.moreInfo"></div>
-                     <p class="post__info">
+                     <p v-if="isCandles" class="post__info">
                         Интенсивность:
                         <span class="post__info-circles">
                            <span v-for="n in 5" :key="n" class="post__info-circle" :class="{ active: n <= cardData.intensity }"></span>
                         </span>
                      </p>
                   </div>
-                  <footer class="post__content-footer">
+                  <footer v-if="isCandles" class="post__content-footer">
                      <p class="post__category">
                         Аромат: <span>{{ cardData.aroma }}</span>
                      </p>
@@ -62,11 +62,27 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
+import { mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
 import { useBacketStore } from "@/store/backetStore";
+import { getProductOne } from "~/api/request";
 
 export default {
+   async setup() {
+      const route = useRoute();
+      const store = useAppStore();
+
+      const { card } = await getProductOne(route.params.id, {
+         "locale": store.params.locale,
+         "pagination[page]": 1,
+         "pagination[pageSize]": 100,
+      });
+
+      return {
+         cards: card,
+      };
+   },
+
    data() {
       return {
          roterData: [
@@ -102,31 +118,33 @@ export default {
    },
 
    computed: {
-      ...mapState(useAppStore, ["products"]),
-
       categoryJoin() {
-         return this.cardData.tags.join(" | ");
+         return this.cardData?.tags?.join(" | ");
       },
 
       cardArticle() {
-         return this.cardData.article[this.card.size].toUpperCase();
+         return this.cardData?.article[this.card.size]?.toUpperCase();
       },
 
       cardPriceNew() {
-         return this.cardData.price.new[this.card.size];
+         return this.cardData?.price?.new[this.card.size];
       },
 
       cardPriceOld() {
-         return this.cardData.price.old ? this.cardData.price.old[this.card.size] : false;
+         return this.cardData?.price.old ? this.cardData.price.old[this.card.size] : false;
+      },
+
+      isCandles() {
+         return this.cardData?.category?.toLowerCase()?.trim() !== "свечи" ? false : true;
       },
 
       cardWeight() {
-         return this.cardData.weight[this.card.size];
+         return this.cardData?.weight[this.card.size] ? this.cardData?.weight[this.card.size] : null;
       },
    },
 
    created() {
-      this.cardData = this.products.find((item) => item.uid === this.$route.params.id);
+      this.cardData = this.cards;
       this.roterData[2].name = this.cardData.title;
    },
 
