@@ -15,9 +15,9 @@
          <card-v-rating :rating-storage="card" />
          <h3 class="card__title">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
-         <p class="card__description">{{ categoryJoin }}</p>
-         <card-v-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cardData.price.currency" />
-         <card-v-changesize :size-item-data="card.size" @cardsize="updateSize" />
+         <p v-if="isCandles" class="card__description">{{ categoryJoin }}</p>
+         <card-v-price :price-new="cardPriceNew" :price-old="cardPriceOld" />
+         <card-v-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="updateSize" />
       </div>
       <footer class="card__footer">
          <card-v-btn-more :card-id="cardData.uid" />
@@ -52,20 +52,24 @@ export default {
 
    computed: {
       categoryJoin() {
-         return this.cardData.tags.join(" | ");
+         return this.cardData?.tags?.join(" | ");
       },
 
       cardArticle() {
-         return this.cardData.article[this.card.size].toUpperCase();
+         return this.cardData?.article[this.card.size]?.toUpperCase();
       },
 
       cardPriceNew() {
-         return this.cardData.price.new[this.card.size];
+         return this.cardData?.price?.new[this.card.size];
       },
 
       cardPriceOld() {
-         return this.cardData.price.old ? this.cardData.price.old[this.card.size] : false;
+         return this.cardData?.price.old ? this.cardData.price.old[this.card.size] : false;
       },
+
+      isCandles() {
+         return this.cardData?.category?.toLowerCase()?.trim() !== "свечи" ? false : true;
+      }
    },
 
    methods: {
