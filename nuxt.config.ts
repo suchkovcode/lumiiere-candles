@@ -1,5 +1,4 @@
 import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
-
 const isDev = process.env.NODE_ENV !== "production";
 
 export default defineNuxtConfig({
@@ -29,7 +28,7 @@ export default defineNuxtConfig({
    app: {
       pageTransition: false,
       layoutTransition: false,
-      buildAssetsDir: "/assets/"
+      // buildAssetsDir: "/assets/"
    },
 
    vite: {
@@ -115,7 +114,7 @@ export default defineNuxtConfig({
    },
 
    strapi: {
-      url: process.env.STRAPI_URL || 'http://127.0.0.1:1337',
+      url: process.env.STRAPI_URL,
       devtools: false,
    },
 
