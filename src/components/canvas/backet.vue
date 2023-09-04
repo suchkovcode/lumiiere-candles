@@ -7,11 +7,11 @@
          <div class="backet__product-list">
             <canvas-backet-item v-for="item in cards" :key="item.id" :backet-item="item" />
          </div>
-         <p class="backet__product-all">Итого: {{ getSumAddition }} {{ getCurrency }}</p>
+         <p class="backet__product-all">Итого: {{ getSumAddition }} {{ currency }}</p>
          <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
       </div>
       <p v-else-if="!cards.length && !checkout" class="backet__empty">Корзина пуста</p>
-      <canvas-backet-form v-if="checkout" :sum-data="getSumAddition" :currency-data="getCurrency" />
+      <canvas-backet-form v-if="checkout" :sum-data="getSumAddition" :currency-data="currency" />
    </div>
 </template>
 
@@ -29,6 +29,12 @@ export default {
 
    emits: ["closeCanvas"],
 
+   async setup() {
+      const { find } = useStrapi();
+      const { data } = await find("currency");
+      return { currency: data.attributes.currency };
+   },
+
    data() {
       return {
          checkout: false,
@@ -36,7 +42,7 @@ export default {
    },
 
    computed: {
-      ...mapState(useBacketStore, ["cards", "getSumAddition", "getCurrency"]),
+      ...mapState(useBacketStore, ["cards", "getSumAddition"]),
    },
 
    methods: {
