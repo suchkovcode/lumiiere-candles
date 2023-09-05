@@ -46,7 +46,8 @@
                "partners",
                "slider",
                "changesize",
-               "price"
+               "price",
+               "count"
             ]
          }
       ],
