@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { getProductOne } from "~/api/request";
 import { useAppStore } from "@/store/appStore";
 
 export const useFavoriteStore = defineStore("favoriteStore", {
@@ -9,13 +10,13 @@ export const useFavoriteStore = defineStore("favoriteStore", {
    },
 
    actions: {
-      addCardFavorite(cardId) {
+      async addCardFavorite(cardId) {
          const store = useAppStore();
+         const { card } = await getProductOne(cardId, store.params);
          const isExistsCard = this.cards.some((item) => item.uid === cardId);
 
          if (!isExistsCard) {
-            const currentElement = store.products.find((item) => item.uid === cardId);
-            this.cards.push(currentElement);
+            this.cards.push(card);
          }
       },
 

@@ -1,7 +1,7 @@
 <template>
    <article class="card">
       <header class="card__header">
-         <card-favorite :card-id="cardData.uid" :is-favorite="card.isFavorite" @is-favorite="card.isFavorite = $event" />
+         <card-favorite :card-id="cardData.uid" />
          <img
             class="card__hero"
             :src="cardData.img.url"
@@ -45,7 +45,6 @@ export default {
             id: this.cardData.uid,
             size: "small",
             count: 1,
-            isFavorite: false,
          },
       };
    },
