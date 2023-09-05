@@ -44,7 +44,9 @@
                "oferta",
                "delivery",
                "partners",
-               "slider"
+               "slider",
+               "changesize",
+               "price"
             ]
          }
       ],
