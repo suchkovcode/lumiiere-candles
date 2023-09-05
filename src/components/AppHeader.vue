@@ -15,16 +15,16 @@
                         <nuxt-link class="header__left-drobdown-link" to="/catalog"> Все товары </nuxt-link>
                      </li>
                      <li class="header__left-drobdown-item">
+                        <nuxt-link class="header__left-drobdown-link" to="/catalog/candles"> Свечи </nuxt-link>
+                     </li>
+                     <li class="header__left-drobdown-item">
                         <nuxt-link class="header__left-drobdown-link" to="/catalog/melts"> Мелтсы </nuxt-link>
                      </li>
                      <li class="header__left-drobdown-item">
                         <nuxt-link class="header__left-drobdown-link" to="/catalog/boxes"> Наборы </nuxt-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <nuxt-link class="header__left-drobdown-link" to="/catalog/matches"> Открытки </nuxt-link>
-                     </li>
-                     <li class="header__left-drobdown-item">
-                        <nuxt-link class="header__left-drobdown-link" to="/catalog/candles"> Соевые свечи </nuxt-link>
+                        <nuxt-link class="header__left-drobdown-link" to="/catalog/matches"> Дополнительно </nuxt-link>
                      </li>
                   </ul>
                </div>

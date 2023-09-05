@@ -23,16 +23,16 @@
                </div>
                <ul class="footer__catalog-nav">
                   <li class="footer__catalog-nav-item">
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/candles"> Свечи </nuxt-link>
+                  </li>
+                  <li class="footer__catalog-nav-item">
                      <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/melts"> Мелтсы </nuxt-link>
                   </li>
                   <li class="footer__catalog-nav-item">
                      <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/boxes"> Наборы </nuxt-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/matches"> Открытки </nuxt-link>
-                  </li>
-                  <li class="footer__catalog-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/candles"> Соевые свечи </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/matches"> Дополнительно </nuxt-link>
                   </li>
                </ul>
             </nav>
