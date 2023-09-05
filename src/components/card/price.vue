@@ -27,8 +27,8 @@ export default {
 
    async setup() {
       const { find } = useStrapi();
-      const { data } = await useAsyncData(() => find("currency"));
-      return { currency: data.value.data.attributes.currency };
+      const { data } = await find("currency");
+      return { currency: data.attributes.currency };
    },
 };
 </script>
