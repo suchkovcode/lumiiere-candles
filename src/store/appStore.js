@@ -28,7 +28,6 @@ export const useAppStore = defineStore("appStore", {
          },
          isActiveFavorite: false,
          isActiveBacket: false,
-         searchQuery: "",
       };
    },
 
@@ -48,10 +47,6 @@ export const useAppStore = defineStore("appStore", {
 
       async updateFilterData(data) {
          this.filter = data;
-      },
-
-      async updateSearchQuery(data) {
-         this.searchQuery = data;
       },
    },
 });
