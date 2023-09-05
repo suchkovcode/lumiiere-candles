@@ -2,7 +2,7 @@
 <template>
    <section class="melts">
       <div class="container">
-         <base-breadcrumbs :roter-link="roterData" />
+         <base-breadcrumbs class="boxes__breadcrumbs" :roter-link="{ catalog: true, name: 'Невероятные мелтсы', to: '/catalog/melts' }" />
          <div class="melts__header">
             <svg
                class="melts__header-icon"
@@ -73,31 +73,6 @@ export default {
       const { data } = await useAsyncData(() => getMeltsCard());
       return {
          card: data.value,
-      };
-   },
-
-   data() {
-      return {
-         roterData: [
-            {
-               id: 1,
-               name: "Главная",
-               to: "/",
-               last: false,
-            },
-            {
-               id: 2,
-               name: "Каталог",
-               to: "/catalog",
-               last: false,
-            },
-            {
-               id: 3,
-               name: "Невероятные мелтсы",
-               to: "/catalog/melts",
-               last: true,
-            },
-         ],
       };
    },
 };

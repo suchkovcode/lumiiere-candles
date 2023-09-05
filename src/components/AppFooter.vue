@@ -29,7 +29,7 @@
                      <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/boxes"> Наборы </nuxt-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/postcard"> Открытки </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/matches"> Открытки </nuxt-link>
                   </li>
                   <li class="footer__catalog-nav-item">
                      <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/candles"> Соевые свечи </nuxt-link>

@@ -3,7 +3,7 @@
    <div class="single-page">
       <section class="post">
          <div class="container">
-            <base-breadcrumbs :roter-link="roterData" />
+            <base-breadcrumbs :roter-link="{ catalog: true, name: cardData.title, to: $route.fullPath }" />
             <article class="post__container">
                <img
                   class="post__img"
@@ -14,21 +14,17 @@
                   height="260" />
                <div class="post__content">
                   <header class="post__content-header">
-                     <card-v-rating :rating-storage="card" />
+                     <card-rating :rating-storage="card" />
                      <h1 class="post__title">{{ cardData.title }}</h1>
                      <p class="post__article">
                         Артикул: <span class="post__article-size"> {{ cardArticle }} </span>
                      </p>
-                     <card-v-price :price-new="cardPriceNew" :price-old="cardPriceOld" />
-                     <card-v-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="updateSize" />
+                     <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" />
+                     <card-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="updateSize" />
                      <div class="post__btn">
-                        <card-v-count :count-data="card.count" @count-item="updateCount" />
-                        <card-v-btn-add class="post__btn-add" :is-empty="cardData.isStock" @click="addCardBacket" />
-                        <card-v-favorite
-                           class="post__favorite"
-                           :card-id="cardData.uid"
-                           :is-favorite="card.isFavorite"
-                           @is-favorite="card.isFavorite = $event" />
+                        <card-count :count-data="card.count" @count-item="updateCount" />
+                        <card-btn-add class="post__btn-add" :is-empty="cardData.isStock" @click="addCardBacket" />
+                        <card-favorite class="post__favorite" :card-id="cardData.uid" />
                      </div>
                   </header>
                   <div class="post__content-body">
@@ -85,34 +81,12 @@ export default {
 
    data() {
       return {
-         roterData: [
-            {
-               id: 1,
-               name: "Главная",
-               to: "/",
-               last: false,
-            },
-            {
-               id: 2,
-               name: "Каталог",
-               to: "/catalog",
-               last: false,
-            },
-            {
-               id: 3,
-               name: "",
-               to: this.$route.fullPath,
-               last: true,
-            },
-         ],
-
          cardData: {},
 
          card: {
             id: this.$route.params.id,
             size: "small",
             count: 1,
-            isFavorite: false,
          },
       };
    },
@@ -123,29 +97,35 @@ export default {
       },
 
       cardArticle() {
-         return this.cardData?.article[this.card.size]?.toUpperCase();
+         return this.cardData?.article?.[this.card.size]?.toUpperCase();
       },
 
       cardPriceNew() {
-         return this.cardData?.price?.new[this.card.size];
+         const newPrice = this.cardData?.price?.new?.[this.card.size];
+         return newPrice ? newPrice : false;
       },
 
       cardPriceOld() {
-         return this.cardData?.price.old ? this.cardData.price.old[this.card.size] : false;
-      },
-
-      isCandles() {
-         return this.cardData?.category?.toLowerCase()?.trim() !== "свечи" ? false : true;
+         const oldPrice = this.cardData?.price?.old?.[this.card.size];
+         return oldPrice ? oldPrice : false;
       },
 
       cardWeight() {
-         return this.cardData?.weight[this.card.size] ? this.cardData?.weight[this.card.size] : null;
+         const cardWeight = this.cardData?.weight?.[this.card.size];
+         return cardWeight ? cardWeight : false;
+      },
+
+      isCandles() {
+         return this.cardData?.category?.toLowerCase()?.trim() === "свечи";
+      },
+
+      isMelts() {
+         return this.cardData?.category?.toLowerCase()?.trim() === "мелтсы";
       },
    },
 
    created() {
       this.cardData = this.cards;
-      this.roterData[2].name = this.cardData.title;
    },
 
    methods: {

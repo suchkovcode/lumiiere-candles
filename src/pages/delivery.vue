@@ -3,7 +3,7 @@
    <div class="single-page">
       <section class="delivery">
          <div class="container">
-            <base-breadcrumbs :roter-link="roterData" />
+            <base-breadcrumbs :roter-link="{ name: 'Доставка и оплата', to: '/delivery' }" />
             <div class="delivery__header">
                <svg
                   class="delivery__header-icon"
@@ -285,21 +285,6 @@ export default {
    data() {
       return {
          selectTab: "",
-
-         roterData: [
-            {
-               id: 1,
-               name: "Главная",
-               to: "/",
-               last: false,
-            },
-            {
-               id: 2,
-               name: "Доставка и оплата",
-               to: "/delivery",
-               last: true,
-            },
-         ],
 
          tabsData: [
             {

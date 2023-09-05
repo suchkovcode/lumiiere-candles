@@ -2,7 +2,7 @@
 <template>
    <section class="single-page about">
       <div class="container">
-         <base-breadcrumbs class="about__breadcrumbs" :roter-link="roterData" />
+         <base-breadcrumbs class="about__breadcrumbs" :roter-link="{ name: 'О нас', to: '/about' }" />
          <div class="about__header">
             <svg
                class="about__header-icon"
@@ -369,21 +369,6 @@
 export default {
    data() {
       return {
-         roterData: [
-            {
-               id: 1,
-               name: "Главная",
-               to: "/",
-               last: false,
-            },
-            {
-               id: 2,
-               name: "О нас",
-               to: "/about",
-               last: true,
-            },
-         ],
-
          faqItem: [
             {
                id: 1,

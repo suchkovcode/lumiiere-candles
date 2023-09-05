@@ -1,16 +1,9 @@
 <template>
    <section class="single-page answers">
       <div class="container">
-         <BaseBreadcrumbs
-            class="about__breadcrumbs"
-            :roter-link="roterData" />
+         <BaseBreadcrumbs class="about__breadcrumbs" :roter-link="{ name: 'Faq', to: '/faq' }" />
          <div class="answers__header">
-            <img
-               class="answers__header-icon"
-               src="@/assets/img/svg/faq-answers__header-icon.svg"
-               alt="Иконка"
-               width="80"
-               height="45" />
+            <img class="answers__header-icon" src="@/assets/img/svg/faq-answers__header-icon.svg" alt="Иконка" width="80" height="45" />
             <h1 class="title answers__title">Ответы на вопросы</h1>
             <p class="subtitle answers__subtitle">Вопросы, которые у тебя могли остаться!</p>
          </div>
@@ -23,21 +16,6 @@
 export default {
    data() {
       return {
-         roterData: [
-            {
-               id: 1,
-               name: "Главная",
-               to: "/",
-               last: false,
-            },
-            {
-               id: 2,
-               name: "Faq",
-               to: "/faq",
-               last: true,
-            },
-         ],
-
          faqItem: [
             {
                id: 1,
@@ -53,8 +31,7 @@ export default {
             {
                id: 3,
                title: "Вы делаете свечи на заказ?",
-               content:
-                  "Да, от 10 штук. День рождения, корпоратив, свадьба или другое мероприятие? Сделаем индивидуальный дизайн под твое событие.",
+               content: "Да, от 10 штук. День рождения, корпоратив, свадьба или другое мероприятие? Сделаем индивидуальный дизайн под твое событие.",
             },
             {
                id: 4,

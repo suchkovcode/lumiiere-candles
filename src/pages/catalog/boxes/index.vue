@@ -2,7 +2,7 @@
 <template>
    <section class="boxes">
       <div class="container">
-         <base-breadcrumbs class="boxes__breadcrumbs" :roter-link="roterData" />
+         <base-breadcrumbs class="boxes__breadcrumbs" :roter-link="{ catalog: true, name: 'Наборы свечей', to: '/catalog/boxes' }" />
          <div class="boxes__header">
             <svg
                class="boxes__header-icon"
@@ -59,31 +59,5 @@ export default {
          card: data.value,
       };
    },
-
-   data() {
-      return {
-         roterData: [
-            {
-               id: 1,
-               name: "Главная",
-               to: "/",
-               last: false,
-            },
-            {
-               id: 2,
-               name: "Каталог",
-               to: "/catalog",
-               last: false,
-            },
-            {
-               id: 3,
-               name: "Наборы свечей",
-               to: "/catalog/boxes",
-               last: true,
-            },
-         ],
-      };
-   },
-
 };
 </script>

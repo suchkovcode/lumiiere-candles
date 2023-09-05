@@ -1,7 +1,7 @@
 <template>
    <section class="goods">
       <div class="container">
-         <base-breadcrumbs class="goods__breadcrumbs" :roter-link="roterData" />
+         <base-breadcrumbs class="goods__breadcrumbs" :roter-link="{ name: 'Каталог', to: '/catalog' }" />
          <div class="goods__header">
             <svg class="goods__header-icon" width="85" height="40">
                <use xlink:href="@/assets/img/svg/sprite.svg#catalogHeaderIcon"></use>
@@ -59,7 +59,6 @@ export default {
          }),
       );
 
-
       return {
          card: data.value.card,
       };
@@ -67,20 +66,6 @@ export default {
 
    data() {
       return {
-         roterData: [
-            {
-               id: 1,
-               name: "Главная",
-               to: "/",
-               last: false,
-            },
-            {
-               id: 2,
-               name: "Каталог",
-               to: "/catalog",
-               last: true,
-            },
-         ],
          pageNumber: 1,
          filter: {},
          searchQuery: "",

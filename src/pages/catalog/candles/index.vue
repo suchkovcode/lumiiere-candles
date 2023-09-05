@@ -1,7 +1,7 @@
 <template>
    <section class="candles">
       <div class="container">
-         <base-breadcrumbs :roter-link="roterData" />
+         <base-breadcrumbs class="boxes__breadcrumbs" :roter-link="{ catalog: true, name: 'Соевые свечи', to: '/catalog/candles' }" />
          <div class="candles__header">
             <img class="candles__header-icon" src="@/assets/img/svg/candles__header-icon.svg" alt="Главная картинка" width="85" height="40" />
             <h1 class="title candles__title">СОЕВЫЕ СВЕЧИ</h1>
@@ -32,31 +32,6 @@ export default {
 
       return {
          card: data.value,
-      };
-   },
-
-   data() {
-      return {
-         roterData: [
-            {
-               id: 1,
-               name: "Главная",
-               to: "/",
-               last: false,
-            },
-            {
-               id: 2,
-               name: "Каталог",
-               to: "/catalog",
-               last: false,
-            },
-            {
-               id: 3,
-               name: "Соевые свечи",
-               to: "/catalog/candles",
-               last: true,
-            },
-         ],
       };
    },
 };
