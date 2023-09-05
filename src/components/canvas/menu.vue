@@ -21,7 +21,7 @@
                         <nuxt-link class="menu__drobdown-link" to="/catalog/boxes"> Наборы </nuxt-link>
                      </li>
                      <li class="menu__drobdown-item">
-                        <nuxt-link class="menu__drobdown-link" to="/catalog/postcard"> Открытки </nuxt-link>
+                        <nuxt-link class="menu__drobdown-link" to="/catalog/matches"> Открытки </nuxt-link>
                      </li>
                      <li class="menu__drobdown-item">
                         <nuxt-link class="menu__drobdown-link" to="/catalog/candles"> Соевые свечи </nuxt-link>
