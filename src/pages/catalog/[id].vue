@@ -3,47 +3,41 @@
    <div class="single-page">
       <section class="post">
          <div class="container">
-            <base-breadcrumbs :roter-link="{ catalog: true, name: cardData.title, to: $route.fullPath }" />
+            <base-breadcrumbs :roter-link="{ catalog: true, name: cards.title, to: $route.fullPath }" />
             <article class="post__container">
-               <img
-                  class="post__img"
-                  :src="cardData.img.url"
-                  :alt="cardData.img.alternativeText"
-                  :title="cardData.img.caption"
-                  width="260"
-                  height="260" />
+               <img class="post__img" :src="cards.img.url" :alt="cards.img.alternativeText" :title="cards.img.caption" width="260" height="260" />
                <div class="post__content">
                   <header class="post__content-header">
                      <card-rating :rating-storage="card" />
-                     <h1 class="post__title">{{ cardData.title }}</h1>
+                     <h1 class="post__title">{{ cards.title }}</h1>
                      <p class="post__article">
                         Артикул: <span class="post__article-size"> {{ cardArticle }} </span>
                      </p>
                      <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" />
-                     <card-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="updateSize" />
+                     <card-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="card.size = $event" />
                      <div class="post__btn">
-                        <card-count :count-data="card.count" @count-item="updateCount" />
-                        <card-btn-add class="post__btn-add" :is-empty="cardData.isStock" @click="addCardBacket" />
-                        <card-favorite class="post__favorite" :card-id="cardData.uid" />
+                        <card-count :count-data="card.count" @count-item="card.count = $event" />
+                        <card-btn-add class="post__btn-add" :is-empty="cards.isStock" @click="addCardBacket" />
+                        <card-favorite class="post__favorite" :card-id="cards.uid" />
                      </div>
                   </header>
                   <div class="post__content-body">
-                     <p v-if="isCandles" class="post__key">{{ categoryJoin }}</p>
-                     <p class="post__description">{{ cardData.description }}</p>
-                     <div v-if="cardData.moreInfo" class="post__description" v-html="cardData.moreInfo"></div>
+                     <p v-if="isCandles || isMelts" class="post__key">{{ categoryJoin }}</p>
+                     <p class="post__description">{{ cards.description }}</p>
+                     <div v-if="cards.moreInfo" class="post__description" v-html="cards.moreInfo"></div>
                      <p v-if="isCandles" class="post__info">
                         Интенсивность:
                         <span class="post__info-circles">
-                           <span v-for="n in 5" :key="n" class="post__info-circle" :class="{ active: n <= cardData.intensity }"></span>
+                           <span v-for="n in 5" :key="n" class="post__info-circle" :class="{ active: n <= cards.intensity }"></span>
                         </span>
                      </p>
                   </div>
                   <footer v-if="isCandles" class="post__content-footer">
                      <p class="post__category">
-                        Аромат: <span>{{ cardData.aroma }}</span>
+                        Аромат: <span>{{ cards.aroma }}</span>
                      </p>
                      <p class="post__category">
-                        Коллекция: <span>{{ cardData.collection }}</span>
+                        Коллекция: <span>{{ cards.collection }}</span>
                      </p>
                      <p class="post__category">
                         Вес:
@@ -67,12 +61,15 @@ export default {
    async setup() {
       const route = useRoute();
       const store = useAppStore();
+      const { locale, populate, page } = store.params;
+      const params = {
+         locale,
+         populate,
+         "pagination[page]": page,
+         "pagination[pageSize]": 24,
+      };
 
-      const { card } = await getProductOne(route.params.id, {
-         "locale": store.params.locale,
-         "pagination[page]": 1,
-         "pagination[pageSize]": 100,
-      });
+      const { card } = await getProductOne(route.params.id, params);
 
       return {
          cards: card,
@@ -81,8 +78,6 @@ export default {
 
    data() {
       return {
-         cardData: {},
-
          card: {
             id: this.$route.params.id,
             size: "small",
@@ -93,54 +88,42 @@ export default {
 
    computed: {
       categoryJoin() {
-         return this.cardData?.tags?.join(" | ");
+         return this.cards?.tags?.join(" | ");
       },
 
       cardArticle() {
-         return this.cardData?.article?.[this.card.size]?.toUpperCase();
+         return this.cards?.article?.[this.card.size]?.toUpperCase();
       },
 
       cardPriceNew() {
-         const newPrice = this.cardData?.price?.new?.[this.card.size];
+         const newPrice = this.cards?.price?.new?.[this.card.size];
          return newPrice ? newPrice : false;
       },
 
       cardPriceOld() {
-         const oldPrice = this.cardData?.price?.old?.[this.card.size];
+         const oldPrice = this.cards?.price?.old?.[this.card.size];
          return oldPrice ? oldPrice : false;
       },
 
       cardWeight() {
-         const cardWeight = this.cardData?.weight?.[this.card.size];
+         const cardWeight = this.cards?.weight?.[this.card.size];
          return cardWeight ? cardWeight : false;
       },
 
       isCandles() {
-         return this.cardData?.category?.toLowerCase()?.trim() === "свечи";
+         return this.cards?.category?.toLowerCase()?.trim() === "свечи";
       },
 
       isMelts() {
-         return this.cardData?.category?.toLowerCase()?.trim() === "мелтсы";
+         return this.cards?.category?.toLowerCase()?.trim() === "мелтсы";
       },
-   },
-
-   created() {
-      this.cardData = this.cards;
    },
 
    methods: {
       ...mapActions(useBacketStore, { addBacketCard: "addCardBacket" }),
 
-      updateSize(data) {
-         this.card.size = data;
-      },
-
-      updateCount(data) {
-         this.card.count = data;
-      },
-
       addCardBacket() {
-         if (this.cardData.isStock) {
+         if (this.cards.isStock) {
             const cardData = { ...this.card };
             this.addBacketCard(cardData);
             this.card.count = 1;
