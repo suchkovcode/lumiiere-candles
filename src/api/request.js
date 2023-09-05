@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAppStore } from "@/store/appStore";
 
 export const Axios = axios.create({
-   baseURL: `${process.env.STRAPI_URL}/api`,
+   baseURL: `https://strapi.lumiiere-candles.com/api`,
    headers: { "Content-Type": "application/json" },
 });
 
@@ -44,18 +44,15 @@ export const getProductOne = async (id, params) => {
    try {
       const response = await Axios.get(`/products/${id}`, { params });
       const { data } = response;
-
       const { Aroma, Category, Collection, img, tags, ...attributes } = data.data.attributes;
-
       const tagNames = tags.map((tag) => tag.name);
-
       return {
          card: {
             ...attributes,
-            img: img?.data?.attributes || {},
-            aroma: Aroma?.attributes?.name || null,
-            category: Category?.attributes?.name || null,
-            collection: Collection?.attributes?.name || null,
+            img: img.data.attributes,
+            aroma: Aroma?.data?.attributes?.name,
+            category: Category?.data?.attributes?.name,
+            collection: Collection?.data?.attributes?.name,
             tags: tagNames,
          },
          meta: data.meta,
@@ -92,9 +89,7 @@ export const getUniqueAroman = async () => {
    const store = useAppStore();
    const { card } = await getProduct(store.params);
 
-   const uniqueAromas = [...new Set(card.map((item) => item.aroma))]
-      .filter((aroma) => aroma !== null)
-      .sort((a, b) => b.localeCompare(a));
+   const uniqueAromas = [...new Set(card.map((item) => item.aroma))].filter((aroma) => aroma !== null).sort((a, b) => b.localeCompare(a));
 
    return uniqueAromas;
 };
