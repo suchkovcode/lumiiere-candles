@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { getProductOne } from "~/api/request";
+import { getProductOne } from "@/api/request";
 import { useAppStore } from "@/store/appStore";
 
 export const useFavoriteStore = defineStore("favoriteStore", {
