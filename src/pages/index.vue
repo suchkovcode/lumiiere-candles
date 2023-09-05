@@ -223,18 +223,19 @@ import { getProduct } from "@/api/request";
 export default {
    async setup() {
       const store = useAppStore();
-      const { data } = await useAsyncData(() =>
-         getProduct({
-            "locale": store.params.locale,
-            "populate": store.params.populate,
-            "pagination[page]": store.params.page,
-            "pagination[pageSize]": 24,
-         }),
-      );
+      const { locale, populate, page } = store.params;
+      const params = ref({
+         locale,
+         populate,
+         "pagination[page]": page,
+         "pagination[pageSize]": 24,
+      });
+
+      const { card = [], meta = {} } = (await useAsyncData(() => getProduct(params.value)))?.data?.value || {};
 
       return {
-         card: data.value.card,
-         meta: data.value.meta,
+         card,
+         meta,
       };
    },
 
