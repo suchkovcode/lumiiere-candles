@@ -97,7 +97,7 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
                </svg>
             </nuxt-link>
-            <nuxt-link class="products__card-item products__card-item-3" to="catalog/postcard">
+            <nuxt-link class="products__card-item products__card-item-3" to="catalog/matches">
                <div class="products__card-header">
                   <h2 class="products__card-title">Открытки</h2>
                   <p class="subtitle products__card-subtitle">Для самых любимых!</p>
