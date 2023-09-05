@@ -1,11 +1,11 @@
 <template>
    <p class="price">
       <span class="price__new">
-         <span class="price__value">{{ priceNew }}</span>
+         <span class="price__value"> {{ priceNew }} </span>
          <span class="price__currency"> {{ currency }} </span>
       </span>
       <span v-if="priceOld" class="price__old">
-         <span class="price__value">{{ priceOld }}</span>
+         <span class="price__value"> {{ priceOld }} </span>
          <span class="price__currency--old"> {{ currency }} </span>
       </span>
    </p>
@@ -15,7 +15,7 @@
 export default {
    props: {
       priceNew: {
-         type: Number,
+         type: [Number, Boolean],
          required: true,
       },
 
@@ -27,8 +27,8 @@ export default {
 
    async setup() {
       const { find } = useStrapi();
-      const { data } = await find("currency");
-      return { currency: data.attributes.currency };
+      const { data } = await useAsyncData(() => find("currency"));
+      return { currency: data.value.data.attributes.currency };
    },
 };
 </script>
