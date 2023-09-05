@@ -34,6 +34,10 @@ export default {
       },
    },
 
+   mounted() {
+      this.isSelect = this.cards.some((item) => item.uid === this.cardId);
+   },
+
    methods: {
       ...mapActions(useFavoriteStore, { addCardFavorite: "addCardFavorite", delCardFavorite: "delCardFavorite" }),
 
