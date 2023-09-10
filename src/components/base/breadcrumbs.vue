@@ -1,26 +1,26 @@
 <template>
-   <nav class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-      <ul class="breadcrumbs__list">
-         <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <nuxt-link class="breadcrumbs__link" to="/" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+   <nav class="breadcrumbs">
+      <ol class="breadcrumbs__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+         <li class="breadcrumbs__item" itemscope itemprop="itemListElement"  itemtype="http://schema.org/ListItem">
+            <nuxt-link class="breadcrumbs__link" to="/" itemscope itemprop="item" itemtype="http://schema.org/Thing" itemid="/">
                <span itemprop="name">Главная</span>
             </nuxt-link>
             <meta itemprop="position" content="1" />
          </li>
          <li v-if="roterLink.catalog" class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-            <nuxt-link class="breadcrumbs__link" to="/catalog" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+            <nuxt-link class="breadcrumbs__link" to="/catalog" itemscopeitemprop="item" itemtype="http://schema.org/Thing" itemid="/catalog">
                <span itemprop="name">Каталог</span>
             </nuxt-link>
             <meta itemprop="position" content="2" />
          </li>
          <li class="breadcrumbs__item active">
-            <nuxt-link class="breadcrumbs__link" :to="roterLink.to" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+            <nuxt-link class="breadcrumbs__link" :to="roterLink.to" itemscope itemprop="item" itemtype="http://schema.org/Thing" :itemid="roterLink.to">
                <span itemprop="name"> {{ roterLink.name }}</span>
             </nuxt-link>
             <meta v-if="!roterLink.catalog" itemprop="position" content="2" />
             <meta v-if="roterLink.catalog" itemprop="position" content="3" />
          </li>
-      </ul>
+      </ol>
    </nav>
 </template>
 
