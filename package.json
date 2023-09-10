@@ -3,10 +3,10 @@
    "version": "1.0.0",
    "author": "Nikita Suchkov",
    "license": "MIT",
+   "type": "module",
    "repository": "https://github.com/suchkovcode/lumiiere-candles",
    "homepage": "lumiiere-candles.suchkov.cc",
    "private": true,
-   "type": "commonjs",
    "scripts": {
       "build": "nuxt build",
       "dev": "nuxt dev",
@@ -18,17 +18,17 @@
    "devDependencies": {
       "@nuxt/devtools": "latest",
       "@nuxtjs/eslint-module": "^4.1.0",
-      "@nuxtjs/i18n": "^7.3.1",
       "@nuxtjs/strapi": "^1.9.3",
       "@pinia/nuxt": "^0.4.11",
-      "@types/node": "^20.5.9",
+      "@types/node": "^20.6.0",
       "cssnano": "^6.0.1",
-      "eslint": "^8.48.0",
+      "eslint": "^8.49.0",
       "eslint-plugin-import": "^2.28.1",
       "eslint-plugin-vue": "^9.17.0",
       "nuxt": "^3.7.1",
       "nuxt-simple-robots": "^3.1.2",
-      "nuxt-simple-sitemap": "^3.2.6",
+      "nuxt-simple-sitemap": "^3.2.7",
+      "postcss": "^8.4.29",
       "postcss-cli": "^10.1.0",
       "postcss-combine-duplicated-selectors": "^10.0.3",
       "postcss-combine-media-query": "^1.0.1",
@@ -39,6 +39,7 @@
       "stylelint-order": "^6.0.3",
       "vite-plugin-favicon2": "^1.1.5"
    },
+
    "dependencies": {
       "@vuelidate/core": "^2.0.3",
       "@vuelidate/validators": "^2.0.4",
