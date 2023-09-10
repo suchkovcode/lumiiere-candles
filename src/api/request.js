@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAppStore } from "@/store/appStore";
 
 export const Axios = axios.create({
-   baseURL: `https://strapi.lumiiere-candles.com/api`,
+   baseURL: `https://strapi-2vim.onrender.com/api`,
    headers: { "Content-Type": "application/json" },
 });
 
