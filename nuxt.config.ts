@@ -56,8 +56,8 @@ export default defineNuxtConfig({
    },
 
    sourcemap: {
-      server: isDev ? true : false,
-      client: isDev ? true : false,
+      server: false,
+      client: false,
    },
 
    devtools: {
@@ -82,19 +82,12 @@ export default defineNuxtConfig({
    },
 
    nitro: {
-      preset: "cloudflare-pages-static",
+      // preset: "cloudflare-pages-static",
       serveStatic: true,
    },
 
    eslint: {
       lintOnStart: false,
-   },
-
-   image: {
-      inject: false,
-      format: ["webp"],
-      quality: 80,
-      dir: "assets/img",
    },
 
    robots: {
@@ -113,11 +106,6 @@ export default defineNuxtConfig({
       url: "https://lumiiere-candles.com",
    },
 
-   strapi: {
-      url: process.env.STRAPI_URL,
-      devtools: false,
-   },
-
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "@nuxtjs/strapi", "@nuxtjs/i18n", "nuxt-simple-robots", "nuxt-simple-sitemap"],
+   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "@nuxtjs/strapi", "nuxt-simple-robots", "nuxt-simple-sitemap"],
 });
