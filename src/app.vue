@@ -8,9 +8,9 @@
 export default {
    async setup() {
       useHead({
-               htmlAttrs: {
-                  lang: "ru",
-               },
+         htmlAttrs: {
+            lang: "ru",
+         },
          meta: [
             { "http-equiv": "X-UA-Compatible", "content": "IE=edge" },
             { name: "apple-mobile-web-app-title", content: "Lumiiere Candles" },
