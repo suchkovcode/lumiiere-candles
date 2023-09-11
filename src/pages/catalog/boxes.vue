@@ -42,10 +42,10 @@
       </div>
    </section>
    <section class="boxesCatalog">
-      <div class="container">
+      <!-- <div class="container">
          <AppCatalog v-if="card.length" :data-item="card" />
          <p v-else class="emptyData">Список пуст</p>
-      </div>
+      </div> -->
    </section>
 </template>
 
@@ -53,11 +53,11 @@
 import { getBoxesCard } from "@/api/request";
 
 export default {
-   async setup() {
-      const { data } = await useAsyncData(() => getBoxesCard());
-      return {
-         card: data.value,
-      };
-   },
+   // async setup() {
+   //    const { data } = await useAsyncData(() => getBoxesCard());
+   //    return {
+   //       card: data.value,
+   //    };
+   // },
 };
 </script>

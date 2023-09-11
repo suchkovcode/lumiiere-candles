@@ -16,10 +16,10 @@
       </div>
    </section>
    <section class="candlesCatalog">
-      <div class="container">
+      <!-- <div class="container">
          <AppCatalog v-if="card.length > 0" :data-item="card" />
          <p v-else class="emptyData">Список пуст</p>
-      </div>
+      </div> -->
    </section>
 </template>
 
@@ -27,12 +27,12 @@
 import { getCandlesCard } from "@/api/request";
 
 export default {
-   async setup() {
-      const { data } = await useAsyncData(() => getCandlesCard());
+   // async setup() {
+   //    const { data } = await useAsyncData(() => getCandlesCard());
 
-      return {
-         card: data.value,
-      };
-   },
+   //    return {
+   //       card: data.value,
+   //    };
+   // },
 };
 </script>
