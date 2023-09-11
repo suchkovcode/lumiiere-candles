@@ -47,7 +47,8 @@
                "slider",
                "changesize",
                "price",
-               "count"
+               "count",
+               "matches"
             ]
          }
       ],
