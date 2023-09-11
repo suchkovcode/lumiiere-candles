@@ -55,22 +55,13 @@
 import { mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
 import { useBacketStore } from "@/store/backetStore";
-import { getProductOne } from "~/api/request";
+import { getProductOne } from "@/api/request";
 
 export default {
    async setup() {
       const route = useRoute();
       const store = useAppStore();
-      const { locale, populate, page } = store.params;
-      const params = {
-         locale,
-         populate,
-         "pagination[page]": page,
-         "pagination[pageSize]": 24,
-      };
-
-      const { card } = await getProductOne(route.params.id, params);
-
+      const { card } = await getProductOne(route.params.id, store.params);
       return {
          cards: card,
       };

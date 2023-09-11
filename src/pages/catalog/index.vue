@@ -52,14 +52,8 @@ export default {
       const store = useAppStore();
 
       try {
-         const { data } = await useAsyncData(() =>
-            getProduct({
-               "locale": store.params.locale,
-               "populate": store.params.populate,
-               "pagination[page]": 1,
-               "pagination[pageSize]": 100,
-            }),
-         );
+         const { data } = await useAsyncData(() => getProduct(store.params));
+
          return {
             card: data.value.card,
          };
