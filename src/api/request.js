@@ -11,6 +11,7 @@ export const getProduct = async (params) => {
       const response = await Axios.get("/products", { params });
       const { data } = response;
 
+
       const arrayCard = data.data.map((item) => {
          const {
             Aroma: { data: aromaData },
