@@ -223,10 +223,9 @@ import { getProduct } from "@/api/request";
 export default {
    async setup() {
       const store = useAppStore();
-      const { locale, populate, page } = store.params;
+      const { locale, page } = store.params;
       const params = ref({
          locale,
-         populate,
          "pagination[page]": page,
          "pagination[pageSize]": 24,
       });
