@@ -10,6 +10,7 @@
             <span class="filter__name">{{ item }}</span>
          </label>
       </div>
+
       <div class="filter__title">
          <svg class="filter__title-icon">
             <use xlink:href="@/assets/img/svg/sprite.svg#catalogFilter"></use>
@@ -59,20 +60,20 @@
 </template>
 
 <script>
-import { getUniqueCategories, getUniqueCollection, getUniqueAroman } from "@/api/request";
+import { getUniqueFilter } from "@/api/request";
 
 export default {
    emits: ["filterHandler"],
 
    async setup() {
-      const category = await useAsyncData(() => getUniqueCategories());
-      const collection = await useAsyncData(() => getUniqueCollection());
-      const aroma = await useAsyncData(() => getUniqueAroman());
+      const { data } = await useAsyncData("filter", () => getUniqueFilter(), {
+         lazy: true,
+      });
 
       return {
-         category: category.data.value,
-         collection: collection.data.value,
-         aroma: aroma.data.value,
+         category: data.value.uniqueCategories,
+         collection: data.value.uniqueCollections,
+         aroma: data.value.uniqueAromas,
       };
    },
 
