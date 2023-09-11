@@ -1,5 +1,4 @@
 import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
-const isDev = process.env.NODE_ENV !== "production";
 
 export default defineNuxtConfig({
    builder: "vite",
@@ -28,7 +27,6 @@ export default defineNuxtConfig({
    app: {
       pageTransition: false,
       layoutTransition: false,
-      // buildAssetsDir: "/assets/"
    },
 
    vite: {
