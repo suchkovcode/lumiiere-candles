@@ -49,11 +49,11 @@
 </template>
 
 <script>
-import { getPostcardCard } from "@/api/request";
+import { getPostcardMore } from "@/api/request";
 
 export default {
    async setup() {
-      const { data } = await useAsyncData(() => getPostcardCard());
+      const { data } = await useAsyncData(() => getPostcardMore());
       return {
          card: data.value,
       };
