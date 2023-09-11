@@ -26,9 +26,9 @@ export const getProduct = async (params) => {
          return {
             ...attributes,
             img: img?.data?.attributes || {},
-            aroma: aromaData?.attributes?.name || null,
-            category: categoryData?.attributes?.name || null,
-            collection: collectionData?.attributes?.name || null,
+            aroma: aromaData?.attributes?.name || {},
+            category: categoryData?.attributes?.name || {},
+            collection: collectionData?.attributes?.name || {},
             tags: tagNames,
          };
       });
@@ -49,10 +49,10 @@ export const getProductOne = async (id, params) => {
       return {
          card: {
             ...attributes,
-            img: img.data.attributes,
-            aroma: Aroma?.data?.attributes?.name,
-            category: Category?.data?.attributes?.name,
-            collection: Collection?.data?.attributes?.name,
+            img: img?.data?.attributes || {},
+            aroma: Aroma?.data?.attributes?.name || {},
+            category: Category?.data?.attributes?.name || {},
+            collection: Collection?.data?.attributes?.name || {},
             tags: tagNames,
          },
          meta: data.meta,
@@ -63,35 +63,31 @@ export const getProductOne = async (id, params) => {
    }
 };
 
-export const getUniqueCategories = async () => {
+export const getUniqueFilter = async () => {
    const store = useAppStore();
    const { card } = await getProduct(store.params);
+
+   const isEmptyObject = (obj) => {
+      return Object.keys(obj).length === 0;
+   };
 
    const uniqueCategories = [...new Set(card.map((item) => item.category))]
-      .filter((category) => category !== null)
+      .filter((category) => category !== null && !isEmptyObject(category))
       .sort((a, b) => b.localeCompare(a));
-
-   return uniqueCategories;
-};
-
-export const getUniqueCollection = async () => {
-   const store = useAppStore();
-   const { card } = await getProduct(store.params);
 
    const uniqueCollections = [...new Set(card.map((item) => item.collection))]
-      .filter((collection) => collection !== null)
+      .filter((collection) => collection !== null && !isEmptyObject(collection))
       .sort((a, b) => b.localeCompare(a));
 
-   return uniqueCollections;
-};
+   const uniqueAromas = [...new Set(card.map((item) => item.aroma))]
+      .filter((aroma) => aroma !== null && !isEmptyObject(aroma))
+      .sort((a, b) => b.localeCompare(a));
 
-export const getUniqueAroman = async () => {
-   const store = useAppStore();
-   const { card } = await getProduct(store.params);
-
-   const uniqueAromas = [...new Set(card.map((item) => item.aroma))].filter((aroma) => aroma !== null).sort((a, b) => b.localeCompare(a));
-
-   return uniqueAromas;
+   return {
+      uniqueCategories,
+      uniqueCollections,
+      uniqueAromas,
+   };
 };
 
 export const getCandlesCard = async () => {
@@ -109,13 +105,7 @@ export const getMeltsCard = async () => {
 export const getBoxesCard = async () => {
    const store = useAppStore();
    const { card } = await getProduct(store.params);
-   return card.filter((item) => item.category === "Наборы свечей");
-};
-
-export const getPostcardCard = async () => {
-   const store = useAppStore();
-   const { card } = await getProduct(store.params);
-   return card.filter((item) => item.category === "Открытки");
+   return card.filter((item) => item.category === "Наборы");
 };
 
 export const getPostcardMore = async () => {
