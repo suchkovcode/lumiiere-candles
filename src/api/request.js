@@ -77,11 +77,11 @@ export const getUniqueFilter = async () => {
 
    const uniqueCollections = [...new Set(card.map((item) => item.collection))]
       .filter((collection) => collection !== null && !isEmptyObject(collection))
-      .sort((a, b) => b.localeCompare(a));
+      .sort((a, b) => a.localeCompare(b));
 
    const uniqueAromas = [...new Set(card.map((item) => item.aroma))]
       .filter((aroma) => aroma !== null && !isEmptyObject(aroma))
-      .sort((a, b) => b.localeCompare(a));
+      .sort((a, b) => a.localeCompare(b));
 
    return {
       uniqueCategories,
