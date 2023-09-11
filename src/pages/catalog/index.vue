@@ -21,7 +21,7 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#search"></use>
                </svg>
             </div>
-            <button class="goods__search-btn" @click="serchUpdate(searchQuery)">Найти</button>
+            <button class="goods__search-btn" @click="false">Найти</button>
          </div>
       </div>
    </section>
@@ -50,18 +50,20 @@ import { getProduct } from "@/api/request";
 export default {
    async setup() {
       const store = useAppStore();
-      const { data } = await useAsyncData(() =>
-         getProduct({
-            "locale": store.params.locale,
-            "populate": store.params.populate,
-            "pagination[page]": 1,
-            "pagination[pageSize]": 100,
-         }),
-      );
 
-      return {
-         card: data.value.card,
-      };
+      try {
+         const { data } = await useAsyncData(() =>
+            getProduct({
+               "locale": store.params.locale,
+               "populate": store.params.populate,
+               "pagination[page]": 1,
+               "pagination[pageSize]": 100,
+            }),
+         );
+         return {
+            card: data.value.card,
+         };
+      } catch (error) {}
    },
 
    data() {
