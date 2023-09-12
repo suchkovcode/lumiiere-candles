@@ -96,21 +96,24 @@ export default {
 
    computed: {
       filteredProducts() {
-         const selectedCategory = this.filter.category;
          const sortingFunctions = {
             new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
             old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
             start: (a, b) => b.title.localeCompare(a.title),
             end: (a, b) => a.title.localeCompare(b.title),
          };
-         const sortingFunction = sortingFunctions[this.filter.sort];
-         const selectedAromas = new Set(this.filter.aroma);
-         const selectedCollections = new Set(this.filter.collection);
-         const startIndex = (this.pageNumber - 1) * 6;
+
+         const { sort, aroma, collection, category } = this.filter;
+         const { pageNumber, card } = this;
+         const startIndex = (pageNumber - 1) * 6;
          const endIndex = startIndex + 6;
          const searchQuery = this.searchQuery.trim().toLowerCase();
 
-         const filteredByCategory = selectedCategory === "Все" ? this.card : this.card.filter((item) => item.category === selectedCategory);
+         const sortingFunction = sortingFunctions[sort];
+         const selectedAromas = new Set(aroma);
+         const selectedCollections = new Set(collection);
+
+         const filteredByCategory = category === "Все" ? card : card.filter((item) => item.category === category);
 
          const sortedByCategory = sortingFunction ? [...filteredByCategory].sort(sortingFunction) : [...filteredByCategory];
 
