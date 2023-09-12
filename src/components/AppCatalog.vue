@@ -1,6 +1,6 @@
 <template>
    <div class="catalogs">
-      <card v-for="item in dataItem" :key="item.id" :card-data="item" />
+      <card v-for="(item, index) in dataItem" v-show="index < visibleItem" :key="item.uid" :card-data="item" />
    </div>
 </template>
 
@@ -10,6 +10,12 @@ export default {
       dataItem: {
          type: [Array, Object],
          required: true,
+      },
+
+      visibleItem: {
+         type: Number,
+         required: false,
+         default: 100,
       },
    },
 };
