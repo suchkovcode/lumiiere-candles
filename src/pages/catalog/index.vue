@@ -25,7 +25,7 @@
          </div>
       </div>
    </section>
-   <section class="allcatalog">
+   <div class="allcatalog">
       <div class="container">
          <div class="allcatalog__grid">
             <AppFilter @filter-handler="filter = $event" />
@@ -40,7 +40,7 @@
             </div>
          </div>
       </div>
-   </section>
+   </div>
 </template>
 
 <script>
