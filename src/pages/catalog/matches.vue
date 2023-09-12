@@ -49,8 +49,6 @@
 </template>
 
 <script>
-import { getPostcardMore } from "@/api/request";
-
 export default {
    // async setup() {
    //    const { data } = await useAsyncData(() => getPostcardMore());

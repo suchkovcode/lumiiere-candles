@@ -66,7 +66,6 @@
 </template>
 
 <script>
-import { getMeltsCard } from "@/api/request";
 
 export default {
    // async setup() {

@@ -50,8 +50,6 @@
 </template>
 
 <script>
-import { getBoxesCard } from "@/api/request";
-
 export default {
    // async setup() {
    //    const { data } = await useAsyncData(() => getBoxesCard());
