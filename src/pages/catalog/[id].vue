@@ -13,7 +13,7 @@
                      <p class="post__article">
                         Артикул: <span class="post__article-size"> {{ cardArticle }} </span>
                      </p>
-                     <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" />
+                     <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cards.price.currency" />
                      <card-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="card.size = $event" />
                      <div class="post__btn">
                         <card-count :count-data="card.count" @count-item="card.count = $event" />
@@ -55,15 +55,31 @@
 import { mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
 import { useBacketStore } from "@/store/backetStore";
-import { getProductOne } from "@/api/request";
 
 export default {
    async setup() {
       const route = useRoute();
       const store = useAppStore();
-      const { card } = await getProductOne(route.params.id, store.params);
+      const config = useRuntimeConfig();
+
+      const { data } = await useFetch(`${config.public.STRAPI}/api/products/${route.params.id}`, {
+         method: "GET",
+         params: { locale: store.params.locale },
+      });
+
+
+      const { Aroma, Category, Collection, img, tags, ...attributes } = data.value.data.attributes;
+
+      const tagNames = tags.map((tag) => tag.name);
       return {
-         cards: card,
+         cards: {
+            ...attributes,
+            img: img?.data?.attributes || {},
+            aroma: Aroma?.data?.attributes?.name || {},
+            category: Category?.data?.attributes?.name || {},
+            collection: Collection?.data?.attributes?.name || {},
+            tags: tagNames,
+         },
       };
    },
 
