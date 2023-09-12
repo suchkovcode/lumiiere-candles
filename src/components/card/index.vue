@@ -16,7 +16,7 @@
          <h3 class="card__title">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
          <p v-if="isCandles || isMelts" class="card__description">{{ categoryJoin }}</p>
-         <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" />
+         <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cardData.price.currency" />
          <card-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="card.size = $event" />
       </div>
       <footer class="card__footer">
