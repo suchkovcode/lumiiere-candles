@@ -199,7 +199,7 @@
             <nuxt-link class="btn btn--catalog catalog__btn" to="/catalog"> Все товары </nuxt-link>
          </header>
          <AppCatalog :data-item="card" :visible-item="countProductCatalog" />
-         <button v-if="countProductCatalog < 16" class="catalog__btn-loading" @click="countProductCatalog += 4">Загрузить еще</button>
+         <button v-if="card > 4 && countProductCatalog < 16" class="catalog__btn-loading" @click="countProductCatalog += 4">Загрузить еще</button>
       </div>
       <svg class="hero__wave-2 hero__wave-2--white hero__wave-2--wave-1" width="11700" height="90">
          <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
@@ -222,13 +222,15 @@ import { useAppStore } from "@/store/appStore";
 export default {
    async setup() {
       const store = useAppStore();
-      const { data } = await useFetch("https://strapi-2vim.onrender.com/api/products", {
+      const config = useRuntimeConfig();
+
+      const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
          method: "GET",
          params: {
             "pagination[pageSize]": 16,
             "locale": store.params.locale,
          },
-      })
+      });
 
       const arrayCard = data.value.data.map((item) => {
          const {
