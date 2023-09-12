@@ -225,7 +225,7 @@ export default {
       const { data } = await useFetch("https://strapi-2vim.onrender.com/api/products", {
          method: "GET",
          params: {
-            "pagination[pageSize]": 24,
+            "pagination[pageSize]": 16,
             "locale": store.params.locale,
          },
       })
