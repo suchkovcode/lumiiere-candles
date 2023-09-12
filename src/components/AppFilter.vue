@@ -1,16 +1,15 @@
 <template>
    <aside class="filter">
-      <!-- <div class="filter__radio">
+      <div class="filter__radio">
          <label class="filter__label">
             <input v-model="filter.category" class="filter__input" type="radio" value="Все" />
             <span class="filter__name">Все</span>
          </label>
-         <label v-for="item in category" :key="item" class="filter__label">
+         <label v-for="item in getUniqueFilter.uniqueCategories" :key="item" class="filter__label">
             <input v-model="filter.category" class="filter__input" type="radio" :value="item" />
             <span class="filter__name">{{ item }}</span>
          </label>
       </div>
-
       <div class="filter__title">
          <svg class="filter__title-icon">
             <use xlink:href="@/assets/img/svg/sprite.svg#catalogFilter"></use>
@@ -41,7 +40,7 @@
       <div class="filter__sort" :class="{ active: isClickCollection }">
          <button class="filter__sort-btn" @click="isClickCollection = !isClickCollection">Коллекция</button>
          <div class="filter__sort-drobdown filter__sort-drobdown--gap">
-            <label v-for="item in collection" :key="item" class="filter__label filter__label--checkbox">
+            <label v-for="item in getUniqueFilter.uniqueCollections" :key="item" class="filter__label filter__label--checkbox">
                <input v-model="filter.collection" class="filter__checkbox" type="checkbox" :value="item" />
                <span class="filter__name">{{ item }}</span>
             </label>
@@ -50,32 +49,59 @@
       <div class="filter__sort" :class="{ active: isClickAroma }">
          <button class="filter__sort-btn" @click="isClickAroma = !isClickAroma">Аромат</button>
          <div class="filter__sort-drobdown filter__sort-drobdown--gap">
-            <label v-for="item in aroma" :key="item" class="filter__label filter__label--checkbox">
+            <label v-for="item in getUniqueFilter.uniqueAromas" :key="item" class="filter__label filter__label--checkbox">
                <input v-model="filter.aroma" class="filter__checkbox" type="checkbox" :value="item" />
                <span class="filter__name">{{ item }}</span>
             </label>
          </div>
-      </div> -->
+      </div>
    </aside>
 </template>
 
 <script>
-import { getUniqueFilter } from "@/api/request";
+import { useAppStore } from '@/store/appStore';
 
 export default {
    emits: ["filterHandler"],
 
-   // async setup() {
-   //    const { data } = await useAsyncData("filter", () => getUniqueFilter(), {
-   //       lazy: true,
-   //    });
+   async setup() {
+      const store = useAppStore();
+      const config = useRuntimeConfig();
 
-   //    return {
-   //       category: data.value.uniqueCategories,
-   //       collection: data.value.uniqueCollections,
-   //       aroma: data.value.uniqueAromas,
-   //    };
-   // },
+      const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
+         method: "GET",
+         params: {
+            "pagination[pageSize]": 100,
+            "locale": store.params.locale,
+         },
+      });
+
+      const arrayCard = data.value.data.map((item) => {
+         const {
+            Aroma: { data: aromaData },
+            Category: { data: categoryData },
+            Collection: { data: collectionData },
+            img,
+            tags,
+            ...attributes
+         } = item.attributes;
+
+         const tagNames = tags.map((tag) => tag?.name || null);
+
+         return {
+            ...attributes,
+            img: img?.data?.attributes || {},
+            aroma: aromaData?.attributes?.name || {},
+            category: categoryData?.attributes?.name || {},
+            collection: collectionData?.attributes?.name || {},
+            tags: tagNames,
+         };
+      });
+
+      return {
+         card: arrayCard,
+      };
+   },
 
    data() {
       return {
@@ -90,6 +116,32 @@ export default {
          isClickAroma: false,
          isClickCollection: false,
       };
+   },
+
+   computed: {
+      getUniqueFilter() {
+         const isEmptyObject = (obj) => {
+            return Object.keys(obj).length === 0;
+         };
+
+         const uniqueCategories = [...new Set(this.card.map((item) => item.category))]
+            .filter((category) => category !== null && !isEmptyObject(category))
+            .sort((a, b) => b.localeCompare(a));
+
+         const uniqueCollections = [...new Set(this.card.map((item) => item.collection))]
+            .filter((collection) => collection !== null && !isEmptyObject(collection))
+            .sort((a, b) => a.localeCompare(b));
+
+         const uniqueAromas = [...new Set(this.card.map((item) => item.aroma))]
+            .filter((aroma) => aroma !== null && !isEmptyObject(aroma))
+            .sort((a, b) => a.localeCompare(b));
+
+         return {
+            uniqueCategories,
+            uniqueCollections,
+            uniqueAromas,
+         };
+      },
    },
 
    watch: {
