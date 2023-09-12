@@ -1,6 +1,6 @@
 <template>
    <aside class="filter">
-      <div class="filter__radio">
+      <!-- <div class="filter__radio">
          <label class="filter__label">
             <input v-model="filter.category" class="filter__input" type="radio" value="Все" />
             <span class="filter__name">Все</span>
@@ -55,7 +55,7 @@
                <span class="filter__name">{{ item }}</span>
             </label>
          </div>
-      </div>
+      </div> -->
    </aside>
 </template>
 
@@ -65,17 +65,17 @@ import { getUniqueFilter } from "@/api/request";
 export default {
    emits: ["filterHandler"],
 
-   async setup() {
-      const { data } = await useAsyncData("filter", () => getUniqueFilter(), {
-         lazy: true,
-      });
+   // async setup() {
+   //    const { data } = await useAsyncData("filter", () => getUniqueFilter(), {
+   //       lazy: true,
+   //    });
 
-      return {
-         category: data.value.uniqueCategories,
-         collection: data.value.uniqueCollections,
-         aroma: data.value.uniqueAromas,
-      };
-   },
+   //    return {
+   //       category: data.value.uniqueCategories,
+   //       collection: data.value.uniqueCollections,
+   //       aroma: data.value.uniqueAromas,
+   //    };
+   // },
 
    data() {
       return {
