@@ -30,11 +30,10 @@ export default {
    emits: ["closeCanvas"],
 
    async setup() {
-      const { find } = useStrapi();
-      const { data } = await find("currency");
-      return { currency: data.attributes.currency };
+      const { data } = await useFetch(`https://strapi-2vim.onrender.com/api/currency`)
+      return { currency:data.value.data.attributes.currency};
    },
-
+   
    data() {
       return {
          checkout: false,
