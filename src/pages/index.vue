@@ -198,7 +198,7 @@
             <p class="subtitle catalog__subtitle">Свечи, которые действительно пахнут!</p>
             <nuxt-link class="btn btn--catalog catalog__btn" to="/catalog"> Все товары </nuxt-link>
          </header>
-         <!-- <AppCatalog :data-item="renderLimitProductCatalog" /> -->
+         <AppCatalog :data-item="card" :visible-item="countProductCatalog" />
          <button v-if="countProductCatalog < 16" class="catalog__btn-loading" @click="countProductCatalog += 4">Загрузить еще</button>
       </div>
       <svg class="hero__wave-2 hero__wave-2--white hero__wave-2--wave-1" width="11700" height="90">
@@ -218,29 +218,49 @@
 <script>
 import { mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
-import { getProduct } from "@/api/request";
 
 export default {
    async setup() {
       const store = useAppStore();
-      const data = await useAsyncData(() => getProduct(store.params));
+      const { data } = await useFetch("https://strapi-2vim.onrender.com/api/products", {
+         method: "GET",
+         params: {
+            "pagination[pageSize]": 24,
+            "locale": store.params.locale,
+         },
+      })
+
+      const arrayCard = data.value.data.map((item) => {
+         const {
+            Aroma: { data: aromaData },
+            Category: { data: categoryData },
+            Collection: { data: collectionData },
+            img,
+            tags,
+            ...attributes
+         } = item.attributes;
+
+         const tagNames = tags.map((tag) => tag?.name || null);
+
+         return {
+            ...attributes,
+            img: img?.data?.attributes || {},
+            aroma: aromaData?.attributes?.name || {},
+            category: categoryData?.attributes?.name || {},
+            collection: collectionData?.attributes?.name || {},
+            tags: tagNames,
+         };
+      });
 
       return {
-         card: data?.data?.value?.card || {},
-         meta: data?.data?.value?.meta || {},
-      };
+         card: arrayCard
+      }
    },
 
    data() {
       return {
          countProductCatalog: 8,
       };
-   },
-
-   computed: {
-      renderLimitProductCatalog() {
-         return this.card.slice(0, this.countProductCatalog);
-      },
    },
 
    methods: {
