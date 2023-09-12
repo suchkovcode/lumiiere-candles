@@ -7,7 +7,7 @@
          <div class="backet__product-list">
             <canvas-backet-item v-for="item in cards" :key="item.id" :backet-item="item" />
          </div>
-         <p class="backet__product-all">Итого: {{ getSumAddition }} {{ currency }}</p>
+         <!-- <p class="backet__product-all">Итого: {{ getSumAddition }} {{ currency }}</p> -->
          <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
       </div>
       <p v-else-if="!cards.length && !checkout" class="backet__empty">Корзина пуста</p>
@@ -29,11 +29,11 @@ export default {
 
    emits: ["closeCanvas"],
 
-   async setup() {
-      const { data } = await useFetch(`https://strapi-2vim.onrender.com/api/currency`)
-      return { currency:data.value.data.attributes.currency};
-   },
-   
+   // async setup() {
+   //    const { data } = await useFetch(`https://strapi.lumiiere-candles.com/api/currency`)
+   //    return { currency:data.value.data.attributes.currency};
+   // },
+
    data() {
       return {
          checkout: false,
