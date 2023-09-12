@@ -223,11 +223,11 @@ import { getProduct } from "@/api/request";
 export default {
    async setup() {
       const store = useAppStore();
-      const { card, meta } = await useAsyncData(() => getProduct(store.params));
+      const data = await useAsyncData(() => getProduct(store.params));
 
       return {
-         card: card?.data?.value | {},
-         meta: meta?.data?.value | {},
+         card: data?.data?.value?.card || {},
+         meta: data?.data?.value?.meta || {},
       };
    },
 
