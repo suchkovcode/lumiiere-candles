@@ -1,53 +1,22 @@
 <template>
-   <form class="backetForm" @submit.prevent="onSubmit">
+   <form class="backetForm">
       <div class="backetForm__contact">
          <h2 class="backetForm__title">Оформить заказ</h2>
          <div class="backetForm__input-box">
-            <input
-               v-model.trim="name"
-               class="backetForm__input"
-               name="name"
-               type="text"
-               placeholder="Ваше имя"
-               :class="{ invalid: v$.name.$error }"
-               @blur="v$.name.$touch" />
-            <span v-if="v$.name.$error" class="backetForm__input-err">{{ v$.name.$errors[0].$message }}</span>
+            <input v-model.trim="name" class="backetForm__input" name="name" type="text" placeholder="Ваше имя" />
          </div>
          <div class="backetForm__input-box">
-            <input
-               v-model.trim="email"
-               class="backetForm__input"
-               name="email"
-               type="email"
-               placeholder="Электронная почта"
-               :class="{ invalid: v$.email.$error }"
-               @blur="v$.email.$touch" />
-            <span v-if="v$.email.$error" class="backetForm__input-err">{{ v$.email.$errors[0].$message }}</span>
+            <input v-model.trim="email" class="backetForm__input" name="email" type="email" placeholder="Электронная почта" />
          </div>
          <div class="backetForm__input-box">
-            <input
-               v-model.trim="tel"
-               class="backetForm__input"
-               name="phone"
-               type="tel"
-               placeholder="+38 (999) 999 99-99"
-               :class="{ invalid: v$.tel.$error }"
-               @blur="v$.tel.$touch" />
-            <span v-if="v$.tel.$error" class="backetForm__input-err">{{ v$.tel.$errors[0].$message }}</span>
+            <input v-model.trim="tel" class="backetForm__input" name="phone" type="tel" placeholder="+38 (999) 999 99-99" />
          </div>
       </div>
       <div class="backetForm__delivery">
          <h2 class="backetForm__title">Доставка</h2>
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Город</span>
-            <input
-               v-model.trim="city"
-               class="backetForm__input"
-               type="text"
-               placeholder="Киев"
-               :class="{ invalid: v$.city.$error }"
-               @blur="v$.city.$touch" />
-            <span v-if="v$.city.$error" class="backetForm__input-err">{{ v$.city.$errors[0].$message }}</span>
+            <input v-model.trim="city" class="backetForm__input" type="text" placeholder="Киев" />
          </label>
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Промокод:</span>
@@ -69,9 +38,6 @@
 </template>
 
 <script>
-import { useVuelidate } from "@vuelidate/core";
-import { required, email, minLength, helpers, numeric } from "@vuelidate/validators";
-
 export default {
    props: {
       sumData: {
@@ -87,7 +53,6 @@ export default {
 
    data() {
       return {
-         v$: useVuelidate(),
          name: null,
          email: null,
          tel: null,
@@ -95,33 +60,6 @@ export default {
          code: null,
          sign: null,
       };
-   },
-
-   validations() {
-      return {
-         name: {
-            required: helpers.withMessage("Обязательное поле", required),
-            minLength: helpers.withMessage("Минимальное количество символов 3", minLength(3)),
-         },
-         email: {
-            required: helpers.withMessage("Обязательное поле", required),
-            email: helpers.withMessage("Введите корректный email", email),
-         },
-         tel: {
-            required: helpers.withMessage("Обязательное поле", required),
-            numeric: helpers.withMessage("Введите корректный номер", numeric),
-         },
-         city: {
-            required: helpers.withMessage("Обязательное поле", required),
-            minLength: helpers.withMessage("Минимальное количество символов 3", minLength(3)),
-         },
-      };
-   },
-
-   methods: {
-      onSubmit() {
-         this.v$.$validate();
-      },
    },
 };
 </script>
