@@ -6,6 +6,12 @@
    gap: 20px;
    margin-bottom: 30px;
 
+   &__card--grey {
+      & .card {
+         background-color: #f7f7f6;
+      }
+   }
+
    @include lg {
       justify-items: start;
       margin-bottom: 50px;
