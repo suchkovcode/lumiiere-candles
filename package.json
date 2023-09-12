@@ -8,11 +8,11 @@
    "homepage": "lumiiere-candles.suchkov.cc",
    "private": true,
    "scripts": {
-      "build": "nuxt build",
-      "dev": "nuxt dev",
-      "generate": "nuxt generate",
-      "preview": "nuxt preview",
-      "postinstall": "nuxt prepare",
+      "build:dev": "nuxt dev",
+      "build:prod": "nuxt build",
+      "build:ssr": "nuxt generate",
+      "build:preview": "nuxt preview",
+      "build:postinstall": "nuxt prepare",
       "build:postcss": "postcss dist/**/*.css --dir dist/_nuxt"
    },
    "devDependencies": {
