@@ -30,13 +30,13 @@
          <div class="allcatalog__grid">
             <AppFilter @filter-handler="filter = $event" />
             <div>
-               <AppCatalog v-if="filteredProducts.products.length" :data-item="filteredProducts.products" class="allcatalog__cards" />
-               <p v-else class="emptyData">Список пуст</p>
-               <AppPagination
+               <!-- <AppCatalog v-if="filteredProducts.products.length" :data-item="filteredProducts.products" class="allcatalog__cards" /> -->
+               <p class="emptyData">Список пуст</p>
+               <!-- <AppPagination
                   class="allcatalog__pagination"
                   :pagination-data="filteredProducts.pagination"
                   :page-data="pageNumber"
-                  @page-number="pageNumber = $event" />
+                  @page-number="pageNumber = $event" /> -->
             </div>
          </div>
       </div>
