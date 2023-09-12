@@ -69,44 +69,44 @@ export default {
    },
 
    computed: {
-      filteredProducts() {
-         const selectedCategory = this.filter.category;
-         const sortingFunctions = {
-            new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
-            old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
-            start: (a, b) => b.title.localeCompare(a.title),
-            end: (a, b) => a.title.localeCompare(b.title),
-         };
-         const sortingFunction = sortingFunctions[this.filter.sort];
-         const selectedAromas = new Set(this.filter.aroma);
-         const selectedCollections = new Set(this.filter.collection);
-         const startIndex = (this.pageNumber - 1) * 6;
-         const endIndex = startIndex + 6;
-         const searchQuery = this.searchQuery.trim().toLowerCase();
+      // filteredProducts() {
+      //    const selectedCategory = this.filter.category;
+      //    const sortingFunctions = {
+      //       new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
+      //       old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
+      //       start: (a, b) => b.title.localeCompare(a.title),
+      //       end: (a, b) => a.title.localeCompare(b.title),
+      //    };
+      //    const sortingFunction = sortingFunctions[this.filter.sort];
+      //    const selectedAromas = new Set(this.filter.aroma);
+      //    const selectedCollections = new Set(this.filter.collection);
+      //    const startIndex = (this.pageNumber - 1) * 6;
+      //    const endIndex = startIndex + 6;
+      //    const searchQuery = this.searchQuery.trim().toLowerCase();
 
-         const filteredByCategory = selectedCategory === "Все" ? this.card : this.card.filter((item) => item.category === selectedCategory);
+      //    const filteredByCategory = selectedCategory === "Все" ? this.card : this.card.filter((item) => item.category === selectedCategory);
 
-         const sortedByCategory = sortingFunction ? [...filteredByCategory].sort(sortingFunction) : [...filteredByCategory];
+      //    const sortedByCategory = sortingFunction ? [...filteredByCategory].sort(sortingFunction) : [...filteredByCategory];
 
-         const filteredByAroma = selectedAromas.size === 0 ? sortedByCategory : sortedByCategory.filter((item) => selectedAromas.has(item.aroma));
+      //    const filteredByAroma = selectedAromas.size === 0 ? sortedByCategory : sortedByCategory.filter((item) => selectedAromas.has(item.aroma));
 
-         const filteredByCollection =
-            selectedCollections.size === 0 ? filteredByAroma : filteredByAroma.filter((item) => selectedCollections.has(item.collection));
+      //    const filteredByCollection =
+      //       selectedCollections.size === 0 ? filteredByAroma : filteredByAroma.filter((item) => selectedCollections.has(item.collection));
 
-         const filteredByLimitedCards = filteredByCollection.slice(startIndex, endIndex);
+      //    const filteredByLimitedCards = filteredByCollection.slice(startIndex, endIndex);
 
-         const filteredBySearchQuery = !searchQuery
-            ? filteredByLimitedCards
-            : filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
+      //    const filteredBySearchQuery = !searchQuery
+      //       ? filteredByLimitedCards
+      //       : filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
 
-         const itemCount = searchQuery.length > 0 ? filteredBySearchQuery.length : filteredByCollection.length;
-         const cardPaginationCount = Math.ceil(itemCount / 6);
+      //    const itemCount = searchQuery.length > 0 ? filteredBySearchQuery.length : filteredByCollection.length;
+      //    const cardPaginationCount = Math.ceil(itemCount / 6);
 
-         return {
-            products: filteredBySearchQuery,
-            pagination: cardPaginationCount,
-         };
-      },
+      //    return {
+      //       products: filteredBySearchQuery,
+      //       pagination: cardPaginationCount,
+      //    };
+      // },
    },
 };
 </script>

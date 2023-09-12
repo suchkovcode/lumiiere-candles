@@ -198,7 +198,7 @@
             <p class="subtitle catalog__subtitle">Свечи, которые действительно пахнут!</p>
             <nuxt-link class="btn btn--catalog catalog__btn" to="/catalog"> Все товары </nuxt-link>
          </header>
-         <AppCatalog :data-item="renderLimitProductCatalog" />
+         <!-- <AppCatalog :data-item="renderLimitProductCatalog" /> -->
          <button v-if="countProductCatalog < 16" class="catalog__btn-loading" @click="countProductCatalog += 4">Загрузить еще</button>
       </div>
       <svg class="hero__wave-2 hero__wave-2--white hero__wave-2--wave-1" width="11700" height="90">
