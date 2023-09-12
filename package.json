@@ -41,7 +41,6 @@
    },
 
    "dependencies": {
-      "@vuelidate/core": "^2.0.3",
       "@vueuse/core": "^10.4.1",
       "axios": "^1.5.0",
       "pinia": "^2.1.6"
