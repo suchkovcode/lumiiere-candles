@@ -1,6 +1,12 @@
 import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
 
 export default defineNuxtConfig({
+   runtimeConfig: {
+      public: {
+         STRAPI: process.env.API_URL,
+      },
+   },
+
    builder: "vite",
    srcDir: "./src/",
    telemetry: false,
