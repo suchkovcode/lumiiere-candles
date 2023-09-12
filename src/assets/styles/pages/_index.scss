@@ -680,6 +680,10 @@
          color: var(--color_base);
          background-color: var(--color_primary);
       }
+
+      &--margin {
+         margin-bottom: 50px;
+      }
    }
 
    & .catalogs {
