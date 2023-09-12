@@ -30,13 +30,13 @@
          <div class="allcatalog__grid">
             <AppFilter @filter-handler="filter = $event" />
             <div>
-               <!-- <AppCatalog v-if="filteredProducts.products.length" :data-item="filteredProducts.products" class="allcatalog__cards" />
+               <AppCatalog v-if="filteredProducts.products.length" :data-item="filteredProducts.products" class="allcatalog__cards" />
                <p v-else class="emptyData">Список пуст</p>
                <AppPagination
                   class="allcatalog__pagination"
                   :pagination-data="filteredProducts.pagination"
                   :page-data="pageNumber"
-                  @page-number="pageNumber = $event" /> -->
+                  @page-number="pageNumber = $event" />
             </div>
          </div>
       </div>
@@ -47,44 +47,44 @@
 import { useAppStore } from "@/store/appStore";
 
 export default {
-   // async setup() {
-   //    const store = useAppStore();
-   //    const config = useRuntimeConfig();
+   async setup() {
+      const store = useAppStore();
+      const config = useRuntimeConfig();
 
-   //    const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
-   //       method: "GET",
-   //       params: {
-   //          "pagination[pageSize]": 16,
-   //          "locale": store.params.locale,
-   //       },
-   //    });
+      const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
+         method: "GET",
+         params: {
+            "pagination[pageSize]": 16,
+            "locale": store.params.locale,
+         },
+      });
 
-   //    const arrayCard = data.value.data.map((item) => {
-   //       const {
-   //          Aroma: { data: aromaData },
-   //          Category: { data: categoryData },
-   //          Collection: { data: collectionData },
-   //          img,
-   //          tags,
-   //          ...attributes
-   //       } = item.attributes;
+      const arrayCard = data.value.data.map((item) => {
+         const {
+            Aroma: { data: aromaData },
+            Category: { data: categoryData },
+            Collection: { data: collectionData },
+            img,
+            tags,
+            ...attributes
+         } = item.attributes;
 
-   //       const tagNames = tags.map((tag) => tag?.name || null);
+         const tagNames = tags.map((tag) => tag?.name || null);
 
-   //       return {
-   //          ...attributes,
-   //          img: img?.data?.attributes || {},
-   //          aroma: aromaData?.attributes?.name || {},
-   //          category: categoryData?.attributes?.name || {},
-   //          collection: collectionData?.attributes?.name || {},
-   //          tags: tagNames,
-   //       };
-   //    });
+         return {
+            ...attributes,
+            img: img?.data?.attributes || {},
+            aroma: aromaData?.attributes?.name || {},
+            category: categoryData?.attributes?.name || {},
+            collection: collectionData?.attributes?.name || {},
+            tags: tagNames,
+         };
+      });
 
-   //    return {
-   //       card: arrayCard,
-   //    };
-   // },
+      return {
+         card: arrayCard,
+      };
+   },
 
    data() {
       return {
