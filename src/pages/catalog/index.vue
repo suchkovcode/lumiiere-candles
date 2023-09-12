@@ -48,17 +48,17 @@ import { useAppStore } from "@/store/appStore";
 import { getProduct } from "@/api/request";
 
 export default {
-   async setup() {
-      const store = useAppStore();
+   // async setup() {
+   //    const store = useAppStore();
 
-      try {
-         const { data } = await useAsyncData(() => getProduct(store.params));
+   //    try {
+   //       const { data } = await useAsyncData(() => getProduct(store.params));
 
-         return {
-            card: data.value.card,
-         };
-      } catch (error) {}
-   },
+   //       return {
+   //          card: data.value.card,
+   //       };
+   //    } catch (error) {}
+   // },
 
    data() {
       return {
