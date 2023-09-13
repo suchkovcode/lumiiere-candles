@@ -19,9 +19,9 @@
       <div class="container">
          <AppCatalog v-if="card.length > 0" :data-item="card" :visible-item="countProductCatalog" class="catalogs__card--grey" />
          <button
-            v-if="card.length > 4 && countProductCatalog < 16"
+            v-if="card.length > 4"
             class="catalog__btn-loading catalog__btn-loading--margin"
-            @click="countProductCatalog += 4">
+            @click="countProductCatalog += 8">
             Загрузить еще
          </button>
          <p v-else-if="!card.length" class="emptyData">Список пуст</p>
@@ -40,7 +40,7 @@ export default {
       const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
          method: "GET",
          params: {
-            "pagination[pageSize]": 16,
+            "pagination[pageSize]": 100,
             "locale": store.params.locale,
          },
       });
