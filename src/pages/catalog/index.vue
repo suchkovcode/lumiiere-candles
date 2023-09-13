@@ -30,8 +30,7 @@
          <div class="allcatalog__grid">
             <AppFilter @filter-handler="filter = $event" />
             <div>
-               <AppCatalog v-if="filteredProducts.products.length" :data-item="filteredProducts.products" class="allcatalog__cards" />
-               <p v-else class="emptyData">Список пуст</p>
+               <AppCatalog class="allcatalog__cards" :data-item="filteredProducts.products" />
                <AppPagination
                   class="allcatalog__pagination"
                   :pagination-data="filteredProducts.pagination"
@@ -58,8 +57,8 @@ export default {
             "locale": store.params.locale,
          },
       });
-      
-      const card = useHandllerApi(data);
+
+      const card = await useHandllerApi(data);
 
       return {
          card,

@@ -67,20 +67,9 @@ export default {
          params: { locale: store.params.locale },
       });
 
+      const cards = useHandllerApiOne(data);
 
-      const { Aroma, Category, Collection, img, tags, ...attributes } = data.value.data.attributes;
-
-      const tagNames = tags.map((tag) => tag.name);
-      return {
-         cards: {
-            ...attributes,
-            img: img?.data?.attributes || {},
-            aroma: Aroma?.data?.attributes?.name || {},
-            category: Category?.data?.attributes?.name || {},
-            collection: Collection?.data?.attributes?.name || {},
-            tags: tagNames,
-         },
-      };
+      return cards;
    },
 
    data() {
