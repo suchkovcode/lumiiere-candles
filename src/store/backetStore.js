@@ -23,7 +23,7 @@ export const useBacketStore = defineStore("backetStore", {
       async addCardBacket(cardData) {
          const store = useAppStore();
          const config = useRuntimeConfig();
-         const isExistsCard = this.cards.find((item) => item.article === card.article[cardData.size]);
+
 
          try {
             const response = await fetch(`${config.public.STRAPI}/api/products/${cardData.id}`, {
@@ -36,9 +36,11 @@ export const useBacketStore = defineStore("backetStore", {
             const data = await response.json();
             const { title, img, price, article } = data.data.attributes;
 
+            const isExistsCard = this.cards.find((item) => item.article === article[cardData.size]);
+
             if (isExistsCard) {
-               isExistsCard.count = Math.min(existingCard.count + cardData.count, 10);
-               this.sumCard(existingCard.article);
+               isExistsCard.count = Math.min(isExistsCard.count + cardData.count, 10);
+               this.sumCard(isExistsCard.article);
             } else {
                const newCardData = {
                   id: cardData.id,
