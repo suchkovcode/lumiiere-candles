@@ -1,6 +1,12 @@
 <template>
    <div class="favoriteItem">
-      <img class="favoriteItem__img" :src="favoriteItem.img.url" alt="Картинка товара" width="70" height="70" />
+      <img
+         class="favoriteItem__img"
+         :src="favoriteItem.img.url"
+         :alt="favoriteItem.img.alternativeText"
+         :title="favoriteItem.img.caption"
+         width="70"
+         height="70" />
       <div class="favoriteItem__options">
          <nuxt-link class="favoriteItem__name" :to="`/catalog/${favoriteItem.uid}`" @click="$emit('closeCanvas', false)">
             {{ favoriteItem.title }}
@@ -10,7 +16,7 @@
       </div>
       <div class="favoriteItem__count">
          <div class="favoriteItem__sum">
-            ${{ favoriteItem.price.small }}
+            {{ favoriteItem.price.currency }} {{ favoriteItem.price.new.small }}
          </div>
       </div>
       <button class="favoriteItem__remove" @click="$emit('delFavorite', favoriteItem.id)"></button>
