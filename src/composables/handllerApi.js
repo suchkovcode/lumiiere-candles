@@ -1,5 +1,5 @@
-export const useHandllerApi = (data) => {
-   const arrayCard = data.value.data.map((item) => {
+export const useHandllerApi = async (data) => {
+   const arrayCard = await data.value.data.map((item) => {
       const {
          Aroma: { data: aromaData },
          Category: { data: categoryData },
@@ -22,4 +22,22 @@ export const useHandllerApi = (data) => {
    });
 
    return arrayCard;
+};
+
+export const useHandllerApiOne = async (data) => {
+
+   const { Aroma, Category, Collection, img, tags, ...attributes } = data.value.data.attributes;
+
+   const tagNames = tags.map((tag) => tag.name);
+
+   return {
+      cards: {
+         ...attributes,
+         img: img?.data?.attributes || {},
+         aroma: Aroma?.data?.attributes?.name || {},
+         category: Category?.data?.attributes?.name || {},
+         collection: Collection?.data?.attributes?.name || {},
+         tags: tagNames,
+      },
+   };
 };
