@@ -22,25 +22,42 @@ export const useBacketStore = defineStore("backetStore", {
    actions: {
       async addCardBacket(cardData) {
          const store = useAppStore();
-         const card = store.products.find((item) => item.uid === cardData.id);
-         const existingCard = this.cards.find((item) => item.article === card.article[cardData.size]);
+         const config = useRuntimeConfig();
+         const isExistsCard = this.cards.find((item) => item.article === card.article[cardData.size]);
 
-         if (existingCard) {
-            existingCard.count = Math.min(existingCard.count + cardData.count, 10);
-            this.sumCard(existingCard.article);
-         } else {
-            const newCardData = {
-               id: cardData.id,
-               article: card.article[cardData.size],
-               count: cardData.count,
-               price: card.price[cardData.size],
-               currency: card.price.currency,
-               size: cardData.size,
-            };
-            this.cards.push(newCardData);
-            this.sumCard(newCardData.article);
+         try {
+            const response = await fetch(`${config.public.STRAPI}/api/products/${cardData.id}`, {
+               method: "GET",
+               params: {
+                  locale: store.params.locale,
+               },
+            });
+
+            const data = await response.json();
+            const { title, img, price, article } = data.data.attributes;
+
+            if (isExistsCard) {
+               isExistsCard.count = Math.min(existingCard.count + cardData.count, 10);
+               this.sumCard(existingCard.article);
+            } else {
+               const newCardData = {
+                  id: cardData.id,
+                  title: title,
+                  img: img.data.attributes,
+                  article: article[cardData.size],
+                  count: cardData.count,
+                  price: price.new[cardData.size],
+                  currency: price.currency,
+                  size: cardData.size,
+               };
+               this.cards.push(newCardData);
+               this.sumCard(newCardData.article);
+            }
+         } catch (err) {
+            console.error(err);
          }
       },
+
       async sumCard(codeCard) {
          const card = this.cards.find((item) => item.article === codeCard);
          if (card) {
