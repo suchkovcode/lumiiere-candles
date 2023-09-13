@@ -52,7 +52,7 @@ export default {
       });
       useSeoMeta({
          title: "Lumiiere Candles | 404",
-         description: "Описание не длиннее 155 символов",
+         description: "Страница ошибки",
       });
 
       defineRobotMeta();
