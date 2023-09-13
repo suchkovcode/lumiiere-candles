@@ -32,12 +32,24 @@
    }
 
    &__input {
+      appearance: none;
+      height: 60px;
       padding: 20px;
+      border: none;
       border-radius: 50px;
+      outline: none;
+      outline-offset: none;
       background-color: var(--color_input);
 
       &-err {
          color: red;
+      }
+
+      &:focus-visible {
+         appearance: none;
+         border: none;
+         outline: none;
+         outline-offset: none;
       }
 
       &.invalid {

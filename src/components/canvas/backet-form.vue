@@ -1,5 +1,5 @@
 <template>
-   <form class="backetForm">
+   <form class="backetForm" @submit.prevent="false">
       <div class="backetForm__contact">
          <h2 class="backetForm__title">Оформить заказ</h2>
          <div class="backetForm__input-box">
@@ -15,8 +15,16 @@
       <div class="backetForm__delivery">
          <h2 class="backetForm__title">Доставка</h2>
          <label class="backetForm__input-box">
-            <span class="backetForm__subtitle">Город</span>
-            <input v-model.trim="city" class="backetForm__input" type="text" placeholder="Киев" />
+            <span class="backetForm__subtitle">Страна:</span>
+            <select v-model.trim="country" class="backetForm__input">
+               <option value="Украина">
+                  Украина
+               </option>
+            </select>
+         </label>
+         <label class="backetForm__input-box">
+            <span class="backetForm__subtitle">Город:</span>
+            <input v-model.trim="city" class="backetForm__input" type="text" placeholder="Ваш город" />
          </label>
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Промокод:</span>
@@ -56,6 +64,7 @@ export default {
          name: null,
          email: null,
          tel: null,
+         country: "Украина",
          city: null,
          code: null,
          sign: null,
