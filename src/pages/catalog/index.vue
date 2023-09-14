@@ -53,7 +53,7 @@ export default {
       const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
          method: "GET",
          params: {
-            "pagination[pageSize]": 16,
+            "pagination[pageSize]": 100,
             "locale": store.params.locale,
          },
       });
