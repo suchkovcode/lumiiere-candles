@@ -30,23 +30,26 @@ export default {
 
    computed: {
       displayedPagination() {
-         const visibleItems = 5;
+         const visibleItems = this.paginationData < 5 ? this.paginationData : 5;
          const halfVisible = Math.floor(visibleItems / 2);
          let start = Math.max(1, this.pageNumber - halfVisible);
          let end = Math.min(this.paginationData, start + visibleItems - 1);
-         const diff = end - start + 1;
-
-         if (diff < visibleItems) {
+         if (end - start + 1 < visibleItems) {
             if (start === 1) {
-               end = visibleItems;
+               end = Math.min(this.paginationData, visibleItems);
             } else {
-               start = this.paginationData - visibleItems + 1;
+               start = Math.max(1, this.paginationData - visibleItems + 1);
                end = this.paginationData;
             }
          }
-
          return Array.from({ length: end - start + 1 }, (_, i) => start + i);
       },
+   },
+
+   watch: {
+      pageData(value) {
+         this.pageNumber = value;
+      }
    },
 
    methods: {

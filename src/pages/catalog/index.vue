@@ -28,7 +28,7 @@
    <div class="allcatalog">
       <div class="container">
          <div class="allcatalog__grid">
-            <AppFilter @filter-handler="filter = $event" />
+            <AppFilter @filter-handler="(filter = $event), (pageNumber = 1)" />
             <div>
                <AppCatalog class="allcatalog__cards" :data-item="filteredProducts.products" />
                <AppPagination
