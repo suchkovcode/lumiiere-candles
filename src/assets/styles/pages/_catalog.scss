@@ -218,10 +218,6 @@
 
    &__pagination {
       margin-bottom: 30px;
-
-      @include md {
-         justify-content: flex-end !important;
-      }
    }
 
    @include sm {
