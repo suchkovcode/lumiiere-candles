@@ -19,12 +19,12 @@
       <div class="container">
          <AppCatalog v-if="card.length > 0" :data-item="card" :visible-item="countProductCatalog" class="catalogs__card--grey" />
          <button
-            v-if="card.length > 4"
+            v-show="card.length > 4 && card.length > countProductCatalog"
             class="catalog__btn-loading catalog__btn-loading--margin"
             @click="countProductCatalog += 8">
             Загрузить еще
          </button>
-         <p v-else-if="!card.length" class="emptyData">Список пуст</p>
+         <p v-if="!card.length" class="emptyData">Список пуст</p>
       </div>
    </section>
 </template>
