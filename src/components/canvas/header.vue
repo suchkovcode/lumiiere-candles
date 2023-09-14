@@ -7,15 +7,3 @@
    </div>
 </template>
 
-<script>
-export default {
-   emits: ["closeCanvas"],
-
-   data() {
-      return {
-         isActive: false,
-      };
-   },
-};
-</script>
-
