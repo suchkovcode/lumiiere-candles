@@ -3,15 +3,17 @@
       <canvas-header @close-canvas="emitCloseCanvas">
          Корзина:
       </canvas-header>
-      <div v-if="cards.length && !checkout" class="backet__product">
-         <div class="backet__product-list">
-            <canvas-backet-item v-for="item in cards" :key="item.id" :backet-item="item" />
+      <ClientOnly>
+         <div v-if="cards.length && !checkout" class="backet__product">
+            <div class="backet__product-list">
+               <canvas-backet-item v-for="item in cards" :key="item.id" :backet-item="item" />
+            </div>
+            <p class="backet__product-all">Итого: {{ getSumAddition }} {{ cards[0].currency }}</p>
+            <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
          </div>
-         <p class="backet__product-all">Итого: {{ getSumAddition }} {{ cards[0].currency }}</p>
-         <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
-      </div>
-      <p v-else-if="!cards.length && !checkout" class="backet__empty">Корзина пуста</p>
-      <canvas-backet-form v-if="checkout" :sum-data="getSumAddition" :currency-data="cards[0].currency" />
+         <p v-show="!cards.length && !checkout" class="backet__empty">Корзина пуста</p>
+         <canvas-backet-form v-if="checkout" :sum-data="getSumAddition" :currency-data="cards[0].currency" />
+      </ClientOnly>
    </div>
 </template>
 

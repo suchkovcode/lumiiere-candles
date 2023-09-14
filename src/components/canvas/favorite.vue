@@ -3,10 +3,12 @@
       <canvas-header @close-canvas="emitCloseCanvas">
          Избранное:
       </canvas-header>
-      <div v-if="cards.length > 0" class="favorite__list">
-         <canvas-favorite-item v-for="item in cards" :key="item.id" :favorite-item="item" @del-favorite="delFavorite(item.uid)" />
-      </div>
-      <p v-else class="favorite__empty">Список избранного пуст</p>
+      <ClientOnly>
+         <div v-show="cards.length > 0" class="favorite__list">
+            <canvas-favorite-item v-for="item in cards" :key="item.id" :favorite-item="item" @del-favorite="delFavorite(item.uid)" />
+         </div>
+         <p v-show="!cards.length" class="favorite__empty">Список избранного пуст</p>
+      </ClientOnly>
    </div>
 </template>
 
@@ -41,4 +43,3 @@ export default {
    },
 };
 </script>
-
