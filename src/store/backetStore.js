@@ -24,7 +24,6 @@ export const useBacketStore = defineStore("backetStore", {
          const store = useAppStore();
          const config = useRuntimeConfig();
 
-
          try {
             const response = await fetch(`${config.public.STRAPI}/api/products/${cardData.id}`, {
                method: "GET",
@@ -86,5 +85,9 @@ export const useBacketStore = defineStore("backetStore", {
             this.sumCard(codeCard);
          }
       },
+   },
+
+   persist: {
+      storage: persistedState.localStorage,
    },
 });

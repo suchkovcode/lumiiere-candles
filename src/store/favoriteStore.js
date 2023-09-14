@@ -21,7 +21,7 @@ export const useFavoriteStore = defineStore("favoriteStore", {
                   locale: store.params.locale,
                },
             });
-            
+
             const data = await response.json();
             const { title, img, price, article } = data.data.attributes;
 
@@ -44,5 +44,9 @@ export const useFavoriteStore = defineStore("favoriteStore", {
       delCardFavorite(cardId) {
          this.cards = this.cards.filter((item) => item.uid !== cardId);
       },
+   },
+   
+   persist: {
+      storage: persistedState.localStorage,
    },
 });
