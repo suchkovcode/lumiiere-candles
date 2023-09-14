@@ -4,10 +4,10 @@
          <span class="price__value"> {{ priceNew }} </span>
          <span class="price__currency"> {{ priceCurrency }} </span>
       </span>
-      <span v-if="priceOld" class="price__old">
+      <del v-if="priceOld" class="price__old">
          <span class="price__value"> {{ priceOld }} </span>
          <span class="price__currency--old"> {{ priceCurrency }} </span>
-      </span>
+      </del>
    </p>
 </template>
 
@@ -27,7 +27,7 @@ export default {
       priceCurrency: {
          type: String,
          required: true,
-      }
+      },
    },
 };
 </script>
