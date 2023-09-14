@@ -3,7 +3,7 @@
    "version": "1.0.0",
    "author": "Nikita Suchkov",
    "license": "MIT",
-   "type": "commonjs",
+   "type": "module",
    "repository": "https://github.com/suchkovcode/lumiiere-candles",
    "homepage": "lumiiere-candles.suchkov.cc",
    "private": true,

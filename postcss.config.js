@@ -1,14 +1,23 @@
-const cssnano = require("cssnano");
+import cssnano from "cssnano";
+import postcssCombineMediaQuery from "postcss-combine-media-query";
+import postcssCombineDuplicatedSelectors from "postcss-combine-duplicated-selectors";
 
-module.exports = () => {
+export default () => {
    return {
       plugins: [
-         require("postcss-combine-media-query"),
-         require("postcss-combine-duplicated-selectors"),
-         cssnano([
-            "default",
-            { discardComments: { removeAll: true }, discardEmpty: true, discardDuplicates: true, minifyFontValues: true },
-         ]),
+         postcssCombineMediaQuery(),
+         postcssCombineDuplicatedSelectors(),
+         cssnano({
+            preset: [
+               "default",
+               {
+                  discardComments: { removeAll: true },
+                  discardEmpty: true,
+                  discardDuplicates: true,
+                  minifyFontValues: true,
+               },
+            ],
+         }),
       ],
    };
 };
