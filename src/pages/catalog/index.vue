@@ -36,6 +36,7 @@
                   :pagination-data="filteredProducts.pagination"
                   :page-data="pageNumber"
                   @page-number="pageNumber = $event" />
+               <p v-show="!filteredProducts.products.length" class="emptyData">Список пуст</p>
             </div>
          </div>
       </div>
