@@ -58,21 +58,46 @@
       </div>
    </section>
    <section class="meltsCatalog">
-      <!-- <div class="container">
-         <AppCatalog v-if="card.length" :data-item="card" />
-         <p v-else class="emptyData">Список пуст</p>
-      </div> -->
+      <div class="container">
+         <AppCatalog v-if="card.length > 0" :data-item="card" :visible-item="countProductCatalog" class="catalogs__card--grey" />
+         <button
+            v-show="card.length > 4 && card.length > countProductCatalog"
+            class="catalog__btn-loading catalog__btn-loading--margin"
+            @click="countProductCatalog += 8">
+            Загрузить еще
+         </button>
+         <p v-if="!card.length" class="emptyData">Список пуст</p>
+      </div>
    </section>
 </template>
 
 <script>
+import { useAppStore } from "@/store/appStore";
 
 export default {
-   // async setup() {
-   //    const { data } = await useAsyncData(() => getMeltsCard());
-   //    return {
-   //       card: data.value,
-   //    };
-   // },
+   async setup() {
+      const store = useAppStore();
+      const config = useRuntimeConfig();
+
+      const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
+         method: "GET",
+         params: {
+            "pagination[pageSize]": 100,
+            "locale": store.params.locale,
+         },
+      });
+
+      const card = await useHandllerApi(data);
+
+      return {
+         card: card.filter((item) => item.category === "Мелтсы"),
+      };
+   },
+
+   data() {
+      return {
+         countProductCatalog: 8,
+      };
+   },
 };
 </script>
