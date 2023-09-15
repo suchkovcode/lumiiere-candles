@@ -196,7 +196,7 @@
                         <use xlink:href="@/assets/img/svg/sprite.svg#deliveryBoxIcon"></use>
                      </svg>
                      <h3 class="tab-box-2__step-title">Отправка</h3>
-                     <p class="tab-box-2__step-subtitle">Быстро доставляем заказ почтой , СДЭК, Совами или Курьером.</p>
+                     <p class="tab-box-2__step-subtitle">Быстро доставляем заказ почтой, Совами или Курьером.</p>
                   </div>
                   <div class="tab-box-2__step">
                      <svg class="tab-box-2__step-icon" width="24" height="24">
@@ -216,7 +216,7 @@
                      передает данные вашей карты магазину и третьим лицам.
                   </p>
                   <p class="tab-box-2__info-text">
-                     В соответствии с Законом от 07.02.1992г. №2300-1 «О защите прав потребителей», в случае, если вам оказана услуга или реализован
+                     В соответствии с Законом «О защите прав потребителей», в случае, если вам оказана услуга или реализован
                      товар ненадлежащего качества, платеж может быть возвращен на банковскую карту, с которой производилась оплата. Порядок возврата
                      денежных средств уточняйте у администратора интернет-магазина.
                   </p>
@@ -229,12 +229,12 @@
                         <svg class="tab-box-2__info-payment-img" width="60" height="40">
                            <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentMaster"></use>
                         </svg>
-                        <svg class="tab-box-2__info-payment-img" width="60" height="40">
+                        <!-- <svg class="tab-box-2__info-payment-img" width="60" height="40">
                            <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentWorld"></use>
                         </svg>
                         <svg class="tab-box-2__info-payment-img" width="60" height="40">
                            <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentSpb"></use>
-                        </svg>
+                        </svg> -->
                      </div>
                   </div>
                </div>
