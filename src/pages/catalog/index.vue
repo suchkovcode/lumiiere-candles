@@ -21,7 +21,7 @@
                   <use xlink:href="@/assets/img/svg/sprite.svg#search"></use>
                </svg>
             </div>
-            <button class="goods__search-btn" @click="false">Найти</button>
+            <button class="goods__search-btn">Найти</button>
          </div>
       </div>
    </section>
