@@ -20,7 +20,7 @@
          <card-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="card.size = $event" />
       </div>
       <footer class="card__footer">
-         <card-btn-more :card-id="cardData.uid" />
+         <card-btn-more :card-id="cardData.uid" :card-type="cardData.category" />
          <card-count :count-data="card.count" @count-item="card.count = $event" />
          <card-btn-add :is-empty="cardData.isStock" @click="addCardBacket" />
       </footer>
