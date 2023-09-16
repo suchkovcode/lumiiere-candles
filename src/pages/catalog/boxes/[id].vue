@@ -3,7 +3,8 @@
    <div class="single-page">
       <section class="post">
          <div class="container">
-            <base-breadcrumbs :roter-link="{ catalog: true, name: cards.title, to: $route.fullPath }" />
+            <base-breadcrumbs
+               :roter-link="{ catalog: true, subpage: { name: 'Наборы свечей', to: '/catalog/boxes' }, name: cards.title, to: $route.fullPath }" />
             <article class="post__container">
                <img class="post__img" :src="cards.img.url" :alt="cards.img.alternativeText" :title="cards.img.caption" width="260" height="260" />
                <div class="post__content">
