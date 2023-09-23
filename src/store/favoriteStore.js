@@ -45,8 +45,4 @@ export const useFavoriteStore = defineStore("favoriteStore", {
          this.cards = this.cards.filter((item) => item.uid !== cardId);
       },
    },
-   
-   persist: {
-      storage: persistedState.localStorage,
-   },
 });

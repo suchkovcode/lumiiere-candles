@@ -111,5 +111,5 @@ export default defineNuxtConfig({
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap", "@pinia-plugin-persistedstate/nuxt"],
+   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap"],
 });
