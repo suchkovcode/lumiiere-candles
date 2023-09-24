@@ -1,7 +1,7 @@
 <template>
    <section class="single-page answers">
       <div class="container">
-         <BaseBreadcrumbs class="about__breadcrumbs" :roter-link="{ name: 'Faq', to: '/faq' }" />
+         <BaseBreadcrumbs class="about__breadcrumbs" :roter-link="{ name: 'Faq', to: '/faqs' }" />
          <div class="answers__header">
             <img class="answers__header-icon" src="@/assets/img/svg/faq-answers__header-icon.svg" alt="Иконка" width="80" height="45" />
             <h1 class="title answers__title">Ответы на вопросы</h1>
