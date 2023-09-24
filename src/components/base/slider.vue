@@ -6,10 +6,10 @@
                <div class="slider-item__img-box">
                   <div class="slider-item__bullet">
                      <svg class="slider-item__bullet-icon">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletIcon"></use>
+                        <use xlink:href="/sprite.svg#homeSliderBulletIcon"></use>
                      </svg>
                      <svg class="slider-item__bullet-text">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletText"></use>
+                        <use xlink:href="/sprite.svg#homeSliderBulletText"></use>
                      </svg>
                   </div>
                   <img class="slider-item__hero" src="@/assets/img/webp/slider__img-1.webp" loading="lazy" alt="picture" width="300" height="300" />
@@ -17,12 +17,12 @@
                <div class="slider-item__content-box">
                   <div class="slider-item__header">
                      <svg class="slider-item__icon-1">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-1"></use>
+                        <use xlink:href="/sprite.svg#homeSliderItemIcon-1"></use>
                      </svg>
                      <h2 class="title slider-item__title">
                         Свеча месяца
                         <svg class="slider-item__icon-2">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-2"></use>
+                           <use xlink:href="/sprite.svg#homeSliderItemIcon-2"></use>
                         </svg>
                      </h2>
                      <p class="slider-item__subtitle">Беспрецедентная акция, которую мы проводим каждый месяц! Свеча по самой классной цене :)</p>
@@ -71,7 +71,7 @@
                         </defs>
                      </svg>
                      <svg class="slider-item__bullet-text slider-item__bullet-text--ticket">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletIcon-1"></use>
+                        <use xlink:href="/sprite.svg#homeSliderBulletIcon-1"></use>
                      </svg>
                   </div>
                   <img class="slider-item__hero" src="@/assets/img/webp/slider__img-2.webp" loading="lazy" alt="picture" width="300" height="300" />
@@ -104,12 +104,12 @@
                <div class="slider-item__content-box">
                   <div class="slider-item__header">
                      <svg class="slider-item__icon-1">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-1"></use>
+                        <use xlink:href="/sprite.svg#homeSliderItemIcon-1"></use>
                      </svg>
                      <h2 class="title slider-item__title slider-item__title--slider-3">
                         Скидка за отзыв
                         <svg class="slider-item__icon-2 slider-item__icon-2--slider-3">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-2"></use>
+                           <use xlink:href="/sprite.svg#homeSliderItemIcon-2"></use>
                         </svg>
                      </h2>
                      <p class="slider-item__subtitle">

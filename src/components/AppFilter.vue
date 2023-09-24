@@ -12,7 +12,7 @@
       </div>
       <div class="filter__title">
          <svg class="filter__title-icon">
-            <use xlink:href="@/assets/img/svg/sprite.svg#catalogFilter"></use>
+            <use xlink:href="/sprite.svg#catalogFilter"></use>
          </svg>
          <p class="filter__name">Фильтры</p>
       </div>

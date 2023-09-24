@@ -58,10 +58,10 @@
             </div>
          </div>
          <svg class="partners__img-1" width="500" height="340" fill="none">
-            <use xlink:href="@/assets/img/svg/sprite.svg#partnersPicture-1"></use>
+            <use xlink:href="/sprite.svg#partnersPicture-1"></use>
          </svg>
          <svg class="partners__img-2" width="550" height="300" fill="none">
-            <use xlink:href="@/assets/img/svg/sprite.svg#partnersPicture-2"></use>
+            <use xlink:href="/sprite.svg#partnersPicture-2"></use>
          </svg>
       </div>
    </section>

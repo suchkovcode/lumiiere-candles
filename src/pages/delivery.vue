@@ -42,7 +42,7 @@
             <div v-if="'delivery' === selectTab" class="tab-box tab-box-1">
                <div class="tab-box__header tab-box-1__header">
                   <svg class="tab-box__icon" width="45" height="30">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#deliveryCarIcon"></use>
+                     <use xlink:href="/sprite.svg#deliveryCarIcon"></use>
                   </svg>
                   <h2 class="upercase tab-box__title">Способы и стоимость доставки</h2>
                </div>
@@ -50,16 +50,16 @@
                   <p class="tab-box-1__transport-title">Доставка осуществляется транспортными компаниями cdek и почта</p>
                   <div class="tab-box-1__transport-icons">
                      <svg class="tab-box-1__transport-icon" width="80" height="60">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#deliveryNP"></use>
+                        <use xlink:href="/sprite.svg#deliveryNP"></use>
                      </svg>
                      <svg class="tab-box-1__transport-icon" width="80" height="60">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#deliveryFeedEx"></use>
+                        <use xlink:href="/sprite.svg#deliveryFeedEx"></use>
                      </svg>
                      <svg class="tab-box-1__transport-icon" width="80" height="60">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#deliveryCdek"></use>
+                        <use xlink:href="/sprite.svg#deliveryCdek"></use>
                      </svg>
                      <svg class="tab-box-1__transport-icon" width="80" height="60">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#deliveryDhl"></use>
+                        <use xlink:href="/sprite.svg#deliveryDhl"></use>
                      </svg>
                   </div>
                </div>
@@ -179,28 +179,28 @@
             <div v-if="'payment' === selectTab" class="tab-box tab-box-2">
                <div class="tab-box__header tab-box-2__header">
                   <svg class="tab-box__icon" width="45" height="30">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentIcon"></use>
+                     <use xlink:href="/sprite.svg#deliveryPaymentIcon"></use>
                   </svg>
                   <h2 class="upercase tab-box__title">Оплата</h2>
                </div>
                <div class="tab-box-2__steps">
                   <div class="tab-box-2__step">
                      <svg class="tab-box-2__step-icon" width="24" height="24">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#deliveryListIcon"></use>
+                        <use xlink:href="/sprite.svg#deliveryListIcon"></use>
                      </svg>
                      <h3 class="tab-box-2__step-title">Заказ на сайте</h3>
                      <p class="tab-box-2__step-subtitle">Оставляй заявку на нашем сайте. Информация конфиденциальна, третьим лицам не передаем.</p>
                   </div>
                   <div class="tab-box-2__step">
                      <svg class="tab-box-2__step-icon" width="22" height="18">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#deliveryBoxIcon"></use>
+                        <use xlink:href="/sprite.svg#deliveryBoxIcon"></use>
                      </svg>
                      <h3 class="tab-box-2__step-title">Отправка</h3>
                      <p class="tab-box-2__step-subtitle">Быстро доставляем заказ почтой, Совами или Курьером.</p>
                   </div>
                   <div class="tab-box-2__step">
                      <svg class="tab-box-2__step-icon" width="24" height="24">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentIcon-2"></use>
+                        <use xlink:href="/sprite.svg#deliveryPaymentIcon-2"></use>
                      </svg>
                      <h3 class="tab-box-2__step-title">Оплата и получение</h3>
                      <p class="tab-box-2__step-subtitle">После оформления заказа ты будешь перенаправлен на сервис приема оплаты PayAnyWay</p>
@@ -224,16 +224,16 @@
                      <p class="tab-box-2__info-payment-title">Способы приема платежей:</p>
                      <div class="tab-box-2__info-payment-method">
                         <svg class="tab-box-2__info-payment-img" width="60" height="40">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentVisa"></use>
+                           <use xlink:href="/sprite.svg#deliveryPaymentVisa"></use>
                         </svg>
                         <svg class="tab-box-2__info-payment-img" width="60" height="40">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentMaster"></use>
+                           <use xlink:href="/sprite.svg#deliveryPaymentMaster"></use>
                         </svg>
                         <!-- <svg class="tab-box-2__info-payment-img" width="60" height="40">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentWorld"></use>
+                           <use xlink:href="/sprite.svg#deliveryPaymentWorld"></use>
                         </svg>
                         <svg class="tab-box-2__info-payment-img" width="60" height="40">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#deliveryPaymentSpb"></use>
+                           <use xlink:href="/sprite.svg#deliveryPaymentSpb"></use>
                         </svg> -->
                      </div>
                   </div>
@@ -242,7 +242,7 @@
             <div v-if="'return' === selectTab" class="tab-box tab-box-3">
                <div class="tab-box__header">
                   <svg class="tab-box__icon" width="45" height="30">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#deliveryCarIcon"></use>
+                     <use xlink:href="/sprite.svg#deliveryCarIcon"></use>
                   </svg>
                   <h2 class="upercase tab-box__title">Обмен и возврат</h2>
                </div>
@@ -252,7 +252,7 @@
             <div v-if="'terms' === selectTab" class="tab-box tab-box-4">
                <div class="tab-box__header">
                   <svg class="tab-box__icon" width="24" height="24">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#deliveryClockIcon"></use>
+                     <use xlink:href="/sprite.svg#deliveryClockIcon"></use>
                   </svg>
                   <h2 class="upercase tab-box__title">СРОК ИЗГОТОВЛЕНИЯ ЗАКАЗА</h2>
                </div>

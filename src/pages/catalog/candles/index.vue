@@ -7,7 +7,7 @@
             <h1 class="title candles__title">СОЕВЫЕ СВЕЧИ</h1>
             <p class="subtitle candles__subtitle">
                <svg class="candles__subtitle-icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#catalogGetting"></use>
+                  <use xlink:href="/sprite.svg#catalogGetting"></use>
                </svg>
                Все наши свечи в одном месте — любой цвет, размер и аромат. Хочешь помедитировать, устроить дома романтик или просто создать уютную
                атмосферу? Выбирай под свое настроение и тайные желания!

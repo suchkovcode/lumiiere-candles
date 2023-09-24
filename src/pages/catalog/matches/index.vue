@@ -8,7 +8,7 @@
             <h1 class="title postcard__title">ВСЯКОЕ РАЗНОЕ</h1>
             <p class="subtitle postcard__subtitle">
                <svg class="postcard__subtitle-icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#catalogGetting"></use>
+                  <use xlink:href="/sprite.svg#catalogGetting"></use>
                </svg>
                Свечи, которые действительно пахнут!
             </p>

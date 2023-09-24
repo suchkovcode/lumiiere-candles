@@ -7,7 +7,7 @@
                <div class="header__left-catalog" :class="{ active: isActiveLeft }" @mouseover="menuLeftActive" @mouseout="isActiveLeft = false">
                   <button class="header__btn-menu" aria-label="Catalog button" @click="openMobileMenu">
                      <svg class="header__icon" fill="#EB4A00">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#catalog"></use>
+                        <use xlink:href="/sprite.svg#catalog"></use>
                      </svg>
                   </button>
                   <ul class="header__left-drobdown" :class="{ active: isActiveLeft }">
@@ -41,7 +41,7 @@
             </div>
             <nuxt-link class="header__logo" to="/" aria-label="Logo link">
                <svg class="header__logo-icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#logo"></use>
+                  <use xlink:href="/sprite.svg#logo"></use>
                </svg>
             </nuxt-link>
             <div class="header__right">
@@ -75,13 +75,13 @@
                </ul>
                <button class="header__btn-favorite" @click="togllerFavorite(true)">
                   <svg class="header__icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#favorite"></use>
+                     <use xlink:href="/sprite.svg#favorite"></use>
                   </svg>
                   <span class="header__icon-count"> {{ cardsFavorite.length }} </span>
                </button>
                <button class="header__btn-backet" @click="togllerBacket(true)">
                   <svg class="header__icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#backet"></use>
+                     <use xlink:href="/sprite.svg#backet"></use>
                   </svg>
                   <span class="header__icon-count"> {{ cardsBacket.length }} </span>
                </button>
