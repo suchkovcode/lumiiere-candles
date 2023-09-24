@@ -59,7 +59,7 @@
                            <nuxt-link class="header__right-drobdown-link" to="/partners"> Сотрудничество </nuxt-link>
                         </li>
                         <li class="header__right-drobdown-item">
-                           <nuxt-link class="header__right-drobdown-link" to="/faq"> Ответы на вопросы </nuxt-link>
+                           <nuxt-link class="header__right-drobdown-link" to="/faqs"> Ответы на вопросы </nuxt-link>
                         </li>
                         <li class="header__right-drobdown-item">
                            <nuxt-link class="header__right-drobdown-link" to="/delivery"> Доставка и оплата </nuxt-link>

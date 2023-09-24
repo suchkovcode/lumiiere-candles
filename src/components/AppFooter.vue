@@ -54,7 +54,7 @@
                      <nuxt-link class="footer__catalog-nav-link transition" to="/partners"> Сотрудничество </nuxt-link>
                   </li>
                   <li class="footer__client-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/faq"> Ответы на вопросы </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/faqs"> Ответы на вопросы </nuxt-link>
                   </li>
                   <li class="footer__client-nav-item">
                      <nuxt-link class="footer__catalog-nav-link transition" to="/delivery"> Доставка и оплата </nuxt-link>
