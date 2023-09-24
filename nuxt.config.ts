@@ -31,6 +31,7 @@ export default defineNuxtConfig({
    },
 
    app: {
+      rootId: "root",
       pageTransition: false,
       layoutTransition: false,
    },
@@ -86,7 +87,7 @@ export default defineNuxtConfig({
    },
 
    nitro: {
-      preset: "cloudflare-pages-static",
+      // preset: "cloudflare-pages-static",
       serveStatic: true,
    },
 
