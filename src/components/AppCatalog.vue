@@ -1,6 +1,6 @@
 <template>
    <div class="catalogs">
-      <card v-for="(item, index) in dataItem" v-show="index < visibleItem" :key="item.uid" :card-data="item" />
+      <card v-for="(item, index) in dataItem" v-show="index < visibleItem" :key="item.uid" :card-data="item" :data-id="index" />
    </div>
 </template>
 
