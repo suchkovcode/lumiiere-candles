@@ -32,6 +32,7 @@
                "menu",
                "breadcrumbs",
                "faq",
+               "faqs",
                "tabs",
                "[id]",
                "[slug]",
