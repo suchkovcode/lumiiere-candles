@@ -13,7 +13,7 @@
       "build:ssr": "nuxt generate",
       "build:preview": "nuxt preview",
       "build:postinstall": "nuxt prepare",
-      "build:postcss": "postcss dist/**/*.css --dir dist/_nuxt"
+      "build:postcss": "postcss dist/**/*.css --dir dist/assets"
    },
    "devDependencies": {
       "@nuxt/devtools": "latest",

@@ -34,6 +34,7 @@ export default defineNuxtConfig({
       rootId: "root",
       pageTransition: false,
       layoutTransition: false,
+      buildAssetsDir: "assets/"
    },
 
    vite: {
