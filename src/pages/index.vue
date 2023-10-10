@@ -172,7 +172,7 @@
                </ul>
                <img
                   class="products__card-img transition"
-                  src="https://imagedelivery.net/4c-eqJ8fBLTQgIB2dLtpEg/fcd58b4e-0f65-40ae-8317-2d83fe2b1c00/publicp"
+                  src="https://imagedelivery.net/4c-eqJ8fBLTQgIB2dLtpEg/fcd58b4e-0f65-40ae-8317-2d83fe2b1c00/public"
                   loading="lazy"
                   alt="Картинка 4"
                   width="300"
