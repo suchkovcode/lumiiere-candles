@@ -109,6 +109,24 @@ export default defineNuxtConfig({
       discoverImages: true,
    },
 
+   postcss: {
+      plugins: {
+         "postcss-combine-media-query": {},
+         "postcss-combine-duplicated-selectors": {},
+         cssnano: {
+            preset: [
+               "default",
+               {
+                  discardComments: { removeAll: true },
+                  discardEmpty: true,
+                  discardDuplicates: true,
+                  minifyFontValues: true,
+               },
+            ],
+         },
+      },
+    },
+
    site: {
       url: "https://lumiiere-candles.com",
    },
