@@ -22,13 +22,6 @@
 
 <script>
 export default {
-   props: {
-      tabsData: {
-         type: Array,
-         required: true,
-      },
-   },
-
    emits: ["update:modelValue"],
 
    data() {
@@ -36,6 +29,29 @@ export default {
          selectedRadio: "",
          selectRadioContent: "",
          isClickBtn: false,
+
+         tabsData: [
+            {
+               id: 1,
+               value: "delivery",
+               content: "Способ доставки",
+            },
+            {
+               id: 2,
+               value: "payment",
+               content: "Оплата",
+            },
+            {
+               id: 3,
+               value: "return",
+               content: "Обмен и возрат",
+            },
+            {
+               id: 4,
+               value: "terms",
+               content: "Сроки изготовления",
+            },
+         ],
       };
    },
 

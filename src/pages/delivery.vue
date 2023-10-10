@@ -34,7 +34,7 @@
                <h1 class="title delivery__title">Доставка и оплата</h1>
                <p class="subtitle delivery__subtitle">Здесь можно подробнее ознакомиться с условиями доставки и способов оплаты товара</p>
             </div>
-            <base-tabs v-model="selectTab" :tabs-data="tabsData" />
+            <base-tabs v-model="selectTab" />
          </div>
       </section>
       <section class="tab-content">
@@ -285,30 +285,7 @@ export default {
    data() {
       return {
          selectTab: "",
-
-         tabsData: [
-            {
-               id: 1,
-               value: "delivery",
-               content: "Способ доставки",
-            },
-            {
-               id: 2,
-               value: "payment",
-               content: "Оплата",
-            },
-            {
-               id: 3,
-               value: "return",
-               content: "Обмен и возрат",
-            },
-            {
-               id: 4,
-               value: "terms",
-               content: "Сроки изготовления",
-            },
-         ],
-
+         
          faqItem: [
             {
                id: 1,
