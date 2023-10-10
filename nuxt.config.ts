@@ -1,4 +1,5 @@
-import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
+import { ViteFaviconsPlugin } from "vite-plugin-favicon2"
+const isDev = process.env.NODE_ENV !== "production";;
 
 export default defineNuxtConfig({
    runtimeConfig: {
@@ -34,7 +35,7 @@ export default defineNuxtConfig({
       rootId: "root",
       pageTransition: false,
       layoutTransition: false,
-      buildAssetsDir: "assets/"
+      buildAssetsDir: isDev ? "_nuxt/" : "assets/"
    },
 
    vite: {
