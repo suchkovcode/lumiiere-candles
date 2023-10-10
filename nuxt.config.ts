@@ -109,10 +109,17 @@ export default defineNuxtConfig({
       discoverImages: true,
    },
 
+   critters: {
+      config: {
+         preload: "swap",
+         noscriptFallback: false
+      },
+    },
+
    site: {
       url: "https://lumiiere-candles.com",
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap"],
+   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap", "@nuxtjs/critters"],
 });
