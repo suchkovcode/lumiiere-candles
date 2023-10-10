@@ -80,7 +80,7 @@ export default defineNuxtConfig({
    },
 
    experimental: {
-      inlineSSRStyles: false,
+      inlineSSRStyles: true,
       payloadExtraction: false,
       headNext: false,
       noScripts: false,
@@ -109,17 +109,10 @@ export default defineNuxtConfig({
       discoverImages: true,
    },
 
-   critters: {
-      config: {
-         preload: "swap",
-         noscriptFallback: false
-      },
-    },
-
    site: {
       url: "https://lumiiere-candles.com",
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap", "@nuxtjs/critters"],
+   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap"],
 });
