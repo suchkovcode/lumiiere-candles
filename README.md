@@ -13,7 +13,7 @@
          <img src="https://img.shields.io/badge/pinia-2.1.6-brightgreen.svg" alt="pinia" />
       </a>
       <a href="https://github.com/vuejs/vue">
-         <img src="https://img.shields.io/badge/strapi-4.13.7-brightgreen.svg" alt="vue" />
+         <img src="https://img.shields.io/badge/strapi-4.14.3-brightgreen.svg" alt="vue" />
       </a>
    </p>
 
