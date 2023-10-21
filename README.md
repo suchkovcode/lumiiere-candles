@@ -22,7 +22,7 @@
    <table>
       <tr>
          <td>
-            <img src="./src/assets/img/md/mob-1.jpg" alt="Картинка мобильного" title="Картинка" />
+            <img src="./src/assets/img/md/mob.jpg" alt="Картинка мобильного" title="Картинка" />
          </td>
          <td>
             <img src="./src/assets/img/md/des-1.jpg" alt="Картинка компьютера" title="Картинка" />
