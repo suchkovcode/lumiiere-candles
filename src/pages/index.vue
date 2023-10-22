@@ -15,7 +15,7 @@
             <p class="subtitle hero__subtitle">Свечи, которые действительно пахнут!</p>
             <nuxt-link class="btn btn--hero hero__btn" to="/catalog"> хочу </nuxt-link>
          </div>
-         <img class="hero__bg" src="https://imagedelivery.net/4c-eqJ8fBLTQgIB2dLtpEg/e5bd2b71-e16a-4c76-da7d-fe5d791a1a00/public" alt="Главная картинка" width="340" height="800" />
+         <img class="hero__bg" src="@/assets/img/webp/home__hero-1.webp" alt="Главная картинка" width="340" height="800" />
       </div>
       <svg class="hero__wave-1" width="11700" height="90">
          <use xlink:href="/sprite.svg#wave-1"></use>
@@ -72,7 +72,7 @@
                </div>
                <img
                   class="products__card-img transition"
-                  src="https://imagedelivery.net/4c-eqJ8fBLTQgIB2dLtpEg/ce0099bc-4fff-4f00-b265-a6fdd9ab6900/public"
+                  src="@/assets/img/webp/products__card-1.webp"
                   loading="lazy"
                   alt="Картинка 1"
                   width="300"
@@ -88,7 +88,7 @@
                </div>
                <img
                   class="products__card-img transition"
-                  src="https://imagedelivery.net/4c-eqJ8fBLTQgIB2dLtpEg/0a7a8017-f49c-4918-132f-05dcf28efe00/public"
+                  src="@/assets/img/webp/products__card-2.webp"
                   loading="lazy"
                   alt="Картинка 2"
                   width="300"
@@ -104,7 +104,7 @@
                </div>
                <img
                   class="products__card-img transition"
-                  src="https://imagedelivery.net/4c-eqJ8fBLTQgIB2dLtpEg/8b7732ae-4691-478a-ade1-798e6539f900/public"
+                  src="@/assets/img/webp/products__card-3.webp"
                   loading="lazy"
                   alt="Картинка 3"
                   width="300"
@@ -124,7 +124,7 @@
                </div>
                <img
                   class="products__card-img transition"
-                  src="https://imagedelivery.net/4c-eqJ8fBLTQgIB2dLtpEg/f815569d-b507-4391-5559-ed1fd8810700/public"
+                  src="@/assets/img/webp/products__card-4.webp"
                   loading="lazy"
                   alt="Картинка 4"
                   width="300"
@@ -172,7 +172,7 @@
                </ul>
                <img
                   class="products__card-img transition"
-                  src="https://imagedelivery.net/4c-eqJ8fBLTQgIB2dLtpEg/fcd58b4e-0f65-40ae-8317-2d83fe2b1c00/public"
+                  src="@/assets/img/webp/products__card-5.webp"
                   loading="lazy"
                   alt="Картинка 4"
                   width="300"
