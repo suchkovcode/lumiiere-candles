@@ -297,6 +297,7 @@
          }
 
          &-old {
+            display: block;
             font: 500 28px/1.5 "Karton";
             text-decoration: line-through;
             color: var(--color_border);

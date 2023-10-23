@@ -35,7 +35,9 @@
                         <a class="btn btn--slider slider-item__btn" href="/"> хочу свечу </a>
                         <div class="slider-item__price">
                            <p class="slider-item__price-new">$15</p>
-                           <p class="slider-item__price-old"><del>$20</del></p>
+                           <del class="slider-item__price-old">
+                              $20
+                           </del>
                         </div>
                      </div>
                   </div>
