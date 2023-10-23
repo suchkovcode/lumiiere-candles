@@ -12,8 +12,7 @@
       "build:prod": "nuxt build",
       "build:ssr": "nuxt generate",
       "build:preview": "nuxt preview",
-      "build:postinstall": "nuxt prepare",
-      "build:postcss": "postcss dist/**/*.css --dir dist/assets"
+      "build:postinstall": "nuxt prepare"
    },
    "devDependencies": {
       "nuxt": "^3.8.0",
