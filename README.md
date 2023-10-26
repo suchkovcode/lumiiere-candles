@@ -17,6 +17,13 @@
       </a>
    </p>
 
+# Access to the admin panel Strapi
+```
+Url: https://strapi.lumiiere-candles.com/
+Email: watcher@lumiiere-candles.com
+Password: Password12
+```
+
 # Website speed and performance
 
 <table>
