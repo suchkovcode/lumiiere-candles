@@ -199,7 +199,9 @@
             <nuxt-link class="btn btn--catalog catalog__btn" to="/catalog"> Все товары </nuxt-link>
          </header>
          <AppCatalog :data-item="card" :visible-item="countProductCatalog" />
-         <button v-if="card.length > 4 && countProductCatalog < 16" class="catalog__btn-loading" @click="countProductCatalog += 4">Загрузить еще</button>
+         <button v-if="card.length > 4 && countProductCatalog < 16" class="catalog__btn-loading" @click="countProductCatalog += 4">
+            Загрузить еще
+         </button>
       </div>
       <svg class="hero__wave-2 hero__wave-2--white hero__wave-2--wave-1" width="11700" height="90">
          <use xlink:href="/sprite.svg#wave-2"></use>
@@ -241,7 +243,7 @@ export default {
 
    data() {
       return {
-         countProductCatalog: 8,
+         countProductCatalog: this.$device.isMobile ? 4 : 8,
       };
    },
 
