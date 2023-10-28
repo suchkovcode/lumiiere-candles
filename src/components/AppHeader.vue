@@ -87,7 +87,7 @@
                   </svg>
                   <span class="header__icon-count"> {{ cardsBacket.length }} </span>
                </button>
-               <nuxt-link class="header__btn-login" to="/" aria-label="Login link">
+               <nuxt-link class="header__btn-login" to="/auth/login" aria-label="Login link">
                   <svg class="header__icon">
                      <use xlink:href="/sprite.svg#avatar"></use>
                   </svg>
