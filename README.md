@@ -1,4 +1,3 @@
-
    <p align="center">
       <a href="https://vuefire.vuejs.org" target="_blank" rel="noopener noreferrer">
          <img width="100" src="https://vuefire.vuejs.org/logo.svg" alt="VueFire logo" />
@@ -17,14 +16,28 @@
       </a>
    </p>
 
-# Access to the admin panel Strapi
+## Access to the admin panel Strapi
+
 ```
 Url: https://strapi.lumiiere-candles.com/
 Email: watcher@lumiiere-candles.com
 Password: Password12
 ```
 
-# Website speed and performance
+## Feature
+
+1. Product catalog;
+2. Product card;
+3. Featured products;
+4. Shopping basket;
+5. Search for products
+6. Product filter;
+7. Product sorting;
+8. Catalog pagination;
+9. Single page application(SSR);
+10. Registration\authorization
+
+## Website speed and performance
 
 <table>
        <tr>
@@ -40,7 +53,6 @@ Password: Password12
       </td>
    </tr>
 </table>
-
 
    <table>
       <tr>
