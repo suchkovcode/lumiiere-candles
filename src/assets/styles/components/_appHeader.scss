@@ -161,7 +161,7 @@
          position: relative;
          display: none;
 
-         @include md {
+         @include sm {
             display: flex;
             align-items: center;
             gap: 10px;
