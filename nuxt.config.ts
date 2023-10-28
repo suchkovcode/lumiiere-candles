@@ -122,6 +122,24 @@ export default defineNuxtConfig({
       cookieName: "strapi_jwt",
    },
 
+   security: {
+      headers: {
+         crossOriginEmbedderPolicy: process.env.NODE_ENV === "development" ? "unsafe-none" : "require-corp",
+         contentSecurityPolicy: {
+            "img-src": ["'self'", "data:", "https://assets.lumiiere-candles.com/"],
+         },
+         xXSSProtection: "1"
+      },
+   },
+
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "@nuxtjs/device", "nuxt-simple-robots", "nuxt-simple-sitemap", "@nuxtjs/strapi"],
+   modules: [
+      "@nuxtjs/eslint-module",
+      "@pinia/nuxt",
+      "@nuxtjs/device",
+      "nuxt-simple-robots",
+      "nuxt-simple-sitemap",
+      "@nuxtjs/strapi",
+      "nuxt-security",
+   ],
 });
