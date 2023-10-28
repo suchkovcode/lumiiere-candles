@@ -128,7 +128,7 @@ export default defineNuxtConfig({
       },
       headers: {
          crossOriginEmbedderPolicy: process.env.NODE_ENV === "development" ? "unsafe-none" : "require-corp",
-         crossOriginResourcePolicy: "same-origin",
+         crossOriginResourcePolicy: "cross-origin",
          contentSecurityPolicy: {
             "img-src": ["'self'", "data:", "https://assets.lumiiere-candles.com/"],
             "script-src": ["'self'", "'unsafe-inline'", "http://localhost:3000", "https://lumiiere-candles.com"],
