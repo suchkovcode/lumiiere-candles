@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 
-
 export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
@@ -11,9 +10,9 @@ export const useAppStore = defineStore("appStore", {
          },
          isActiveFavorite: false,
          isActiveBacket: false,
+         isAuth: false,
       };
    },
-
 
    actions: {
       async setCollectionFilter(collectionName) {
@@ -30,6 +29,13 @@ export const useAppStore = defineStore("appStore", {
 
       async updateFilterData(data) {
          this.filter = data;
+      },
+
+      async logOut() {
+         this.isAuth = false;
+      },
+      async logIn() {
+         this.isAuth = true;
       },
    },
 });
