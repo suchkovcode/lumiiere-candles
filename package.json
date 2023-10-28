@@ -43,6 +43,7 @@
       "vite-plugin-favicon2": "^1.1.5"
    },
    "dependencies": {
+      "@vee-validate/nuxt": "^4.11.8",
       "pinia": "^2.1.7"
    }
 }
