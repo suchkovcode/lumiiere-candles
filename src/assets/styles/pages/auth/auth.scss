@@ -115,6 +115,7 @@
       background-color: var(--color_input);
 
       &-err {
+         padding: 0 20px;
          color: red;
 
          &--form {
