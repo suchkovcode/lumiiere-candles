@@ -39,16 +39,21 @@
 
 @import "@/assets/styles/pages/index";
 @import "@/assets/styles/pages/about";
-@import "@/assets/styles/pages/catalog";
 @import "@/assets/styles/pages/delivery";
 @import "@/assets/styles/pages/parthners";
-@import "@/assets/styles/pages/post";
 @import "@/assets/styles/pages/faq";
-@import "@/assets/styles/pages/boxes";
-@import "@/assets/styles/pages/candles";
 @import "@/assets/styles/pages/care";
-@import "@/assets/styles/pages/melts";
-@import "@/assets/styles/pages/postcard";
 @import "@/assets/styles/pages/oferta";
 @import "@/assets/styles/pages/policy";
 @import "@/assets/styles/pages/error";
+
+@import "@/assets/styles/pages/catalog/catalog";
+@import "@/assets/styles/pages/catalog/post";
+@import "@/assets/styles/pages/catalog/boxes";
+@import "@/assets/styles/pages/catalog/candles";
+@import "@/assets/styles/pages/catalog/melts";
+@import "@/assets/styles/pages/catalog/postcard";
+
+
+@import "@/assets/styles/pages/auth/layouts";
+@import "@/assets/styles/pages/auth/auth";

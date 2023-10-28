@@ -49,7 +49,10 @@
                "changesize",
                "price",
                "count",
-               "matches"
+               "matches",
+               "login",
+               "signup",
+               "auth"
             ]
          }
       ],
