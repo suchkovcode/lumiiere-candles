@@ -1,10 +1,14 @@
-import { ViteFaviconsPlugin } from "vite-plugin-favicon2"
-const isDev = process.env.NODE_ENV !== "production";;
+import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
+const isDev = process.env.NODE_ENV !== "production";
 
 export default defineNuxtConfig({
    runtimeConfig: {
       public: {
          STRAPI: process.env.API_URL,
+         STRAPI_BASE_URL: process.env.STRAPI_BASE_URL,
+         strapi: {
+            url: process.env.API_URL,
+         },
       },
    },
 
@@ -35,7 +39,7 @@ export default defineNuxtConfig({
       rootId: "root",
       pageTransition: false,
       layoutTransition: false,
-      buildAssetsDir: isDev ? "_nuxt/" : "assets/"
+      buildAssetsDir: isDev ? "_nuxt/" : "assets/",
    },
 
    vite: {
@@ -113,7 +117,7 @@ export default defineNuxtConfig({
       plugins: {
          "postcss-combine-media-query": {},
          "postcss-combine-duplicated-selectors": {},
-         cssnano: {
+         "cssnano": {
             preset: [
                "default",
                {
@@ -125,12 +129,20 @@ export default defineNuxtConfig({
             ],
          },
       },
-    },
+   },
 
    site: {
       url: "https://lumiiere-candles.com",
    },
 
+   strapi: {
+      url: process.env.API_URL || "http://localhost:1337",
+      prefix: "/api",
+      version: "v4",
+      cookie: {},
+      cookieName: "strapi_jwt",
+   },
+
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "@nuxtjs/device", "nuxt-simple-robots", "nuxt-simple-sitemap"],
+   modules: ["@nuxtjs/eslint-module", "@pinia/nuxt", "@nuxtjs/device", "nuxt-simple-robots", "nuxt-simple-sitemap", "@nuxtjs/strapi"],
 });
