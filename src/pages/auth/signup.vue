@@ -21,7 +21,7 @@
                         autocomplete="name"
                         :class="{ invalid: !meta.valid && meta.touched, valid: meta.valid && meta.touched }" />
                   </VField>
-                  <VErrorMessage class="auth__input-err" name="email" as="span" />
+                  <VErrorMessage class="auth__input-err" name="username" as="span" />
                </div>
 
                <div class="auth__field">
