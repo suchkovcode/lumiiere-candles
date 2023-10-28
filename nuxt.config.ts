@@ -126,9 +126,12 @@ export default defineNuxtConfig({
       allowedMethodsRestricter: {
          methods: ["GET", "POST"],
       },
+      ssg: {
+         hashScripts: false,
+      },
       headers: {
          crossOriginEmbedderPolicy: process.env.NODE_ENV === "development" ? "unsafe-none" : "require-corp",
-         crossOriginResourcePolicy: false,
+         crossOriginResourcePolicy: "same-site",
          contentSecurityPolicy: {
             "img-src": ["'self'", "data:", "https://assets.lumiiere-candles.com/"],
             "script-src": ["'self'", "'unsafe-inline'", "http://localhost:3000", "https://lumiiere-candles.com"],
