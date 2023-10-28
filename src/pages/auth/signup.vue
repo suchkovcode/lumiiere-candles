@@ -10,21 +10,16 @@
          </header>
          <div class="auth__body">
             <h1 class="auth__title">РЕГИСТРАЦИЯ</h1>
-            <form class="auth__form" @submit.prevent>
+            <form class="auth__form" @submit.prevent="onSubmit">
                <div class="auth__field">
-                  <input v-model="username" class="auth__input" type="text" placeholder="Username" minlength="3" required />
+                  <input v-model="username" class="auth__input" type="text" name="username" placeholder="Username" />
                </div>
+
                <div class="auth__field">
-                  <input v-model="email" class="auth__input" type="email" placeholder="Email" required />
+                  <input v-model="email" class="auth__input" type="email" placeholder="Email" />
                </div>
                <div class="auth__field auth__field-password" :class="{ active: isVisible }">
-                  <input
-                     v-model="password"
-                     class="auth__input"
-                     :type="!isVisible ? 'password' : 'text'"
-                     placeholder="Password"
-                     minlength="6"
-                     required />
+                  <input v-model="password" class="auth__input" :type="!isVisible ? 'password' : 'text'" placeholder="Password" />
                   <svg class="auth__input-icon" @click="isVisible = !isVisible">
                      <use xlink:href="/sprite.svg#eye"></use>
                   </svg>
@@ -35,13 +30,8 @@
                      Когда вы создаете учетную запись или входите в систему, вы принимаете наши <span> Условия использования</span>
                   </p>
                </div>
-               <button
-                  type="button"
-                  class="btn auth__btn"
-                  :class="{ novalid: !isValidUsername || !isValidEmail || !isValidPassword }"
-                  @click="createUser">
-                  ЗАРЕГИСТРИРОВАТЬСЯ
-               </button>
+               
+               <button type="submit" class="btn auth__btn">ЗАРЕГИСТРИРОВАТЬСЯ</button>
             </form>
             <div class="auth__with">
                <hr />
@@ -73,6 +63,9 @@
 </template>
 
 <script>
+import { mapActions } from "pinia";
+import { useAppStore } from "@/store/appStore";
+
 export default {
    setup() {
       definePageMeta({
@@ -82,44 +75,22 @@ export default {
 
    data() {
       return {
-         username: "",
-         email: "",
-         password: "",
+         username: null,
+         email: null,
+         password: null,
          isVisible: false,
-         isValidUsername: false,
-         isValidEmail: false,
-         isValidPassword: false,
       };
    },
 
-   watch: {
-      username(newValue) {
-         if (newValue.length > 2) {
-            this.isValidUsername = true;
-         }
-      },
-      email(newValue) {
-         let reg =
-            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-         if (reg.test(String(newValue).toLowerCase())) {
-            this.isValidEmail = true;
-         } else {
-            this.isValidEmail = false;
-         }
-      },
-      password(newValue) {
-         if (newValue.length > 5) {
-            this.isValidPassword = true;
-         }
-      },
-   },
-
    methods: {
+      ...mapActions(useAppStore, { loginAuth: "logIn" }),
+
       async createUser(e) {
          const { register } = useStrapiAuth();
          try {
             await register({ username: this.username, email: this.email, password: this.password });
-            this.$router.push("/");
+            this.loginAuth();
+            this.$router.push("/dashboard");
          } catch (e) {
             console.log(e);
          }

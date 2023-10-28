@@ -12,7 +12,7 @@
             <h1 class="auth__title">Авторизация</h1>
             <form class="auth__form" @submit.prevent>
                <div class="auth__field">
-                  <input v-model="email" class="auth__input" type="email" placeholder="Email" required />
+                  <input v-model="email" class="auth__input" type="email" placeholder="Email" autocomplete="email" required />
                </div>
                <div class="auth__field auth__field-password" :class="{ active: isVisible }">
                   <input
@@ -21,6 +21,7 @@
                      :type="!isVisible ? 'password' : 'text'"
                      placeholder="Password"
                      minlength="6"
+                     autocomplete="current-password"
                      required />
                   <svg class="auth__input-icon" @click="isVisible = !isVisible">
                      <use xlink:href="/sprite.svg#eye"></use>
@@ -58,6 +59,9 @@
 </template>
 
 <script>
+import { mapActions } from "pinia";
+import { useAppStore } from "@/store/appStore";
+
 export default {
    setup() {
       definePageMeta({
@@ -70,34 +74,20 @@ export default {
          email: "",
          password: "",
          isVisible: false,
-         isValidEmail: false,
-         isValidPassword: false,
       };
    },
 
-   watch: {
-      username(newValue) {
-         if (newValue.length > 2) {
-            this.isValidUsername = true;
-         }
-      },
-      email(newValue) {
-         let reg =
-            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-         if (reg.test(String(newValue).toLowerCase())) {
-            this.isValidEmail = true;
-         } else {
-            this.isValidEmail = false;
-         }
-      },
-   },
+   computed: {},
 
    methods: {
+      ...mapActions(useAppStore, { loginAuth: "logIn" }),
+
       async login() {
          const { login } = useStrapiAuth();
          try {
             await login({ identifier: this.email, password: this.password });
-            this.$router.push("/");
+            await this.loginAuth();
+            this.$router.push("/dashboard");
          } catch (e) {
             console.log(e);
          }
