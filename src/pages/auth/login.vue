@@ -74,9 +74,16 @@
 <script>
 import { mapActions } from "pinia";
 import { useAppStore } from "@/store/appStore";
+import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 
 export default {
+   components: {
+      VForm: Form,
+      VField: Field,
+      VErrorMessage: ErrorMessage,
+   },
+
    setup() {
       definePageMeta({
          layout: "auth",
