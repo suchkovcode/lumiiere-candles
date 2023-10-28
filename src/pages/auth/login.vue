@@ -12,10 +12,19 @@
             <h1 class="auth__title">Авторизация</h1>
             <form class="auth__form" @submit.prevent>
                <div class="auth__field">
-                  <input v-model="username" class="auth__input" type="text" placeholder="Username" minlength="3" required />
-               </div>
-               <div class="auth__field">
                   <input v-model="email" class="auth__input" type="email" placeholder="Email" required />
+               </div>
+               <div class="auth__field auth__field-password" :class="{ active: isVisible }">
+                  <input
+                     v-model="password"
+                     class="auth__input"
+                     :type="!isVisible ? 'password' : 'text'"
+                     placeholder="Password"
+                     minlength="6"
+                     required />
+                  <svg class="auth__input-icon" @click="isVisible = !isVisible">
+                     <use xlink:href="/sprite.svg#eye"></use>
+                  </svg>
                </div>
                <button type="button" class="btn auth__btn" @click="login">Войти</button>
             </form>
@@ -58,11 +67,11 @@ export default {
 
    data() {
       return {
-         username: "",
          email: "",
+         password: "",
          isVisible: false,
-         isValidUsername: false,
          isValidEmail: false,
+         isValidPassword: false,
       };
    },
 
@@ -84,7 +93,15 @@ export default {
    },
 
    methods: {
-      login() {},
+      async login() {
+         const { login } = useStrapiAuth();
+         try {
+            await login({ identifier: this.email, password: this.password });
+            this.$router.push("/");
+         } catch (e) {
+            console.log(e);
+         }
+      },
    },
 };
 </script>

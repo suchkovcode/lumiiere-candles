@@ -39,7 +39,7 @@
                   type="button"
                   class="btn auth__btn"
                   :class="{ novalid: !isValidUsername || !isValidEmail || !isValidPassword }"
-                  @click="register">
+                  @click="createUser">
                   ЗАРЕГИСТРИРОВАТЬСЯ
                </button>
             </form>
@@ -115,7 +115,15 @@ export default {
    },
 
    methods: {
-      register() {},
+      async createUser(e) {
+         const { register } = useStrapiAuth();
+         try {
+            await register({ username: this.username, email: this.email, password: this.password });
+            this.$router.push("/");
+         } catch (e) {
+            console.log(e);
+         }
+      },
    },
 };
 </script>
