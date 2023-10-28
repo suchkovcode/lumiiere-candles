@@ -10,7 +10,6 @@
          </header>
          <div class="auth__body">
             <h1 class="auth__title">РЕГИСТРАЦИЯ</h1>
-
             <VForm v-slot="{ meta: formMeta }" class="auth__form" :validation-schema="schema" :initial-values="initialValues" @submit="createUser">
                <div class="auth__field">
                   <VField v-slot="{ field, meta }" name="username">
