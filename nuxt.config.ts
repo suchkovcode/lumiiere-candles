@@ -1,4 +1,3 @@
-import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
 const isDev = process.env.NODE_ENV !== "production";
 
 export default defineNuxtConfig({
@@ -42,30 +41,6 @@ export default defineNuxtConfig({
       buildAssetsDir: isDev ? "_nuxt/" : "assets/",
    },
 
-   vite: {
-      plugins: [
-         ViteFaviconsPlugin({
-            logo: "./src/assets/img/svg/favicon.svg",
-            inject: true,
-            outputPath: "./static",
-            favicons: {
-               appName: "Lumiiere Candles",
-               appShortName: "Lumiiere Candles",
-               appDescription: "Lumiiere Candles",
-               start_url: "/",
-               icons: {
-                  android: false,
-                  appleIcon: true,
-                  appleStartup: false,
-                  favicons: true,
-                  windows: false,
-                  yandex: false,
-               },
-            },
-         }),
-      ],
-   },
-
    sourcemap: {
       server: false,
       client: false,
@@ -98,7 +73,7 @@ export default defineNuxtConfig({
    },
 
    routeRules: {
-      "/dashboard/**": { ssr: false },
+      // "/dashboard/**": { ssr: false },
    },
 
    eslint: {
