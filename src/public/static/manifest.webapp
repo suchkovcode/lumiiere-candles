@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "Lumiiere Candles",
+  "description": "Lumiiere Candles",
+  "icons": {
+    "60": "assets/static/firefox_app_60x60.png",
+    "128": "assets/static/firefox_app_128x128.png",
+    "512": "assets/static/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Nikita Suchkov",
+    "url": null
+  }
+}
