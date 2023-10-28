@@ -97,6 +97,10 @@ export default defineNuxtConfig({
       serveStatic: true,
    },
 
+   routeRules: {
+      "/dashboard/**": { ssr: false },
+   },
+
    eslint: {
       lintOnStart: false,
    },
