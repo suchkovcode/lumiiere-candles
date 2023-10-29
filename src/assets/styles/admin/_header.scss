@@ -49,13 +49,13 @@
          background-color: var(--color_header_btn);
          transition: background-color 0.2s ease-in-out;
 
+         & span {
+            color: var(--color_primary);
+         }
+
          &:hover {
             color: var(--color_primary);
             background-color: var(--color_header_btn_hover);
-         }
-
-         & span {
-            color: var(--color_primary);
          }
       }
    }
