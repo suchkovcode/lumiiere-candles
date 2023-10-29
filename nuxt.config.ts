@@ -151,7 +151,7 @@ export default defineNuxtConfig({
    },
 
    security: {
-      nonce: true,
+      nonce: false,
       allowedMethodsRestricter: {
          methods: ["GET", "POST"],
       },
@@ -171,15 +171,9 @@ export default defineNuxtConfig({
             "img-src": ["'self'", "data:", "https://assets.lumiiere-candles.com/"],
             "object-src": ["'none'"],
             "style-src": ["'self'", "'unsafe-inline'"],
-            "script-src": !isDev
-               ? ["'self'", "'nonce-{{nonce}}'", "'strict-dynamic'", "https://lumiiere-candles.com/"]
-               : ["'self'", "'unsafe-inline'"],
-            "script-src-attr": !isDev
-               ? ["'self'", "'nonce-{{nonce}}'", "'strict-dynamic'", "https://lumiiere-candles.com/"]
-               : ["'self'", "'unsafe-inline'"],
-            "script-src-elem": !isDev
-               ? ["'self'", "'nonce-{{nonce}}'", "'strict-dynamic'", "https://lumiiere-candles.com/"]
-               : ["'self'", "'unsafe-inline'"],
+            "script-src": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
+            "script-src-attr": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
+            "script-src-elem": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
 
             "upgrade-insecure-requests": true,
          },
@@ -187,7 +181,6 @@ export default defineNuxtConfig({
             maxAge: 15552000,
             includeSubdomains: true,
          },
-
 
          xXSSProtection: "1",
       },
