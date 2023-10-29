@@ -30,11 +30,7 @@
                </div>
                <ul class="header__left-nav">
                   <li class="header__left-nav-item">
-                     <ul
-                        class="header__submenu"
-                        :class="{ active: isActiveRight }"
-                        @mouseover="menuRightActive"
-                        @mouseout="isActiveRight = false">
+                     <ul class="header__submenu" :class="{ active: isActiveRight }" @mouseover="menuRightActive" @mouseout="isActiveRight = false">
                         <li class="header__submenu-item" :class="{ active: isActiveRight }">Для клиента</li>
 
                         <li class="header__submenu-drobdown">
@@ -87,7 +83,8 @@
                   </svg>
                   <span class="header__icon-count"> {{ cardsBacket.length }} </span>
                </button>
-               <nuxt-link class="header__btn-login" to="/auth/login" aria-label="Login link">
+               <nuxt-link class="header__btn-login" :to="isAuthLink" aria-label="Login link">
+                  <span> {{ isAuthUsername }}</span>
                   <svg class="header__icon">
                      <use xlink:href="/sprite.svg#avatar"></use>
                   </svg>
@@ -117,6 +114,16 @@ export default {
    computed: {
       ...mapState(useBacketStore, { cardsBacket: "cards" }),
       ...mapState(useFavoriteStore, { cardsFavorite: "cards" }),
+
+      isAuthLink() {
+         const jwt = useCookie("strapi_jwt");
+         return jwt.value ? "/admin" : "/auth/login";
+      },
+
+      isAuthUsername() {
+         const name = process.client ? localStorage.getItem("username") : false;
+         return name ? name : "Войти";
+      },
    },
 
    methods: {

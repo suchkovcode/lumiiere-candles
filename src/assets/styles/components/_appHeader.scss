@@ -161,6 +161,10 @@
          position: relative;
          display: none;
 
+         & span {
+            display: none;
+         }
+
          @include sm {
             display: flex;
             align-items: center;
@@ -174,7 +178,7 @@
                background-color: var(--color_header_btn_hover);
             }
 
-            &:hover::before {
+            &:hover span {
                color: var(--color_primary);
             }
 
@@ -184,8 +188,8 @@
          }
 
          @include lg {
-            &::before {
-               content: "Войти";
+            & span {
+               display: block;
                font: 500 16px/1.3 "AvenirNextCyr";
                color: var(--color_secondary);
             }
