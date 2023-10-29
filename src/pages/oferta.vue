@@ -390,3 +390,27 @@
       </div>
    </section>
 </template>
+
+<style lang="scss">
+@import "@/assets/styles/base/reset";
+@import "@/assets/styles/base/fonts";
+@import "@/assets/styles/base/var";
+@import "@/assets/styles/base/mixin";
+@import "@/assets/styles/base/global";
+@import "@/assets/styles/base/text";
+@import "@/assets/styles/base/btn";
+
+@import "@/assets/styles/components/appHeader";
+@import "@/assets/styles/components/appFooter";
+@import "@/assets/styles/components/base/breadcrumbs";
+
+@import "@/assets/styles/components/canvas/backet";
+@import "@/assets/styles/components/canvas/backetForm";
+@import "@/assets/styles/components/canvas/backetItem";
+@import "@/assets/styles/components/canvas/favorite";
+@import "@/assets/styles/components/canvas/favoriteItem";
+@import "@/assets/styles/components/canvas/menu";
+@import "@/assets/styles/components/canvas/header";
+
+@import "@/assets/styles/pages/oferta";
+</style>

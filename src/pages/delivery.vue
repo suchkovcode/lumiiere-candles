@@ -216,9 +216,9 @@
                      передает данные вашей карты магазину и третьим лицам.
                   </p>
                   <p class="tab-box-2__info-text">
-                     В соответствии с Законом «О защите прав потребителей», в случае, если вам оказана услуга или реализован
-                     товар ненадлежащего качества, платеж может быть возвращен на банковскую карту, с которой производилась оплата. Порядок возврата
-                     денежных средств уточняйте у администратора интернет-магазина.
+                     В соответствии с Законом «О защите прав потребителей», в случае, если вам оказана услуга или реализован товар ненадлежащего
+                     качества, платеж может быть возвращен на банковскую карту, с которой производилась оплата. Порядок возврата денежных средств
+                     уточняйте у администратора интернет-магазина.
                   </p>
                   <div class="tab-box-2__info-payment">
                      <p class="tab-box-2__info-payment-title">Способы приема платежей:</p>
@@ -285,7 +285,7 @@ export default {
    data() {
       return {
          selectTab: "",
-         
+
          faqItem: [
             {
                id: 1,
@@ -342,3 +342,29 @@ export default {
    },
 };
 </script>
+
+<style lang="scss">
+/* stylelint-disable at-rule-empty-line-before */
+@import "@/assets/styles/base/reset";
+@import "@/assets/styles/base/fonts";
+@import "@/assets/styles/base/var";
+@import "@/assets/styles/base/mixin";
+@import "@/assets/styles/base/global";
+@import "@/assets/styles/base/text";
+@import "@/assets/styles/base/btn";
+
+@import "@/assets/styles/components/appHeader";
+@import "@/assets/styles/components/appFooter";
+
+@import "@/assets/styles/components/canvas/backet";
+@import "@/assets/styles/components/canvas/backetForm";
+@import "@/assets/styles/components/canvas/backetItem";
+@import "@/assets/styles/components/canvas/favorite";
+@import "@/assets/styles/components/canvas/favoriteItem";
+@import "@/assets/styles/components/canvas/menu";
+@import "@/assets/styles/components/canvas/header";
+
+@import "@/assets/styles/components/base/breadcrumbs";
+
+@import "@/assets/styles/pages/delivery";
+</style>

@@ -4,7 +4,12 @@
       <section class="post">
          <div class="container">
             <base-breadcrumbs
-               :roter-link="{ catalog: true, subpage: { name: 'Невероятные мелтсы', to: '/catalog/melts' }, name: cards.title, to: $route.fullPath }" />
+               :roter-link="{
+                  catalog: true,
+                  subpage: { name: 'Невероятные мелтсы', to: '/catalog/melts' },
+                  name: cards.title,
+                  to: $route.fullPath,
+               }" />
             <article class="post__container">
                <img class="post__img" :src="cards.img.url" :alt="cards.img.alternativeText" :title="cards.img.caption" width="260" height="260" />
                <div class="post__content">
@@ -130,3 +135,38 @@ export default {
    },
 };
 </script>
+
+<style lang="scss">
+/* stylelint-disable at-rule-empty-line-before */
+@import "@/assets/styles/base/reset";
+@import "@/assets/styles/base/fonts";
+@import "@/assets/styles/base/var";
+@import "@/assets/styles/base/mixin";
+@import "@/assets/styles/base/global";
+@import "@/assets/styles/base/text";
+@import "@/assets/styles/base/btn";
+
+@import "@/assets/styles/components/appHeader";
+@import "@/assets/styles/components/appFooter";
+@import "@/assets/styles/components/appCatalog";
+@import "@/assets/styles/components/base/breadcrumbs";
+
+@import "@/assets/styles/components/canvas/backet";
+@import "@/assets/styles/components/canvas/backetForm";
+@import "@/assets/styles/components/canvas/backetItem";
+@import "@/assets/styles/components/canvas/favorite";
+@import "@/assets/styles/components/canvas/favoriteItem";
+@import "@/assets/styles/components/canvas/menu";
+@import "@/assets/styles/components/canvas/header";
+
+@import "@/assets/styles/components/card/card";
+@import "@/assets/styles/components/card/cardBtnAdd";
+@import "@/assets/styles/components/card/cardBtnMore";
+@import "@/assets/styles/components/card/changesize";
+@import "@/assets/styles/components/card/count";
+@import "@/assets/styles/components/card/favorite";
+@import "@/assets/styles/components/card/price";
+@import "@/assets/styles/components/card/rating";
+
+@import "@/assets/styles/pages/catalog/id";
+</style>

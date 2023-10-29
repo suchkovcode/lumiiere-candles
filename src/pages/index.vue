@@ -252,3 +252,40 @@ export default {
    },
 };
 </script>
+
+<style lang="scss">
+/* stylelint-disable at-rule-empty-line-before */
+@import "@/assets/styles/base/reset";
+@import "@/assets/styles/base/fonts";
+@import "@/assets/styles/base/var";
+@import "@/assets/styles/base/mixin";
+@import "@/assets/styles/base/global";
+@import "@/assets/styles/base/text";
+@import "@/assets/styles/base/btn";
+
+@import "@/assets/styles/components/appHeader";
+@import "@/assets/styles/components/appFooter";
+@import "@/assets/styles/components/appCatalog";
+@import "@/assets/styles/components/base/emptyData";
+@import "@/assets/styles/components/base/slider";
+
+@import "@/assets/styles/components/canvas/backet";
+@import "@/assets/styles/components/canvas/backetForm";
+@import "@/assets/styles/components/canvas/backetItem";
+@import "@/assets/styles/components/canvas/favorite";
+@import "@/assets/styles/components/canvas/favoriteItem";
+@import "@/assets/styles/components/canvas/menu";
+@import "@/assets/styles/components/canvas/header";
+
+@import "@/assets/styles/components/card/card";
+@import "@/assets/styles/components/card/cardBtnAdd";
+@import "@/assets/styles/components/card/cardBtnMore";
+@import "@/assets/styles/components/card/changesize";
+@import "@/assets/styles/components/card/count";
+@import "@/assets/styles/components/card/favorite";
+@import "@/assets/styles/components/card/price";
+@import "@/assets/styles/components/card/rating";
+@import "@/assets/styles/components/blockFallow";
+
+@import "@/assets/styles/pages/index";
+</style>
