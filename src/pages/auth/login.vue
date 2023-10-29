@@ -119,7 +119,8 @@ export default {
          const { login } = useStrapiAuth();
          try {
             if (this.token) {
-               await login({ identifier: values.email, password: values.password });
+               const response = await login({ identifier: values.email, password: values.password });
+               process.client ? localStorage.setItem("username", response.user.value.username) : false;
                this.token = null;
                this.$router.push("/admin");
             }
