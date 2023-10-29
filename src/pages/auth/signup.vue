@@ -155,3 +155,17 @@ export default {
    },
 };
 </script>
+
+<style lang="scss">
+/* stylelint-disable at-rule-empty-line-before */
+@import "@/assets/styles/base/reset";
+@import "@/assets/styles/base/fonts";
+@import "@/assets/styles/base/var";
+@import "@/assets/styles/base/mixin";
+@import "@/assets/styles/base/global";
+@import "@/assets/styles/base/text";
+@import "@/assets/styles/base/btn";
+
+@import "@/assets/styles/pages/auth/layouts";
+@import "@/assets/styles/pages/auth/auth";
+</style>
