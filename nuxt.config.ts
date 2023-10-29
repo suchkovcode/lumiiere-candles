@@ -159,7 +159,7 @@ export default defineNuxtConfig({
          hashScripts: false,
       },
       headers: {
-         crossOriginEmbedderPolicy: isDev ? "unsafe-none" : "require-corp",
+         crossOriginEmbedderPolicy: "unsafe-none",
          crossOriginResourcePolicy: "same-origin",
          contentSecurityPolicy: {
             "default-src": ["'self'", "https://lumiiere-candles.com/"],
@@ -168,7 +168,8 @@ export default defineNuxtConfig({
             "connect-src": ["'self'", "https://strapi.lumiiere-candles.com/"],
             "form-action": ["'self'"],
             "frame-ancestors": ["'self'"],
-            "img-src": ["'self'", "data:", "https://assets.lumiiere-candles.com/"],
+            "img-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
+            "media-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
             "object-src": ["'none'"],
             "style-src": ["'self'", "'unsafe-inline'"],
             "script-src": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
