@@ -189,6 +189,7 @@ export default defineNuxtConfig({
 
    turnstile: {
       siteKey: "0x4AAAAAAAMW4v5MoOHDPyiR",
+      addValidateEndpoint: true
    },
 
    css: ["@/assets/styles/app.scss"],
