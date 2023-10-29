@@ -41,7 +41,13 @@
                <div class="auth__cloudflare">
                   <NuxtTurnstile v-model="token" />
                </div>
-               <button type="submit" class="btn auth__btn" :class="{ novalid: !formMeta.valid }">Войти</button>
+               <button
+                  type="submit"
+                  class="btn auth__btn"
+                  :disabled="(!formMeta.valid || !token) ? true : false"
+                  :class="{ novalid: !formMeta.valid || !token }">
+                  Войти
+               </button>
                <p v-if="isValidvisible" class="auth__input-err auth__input-err--form">Ошибка авторизации, повторите ще раз</p>
             </VForm>
             <div class="auth__with">
@@ -94,7 +100,7 @@ export default {
 
    data() {
       return {
-         token: "",
+         token: null,
          isValidvisible: false,
          isVisible: false,
          initialValues: { email: "", password: "" },
@@ -117,9 +123,11 @@ export default {
       async login(values, actions) {
          const { login } = useStrapiAuth();
          try {
-            await login({ identifier: values.email, password: values.password });
-            this.loginAuth();
-            this.$router.push("/admin");
+            if (this.token) {
+               await login({ identifier: values.email, password: values.password });
+               this.loginAuth();
+               this.$router.push("/admin");
+            }
          } catch (e) {
             (this.isValidvisible = true), console.error(e);
             setTimeout(() => {

@@ -58,7 +58,16 @@
                      Когда вы создаете учетную запись или входите в систему, вы принимаете наши <span> Условия использования</span>
                   </p>
                </div>
-               <button type="submit" class="btn auth__btn" :class="{ novalid: !formMeta.valid }">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+               <div class="auth__cloudflare">
+                  <NuxtTurnstile v-model="token" />
+               </div>
+               <button
+                  type="submit"
+                  class="btn auth__btn"
+                  :disabled="!formMeta.valid || !token ? true : false"
+                  :class="{ novalid: !formMeta.valid || !token }">
+                  ЗАРЕГИСТРИРОВАТЬСЯ
+               </button>
                <p v-if="isValidvisible" class="auth__input-err auth__input-err--form">Ошибка регистрации, повторите ще раз</p>
             </VForm>
             <div class="auth__with">
@@ -110,6 +119,7 @@ export default {
 
    data() {
       return {
+         token: null,
          isValidvisible: false,
          isVisible: false,
          initialValues: { username: "", email: "", password: "" },
@@ -132,9 +142,11 @@ export default {
       async createUser(values, actions) {
          const { register } = useStrapiAuth();
          try {
-            await register({ username: values.username, email: values.email, password: values.password });
-            this.loginAuth();
-            this.$router.push("/admin");
+            if (this.token) {
+               await register({ username: values.username, email: values.email, password: values.password });
+               this.loginAuth();
+               this.$router.push("/admin");
+            }
          } catch (e) {
             (this.isValidvisible = true), console.error(e);
             setTimeout(() => {
