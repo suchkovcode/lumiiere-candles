@@ -10,7 +10,6 @@ export const useAppStore = defineStore("appStore", {
          },
          isActiveFavorite: false,
          isActiveBacket: false,
-         isAuth: false,
       };
    },
 
