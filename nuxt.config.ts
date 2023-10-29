@@ -4,7 +4,6 @@ export default defineNuxtConfig({
    runtimeConfig: {
       public: {
          STRAPI: process.env.API_URL,
-         STRAPI_BASE_URL: process.env.STRAPI_BASE_URL,
          strapi: {
             url: process.env.API_URL,
          },
@@ -144,10 +143,6 @@ export default defineNuxtConfig({
 
    strapi: {
       url: process.env.API_URL || "http://localhost:1337",
-      prefix: "/api",
-      version: "v4",
-      cookie: {},
-      cookieName: "strapi_jwt",
    },
 
    security: {
@@ -185,11 +180,6 @@ export default defineNuxtConfig({
 
          xXSSProtection: "1",
       },
-   },
-
-   turnstile: {
-      siteKey: "0x4AAAAAAAMW4v5MoOHDPyiR",
-      addValidateEndpoint: true
    },
 
    css: ["@/assets/styles/app.scss"],
