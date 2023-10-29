@@ -1,9 +1,7 @@
-import { useAppStore } from "@/store/appStore";
-
 export default defineNuxtRouteMiddleware(async (to, from) => {
-   const store = useAppStore();
+   const jwt = useCookie("strapi_jwt");
    
-   if (!store.isAuth) {
+   if (!jwt.value) {
       return navigateTo("/auth/login");
    }
 });
