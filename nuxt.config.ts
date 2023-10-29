@@ -39,6 +39,34 @@ export default defineNuxtConfig({
       pageTransition: false,
       layoutTransition: false,
       buildAssetsDir: isDev ? "_nuxt/" : "assets/",
+
+      head: {
+         htmlAttrs: {
+            lang: "ru",
+         },
+         meta: [
+            { "http-equiv": "X-UA-Compatible", "content": "IE=edge" },
+            { name: "apple-mobile-web-app-title", content: "Lumiiere Candles" },
+            { name: "apple-mobile-web-app-capable", content: "yes" },
+            { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+         ],
+         link: [
+            { rel: "shortcut icon", type: "image/png", href: "/static/favicon.ico" },
+            { rel: "icon", type: "image/png", sizes: "16x16", href: "/static/favicon-16x16.png" },
+            { rel: "icon", type: "image/png", sizes: "32x32", href: "/static/favicon-32x32.png" },
+            { rel: "icon", type: "image/png", sizes: "48x48", href: "/static/favicon-48x48.png" },
+            { rel: "icon", type: "image/png", sizes: "228x228", href: "/static/coast-228x228.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "57x57", href: "/static/apple-touch-icon-57x57.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "60x60", href: "/static/apple-touch-icon-60x60.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "72x72", href: "/static/apple-touch-icon-72x72.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "76x76", href: "/static/apple-touch-icon-76x76.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "114x114", href: "/static/apple-touch-icon-114x114.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "152x152", href: "/static/apple-touch-icon-152x152.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "167x167", href: "/static/apple-touch-icon-167x167.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: "/static/apple-touch-icon-180x180.png" },
+            { rel: "apple-touch-icon", type: "image/png", sizes: "1024x1024", href: "/static/apple-touch-icon-1024x1024.png" },
+         ],
+      },
    },
 
    sourcemap: {
@@ -59,7 +87,7 @@ export default defineNuxtConfig({
    },
 
    experimental: {
-      inlineSSRStyles: true,
+      inlineSSRStyles: false,
       payloadExtraction: false,
       headNext: false,
       noScripts: false,
@@ -68,7 +96,7 @@ export default defineNuxtConfig({
    },
 
    nitro: {
-      preset: "cloudflare-pages-static",
+      // preset: "cloudflare-pages-static",
       serveStatic: true,
    },
 
@@ -123,6 +151,8 @@ export default defineNuxtConfig({
    },
 
    security: {
+      nonce: true,
+      removeLoggers: false,
       allowedMethodsRestricter: {
          methods: ["GET", "POST"],
       },
@@ -131,11 +161,35 @@ export default defineNuxtConfig({
       },
       headers: {
          crossOriginEmbedderPolicy: process.env.NODE_ENV === "development" ? "unsafe-none" : "require-corp",
-         crossOriginResourcePolicy: "same-site",
+         crossOriginResourcePolicy: "same-origin",
          contentSecurityPolicy: {
-            "img-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
-            "script-src": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
+            "default-src": ["'self'", "https://lumiiere-candles.com/"],
+            "base-uri": ["'self'", "https://lumiiere-candles.com/"],
+            "font-src": ["'self'"],
+            "connect-src": ["'self'", "https://strapi.lumiiere-candles.com/"],
+            "form-action": ["'self'"],
+            "frame-ancestors": ["'self'"],
+            "img-src": ["'self'", "data:", "https://assets.lumiiere-candles.com/"],
+            "object-src": ["'none'"],
+            "style-src": ["'self'", "'unsafe-inline'"],
+            "script-src": !isDev
+               ? ["'self'", "'nonce-{{nonce}}'", "'strict-dynamic'", "https://lumiiere-candles.com/"]
+               : ["'self'", "'unsafe-inline'"],
+            "script-src-attr": !isDev
+               ? ["'self'", "'nonce-{{nonce}}'", "'strict-dynamic'", "https://lumiiere-candles.com/"]
+               : ["'self'", "'unsafe-inline'"],
+            "script-src-elem": !isDev
+               ? ["'self'", "'nonce-{{nonce}}'", "'strict-dynamic'", "https://lumiiere-candles.com/"]
+               : ["'self'", "'unsafe-inline'"],
+
+            "upgrade-insecure-requests": true,
          },
+         strictTransportSecurity: {
+            maxAge: 15552000,
+            includeSubdomains: true,
+         },
+
+
          xXSSProtection: "1",
       },
    },
@@ -148,5 +202,6 @@ export default defineNuxtConfig({
       "nuxt-simple-robots",
       "nuxt-simple-sitemap",
       "@nuxtjs/strapi",
+      "nuxt-security",
    ],
 });
