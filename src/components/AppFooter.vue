@@ -82,31 +82,31 @@
                   <p class="footer__props-info">
                      Иванова Елизавета Александрова
                      <br />
-                     ИНН 145389784328
+                     ИНН 14538978
                   </p>
                </div>
                <div class="footer__social">
-                  <a class="footer__social-link" href="https://instagram.com/lumiiere.candles?igshid=YmMyMTA2M2Y=" aria-label="Social link">
+                  <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
                         <use xlink:href="/sprite.svg#footerSocialLike"></use>
                      </svg>
                   </a>
-                  <a class="footer__social-link" href="https://vt.tiktok.com/ZSdGUYsFb/" aria-label="Social link">
+                  <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
                         <use xlink:href="/sprite.svg#footerSocialTikTok"></use>
                      </svg>
                   </a>
-                  <a class="footer__social-link" href="https://t.me/lumiiere_candles" aria-label="Social link">
+                  <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
                         <use xlink:href="/sprite.svg#footerSocialTelegram"></use>
                      </svg>
                   </a>
-                  <a class="footer__social-link" href="https://wa.me/79037590430" aria-label="Social link">
+                  <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
                         <use xlink:href="/sprite.svg#footerSocialWhatsApp"></use>
                      </svg>
                   </a>
-                  <a class="footer__social-link" href="https://taplink.cc/lumiierecandles" aria-label="Social link">
+                  <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
                         <use xlink:href="/sprite.svg#footerSocialTaplink"></use>
                      </svg>
