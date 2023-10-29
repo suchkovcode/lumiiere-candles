@@ -411,21 +411,3 @@ export default {
    },
 };
 </script>
-
-<style lang="scss">
-/* stylelint-disable at-rule-empty-line-before */
-@import "@/assets/styles/base/reset";
-@import "@/assets/styles/base/fonts";
-@import "@/assets/styles/base/var";
-@import "@/assets/styles/base/mixin";
-@import "@/assets/styles/base/global";
-@import "@/assets/styles/base/text";
-@import "@/assets/styles/base/btn";
-
-@import "@/assets/styles/components/appHeader";
-@import "@/assets/styles/components/appFooter";
-@import "@/assets/styles/components/base/breadcrumbs";
-@import "@/assets/styles/components/base/faq";
-
-@import "@/assets/styles/pages/about";
-</style>
