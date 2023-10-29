@@ -80,10 +80,8 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import { useAppStore } from "@/store/appStore";
 import { Form, Field, ErrorMessage } from "vee-validate";
-import * as yup from "yup";
+import { object, string } from "yup";
 
 export default {
    components: {
@@ -105,27 +103,23 @@ export default {
          isVisible: false,
          initialValues: { email: "", password: "" },
 
-         schema: yup.object({
-            email: yup
-               .string()
+         schema: object({
+            email: string()
                .trim()
                .required("Обязательное поле")
                .email("Введите правильный email")
                .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, { message: "Введите полный email" }),
-            password: yup.string().trim().required("Обязательное поле").min(6, "Минимальное количество символов 6"),
+            password: string().trim().required("Обязательное поле").min(6, "Минимальное количество символов 6"),
          }),
       };
    },
 
    methods: {
-      ...mapActions(useAppStore, { loginAuth: "logIn" }),
-
       async login(values, actions) {
          const { login } = useStrapiAuth();
          try {
             if (this.token) {
                await login({ identifier: values.email, password: values.password });
-               this.loginAuth();
                this.token = null;
                this.$router.push("/admin");
             }

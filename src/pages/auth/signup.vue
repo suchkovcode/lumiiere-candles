@@ -100,10 +100,8 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import { useAppStore } from "@/store/appStore";
 import { Form, Field, ErrorMessage } from "vee-validate";
-import * as yup from "yup";
+import { object, string } from "yup";
 
 export default {
    components: {
@@ -123,28 +121,24 @@ export default {
          isValidvisible: false,
          isVisible: false,
          initialValues: { username: "", email: "", password: "" },
-         schema: yup.object({
-            username: yup.string().trim().required("Обязательное поле").min(4, "Минимальное количество символов 4"),
-            email: yup
-               .string()
+         schema: object({
+            username: string().trim().required("Обязательное поле").min(4, "Минимальное количество символов 4"),
+            email: string()
                .trim()
                .required("Обязательное поле")
                .email("Введите правильный email")
                .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, { message: "Введите полный email" }),
-            password: yup.string().trim().required("Обязательное поле").min(6, "Минимальное количество символов 6"),
+            password: string().trim().required("Обязательное поле").min(6, "Минимальное количество символов 6"),
          }),
       };
    },
 
    methods: {
-      ...mapActions(useAppStore, { loginAuth: "logIn" }),
-
       async createUser(values, actions) {
          const { register } = useStrapiAuth();
          try {
             if (this.token) {
                await register({ username: values.username, email: values.email, password: values.password });
-               this.loginAuth();
                this.token = null;
                this.$router.push("/admin");
             }
