@@ -136,7 +136,7 @@ export default {
             this.loginAuth();
             this.$router.push("/admin");
          } catch (e) {
-            (this.isValidvisible = true), console.log(e);
+            (this.isValidvisible = true), console.error(e);
             setTimeout(() => {
                this.isValidvisible = false;
             }, 2500);
