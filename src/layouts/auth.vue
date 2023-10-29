@@ -1,5 +1,5 @@
 <template>
-   <main class="main">
+   <main id="auth">
       <slot />
    </main>
 </template>
