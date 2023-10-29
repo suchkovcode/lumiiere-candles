@@ -100,10 +100,6 @@ export default defineNuxtConfig({
       serveStatic: true,
    },
 
-   routeRules: {
-      "/dashboard/**": { ssr: false },
-   },
-
    eslint: {
       lintOnStart: false,
    },
@@ -118,6 +114,10 @@ export default defineNuxtConfig({
       xsl: false,
       xslTips: false,
       discoverImages: true,
+   },
+
+   routeRules: {
+      "/admin": { index: false },
    },
 
    postcss: {
@@ -175,7 +175,6 @@ export default defineNuxtConfig({
             "script-src": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
             "script-src-attr": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
             "script-src-elem": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
-
             "upgrade-insecure-requests": true,
          },
          strictTransportSecurity: {
