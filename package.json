@@ -26,6 +26,7 @@
       "@pinia/nuxt": "^0.5.1",
       "@nuxtjs/strapi": "^1.9.3",
       "nuxt-security": "^1.0.0-rc.2",
+      "@nuxtjs/turnstile": "^0.6.3",
 
       "eslint": "^8.52.0",
       "eslint-plugin-import": "^2.29.0",

@@ -168,13 +168,14 @@ export default defineNuxtConfig({
             "connect-src": ["'self'", "https://strapi.lumiiere-candles.com/"],
             "form-action": ["'self'"],
             "frame-ancestors": ["'self'"],
+            "frame-src": ["https://challenges.cloudflare.com/"],
             "img-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
             "media-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
             "object-src": ["'none'"],
             "style-src": ["'self'", "'unsafe-inline'"],
-            "script-src": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
+            "script-src": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/",],
             "script-src-attr": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
-            "script-src-elem": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
+            "script-src-elem": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/", "https://challenges.cloudflare.com/"],
             "upgrade-insecure-requests": true,
          },
          strictTransportSecurity: {
@@ -186,14 +187,19 @@ export default defineNuxtConfig({
       },
    },
 
+   turnstile: {
+      siteKey: "0x4AAAAAAAMW4v5MoOHDPyiR",
+   },
+
    css: ["@/assets/styles/app.scss"],
    modules: [
       "@nuxtjs/eslint-module",
-      "@pinia/nuxt",
       "@nuxtjs/device",
+      "@nuxtjs/turnstile",
+      "@nuxtjs/strapi",
+      "@pinia/nuxt",
       "nuxt-simple-robots",
       "nuxt-simple-sitemap",
-      "@nuxtjs/strapi",
       "nuxt-security",
    ],
 });
