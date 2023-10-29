@@ -63,8 +63,8 @@
          <footer class="auth__footer">
             <p class="auth__footer-text">© 2023 Lumiiere. All rights reserved.</p>
             <p class="auth__footer-text">
-               <nuxt-link class="auth__footer-link" to="/"> Privacy policy </nuxt-link>
-               <nuxt-link class="auth__footer-link" to="/"> Terms of Use </nuxt-link>
+               <nuxt-link class="auth__footer-link" to="/policy"> Privacy policy </nuxt-link>
+               <nuxt-link class="auth__footer-link" to="/oferta"> Terms of Use </nuxt-link>
             </p>
          </footer>
       </div>
