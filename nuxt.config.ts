@@ -152,7 +152,6 @@ export default defineNuxtConfig({
 
    security: {
       nonce: true,
-      removeLoggers: false,
       allowedMethodsRestricter: {
          methods: ["GET", "POST"],
       },
