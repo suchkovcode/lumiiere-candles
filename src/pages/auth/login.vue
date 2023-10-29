@@ -116,7 +116,7 @@ export default {
          try {
             await login({ identifier: values.email, password: values.password });
             this.loginAuth();
-            this.$router.push("/dashboard");
+            this.$router.push("/admin");
          } catch (e) {
             (this.isValidvisible = true), console.log(e);
             setTimeout(() => {

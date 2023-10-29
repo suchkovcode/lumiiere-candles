@@ -1,7 +1,6 @@
 #Build generated and folder
 dist
 build
-admin
 node_modules
 bower_components
 .output
