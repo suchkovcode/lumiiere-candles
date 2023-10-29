@@ -53,6 +53,10 @@
             color: var(--color_primary);
             background-color: var(--color_header_btn_hover);
          }
+
+         & span {
+            color: var(--color_primary);
+         }
       }
    }
 }
