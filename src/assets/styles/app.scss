@@ -7,6 +7,15 @@
 @import "@/assets/styles/base/text";
 @import "@/assets/styles/base/btn";
 
+
+@import "@/assets/styles/components/appFooter";
+@import "@/assets/styles/components/appHeader";
+@import "@/assets/styles/components/appCatalog";
+@import "@/assets/styles/components/appFilter";
+@import "@/assets/styles/components/appPagination";
+@import "@/assets/styles/components/blockFallow";
+
+
 @import "@/assets/styles/components/base/breadcrumbs";
 @import "@/assets/styles/components/base/faq";
 @import "@/assets/styles/components/base/tabs";
@@ -29,13 +38,6 @@
 @import "@/assets/styles/components/card/favorite";
 @import "@/assets/styles/components/card/price";
 @import "@/assets/styles/components/card/rating";
-
-@import "@/assets/styles/components/appCatalog";
-@import "@/assets/styles/components/appFilter";
-@import "@/assets/styles/components/appFooter";
-@import "@/assets/styles/components/appHeader";
-@import "@/assets/styles/components/appPagination";
-@import "@/assets/styles/components/blockFallow";
 
 @import "@/assets/styles/pages/index";
 @import "@/assets/styles/pages/about";
