@@ -23,7 +23,6 @@
                   </VField>
                   <VErrorMessage class="auth__input-err" name="email" as="span" />
                </div>
-
                <div class="auth__field auth__field-password" :class="{ active: isVisible }">
                   <VField v-slot="{ field, meta }" name="password">
                      <input
@@ -38,6 +37,9 @@
                      </svg>
                   </VField>
                   <VErrorMessage class="auth__input-err" name="password" as="span" />
+               </div>
+               <div class="auth__cloudflare">
+                  <NuxtTurnstile v-model="token" />
                </div>
                <button type="submit" class="btn auth__btn" :class="{ novalid: !formMeta.valid }">Войти</button>
                <p v-if="isValidvisible" class="auth__input-err auth__input-err--form">Ошибка авторизации, повторите ще раз</p>
@@ -92,6 +94,7 @@ export default {
 
    data() {
       return {
+         token: "",
          isValidvisible: false,
          isVisible: false,
          initialValues: { email: "", password: "" },

@@ -169,6 +169,12 @@
       }
    }
 
+   &__cloudflare {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 20px;
+   }
+
    &__btn {
       box-shadow: none;
 
