@@ -35,7 +35,8 @@ Password: Password12
 7. Product sorting;
 8. Catalog pagination;
 9. Single page application(SSR);
-10. Registration\authorization.
+10. Registration\authorization;
+11. OWASP security and  Cloudflare Turnstile.
 
 ## Website speed and performance
 
