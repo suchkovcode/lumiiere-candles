@@ -6,9 +6,6 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import { useAppStore } from "@/store/appStore";
-
 export default {
    setup() {
       definePageMeta({
@@ -18,12 +15,11 @@ export default {
    },
 
    methods: {
-      ...mapActions(useAppStore, { logoutAuth: "logOut" }),
 
       logOut() {
          const { logout } = useStrapiAuth();
+         process.client ? localStorage.removeItem("username") : false;
          logout();
-         this.logoutAuth();
          this.$router.push("/auth/login");
       },
    },
