@@ -145,6 +145,7 @@ export default {
             if (this.token) {
                await register({ username: values.username, email: values.email, password: values.password });
                this.loginAuth();
+               this.token = null;
                this.$router.push("/admin");
             }
          } catch (e) {

@@ -44,7 +44,7 @@
                <button
                   type="submit"
                   class="btn auth__btn"
-                  :disabled="(!formMeta.valid || !token) ? true : false"
+                  :disabled="!formMeta.valid || !token ? true : false"
                   :class="{ novalid: !formMeta.valid || !token }">
                   Войти
                </button>
@@ -126,6 +126,7 @@ export default {
             if (this.token) {
                await login({ identifier: values.email, password: values.password });
                this.loginAuth();
+               this.token = null;
                this.$router.push("/admin");
             }
          } catch (e) {
