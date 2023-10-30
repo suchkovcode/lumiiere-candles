@@ -125,10 +125,9 @@ export default {
                this.$router.push("/admin");
             }
          } catch (e) {
-            (this.isValidVisible = true), console.error(e);
-            setTimeout(() => {
-               this.isValidVisible = false;
-            }, 2500);
+            this.isValidVisible = true;
+            setTimeout(() => (this.isValidVisible = false), 2500);
+            console.error(e);
          } finally {
             actions.resetForm();
          }
