@@ -23,7 +23,7 @@ export default {
    setup() {
       useSeoMeta({
          title: "Lumiiere Candles | 404",
-         description: "Страница ошибки",
+         description: "Ой кажется возникла ошибка",
       });
 
       defineRobotMeta();
