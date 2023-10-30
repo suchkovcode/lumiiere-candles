@@ -31,6 +31,7 @@ export default defineNuxtConfig({
             }
          }
       },
+
    },
 
    app: {
@@ -86,10 +87,11 @@ export default defineNuxtConfig({
    },
 
    experimental: {
-      inlineSSRStyles: false,
+      inlineSSRStyles: true,
       payloadExtraction: false,
       headNext: true,
       noScripts: false,
+      noVueServer: true,
       renderJsonPayloads: false,
       crossOriginPrefetch: false,
    },
