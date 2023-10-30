@@ -194,6 +194,18 @@
       }
    }
 
+   &__forgot {
+      padding: 0 20px;
+      font-size: 16px;
+      text-align: right;
+      color: var(--color_secondary);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+         color: var(--color_primary);
+      }
+   }
+
    &__with {
       position: relative;
       margin-bottom: 30px;
