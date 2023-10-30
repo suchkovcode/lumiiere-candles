@@ -48,7 +48,7 @@
                   :class="{ novalid: !formMeta.valid || !token }">
                   Войти
                </button>
-               <p v-if="isValidvisible" class="auth__input-err auth__input-err--form">Ошибка авторизации, повторите ще раз</p>
+               <p v-if="isValidVisible" class="auth__input-err auth__input-err--form">Ошибка авторизации, повторите ще раз</p>
             </VForm>
             <div class="auth__with">
                <hr />
@@ -99,7 +99,7 @@ export default {
    data() {
       return {
          token: null,
-         isValidvisible: false,
+         isValidVisible: false,
          isVisible: false,
          initialValues: { email: "", password: "" },
 
@@ -125,9 +125,9 @@ export default {
                this.$router.push("/admin");
             }
          } catch (e) {
-            (this.isValidvisible = true), console.error(e);
+            (this.isValidVisible = true), console.error(e);
             setTimeout(() => {
-               this.isValidvisible = false;
+               this.isValidVisible = false;
             }, 2500);
          } finally {
             actions.resetForm();
