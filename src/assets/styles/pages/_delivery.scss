@@ -9,8 +9,9 @@
 
       &-icon {
          position: absolute;
-         top: 0;
+         top: -10px;
          left: calc(50% - 60px);
+         z-index: 10;
 
          @include md {
             width: 130px;
