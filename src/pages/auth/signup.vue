@@ -59,7 +59,7 @@
                   </p>
                </div>
                <div class="auth__cloudflare">
-                  <NuxtTurnstile v-model="token" />
+                  <LazyNuxtTurnstile v-model="token" />
                </div>
                <button
                   type="submit"

@@ -40,7 +40,7 @@
                </div>
                <nuxt-link class="auth__forgot" to="#">Забыли пароль?</nuxt-link>
                <div class="auth__cloudflare">
-                  <NuxtTurnstile v-model="token" />
+                  <LazyNuxtTurnstile v-model="token" />
                </div>
                <button
                   type="submit"
