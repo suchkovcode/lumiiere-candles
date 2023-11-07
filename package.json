@@ -8,25 +8,29 @@
    "homepage": "https://lumiiere-candles.com",
    "private": true,
    "scripts": {
-      "build:dev": "nuxt dev",
+      "build:dev": "nuxt dev --host ",
       "build:prod": "nuxt build",
       "build:ssr": "nuxt generate",
       "build:preview": "nuxt preview",
-      "build:postinstall": "nuxt prepare"
+      "nuxt:analuze": "npx nuxi analyze",
+      "nuxt:clean": "npx nuxi cleanup",
+      "nuxt:info": "npx nuxi info",
+      "nuxt:upgrade": "npx nuxi upgrade"
    },
    "devDependencies": {
+      "@types/node": "^20.8.10",
+
       "nuxt": "^3.8.1",
       "nuxt-simple-robots": "^3.1.9",
       "nuxt-simple-sitemap": "^3.4.1",
-
-      "@types/node": "^20.8.10",
-      "@nuxt/devtools": "1.0.0",
-      "@nuxtjs/eslint-module": "^4.1.0",
-      "@nuxtjs/device": "^3.1.1",
-      "@pinia/nuxt": "^0.5.1",
-      "@nuxtjs/strapi": "^1.9.3",
       "nuxt-security": "^1.0.0-rc.3",
+
+      "@nuxtjs/eslint-module": "^4.1.0",
+      "@nuxtjs/strapi": "^1.9.3",
+      "@nuxtjs/device": "^3.1.1",
       "@nuxtjs/turnstile": "^0.6.3",
+      "@nuxt/devtools": "1.0.0",
+      "@pinia/nuxt": "^0.5.1",
 
       "eslint": "^8.53.0",
       "eslint-plugin-import": "^2.29.0",
