@@ -91,7 +91,7 @@ export default defineNuxtConfig({
       payloadExtraction: false,
       headNext: true,
       noScripts: false,
-      noVueServer: true,
+      noVueServer: false,
       renderJsonPayloads: false,
       crossOriginPrefetch: false,
    },
