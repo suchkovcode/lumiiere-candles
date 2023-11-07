@@ -19,7 +19,7 @@
       "nuxt-simple-robots": "^3.1.9",
       "nuxt-simple-sitemap": "^3.4.1",
 
-      "@types/node": "^20.8.9",
+      "@types/node": "^20.8.10",
       "@nuxt/devtools": "1.0.0",
       "@nuxtjs/eslint-module": "^4.1.0",
       "@nuxtjs/device": "^3.1.1",
@@ -28,7 +28,7 @@
       "nuxt-security": "^1.0.0-rc.3",
       "@nuxtjs/turnstile": "^0.6.3",
 
-      "eslint": "^8.52.0",
+      "eslint": "^8.53.0",
       "eslint-plugin-import": "^2.29.0",
       "eslint-plugin-vue": "^9.18.1",
       "eslint-plugin-security-node": "^1.1.1",
