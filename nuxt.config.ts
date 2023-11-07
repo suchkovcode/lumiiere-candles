@@ -147,42 +147,42 @@ export default defineNuxtConfig({
       url: process.env.API_URL || "http://localhost:1337",
    },
 
-   security: {
-      nonce: false,
-      allowedMethodsRestricter: {
-         methods: ["GET", "POST"],
-      },
-      ssg: {
-         hashScripts: false,
-      },
-      headers: {
-         crossOriginEmbedderPolicy: "unsafe-none",
-         crossOriginResourcePolicy: "same-origin",
-         contentSecurityPolicy: {
-            "default-src": ["'self'", "https://lumiiere-candles.com/"],
-            "base-uri": ["'self'", "https://lumiiere-candles.com/"],
-            "font-src": ["'self'"],
-            "connect-src": ["'self'", "https://strapi.lumiiere-candles.com/"],
-            "form-action": ["'self'"],
-            "frame-ancestors": ["'self'"],
-            "frame-src": ["https://challenges.cloudflare.com/"],
-            "img-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
-            "media-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
-            "object-src": ["'none'"],
-            "style-src": ["'self'", "'unsafe-inline'"],
-            "script-src": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
-            "script-src-attr": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
-            "script-src-elem": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/", "https://challenges.cloudflare.com/"],
-            "upgrade-insecure-requests": true,
-         },
-         strictTransportSecurity: {
-            maxAge: 15552000,
-            includeSubdomains: true,
-         },
+   // security: {
+   //    nonce: false,
+   //    allowedMethodsRestricter: {
+   //       methods: ["GET", "POST"],
+   //    },
+   //    ssg: {
+   //       hashScripts: false,
+   //    },
+   //    headers: {
+   //       crossOriginEmbedderPolicy: "unsafe-none",
+   //       crossOriginResourcePolicy: "same-origin",
+   //       contentSecurityPolicy: {
+   //          "default-src": ["'self'", "https://lumiiere-candles.com/"],
+   //          "base-uri": ["'self'", "https://lumiiere-candles.com/"],
+   //          "font-src": ["'self'"],
+   //          "connect-src": ["'self'", "https://strapi.lumiiere-candles.com/"],
+   //          "form-action": ["'self'"],
+   //          "frame-ancestors": ["'self'"],
+   //          "frame-src": ["https://challenges.cloudflare.com/"],
+   //          "img-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
+   //          "media-src": ["'self'", "data:", "https:", "https://assets.lumiiere-candles.com/"],
+   //          "object-src": ["'none'"],
+   //          "style-src": ["'self'", "'unsafe-inline'"],
+   //          "script-src": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
+   //          "script-src-attr": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/"],
+   //          "script-src-elem": ["'self'", "'unsafe-inline'", "https://lumiiere-candles.com/", "https://challenges.cloudflare.com/"],
+   //          "upgrade-insecure-requests": true,
+   //       },
+   //       strictTransportSecurity: {
+   //          maxAge: 15552000,
+   //          includeSubdomains: true,
+   //       },
 
-         xXSSProtection: "1",
-      },
-   },
+   //       xXSSProtection: "1",
+   //    },
+   // },
 
    css: ["@/assets/styles/app.scss"],
    modules: [
@@ -193,6 +193,6 @@ export default defineNuxtConfig({
       "@pinia/nuxt",
       "nuxt-simple-robots",
       "nuxt-simple-sitemap",
-      "nuxt-security",
+      // "nuxt-security",
    ],
 });
