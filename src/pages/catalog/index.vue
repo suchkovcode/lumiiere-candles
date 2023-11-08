@@ -32,9 +32,9 @@
             <div>
                <ClientOnly>
                   <AppCatalog class="allcatalog__cards" :data-item="filteredProducts.products" />
+                  <AppPagination class="allcatalog__pagination" :pagination-data="filteredProducts.pagination" />
+                  <p v-show="!filteredProducts.products.length" class="emptyData">Список пуст</p>
                </ClientOnly>
-               <AppPagination class="allcatalog__pagination" :pagination-data="filteredProducts.pagination" />
-               <p v-show="!filteredProducts.products.length" class="emptyData">Список пуст</p>
             </div>
          </div>
       </div>
@@ -48,7 +48,7 @@ const { find } = useStrapi();
 const filter = ref({});
 const searchQueryData = ref("");
 
-const { data } = await find("products");
+const { data } = await find("products", { "pagination[pageSize]": 100 });
 const card = await useHandllerApi(data);
 
 const filteredProducts = computed(() => {
