@@ -27,67 +27,42 @@
    </article>
 </template>
 
-<script>
-import { mapActions } from "pinia";
-import { useBacketStore } from "@/store/backetStore";
-
-export default {
-   props: {
-      cardData: {
-         type: Object,
-         required: true,
-      },
+<script setup>
+const props = defineProps({
+   cardData: {
+      type: Object,
+      required: true,
    },
+});
 
-   data() {
-      return {
-         card: {
-            id: this.cardData.uid,
-            size: "small",
-            count: 1,
-         },
-      };
-   },
+const store = useBacketStore();
+const card = ref({
+   id: props.cardData.uid,
+   size: "small",
+   count: 1,
+});
 
-   computed: {
-      categoryJoin() {
-         return this.cardData?.tags?.join(" | ");
-      },
+const categoryJoin = computed(() => props.cardData?.tags?.join(" | "));
+const cardArticle = computed(() => props.cardData?.article?.[card.value.size]?.toUpperCase());
+const isCandles = computed(() => props.cardData?.category?.toLowerCase()?.trim() === "свечи");
+const isMelts = computed(() => props.cardData?.category?.toLowerCase()?.trim() === "мелтсы");
 
-      cardArticle() {
-         return this.cardData?.article?.[this.card.size]?.toUpperCase();
-      },
+const cardPriceNew = computed(() => {
+   const newPrice = props.cardData?.price?.new?.[card.value.size];
+   return newPrice ? newPrice : false;
+});
 
-      cardPriceNew() {
-         const newPrice = this.cardData?.price?.new?.[this.card.size];
-         return newPrice ? newPrice : false;
-      },
+const cardPriceOld = computed(() => {
+   const oldPrice = props.cardData?.price?.old?.[card.value.size];
+   return oldPrice ? oldPrice : false;
+});
 
-      cardPriceOld() {
-         const oldPrice = this.cardData?.price?.old?.[this.card.size];
-         return oldPrice ? oldPrice : false;
-      },
-
-      isCandles() {
-         return this.cardData?.category?.toLowerCase()?.trim() === "свечи";
-      },
-
-      isMelts() {
-         return this.cardData?.category?.toLowerCase()?.trim() === "мелтсы";
-      },
-   },
-
-   methods: {
-      ...mapActions(useBacketStore, { addBacketCard: "addCardBacket" }),
-
-      addCardBacket() {
-         if (this.cardData.isStock) {
-            const cardData = { ...this.card };
-            this.addBacketCard(cardData);
-            this.card.count = 1;
-            this.card.size = "small";
-         }
-      },
-   },
+const addCardBacket = () => {
+   if (props.cardData.isStock) {
+      const cardData = { ...card.value };
+      store.addCardBacket(cardData);
+      card.value.count = 1;
+      card.value.size = "small";
+   }
 };
 </script>
