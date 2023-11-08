@@ -140,33 +140,25 @@
    </div>
 </template>
 
-<script>
-export default {
-   data() {
-      return {
-         countClider: 3,
-         currentSlider: 1,
-         timerData: null,
-      };
-   },
+<script setup>
+const countClider = ref(3);
+const currentSlider = ref(1);
+const timerData = ref(null);
 
-   mounted() {
-      this.launchTimer();
-   },
-
-   methods: {
-      launchTimer() {
-         this.timerData = setInterval(() => {
-            this.currentSlider++;
-            this.currentSlider === 4 ? (this.currentSlider = 1) : this.currentSlider;
-         }, 5000);
-      },
-
-      resetTimer(number) {
-         this.currentSlider = number;
-         clearInterval(this.timerData);
-         this.launchTimer();
-      },
-   },
+const launchTimer = () => {
+   timerData.value = setInterval(() => {
+      currentSlider.value++;
+      currentSlider.value === 4 ? (currentSlider.value = 1) : currentSlider.value;
+   }, 5000);
 };
+
+const resetTimer = (number) => {
+   currentSlider.value = number;
+   clearInterval(timerData.value);
+   launchTimer();
+};
+
+onMounted(() => {
+   launchTimer();
+});
 </script>
