@@ -55,34 +55,15 @@
    </section>
 </template>
 
-<script>
-import { useAppStore } from "@/store/appStore";
+<script setup>
+const countProductCatalog = ref(8);
 
-export default {
-   async setup() {
-      const store = useAppStore();
-      const config = useRuntimeConfig();
+const { find } = useStrapi();
+const { data } = await find("products", {
+   "pagination[pageSize]": 100,
+});
 
-      const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
-         method: "GET",
-         params: {
-            "pagination[pageSize]": 100,
-            "locale": store.params.locale,
-         },
-      });
+const cards = await useHandllerApi(data);
 
-      const card = await useHandllerApi(data);
-
-      return {
-         card: card.filter((item) => item.category === "Наборы"),
-      };
-   },
-
-   data() {
-      return {
-         countProductCatalog: 8,
-      };
-   },
-};
+const card = computed(() => cards.filter((item) => item.category === "Наборы"));
 </script>
-
