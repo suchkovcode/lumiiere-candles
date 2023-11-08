@@ -13,10 +13,8 @@
    </button>
 </template>
 
-<script>
-export default {
-   props: {
-      isEmpty: Boolean,
-   },
-};
+<script setup>
+const props = defineProps({
+   isEmpty: Boolean,
+});
 </script>
