@@ -11,7 +11,7 @@
             <p class="backet__product-all">Итого: {{ getSumAddition }} {{ cards[0].currency }}</p>
             <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
          </div>
-         <p v-show="!storecards.length && !checkout" class="backet__empty">Корзина пуста</p>
+         <p v-show="!store.cards.length && !checkout" class="D">Корзина пуста</p>
          <canvas-backet-form v-if="checkout" :sum-data="store.sumCard" :currency-data="store.cards[0].currency" />
       </ClientOnly>
    </div>
