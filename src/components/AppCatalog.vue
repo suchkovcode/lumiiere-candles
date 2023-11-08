@@ -4,19 +4,17 @@
    </div>
 </template>
 
-<script>
-export default {
-   props: {
-      dataItem: {
-         type: [Array, Object],
-         required: true,
-      },
-
-      visibleItem: {
-         type: Number,
-         required: false,
-         default: 100,
-      },
+<script setup>
+const props = defineProps({
+   dataItem: {
+      type: [Array, Object],
+      required: true,
    },
-};
+
+   visibleItem: {
+      type: Number,
+      required: false,
+      default: 100,
+   },
+});
 </script>
