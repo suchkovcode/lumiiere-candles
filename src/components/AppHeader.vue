@@ -97,7 +97,6 @@
 </template>
 
 <script setup>
-const appStore = useAppStore();
 const backetStore = useBacketStore();
 const favoriteStore = useFavoriteStore();
 
