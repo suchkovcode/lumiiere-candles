@@ -1,5 +1,5 @@
 export const useHandllerApi = async (data) => {
-   const arrayCard = await data.value.data.map((item) => {
+   const arrayCard = data.map((item) => {
       const {
          Aroma: { data: aromaData },
          Category: { data: categoryData },
@@ -25,8 +25,7 @@ export const useHandllerApi = async (data) => {
 };
 
 export const useHandllerApiOne = async (data) => {
-
-   const { Aroma, Category, Collection, img, tags, ...attributes } = data.value.data.attributes;
+   const { Aroma, Category, Collection, img, tags, ...attributes } = data.attributes;
 
    const tagNames = tags.map((tag) => tag.name);
 
