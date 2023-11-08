@@ -71,7 +71,7 @@
                </svg>
             </nuxt-link>
             <div class="header__right">
-               <button class="header__btn-favorite" @click="favoriteStore.updateFavoriteCanvas(true)">
+               <button class="header__btn-favorite" @click="appStore.updateFavoriteCanvas(true)">
                   <svg class="header__icon">
                      <use xlink:href="/sprite.svg#favorite"></use>
                   </svg>
