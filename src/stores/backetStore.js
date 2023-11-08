@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { useAppStore } from "@/store/appStore";
+import { useAppStore } from "@/stores/appStore";
 
 export const useBacketStore = defineStore("backetStore", {
    state: () => {
@@ -44,7 +44,7 @@ export const useBacketStore = defineStore("backetStore", {
                const newCardData = {
                   id: cardData.id,
                   title: title,
-                  img: img.data.attributes,
+                  img: img.data?.attributes,
                   article: article[cardData.size],
                   count: cardData.count,
                   price: price.new[cardData.size],

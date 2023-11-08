@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { useAppStore } from "@/store/appStore";
+import { useAppStore } from "@/stores/appStore";
 
 export const useFavoriteStore = defineStore("favoriteStore", {
    state: () => {
