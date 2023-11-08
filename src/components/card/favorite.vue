@@ -6,45 +6,26 @@
    </button>
 </template>
 
-<script>
-import { mapActions, mapState } from "pinia";
-import { useFavoriteStore } from "@/store/favoriteStore";
-
-export default {
-   props: {
-      cardId: {
-         type: String,
-         required: true,
-      },
+<script setup>
+const props = defineProps({
+   cardId: {
+      type: String,
+      required: true,
    },
+});
+const store = useFavoriteStore();
+const isSelect = ref(false);
 
-   data() {
-      return {
-         isSelect: false,
-      };
-   },
+watch(store.cards, () => {
+   isSelect.value = store.cards.some((item) => item.uid === props.cardId);
+});
 
-   computed: {
-      ...mapState(useFavoriteStore, ["cards"]),
-   },
+onMounted(() => {
+   isSelect.value = store.cards.some((item) => item.uid === props.cardId);
+});
 
-   watch: {
-      cards() {
-         this.isSelect = this.cards.some((item) => item.uid === this.cardId);
-      },
-   },
-
-   mounted() {
-      this.isSelect = this.cards.some((item) => item.uid === this.cardId);
-   },
-
-   methods: {
-      ...mapActions(useFavoriteStore, { addCardFavorite: "addCardFavorite", delCardFavorite: "delCardFavorite" }),
-
-      toggleCard() {
-         this.isSelect = !this.isSelect;
-         this.isSelect ? this.addCardFavorite(this.cardId) : this.delCardFavorite(this.cardId);
-      },
-   },
+const toggleCard = () => {
+   isSelect.value = !isSelect.value;
+   isSelect.value ? store.addCardFavorite(props.cardId) : delCardFavorite(props.cardId);
 };
 </script>
