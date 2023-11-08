@@ -8,7 +8,7 @@
          width="70"
          height="70" />
       <div class="favoriteItem__options">
-         <nuxt-link class="favoriteItem__name" :to="`/catalog/${favoriteItem.uid}`" @click="$emit('closeCanvas', false)">
+         <nuxt-link class="favoriteItem__name" :to="`/catalog/${pathToCategory}/${favoriteItem.uid}`" @click="$emit('closeCanvas', false)">
             {{ favoriteItem.title }}
          </nuxt-link>
          <p class="favoriteItem__size">Размер: 40 мл</p>
@@ -23,15 +23,24 @@
    </div>
 </template>
 
-<script>
-export default {
-   props: {
-      favoriteItem: {
-         type: Object,
-         required: true,
-      },
-   },
+<script setup>
+const emit = defineEmits(["delFavorite", "closeCanvas"]);
 
-   emits: ["delFavorite", "closeCanvas"],
-};
+const props = defineProps({
+   favoriteItem: {
+      type: Object,
+      required: true,
+   },
+});
+
+const pathToCategory = computed(() => {
+   const categoryToPath = {
+      Свечи: "candles",
+      Наборы: "boxes",
+      Мелтсы: "melts",
+      Дополнительно: "matches",
+   };
+
+   return categoryToPath[props.favoriteItem.category];
+});
 </script>
