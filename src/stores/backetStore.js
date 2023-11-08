@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { useAppStore } from "@/stores/appStore";
 
 export const useBacketStore = defineStore("backetStore", {
    state: () => {
@@ -21,20 +20,11 @@ export const useBacketStore = defineStore("backetStore", {
 
    actions: {
       async addCardBacket(cardData) {
-         const store = useAppStore();
-         const config = useRuntimeConfig();
+         const { findOne } = useStrapi();
 
          try {
-            const response = await fetch(`${config.public.STRAPI}/api/products/${cardData.id}`, {
-               method: "GET",
-               params: {
-                  locale: store.params.locale,
-               },
-            });
-
-            const data = await response.json();
-            const { title, img, price, article } = data.data.attributes;
-
+            const { data } = await findOne("products", cardData.id);
+            const { title, img, price, article } = data.attributes;
             const isExistsCard = this.cards.find((item) => item.article === article[cardData.size]);
 
             if (isExistsCard) {
