@@ -10,9 +10,9 @@
          </header>
          <div class="auth__body">
             <h1 class="auth__title">Авторизация</h1>
-            <VForm v-slot="{ meta: formMeta }" class="auth__form" :validation-schema="schema" :initial-values="initialValues" @submit="login">
+            <Form v-slot="{ meta: formMeta }" class="auth__form" :validation-schema="schema" :initial-values="initialValues" @submit="logIn">
                <div class="auth__field">
-                  <VField v-slot="{ field, meta }" name="email">
+                  <Field v-slot="{ field, meta }" name="email">
                      <input
                         v-bind="field"
                         class="auth__input"
@@ -20,11 +20,11 @@
                         placeholder="Email"
                         autocomplete="email"
                         :class="{ invalid: !meta.valid && meta.touched, valid: meta.valid && meta.touched }" />
-                  </VField>
-                  <VErrorMessage class="auth__input-err" name="email" as="span" />
+                  </Field>
+                  <ErrorMessage class="auth__input-err" name="email" as="span" />
                </div>
                <div class="auth__field auth__field-password" :class="{ active: isVisible }">
-                  <VField v-slot="{ field, meta }" name="password">
+                  <Field v-slot="{ field, meta }" name="password">
                      <input
                         v-bind="field"
                         class="auth__input"
@@ -35,8 +35,8 @@
                      <svg class="auth__input-icon" @click="isVisible = !isVisible">
                         <use xlink:href="/sprite.svg#eye"></use>
                      </svg>
-                  </VField>
-                  <VErrorMessage class="auth__input-err" name="password" as="span" />
+                  </Field>
+                  <ErrorMessage class="auth__input-err" name="password" as="span" />
                </div>
                <nuxt-link class="auth__forgot" to="#">Забыли пароль?</nuxt-link>
                <div class="auth__cloudflare">
@@ -50,7 +50,7 @@
                   Войти
                </button>
                <p v-if="isValidVisible" class="auth__input-err auth__input-err--form">Ошибка авторизации, повторите ще раз</p>
-            </VForm>
+            </Form>
             <div class="auth__with">
                <hr />
                <p class="auth__with-text">или</p>
@@ -80,59 +80,44 @@
    </section>
 </template>
 
-<script>
+<script setup>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { object, string } from "yup";
 
-export default {
-   components: {
-      VForm: Form,
-      VField: Field,
-      VErrorMessage: ErrorMessage,
-   },
+const token = ref(null);
+const isValidVisible = ref(false);
+const isVisible = ref(false);
+const initialValues = ref({ email: "", password: "" });
 
-   setup() {
-      definePageMeta({
-         layout: "auth",
-      });
-   },
+const schema = object({
+   email: string()
+      .trim()
+      .required("Обязательное поле")
+      .email("Введите правильный email")
+      .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, { message: "Введите полный email" }),
+   password: string().trim().required("Обязательное поле").min(6, "Минимальное количество символов 6"),
+});
 
-   data() {
-      return {
-         token: null,
-         isValidVisible: false,
-         isVisible: false,
-         initialValues: { email: "", password: "" },
+const logIn = async (values, actions) => {
+   const { login } = useStrapiAuth();
 
-         schema: object({
-            email: string()
-               .trim()
-               .required("Обязательное поле")
-               .email("Введите правильный email")
-               .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, { message: "Введите полный email" }),
-            password: string().trim().required("Обязательное поле").min(6, "Минимальное количество символов 6"),
-         }),
-      };
-   },
-
-   methods: {
-      async login(values, actions) {
-         const { login } = useStrapiAuth();
-         try {
-            if (this.token) {
-               const response = await login({ identifier: values.email, password: values.password });
-               process.client ? localStorage.setItem("username", response.user.value.username) : false;
-               this.token = null;
-               this.$router.push("/admin");
-            }
-         } catch (e) {
-            this.isValidVisible = true;
-            setTimeout(() => (this.isValidVisible = false), 2500);
-            console.error(e);
-         } finally {
-            actions.resetForm();
-         }
-      },
-   },
+   try {
+      if (token.value) {
+         const response = await login({ identifier: values.email, password: values.password });
+         process.client ? localStorage.setItem("username", response.user.value.username) : false;
+         token.value = null;
+         $router.push("/admin");
+      }
+   } catch (e) {
+      isValidVisible.value = true;
+      setTimeout(() => (isValidVisible.value = false), 2500);
+      console.error(e);
+   } finally {
+      actions.resetForm();
+   }
 };
+
+definePageMeta({
+   layout: "auth",
+});
 </script>
