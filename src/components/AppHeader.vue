@@ -71,17 +71,17 @@
                </svg>
             </nuxt-link>
             <div class="header__right">
-               <button class="header__btn-favorite" @click="togllerFavorite(true)">
+               <button class="header__btn-favorite" @click="favoriteStore.updateFavoriteCanvas(true)">
                   <svg class="header__icon">
                      <use xlink:href="/sprite.svg#favorite"></use>
                   </svg>
-                  <span class="header__icon-count"> {{ cardsFavorite.length }} </span>
+                  <span class="header__icon-count"> {{ favoriteStore.cards.length }} </span>
                </button>
-               <button class="header__btn-backet" @click="togllerBacket(true)">
+               <button class="header__btn-backet" @click="backetStore.updateBacketCanvas(true)">
                   <svg class="header__icon">
                      <use xlink:href="/sprite.svg#backet"></use>
                   </svg>
-                  <span class="header__icon-count"> {{ cardsBacket.length }} </span>
+                  <span class="header__icon-count"> {{ backetStore.cards.length }} </span>
                </button>
                <nuxt-link class="header__btn-login" :to="isAuthLink" aria-label="Login link">
                   <span> {{ isAuthUsername }}</span>
@@ -96,58 +96,42 @@
    <canvas-menu :active-state="isActiveCanvasMenu" @close-canvas="isActiveCanvasMenu = $event" />
 </template>
 
-<script>
-import { mapState, mapActions } from "pinia";
-import { useAppStore } from "@/store/appStore";
-import { useBacketStore } from "@/store/backetStore";
-import { useFavoriteStore } from "@/store/favoriteStore";
+<script setup>
+const appStore = useAppStore();
+const backetStore = useBacketStore();
+const favoriteStore = useFavoriteStore();
 
-export default {
-   data() {
-      return {
-         isActiveCanvasMenu: false,
-         isActiveRight: false,
-         isActiveLeft: false,
-      };
-   },
+const isActiveCanvasMenu = ref(false);
+const isActiveRight = ref(false);
+const isActiveLeft = ref(false);
 
-   computed: {
-      ...mapState(useBacketStore, { cardsBacket: "cards" }),
-      ...mapState(useFavoriteStore, { cardsFavorite: "cards" }),
+const isAuthLink = computed(() => {
+   const jwt = useCookie("strapi_jwt");
+   return jwt.value ? "/admin" : "/auth/login";
+});
 
-      isAuthLink() {
-         const jwt = useCookie("strapi_jwt");
-         return jwt.value ? "/admin" : "/auth/login";
-      },
+const isAuthUsername = computed(() => {
+   const name = process.client ? localStorage.getItem("username") : false;
+   return name ? name : "Войти";
+});
 
-      isAuthUsername() {
-         const name = process.client ? localStorage.getItem("username") : false;
-         return name ? name : "Войти";
-      },
-   },
+const toScrollFooter = () => {
+   const footer = document.querySelector("#footer");
+   footer.scrollIntoView({ behavior: "smooth" });
+};
 
-   methods: {
-      ...mapActions(useAppStore, { togllerFavorite: "updateFavoriteCanvas", togllerBacket: "updateBacketCanvas" }),
+const openMobileMenu = () => {
+   const breakpoint = window.matchMedia("(max-width: 1200px)");
+   breakpoint.matches ? (isActiveCanvasMenu.value = true) : (isActiveCanvasMenu.value = false);
+};
 
-      toScrollFooter() {
-         const footer = document.querySelector("#footer");
-         footer.scrollIntoView({ behavior: "smooth" });
-      },
+const menuRightActive = () => {
+   const breakpoint = window.matchMedia("(min-width: 1200px)");
+   breakpoint.matches ? (isActiveRight.value = true) : (isActiveRight.value = false);
+};
 
-      openMobileMenu() {
-         const breakpoint = window.matchMedia("(max-width: 1200px)");
-         breakpoint.matches ? (this.isActiveCanvasMenu = true) : (this.isActiveCanvasMenu = false);
-      },
-
-      menuRightActive() {
-         const breakpoint = window.matchMedia("(min-width: 1200px)");
-         breakpoint.matches ? (this.isActiveRight = true) : (this.isActiveRight = false);
-      },
-
-      menuLeftActive() {
-         const breakpoint = window.matchMedia("(min-width: 1200px)");
-         breakpoint.matches ? (this.isActiveLeft = true) : (this.isActiveLeft = false);
-      },
-   },
+const menuLeftActive = () => {
+   const breakpoint = window.matchMedia("(min-width: 1200px)");
+   breakpoint.matches ? (isActiveLeft.value = true) : (isActiveLeft.value = false);
 };
 </script>
