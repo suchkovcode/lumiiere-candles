@@ -14,7 +14,7 @@ export const useFavoriteStore = defineStore("favoriteStore", {
 
          try {
             const { data } = await findOne("products", cardId);
-            const { title, img, price, article } = data.attributes;
+            const { title, img, price, article, Category } = data.attributes;
 
             const card = {
                uid: cardId,
@@ -22,6 +22,7 @@ export const useFavoriteStore = defineStore("favoriteStore", {
                article: article || {},
                price: price || {},
                img: img?.data?.attributes || {},
+               category: Category.data?.attributes?.name,
             };
 
             if (!isExistsCard) {

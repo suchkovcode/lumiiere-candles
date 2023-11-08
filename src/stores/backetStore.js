@@ -24,7 +24,8 @@ export const useBacketStore = defineStore("backetStore", {
 
          try {
             const { data } = await findOne("products", cardData.id);
-            const { title, img, price, article } = data.attributes;
+            const { title, img, price, article, Category } = data.attributes;
+            
             const isExistsCard = this.cards.find((item) => item.article === article[cardData.size]);
 
             if (isExistsCard) {
@@ -40,6 +41,7 @@ export const useBacketStore = defineStore("backetStore", {
                   price: price.new[cardData.size],
                   currency: price.currency,
                   size: cardData.size,
+                  category: Category.data?.attributes?.name,
                };
                this.cards.push(newCardData);
                this.sumCard(newCardData.article);
