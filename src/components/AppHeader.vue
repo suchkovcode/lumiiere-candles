@@ -77,7 +77,7 @@
                   </svg>
                   <span class="header__icon-count"> {{ favoriteStore.cards.length }} </span>
                </button>
-               <button class="header__btn-backet" @click="backetStore.updateBacketCanvas(true)">
+               <button class="header__btn-backet" @click="appStore.updateBacketCanvas(true)">
                   <svg class="header__icon">
                      <use xlink:href="/sprite.svg#backet"></use>
                   </svg>
@@ -97,6 +97,7 @@
 </template>
 
 <script setup>
+const appStore = useAppStore();
 const backetStore = useBacketStore();
 const favoriteStore = useFavoriteStore();
 
