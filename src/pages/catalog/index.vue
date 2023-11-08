@@ -16,7 +16,7 @@
          </div>
          <div class="goods__search">
             <div class="goods__search-container">
-               <input class="goods__search-input" type="text" placeholder="Что нужно найти?" @input="searchQuery = $event.target.value" />
+               <input class="goods__search-input" type="text" placeholder="Что нужно найти?" @input="searchQueryData = $event.target.value" />
                <svg class="goods__search-icon" fill="none" stroke="rgb(182, 182, 182)">
                   <use xlink:href="/sprite.svg#search"></use>
                </svg>
@@ -43,79 +43,54 @@
    </div>
 </template>
 
-<script>
-import { useAppStore } from "@/store/appStore";
+<script setup>
+const { find } = useStrapi();
 
-export default {
-   async setup() {
-      const store = useAppStore();
-      const config = useRuntimeConfig();
+const pageNumber = ref(1);
+const filter = ref({});
+const searchQueryData = ref("");
 
-      const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
-         method: "GET",
-         params: {
-            "pagination[pageSize]": 100,
-            "locale": store.params.locale,
-         },
-      });
+const { data } = await find("products");
+const card = await useHandllerApi(data);
 
-      const card = await useHandllerApi(data);
+const filteredProducts = computed(() => {
+   const sortingFunctions = {
+      new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
+      old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
+      start: (a, b) => b.title.localeCompare(a.title),
+      end: (a, b) => a.title.localeCompare(b.title),
+   };
 
-      return {
-         card,
-      };
-   },
+   const { sort, aroma, collection, category } = filter.value;
+   const startIndex = (pageNumber.value - 1) * 6;
+   const endIndex = startIndex + 6;
+   const searchQuery = searchQueryData.value.trim().toLowerCase();
 
-   data() {
-      return {
-         pageNumber: 1,
-         filter: {},
-         searchQuery: "",
-      };
-   },
+   const sortingFunction = sortingFunctions[sort];
+   const selectedAromas = new Set(aroma);
+   const selectedCollections = new Set(collection);
 
-   computed: {
-      filteredProducts() {
-         const sortingFunctions = {
-            new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
-            old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
-            start: (a, b) => b.title.localeCompare(a.title),
-            end: (a, b) => a.title.localeCompare(b.title),
-         };
+   const filteredByCategory = category === "Все" ? card : card.filter((item) => item.category === category);
 
-         const { sort, aroma, collection, category } = this.filter;
-         const { pageNumber, card } = this;
-         const startIndex = (pageNumber - 1) * 6;
-         const endIndex = startIndex + 6;
-         const searchQuery = this.searchQuery.trim().toLowerCase();
+   const sortedByCategory = sortingFunction ? [...filteredByCategory].sort(sortingFunction) : [...filteredByCategory];
 
-         const sortingFunction = sortingFunctions[sort];
-         const selectedAromas = new Set(aroma);
-         const selectedCollections = new Set(collection);
+   const filteredByAroma = selectedAromas.size === 0 ? sortedByCategory : sortedByCategory.filter((item) => selectedAromas.has(item.aroma));
 
-         const filteredByCategory = category === "Все" ? card : card.filter((item) => item.category === category);
+   const filteredByCollection =
+      selectedCollections.size === 0 ? filteredByAroma : filteredByAroma.filter((item) => selectedCollections.has(item.collection));
 
-         const sortedByCategory = sortingFunction ? [...filteredByCategory].sort(sortingFunction) : [...filteredByCategory];
+   const filteredByLimitedCards = filteredByCollection.slice(startIndex, endIndex);
 
-         const filteredByAroma = selectedAromas.size === 0 ? sortedByCategory : sortedByCategory.filter((item) => selectedAromas.has(item.aroma));
+   const filteredBySearchQuery = !searchQuery
+      ? filteredByLimitedCards
+      : filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
 
-         const filteredByCollection =
-            selectedCollections.size === 0 ? filteredByAroma : filteredByAroma.filter((item) => selectedCollections.has(item.collection));
+   const itemCount = searchQuery.length > 0 ? filteredBySearchQuery.length : filteredByCollection.length;
+   const cardPaginationCount = Math.ceil(itemCount / 6);
 
-         const filteredByLimitedCards = filteredByCollection.slice(startIndex, endIndex);
-
-         const filteredBySearchQuery = !searchQuery
-            ? filteredByLimitedCards
-            : filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
-
-         const itemCount = searchQuery.length > 0 ? filteredBySearchQuery.length : filteredByCollection.length;
-         const cardPaginationCount = Math.ceil(itemCount / 6);
-
-         return {
-            products: filteredBySearchQuery,
-            pagination: cardPaginationCount,
-         };
-      },
-   },
-};
+   return {
+      products: filteredBySearchQuery,
+      pagination: cardPaginationCount,
+   };
+});
 </script>
