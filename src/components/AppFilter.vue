@@ -101,7 +101,7 @@ const getUniqueFilter = computed(() => {
 
 watch(filter, (newValue) => {
       emit("filterHandler", newValue);
-   },{ deep: true },
+   }, { deep: true },
 );
 
 onMounted(() => {

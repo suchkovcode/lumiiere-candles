@@ -28,16 +28,12 @@
    <div class="allcatalog">
       <div class="container">
          <div class="allcatalog__grid">
-            <AppFilter @filter-handler="(filter = $event), (pageNumber = 1)" />
+            <AppFilter @filter-handler="(filter = $event), store.setPageNumber(1)" />
             <div>
                <ClientOnly>
                   <AppCatalog class="allcatalog__cards" :data-item="filteredProducts.products" />
                </ClientOnly>
-               <AppPagination
-                  class="allcatalog__pagination"
-                  :pagination-data="filteredProducts.pagination"
-                  :page-data="pageNumber"
-                  @page-number="pageNumber = $event" />
+               <AppPagination class="allcatalog__pagination" :pagination-data="filteredProducts.pagination" />
                <p v-show="!filteredProducts.products.length" class="emptyData">Список пуст</p>
             </div>
          </div>
@@ -46,9 +42,9 @@
 </template>
 
 <script setup>
+const store = useAppStore();
 const { find } = useStrapi();
 
-const pageNumber = ref(1);
 const filter = ref({});
 const searchQueryData = ref("");
 
@@ -64,7 +60,7 @@ const filteredProducts = computed(() => {
    };
 
    const { sort, aroma, collection, category } = filter.value;
-   const startIndex = (pageNumber.value - 1) * 6;
+   const startIndex = (store.pageNumber - 1) * 6;
    const endIndex = startIndex + 6;
    const searchQuery = searchQueryData.value.trim().toLowerCase();
 

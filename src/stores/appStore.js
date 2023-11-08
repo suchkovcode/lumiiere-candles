@@ -10,6 +10,7 @@ export const useAppStore = defineStore("appStore", {
          },
          isActiveFavorite: false,
          isActiveBacket: false,
+         pageNumber: 1,
       };
    },
 
@@ -33,8 +34,13 @@ export const useAppStore = defineStore("appStore", {
       async logOut() {
          this.isAuth = false;
       },
+
       async logIn() {
          this.isAuth = true;
+      },
+
+      async setPageNumber(value) {
+         this.pageNumber = value;
       },
    },
 });
