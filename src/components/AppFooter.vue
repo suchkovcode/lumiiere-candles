@@ -131,21 +131,10 @@
          </div>
       </div>
    </footer>
-   <canvas-favorite :active-state="isActiveFavorite" @close-canvas="togllerFavorite($event)" />
-   <canvas-backet :active-state="isActiveBacket" @close-canvas="togllerBacket($event)" />
+   <canvas-favorite :active-state="store.isActiveFavorite" @close-canvas="store.updateFavoriteCanvas($event)" />
+   <canvas-backet :active-state="store.isActiveBacket" @close-canvas="store.updateBacketCanvas($event)" />
 </template>
 
-<script>
-import { mapState, mapActions } from "pinia";
-import { useAppStore } from "@/store/appStore";
-
-export default {
-   computed: {
-      ...mapState(useAppStore, ["isActiveFavorite", "isActiveBacket"]),
-   },
-
-   methods: {
-      ...mapActions(useAppStore, { togllerFavorite: "updateFavoriteCanvas", togllerBacket: "updateBacketCanvas" }),
-   },
-};
+<script setup>
+const store = useAppStore();
 </script>
