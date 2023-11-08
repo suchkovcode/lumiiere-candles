@@ -58,103 +58,53 @@
    </aside>
 </template>
 
-<script>
-import { useAppStore } from '@/store/appStore';
+<script setup>
+const emit = defineEmits(["filterHandler"]);
 
-export default {
-   emits: ["filterHandler"],
+const isClickAroma = ref(false);
+const isClickCollection = ref(false);
+const isClickSort = ref(false);
+const filter = ref({
+   category: "Все",
+   sort: "new",
+   aroma: [],
+   collection: [],
+});
 
-   async setup() {
-      const store = useAppStore();
-      const config = useRuntimeConfig();
+const { find } = useStrapi();
+const { data } = await find("products", { "pagination[pageSize]": 100 });
+const card = await useHandllerApi(data);
 
-      const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
-         method: "GET",
-         params: {
-            "pagination[pageSize]": 100,
-            "locale": store.params.locale,
-         },
-      });
+const getUniqueFilter = computed(() => {
+   const isEmptyObject = (obj) => {
+      return Object.keys(obj).length === 0;
+   };
 
-      const arrayCard = data.value.data.map((item) => {
-         const {
-            Aroma: { data: aromaData },
-            Category: { data: categoryData },
-            Collection: { data: collectionData },
-            img,
-            tags,
-            ...attributes
-         } = item.attributes;
+   const uniqueCategories = [...new Set(card.map((item) => item.category))]
+      .filter((category) => category !== null && !isEmptyObject(category))
+      .sort((a, b) => b.localeCompare(a));
 
-         const tagNames = tags.map((tag) => tag?.name || null);
+   const uniqueCollections = [...new Set(card.map((item) => item.collection))]
+      .filter((collection) => collection !== null && !isEmptyObject(collection))
+      .sort((a, b) => a.localeCompare(b));
 
-         return {
-            ...attributes,
-            img: img?.data?.attributes || {},
-            aroma: aromaData?.attributes?.name || {},
-            category: categoryData?.attributes?.name || {},
-            collection: collectionData?.attributes?.name || {},
-            tags: tagNames,
-         };
-      });
+   const uniqueAromas = [...new Set(card.map((item) => item.aroma))]
+      .filter((aroma) => aroma !== null && !isEmptyObject(aroma))
+      .sort((a, b) => a.localeCompare(b));
 
-      return {
-         card: arrayCard,
-      };
-   },
+   return {
+      uniqueCategories,
+      uniqueCollections,
+      uniqueAromas,
+   };
+});
 
-   data() {
-      return {
-         filter: {
-            category: "Все",
-            sort: "new",
-            aroma: [],
-            collection: [],
-         },
+watch(filter, (newValue) => {
+      emit("filterHandler", newValue);
+   },{ deep: true },
+);
 
-         isClickSort: false,
-         isClickAroma: false,
-         isClickCollection: false,
-      };
-   },
-
-   computed: {
-      getUniqueFilter() {
-         const isEmptyObject = (obj) => {
-            return Object.keys(obj).length === 0;
-         };
-
-         const uniqueCategories = [...new Set(this.card.map((item) => item.category))]
-            .filter((category) => category !== null && !isEmptyObject(category))
-            .sort((a, b) => b.localeCompare(a));
-
-         const uniqueCollections = [...new Set(this.card.map((item) => item.collection))]
-            .filter((collection) => collection !== null && !isEmptyObject(collection))
-            .sort((a, b) => a.localeCompare(b));
-
-         const uniqueAromas = [...new Set(this.card.map((item) => item.aroma))]
-            .filter((aroma) => aroma !== null && !isEmptyObject(aroma))
-            .sort((a, b) => a.localeCompare(b));
-
-         return {
-            uniqueCategories,
-            uniqueCollections,
-            uniqueAromas,
-         };
-      },
-   },
-
-   watch: {
-      filter: {
-         handler(newValue) {
-            this.$emit("filterHandler", newValue);
-         },
-         deep: true,
-      },
-   },
-
-   created() {
-      this.$emit("filterHandler", this.filter);
-   },
-};
+onMounted(() => {
+   emit("filterHandler", filter.value);
+});
 </script>
