@@ -57,81 +57,57 @@
    </div>
 </template>
 
-<script>
-import { mapActions } from "pinia";
-import { useAppStore } from "@/store/appStore";
-import { useBacketStore } from "@/store/backetStore";
+<script setup>
+const store = useBacketStore();
+const route = useRoute();
+const { findOne } = useStrapi();
 
-export default {
-   async setup() {
-      const route = useRoute();
-      const store = useAppStore();
-      const config = useRuntimeConfig();
+const card = ref({
+   id: route.params.id,
+   size: "small",
+   count: 1,
+});
 
-      const { data } = await useFetch(`${config.public.STRAPI}/api/products/${route.params.id}`, {
-         method: "GET",
-         params: { locale: store.params.locale },
-      });
+const { data } = await findOne("products", route.params.id);
+const { cards } = await useHandllerApiOne(data);
 
-      const cards = useHandllerApiOne(data);
+const categoryJoin = computed(() => {
+   return cards?.tags?.join(" | ");
+});
 
-      return cards;
-   },
+const cardArticle = computed(() => {
+   return cards?.article?.[card.value.size]?.toUpperCase();
+});
 
-   data() {
-      return {
-         card: {
-            id: this.$route.params.id,
-            size: "small",
-            count: 1,
-         },
-      };
-   },
+const cardPriceNew = computed(() => {
+   const newPrice = cards?.price?.new?.[card.value.size];
+   return newPrice ? newPrice : false;
+});
 
-   computed: {
-      categoryJoin() {
-         return this.cards?.tags?.join(" | ");
-      },
+const cardPriceOld = computed(() => {
+   const oldPrice = cards?.price?.old?.[card.value.size];
+   return oldPrice ? oldPrice : false;
+});
 
-      cardArticle() {
-         return this.cards?.article?.[this.card.size]?.toUpperCase();
-      },
+const cardWeight = computed(() => {
+   const cardWeight = cards?.weight?.[card.value.size];
+   return cardWeight ? cardWeight : false;
+});
 
-      cardPriceNew() {
-         const newPrice = this.cards?.price?.new?.[this.card.size];
-         return newPrice ? newPrice : false;
-      },
+const isCandles = computed(() => {
+   return cards?.category?.toLowerCase()?.trim() === "свечи";
+});
 
-      cardPriceOld() {
-         const oldPrice = this.cards?.price?.old?.[this.card.size];
-         return oldPrice ? oldPrice : false;
-      },
+const isMelts = computed(() => {
+   return cards?.category?.toLowerCase()?.trim() === "мелтсы";
+});
 
-      cardWeight() {
-         const cardWeight = this.cards?.weight?.[this.card.size];
-         return cardWeight ? cardWeight : false;
-      },
-
-      isCandles() {
-         return this.cards?.category?.toLowerCase()?.trim() === "свечи";
-      },
-
-      isMelts() {
-         return this.cards?.category?.toLowerCase()?.trim() === "мелтсы";
-      },
-   },
-
-   methods: {
-      ...mapActions(useBacketStore, { addBacketCard: "addCardBacket" }),
-
-      addCardBacket() {
-         if (this.cards.isStock) {
-            const cardData = { ...this.card };
-            this.addBacketCard(cardData);
-            this.card.count = 1;
-            this.card.size = "small";
-         }
-      },
-   },
+const addCardBacket = () => {
+   if (cards.isStock) {
+      const cardData = { ...card.value };
+      store.addCardBacket(cardData);
+      card.value.count = 1;
+      card.value.size = "small";
+   }
 };
 </script>
