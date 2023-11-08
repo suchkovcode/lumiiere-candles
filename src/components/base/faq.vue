@@ -11,13 +11,11 @@
    </div>
 </template>
 
-<script>
-export default {
-   props: {
-      faqData: {
-         type: Array,
-         required: true,
-      },
+<script setup>
+const props = defineProps({
+   faqData: {
+      type: Array,
+      required: true,
    },
-};
+});
 </script>
