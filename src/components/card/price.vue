@@ -11,23 +11,21 @@
    </p>
 </template>
 
-<script>
-export default {
-   props: {
-      priceNew: {
-         type: [Number, Boolean],
-         required: true,
-      },
-
-      priceOld: {
-         type: [Number, Boolean],
-         required: true,
-      },
-
-      priceCurrency: {
-         type: String,
-         required: true,
-      },
+<script setup>
+const props = defineProps({
+   priceNew: {
+      type: [Number, Boolean],
+      required: true,
    },
-};
+
+   priceOld: {
+      type: [Number, Boolean],
+      required: true,
+   },
+
+   priceCurrency: {
+      type: String,
+      required: true,
+   },
+});
 </script>
