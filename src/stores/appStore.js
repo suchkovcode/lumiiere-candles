@@ -3,11 +3,6 @@ import { defineStore } from "pinia";
 export const useAppStore = defineStore("appStore", {
    state: () => {
       return {
-         params: {
-            "pagination[page]": 1,
-            "pagination[pageSize]": 100,
-            "locale": "ru",
-         },
          isActiveFavorite: false,
          isActiveBacket: false,
          pageNumber: 1,
