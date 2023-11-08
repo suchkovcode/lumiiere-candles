@@ -151,22 +151,22 @@
                   <use xlink:href="/sprite.svg#homeProductCardIcon-3"></use>
                </svg>
                <ul class="products__card-nav">
-                  <li class="products__card-nav-item" @click="setCollection('Гарри Поттер')">
+                  <li class="products__card-nav-item" @click="store.setCollectionFilter('Гарри Поттер')">
                      <nuxt-link to="/catalog" class="products__card-nav-link transition"> Гарри Поттер </nuxt-link>
                   </li>
-                  <li class="products__card-nav-item" @click="setCollection('Аниме')">
+                  <li class="products__card-nav-item" @click="store.setCollectionFilter('Аниме')">
                      <nuxt-link to="/catalog" class="products__card-nav-link transition"> Аниме </nuxt-link>
                   </li>
-                  <li class="products__card-nav-item" @click="setCollection('Сериалы')">
+                  <li class="products__card-nav-item" @click="store.setCollectionFilter('Сериалы')">
                      <nuxt-link to="/catalog" class="products__card-nav-link transition"> Сериалы </nuxt-link>
                   </li>
-                  <li class="products__card-nav-item" @click="setCollection('Фильмы')">
+                  <li class="products__card-nav-item" @click="store.setCollectionFilter('Фильмы')">
                      <nuxt-link to="/catalog" class="products__card-nav-link transition"> Фильмы </nuxt-link>
                   </li>
-                  <li class="products__card-nav-item" @click="setCollection('Игры')">
+                  <li class="products__card-nav-item" @click="store.setCollectionFilter('Игры')">
                      <nuxt-link to="/catalog" class="products__card-nav-link transition"> Игры </nuxt-link>
                   </li>
-                  <li class="products__card-nav-item" @click="setCollection('Без персонажей')">
+                  <li class="products__card-nav-item" @click="store.setCollectionFilter('Без персонажей')">
                      <nuxt-link to="/catalog" class="products__card-nav-link transition"> Без персонажей </nuxt-link>
                   </li>
                </ul>
@@ -217,39 +217,12 @@
    </section>
 </template>
 
-<script>
-import { mapActions } from "pinia";
-import { useAppStore } from "@/store/appStore";
+<script setup>
+const { find } = useStrapi();
+const { isMobile } = useDevice();
+const store = useAppStore();
+const countProductCatalog = computed(() => (isMobile ? 4 : 8));
 
-export default {
-   async setup() {
-      const store = useAppStore();
-      const config = useRuntimeConfig();
-
-      const { data } = await useFetch(`${config.public.STRAPI}/api/products`, {
-         method: "GET",
-         params: {
-            "pagination[pageSize]": 16,
-            "locale": store.params.locale,
-         },
-      });
-
-      const card = await useHandllerApi(data);
-
-      return {
-         card,
-      };
-   },
-
-   data() {
-      return {
-         countProductCatalog: this.$device.isMobile ? 4 : 8,
-      };
-   },
-
-   methods: {
-      ...mapActions(useAppStore, { setCollection: "setCollectionFilter" }),
-   },
-};
+const { data } = await find("products");
+const card = await useHandllerApi(data);
 </script>
-
