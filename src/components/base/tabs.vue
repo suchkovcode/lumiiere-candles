@@ -20,52 +20,43 @@
    </div>
 </template>
 
-<script>
-export default {
-   emits: ["update:modelValue"],
+<script setup>
+const emit = defineEmits(["update:modelValue"]);
 
-   data() {
-      return {
-         selectedRadio: "",
-         selectRadioContent: "",
-         isClickBtn: false,
-
-         tabsData: [
-            {
-               id: 1,
-               value: "delivery",
-               content: "Способ доставки",
-            },
-            {
-               id: 2,
-               value: "payment",
-               content: "Оплата",
-            },
-            {
-               id: 3,
-               value: "return",
-               content: "Обмен и возрат",
-            },
-            {
-               id: 4,
-               value: "terms",
-               content: "Сроки изготовления",
-            },
-         ],
-      };
+const selectedRadio = ref("");
+const selectRadioContent = ref("");
+const isClickBtn = ref(false);
+const tabsData = ref([
+   {
+      id: 1,
+      value: "delivery",
+      content: "Способ доставки",
    },
-
-   mounted() {
-      this.selectedRadio = this.tabsData[0].value;
-      this.selectRadioContent = this.tabsData[0].content;
-      this.$emit("update:modelValue", this.selectedRadio);
+   {
+      id: 2,
+      value: "payment",
+      content: "Оплата",
    },
-
-   methods: {
-      updateTab(event) {
-         this.selectRadioContent = event.target.getAttribute("content");
-         this.$emit("update:modelValue", event.target.value);
-      },
+   {
+      id: 3,
+      value: "return",
+      content: "Обмен и возрат",
    },
+   {
+      id: 4,
+      value: "terms",
+      content: "Сроки изготовления",
+   },
+]);
+
+onMounted(() => {
+   selectedRadio.value = tabsData.value[0].value;
+   selectRadioContent.value = tabsData.value[0].content;
+   emit("update:modelValue", selectedRadio.value);
+});
+
+const updateTab = (event) => {
+   selectRadioContent.value = event.target.getAttribute("content");
+   emit("update:modelValue", event.target.value);
 };
 </script>
