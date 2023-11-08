@@ -17,7 +17,9 @@
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Страна:</span>
             <select v-model.trim="country" class="backetForm__input">
-               <option value="Украина">Украина</option>
+               <option value="Украина">
+                  Украина
+               </option>
             </select>
          </label>
          <label class="backetForm__input-box">
