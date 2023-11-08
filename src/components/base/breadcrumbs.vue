@@ -45,13 +45,11 @@
    </nav>
 </template>
 
-<script>
-export default {
-   props: {
-      roterLink: {
-         type: Object,
-         required: true,
-      },
+<script setup>
+const props = defineProps({
+   roterLink: {
+      type: Object,
+      required: true,
    },
-};
+});
 </script>
