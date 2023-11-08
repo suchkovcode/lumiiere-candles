@@ -17,9 +17,7 @@
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Страна:</span>
             <select v-model.trim="country" class="backetForm__input">
-               <option value="Украина">
-                  Украина
-               </option>
+               <option value="Украина">Украина</option>
             </select>
          </label>
          <label class="backetForm__input-box">
@@ -45,30 +43,24 @@
    </form>
 </template>
 
-<script>
-export default {
-   props: {
-      sumData: {
-         type: String,
-         required: true,
-      },
-
-      currencyData: {
-         type: String,
-         required: true,
-      },
+<script setup>
+const props = defineProps({
+   sumData: {
+      type: String,
+      required: true,
    },
 
-   data() {
-      return {
-         name: null,
-         email: null,
-         tel: null,
-         country: "Украина",
-         city: null,
-         code: null,
-         sign: null,
-      };
+   currencyData: {
+      type: String,
+      required: true,
    },
-};
+});
+
+const name = ref(null);
+const email = ref(null);
+const tel = ref(null);
+const country = ref("Украина");
+const city = ref(null);
+const code = ref(null);
+const sign = ref(null);
 </script>
