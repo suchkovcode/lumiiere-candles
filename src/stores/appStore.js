@@ -19,6 +19,10 @@ export const useAppStore = defineStore("appStore", {
          this.filter.collection.push(collectionName);
       },
 
+      async setPageNumber(value) {
+         this.pageNumber = value;
+      },
+
       async updateFavoriteCanvas(state) {
          this.isActiveFavorite = state;
       },
@@ -37,10 +41,6 @@ export const useAppStore = defineStore("appStore", {
 
       async logIn() {
          this.isAuth = true;
-      },
-
-      async setPageNumber(value) {
-         this.pageNumber = value;
       },
    },
 });
