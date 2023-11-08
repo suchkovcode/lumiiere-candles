@@ -30,7 +30,9 @@
          <div class="allcatalog__grid">
             <AppFilter @filter-handler="(filter = $event), (pageNumber = 1)" />
             <div>
-               <AppCatalog class="allcatalog__cards" :data-item="filteredProducts.products" />
+               <ClientOnly>
+                  <AppCatalog class="allcatalog__cards" :data-item="filteredProducts.products" />
+               </ClientOnly>
                <AppPagination
                   class="allcatalog__pagination"
                   :pagination-data="filteredProducts.pagination"
