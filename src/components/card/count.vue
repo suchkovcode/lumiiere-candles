@@ -6,41 +6,27 @@
    </div>
 </template>
 
-<script>
-export default {
-   props: {
-      countData: {
-         type: Number,
-         required: true,
-      },
+<script setup>
+const emit = defineEmits(["countItem"]);
+const props = defineProps({
+   countData: {
+      type: Number,
+      required: true,
    },
+});
 
-   emits: ["countItem"],
+const count = ref(props.countData);
 
-   data() {
-      return {
-         count: this.countData,
-      };
-   },
-
-   watch: {
-      count(newValue) {
-         this.$emit("countItem", newValue);
-      },
-
-      countData(newValue) {
-         this.count = newValue;
-      },
-   },
-
-   methods: {
-      countIncrement() {
-         this.count === 10 ? (this.count = 10) : this.count++;
-      },
-
-      countDecrement() {
-         this.count === 1 ? (this.count = 1) : this.count--;
-      },
-   },
+const countIncrement = () => {
+   count.value === 10 ? (count.value = 10) : count.value++;
 };
+
+const countDecrement = () => {
+   count.value === 1 ? (count.value = 1) : count.value--;
+};
+
+watch(count, (newValue) => {
+   emit("countItem", newValue);
+   count.value = newValue;
+});
 </script>
