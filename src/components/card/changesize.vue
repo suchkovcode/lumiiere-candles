@@ -9,34 +9,23 @@
    </div>
 </template>
 
-<script>
-export default {
-   props: {
-      sizeItemData: {
-         type: String,
-         required: true,
-      },
+<script setup>
+const emit = defineEmits(["cardsize"]);
+const props = defineProps({
+   sizeItemData: {
+      type: String,
+      required: true,
    },
+});
 
-   emits: ["cardsize"],
+const selectBtn = ref(props.sizeItemData);
 
-   data() {
-      return {
-         selectBtn: this.sizeItemData,
-      };
-   },
+watch(selectBtn, (newValue) => {
+   selectBtn.value = newValue;
+});
 
-   watch: {
-      sizeItemData(newValue) {
-         this.selectBtn = newValue;
-      },
-   },
-
-   methods: {
-      selectBtnHandler(event) {
-         this.selectBtn = event.target.value;
-         this.$emit("cardsize", this.selectBtn);
-      },
-   },
+const selectBtnHandler = (event) => {
+   selectBtn.value = event.target.value;
+   emit("cardsize", selectBtn.value);
 };
 </script>
