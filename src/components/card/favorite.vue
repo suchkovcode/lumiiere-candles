@@ -13,19 +13,21 @@ const props = defineProps({
       required: true,
    },
 });
-const store = useFavoriteStore();
-const isSelect = ref(false);
 
-watch(store.cards, () => {
+const isSelect = ref(false);
+const store = useFavoriteStore();
+const { cards } = storeToRefs(store);
+
+const toggleCard = () => {
+   isSelect.value = !isSelect.value;
+   isSelect.value ? store.addCardFavorite(props.cardId) : store.delCardFavorite(props.cardId);
+};
+
+watch(cards, () => {
    isSelect.value = store.cards.some((item) => item.uid === props.cardId);
 });
 
 onMounted(() => {
    isSelect.value = store.cards.some((item) => item.uid === props.cardId);
 });
-
-const toggleCard = () => {
-   isSelect.value = !isSelect.value;
-   isSelect.value ? store.addCardFavorite(props.cardId) : delCardFavorite(props.cardId);
-};
 </script>
