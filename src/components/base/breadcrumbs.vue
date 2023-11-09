@@ -2,14 +2,14 @@
    <nav class="breadcrumbs">
       <ol class="breadcrumbs__list" itemscope itemtype="http://schema.org/BreadcrumbList">
          <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-            <nuxt-link class="breadcrumbs__link" to="/" itemscope itemprop="item" itemtype="http://schema.org/Thing" itemid="/">
+            <nuxt-link class="breadcrumbs__link" to="/" itemprop="item" itemtype="http://schema.org/Thing" itemid="/">
                <span itemprop="name">Главная</span>
             </nuxt-link>
             <meta itemprop="position" content="1" />
          </li>
 
          <li v-if="roterLink.catalog" class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-            <nuxt-link class="breadcrumbs__link" to="/catalog" itemscopeitemprop="item" itemtype="http://schema.org/Thing" itemid="/catalog">
+            <nuxt-link class="breadcrumbs__link" to="/catalog" itemprop="item" itemtype="http://schema.org/Thing" itemid="/catalog">
                <span itemprop="name">Каталог</span>
             </nuxt-link>
             <meta itemprop="position" content="2" />
@@ -19,7 +19,7 @@
             <nuxt-link
                class="breadcrumbs__link"
                :to="roterLink.subpage.to"
-               itemscopeitemprop="item"
+               itemprop="item"
                itemtype="http://schema.org/Thing"
                :itemid="roterLink.subpage.to">
                <span itemprop="name">{{ roterLink.subpage.name }}</span>
@@ -27,14 +27,13 @@
             <meta itemprop="position" content="3" />
          </li>
 
-         <li class="breadcrumbs__item active">
+         <li class="breadcrumbs__item active" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
             <nuxt-link
                class="breadcrumbs__link"
-               :to="roterLink.to"
-               itemscope
+               :to="roterLink.subpage.to"
                itemprop="item"
                itemtype="http://schema.org/Thing"
-               :itemid="roterLink.to">
+               :itemid="roterLink.subpage.to">
                <span itemprop="name"> {{ roterLink.name }}</span>
             </nuxt-link>
             <meta v-if="!roterLink.catalog" itemprop="position" content="2" />
