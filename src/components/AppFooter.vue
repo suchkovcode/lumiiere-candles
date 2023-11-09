@@ -5,7 +5,7 @@
             <div class="footer__logo">
                <nuxt-link class="footer__logo-link" to="/" aria-label="Logo link">
                   <svg class="footer__logo-icon" fill="none">
-                     <use xlink:href="/sprite.svg#logo"></use>
+                     <use xlink:href="@/assets/img/svg/sprite.svg#logo"></use>
                   </svg>
                </nuxt-link>
                <p class="footer__logo-text">
@@ -17,7 +17,7 @@
             <nav class="footer__catalog">
                <div class="footer__catalog-header">
                   <svg class="footer__catalog-icon">
-                     <use xlink:href="/sprite.svg#footerCatalog"></use>
+                     <use xlink:href="@/assets/img/svg/sprite.svg#footerCatalog"></use>
                   </svg>
                   <h2 class="footer__catalog-title">Каталог</h2>
                </div>
@@ -39,7 +39,7 @@
             <nav class="footer__client">
                <div class="footer__client-header">
                   <svg class="footer__client-icon">
-                     <use xlink:href="/sprite.svg#footerClient"></use>
+                     <use xlink:href="@/assets/img/svg/sprite.svg#footerClient"></use>
                   </svg>
                   <h2 class="footer__client-title">ДЛЯ КЛИЕНТА</h2>
                </div>
@@ -70,7 +70,7 @@
             <div class="footer__contact">
                <div class="footer__contact-header">
                   <svg class="footer__contact-icon">
-                     <use xlink:href="/sprite.svg#footerContact"></use>
+                     <use xlink:href="@/assets/img/svg/sprite.svg#footerContact"></use>
                   </svg>
                   <h2 class="footer__contact-title upercase">Контакты</h2>
                </div>
@@ -88,27 +88,27 @@
                <div class="footer__social">
                   <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
-                        <use xlink:href="/sprite.svg#footerSocialLike"></use>
+                        <use xlink:href="@/assets/img/svg/sprite.svg#footerSocialLike"></use>
                      </svg>
                   </a>
                   <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
-                        <use xlink:href="/sprite.svg#footerSocialTikTok"></use>
+                        <use xlink:href="@/assets/img/svg/sprite.svg#footerSocialTikTok"></use>
                      </svg>
                   </a>
                   <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
-                        <use xlink:href="/sprite.svg#footerSocialTelegram"></use>
+                        <use xlink:href="@/assets/img/svg/sprite.svg#footerSocialTelegram"></use>
                      </svg>
                   </a>
                   <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
-                        <use xlink:href="/sprite.svg#footerSocialWhatsApp"></use>
+                        <use xlink:href="@/assets/img/svg/sprite.svg#footerSocialWhatsApp"></use>
                      </svg>
                   </a>
                   <a class="footer__social-link" href="#" aria-label="Social link">
                      <svg class="footer__social-icon">
-                        <use xlink:href="/sprite.svg#footerSocialTaplink"></use>
+                        <use xlink:href="@/assets/img/svg/sprite.svg#footerSocialTaplink"></use>
                      </svg>
                   </a>
                </div>
@@ -117,10 +117,10 @@
          <div class="footer__info">
             <div class="footer__info-payment">
                <svg class="footer__info-payment-icon">
-                  <use xlink:href="/sprite.svg#footerPaymentVisa"></use>
+                  <use xlink:href="@/assets/img/svg/sprite.svg#footerPaymentVisa"></use>
                </svg>
                <svg class="footer__info-payment-icon">
-                  <use xlink:href="/sprite.svg#footerPaymentMaster"></use>
+                  <use xlink:href="@/assets/img/svg/sprite.svg#footerPaymentMaster"></use>
                </svg>
             </div>
             <p class="footer__copy">© 2023 Lumiiere. Защищено авторским правом</p>

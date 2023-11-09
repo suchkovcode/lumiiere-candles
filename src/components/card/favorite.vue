@@ -1,7 +1,7 @@
 <template>
    <button class="cardFavorite" aria-label="Favorite btn add" :data-select="isSelect" @click="toggleCard">
       <svg class="cardFavorite__icon">
-         <use xlink:href="/sprite.svg#cardFavoriteIcon"></use>
+         <use xlink:href="@/assets/img/svg/sprite.svg#cardFavoriteIcon"></use>
       </svg>
    </button>
 </template>

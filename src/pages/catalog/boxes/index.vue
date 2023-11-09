@@ -33,7 +33,7 @@
             <h1 class="title boxes__title">НАБОРЫ СВЕЧЕЙ</h1>
             <p class="subtitle boxes__subtitle">
                <svg class="boxes__subtitle-icon">
-                  <use xlink:href="/sprite.svg#catalogGetting"></use>
+                  <use xlink:href="@/assets/img/svg/sprite.svg#catalogGetting"></use>
                </svg>
                Одна свеча хорошо, а две лучше, что уж говорить о целом наборе! Идеальное решение для тех, кто не хочет выбирать. Закажи разные, а
                потом выбери любимчика!

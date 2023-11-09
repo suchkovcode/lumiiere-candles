@@ -29,7 +29,7 @@
             </div>
             <div class="about__quote">
                <svg class="about__quote-icon" width="40" height="35">
-                  <use xlink:href="/sprite.svg#aboutQuote"></use>
+                  <use xlink:href="@/assets/img/svg/sprite.svg#aboutQuote"></use>
                </svg>
                <div class="about__quote-text-box">
                   <p class="about__quote-text">
@@ -54,18 +54,18 @@
             <div class="about__bullet">
                <div class="about__bullet-item">
                   <svg class="about__bullet-icon-1" width="90" height="90">
-                     <use xlink:href="/sprite.svg#aboutBulletIcon-1"></use>
+                     <use xlink:href="@/assets/img/svg/sprite.svg#aboutBulletIcon-1"></use>
                   </svg>
                   <svg class="about__bullet-icon-2" width="120" height="120">
-                     <use xlink:href="/sprite.svg#aboutBulletIcon-3"></use>
+                     <use xlink:href="@/assets/img/svg/sprite.svg#aboutBulletIcon-3"></use>
                   </svg>
                </div>
                <div class="about__bullet-item">
                   <svg class="about__bullet-icon-1" width="90" height="90">
-                     <use xlink:href="/sprite.svg#aboutBulletIcon-2"></use>
+                     <use xlink:href="@/assets/img/svg/sprite.svg#aboutBulletIcon-2"></use>
                   </svg>
                   <svg class="about__bullet-icon-2" width="120" height="120">
-                     <use xlink:href="/sprite.svg#aboutBulletIcon-4"></use>
+                     <use xlink:href="@/assets/img/svg/sprite.svg#aboutBulletIcon-4"></use>
                   </svg>
                </div>
             </div>
