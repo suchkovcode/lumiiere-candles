@@ -19,7 +19,7 @@
             {{ favoriteItem.price.currency }} {{ favoriteItem.price.new.small }}
          </div>
       </div>
-      <button class="favoriteItem__remove" @click="$emit('delFavorite', favoriteItem.id)"></button>
+      <button class="favoriteItem__remove" @click="$emit('delFavorite', favoriteItem.uid)"></button>
    </div>
 </template>
 
