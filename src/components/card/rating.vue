@@ -21,56 +21,35 @@
    </div>
 </template>
 
-<script>
-export default {
-   props: {
-      ratingStorage: {
-         type: Object,
-         required: true,
-      },
+<script setup>
+const props = defineProps({
+   ratingStorage: {
+      type: Object,
+      required: true,
    },
+});
 
-   emits: ["ratingData"],
+const rating = ref({
+   hoverItem: 0,
+   countVote: 0,
+   clickUser: false,
+});
 
-   data() {
-      return {
-         rating: {
-            hoverItem: 0,
-            countVote: 0,
-            clickUser: false,
-         },
-      };
-   },
+const ratingHoverData = computed(() => rating.value.hoverItem);
+const ratingVoteData = computed(() => rating.value.countVote);
+const ratingClickData = computed(() => rating.value.clickUser);
 
-   computed: {
-      ratingHoverData() {
-         return this.rating.hoverItem;
-      },
+const hoverIcon = (event) => {
+   if (!ratingClickData.value) {
+      const index = Number(event.currentTarget.dataset.index);
+      rating.value.hoverItem = index;
+   }
+};
 
-      ratingVoteData() {
-         return this.rating.countVote;
-      },
-
-      ratingClickData() {
-         return this.rating.clickUser;
-      },
-   },
-
-   methods: {
-      hoverIcon(event) {
-         if (!this.ratingClickData) {
-            const index = Number(event.currentTarget.dataset.index);
-            this.rating.hoverItem = index;
-         }
-      },
-
-      clickItem() {
-         if (!this.ratingClickData) {
-            this.rating.countVote += 1;
-            this.rating.clickUser = true;
-            this.$emit("ratingData", this.rating);
-         }
-      },
-   },
+const clickItem = () => {
+   if (!ratingClickData.value) {
+      rating.value.countVote += 1;
+      rating.value.clickUser = true;
+   }
 };
 </script>
