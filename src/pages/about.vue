@@ -73,11 +73,11 @@
          </div>
       </div>
    </section>
-   <section class="questions">
+   <div class="questions">
       <div class="container">
          <BaseFaq :faq-data="faqItem" />
       </div>
-   </section>
+   </div>
 </template>
 
 <script setup>
