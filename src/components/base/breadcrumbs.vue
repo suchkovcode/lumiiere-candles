@@ -30,10 +30,10 @@
          <li class="breadcrumbs__item active" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
             <nuxt-link
                class="breadcrumbs__link"
-               :to="roterLink.subpage.to"
+               :to="roterLink.to"
                itemprop="item"
                itemtype="http://schema.org/Thing"
-               :itemid="roterLink.subpage.to">
+               :itemid="roterLink.to">
                <span itemprop="name"> {{ roterLink.name }}</span>
             </nuxt-link>
             <meta v-if="!roterLink.catalog" itemprop="position" content="2" />
