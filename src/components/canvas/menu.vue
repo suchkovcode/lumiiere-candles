@@ -1,6 +1,6 @@
 <template>
    <div class="menu" :class="{ active: activeState }">
-      <canvas-header @close-canvas="emitCloseCanvas">
+      <canvas-header @close-canvas="$emit('closeCanvas', false)">
          Меню
       </canvas-header>
       <div class="menu__body">
@@ -29,7 +29,7 @@
                   </ul>
                </li>
                <li class="menu__nav-item">
-                  <nuxt-link class="menu__nav-link" to="/about" @click="emitCloseCanvas">О НАС</nuxt-link>
+                  <nuxt-link class="menu__nav-link" to="/about" @click="$emit('closeCanvas', false)">О НАС</nuxt-link>
                </li>
                <li class="menu__nav-item menu__drobdown">
                   <span class="menu__nav-link menu__drobdown-title" :class="{ active: isActiveClient }" @click="isActiveClient = !isActiveClient">
@@ -72,41 +72,31 @@
    </div>
 </template>
 
-<script>
-export default {
-   props: {
-      activeState: {
-         type: Boolean,
-         required: true,
-      },
+<script setup>
+const emit = defineEmits(["closeCanvas"]);
+const props = defineProps({
+   activeState: {
+      type: Boolean,
+      required: true,
    },
+});
 
-   emits: ["closeCanvas"],
+const isActiveCatalog = ref(false);
+const isActiveClient = ref(false);
 
-   data() {
-      return {
-         isActiveCatalog: false,
-         isActiveClient: false,
-      };
-   },
+const closeMenuClick = (event) => {
+   if (event.target.classList.contains("menu__drobdown-link")) {
+      emit("closeCanvas", false);
+      isActiveCatalog.value = false;
+      isActiveClient.value = false;
+   } else {
+      return null;
+   }
+};
 
-   methods: {
-      emitCloseCanvas() {
-         this.$emit("closeCanvas", false);
-      },
-
-      closeMenuClick(event) {
-         event.target.classList.contains("menu__drobdown-link")
-            ? (this.emitCloseCanvas(), (this.isActiveCatalog = false), (this.isActiveClient = false))
-            : null;
-      },
-
-      toScrollFooter() {
-         const footer = document.querySelector("#footer");
-         this.emitCloseCanvas();
-         footer.scrollIntoView({ behavior: "smooth" });
-      },
-   },
+const toScrollFooter = () => {
+   const footer = document.querySelector("#footer");
+   emit("closeCanvas", false);
+   footer.scrollIntoView({ behavior: "smooth" });
 };
 </script>
-
