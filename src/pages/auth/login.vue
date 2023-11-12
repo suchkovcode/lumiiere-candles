@@ -39,14 +39,14 @@
                   <ErrorMessage class="auth__input-err" name="password" as="span" />
                </div>
                <nuxt-link class="auth__forgot" to="#">Забыли пароль?</nuxt-link>
-               <div class="auth__cloudflare">
+               <!-- <div class="auth__cloudflare">
                   <LazyNuxtTurnstile v-model="token" />
-               </div>
+               </div> -->
                <button
                   type="submit"
                   class="btn auth__btn"
-                  :disabled="!formMeta.valid || !token ? true : false"
-                  :class="{ novalid: !formMeta.valid || !token }">
+                  :disabled="!formMeta.valid ? true : false"
+                  :class="{ novalid: !formMeta.valid }">
                   Войти
                </button>
                <p v-if="isValidVisible" class="auth__input-err auth__input-err--form">Ошибка авторизации, повторите ще раз</p>
@@ -102,12 +102,10 @@ const logIn = async (values, actions) => {
    const { login } = useStrapiAuth();
 
    try {
-      if (token.value) {
-         const response = await login({ identifier: values.email, password: values.password });
-         process.client ? localStorage.setItem("username", response.user.value.username) : false;
-         token.value = null;
-         $router.push("/admin");
-      }
+      const response = await login({ identifier: values.email, password: values.password });
+      process.client ? localStorage.setItem("username", response.user.value.username) : false;
+      $router.push("/admin");
+
    } catch (e) {
       isValidVisible.value = true;
       setTimeout(() => (isValidVisible.value = false), 2500);
