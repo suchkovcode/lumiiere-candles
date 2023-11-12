@@ -149,7 +149,6 @@ export default defineNuxtConfig({
    css: ["@/assets/styles/app.scss"],
    modules: [
       "@nuxtjs/eslint-module",
-      "@nuxtjs/device",
       "@nuxtjs/strapi",
       "@pinia/nuxt",
       "nuxt-simple-robots",
