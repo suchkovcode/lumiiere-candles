@@ -219,9 +219,8 @@
 
 <script setup>
 const { find } = useStrapi();
-const { isMobile } = useDevice();
 const store = useAppStore();
-const countProductCatalog = ref(isMobile ? 4 : 8);
+const countProductCatalog = ref(8);
 
 const { data } = await find("products");
 const card = await useHandllerApi(data);
