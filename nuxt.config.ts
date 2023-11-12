@@ -150,7 +150,6 @@ export default defineNuxtConfig({
    modules: [
       "@nuxtjs/eslint-module",
       "@nuxtjs/device",
-      "@nuxtjs/turnstile",
       "@nuxtjs/strapi",
       "@pinia/nuxt",
       "nuxt-simple-robots",
