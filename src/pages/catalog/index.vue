@@ -34,6 +34,9 @@
                   <AppCatalog class="allcatalog__cards" :data-item="filteredProducts.products" />
                   <AppPagination class="allcatalog__pagination" :pagination-data="filteredProducts.pagination" />
                   <p v-show="!filteredProducts.products.length" class="emptyData">Список пуст</p>
+                  <template #fallback>
+                     <p class="emptyData">Загрузка карточек...</p>
+                  </template>
                </ClientOnly>
             </div>
          </div>
