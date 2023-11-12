@@ -64,7 +64,7 @@
                <button
                   type="submit"
                   class="btn auth__btn"
-                  :disabled="!formMeta.valid  ? true : false"
+                  :disabled="!formMeta.valid ? true : false"
                   :class="{ novalid: !formMeta.valid }">
                   ЗАРЕГИСТРИРОВАТЬСЯ
                </button>
