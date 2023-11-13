@@ -27,7 +27,6 @@
 
       "@nuxtjs/eslint-module": "^4.1.0",
       "@nuxtjs/strapi": "^1.9.3",
-      "@nuxt/devtools": "1.0.2",
       "@pinia/nuxt": "^0.5.1",
 
       "eslint": "^8.53.0",
