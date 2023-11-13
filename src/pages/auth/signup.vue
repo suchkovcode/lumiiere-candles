@@ -58,9 +58,6 @@
                      Когда вы создаете учетную запись или входите в систему, вы принимаете наши <span> Условия использования</span>
                   </p>
                </div>
-               <!-- <div class="auth__cloudflare">
-                  <LazyNuxtTurnstile v-model="token" />
-               </div> -->
                <button
                   type="submit"
                   class="btn auth__btn"
@@ -103,7 +100,7 @@
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { object, string } from "yup";
 
-const token = ref(null);
+const router = useRouter();
 const isValidVisible = ref(false);
 const isVisible = ref(false);
 const initialValues = ref({ username: "", email: "", password: "" });
@@ -123,7 +120,7 @@ const createUser = async (values, actions) => {
    try {
       const response = await register({ username: values.username, email: values.email, password: values.password });
       process.client ? localStorage.setItem("username", response.user.value.username) : false;
-      $router.push("/admin");
+      router.push("/admin");
    } catch (e) {
       (isValidvisible.value = true), console.error(e);
       setTimeout(() => {

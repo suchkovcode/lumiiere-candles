@@ -39,9 +39,6 @@
                   <ErrorMessage class="auth__input-err" name="password" as="span" />
                </div>
                <nuxt-link class="auth__forgot" to="#">Забыли пароль?</nuxt-link>
-               <!-- <div class="auth__cloudflare">
-                  <LazyNuxtTurnstile v-model="token" />
-               </div> -->
                <button
                   type="submit"
                   class="btn auth__btn"
@@ -84,7 +81,7 @@
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { object, string } from "yup";
 
-const token = ref(null);
+const router = useRouter();
 const isValidVisible = ref(false);
 const isVisible = ref(false);
 const initialValues = ref({ email: "", password: "" });
@@ -104,7 +101,7 @@ const logIn = async (values, actions) => {
    try {
       const response = await login({ identifier: values.email, password: values.password });
       process.client ? localStorage.setItem("username", response.user.value.username) : false;
-      $router.push("/admin");
+      router.push("/admin");
 
    } catch (e) {
       isValidVisible.value = true;

@@ -29,11 +29,12 @@
 </template>
 
 <script setup>
+const router = useRouter();
 const logOut = () => {
    const { logout } = useStrapiAuth();
    process.client ? localStorage.removeItem("username") : false;
    logout();
-   this.$router.push("/auth/login");
+   router.push("/auth/login");
 };
 </script>
 
