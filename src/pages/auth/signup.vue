@@ -124,7 +124,7 @@ const createUser = async (values, actions) => {
    } catch (e) {
       (isValidvisible.value = true), console.error(e);
       setTimeout(() => {
-         sValidvisible.value = false;
+         isValidvisible.value = false;
       }, 2500);
    } finally {
       actions.resetForm();
