@@ -1,15 +1,6 @@
 const isDev = process.env.NODE_ENV !== "production";
 
 export default defineNuxtConfig({
-   runtimeConfig: {
-      public: {
-         STRAPI: process.env.API_URL,
-         strapi: {
-            url: process.env.API_URL,
-         },
-      },
-   },
-
    builder: "vite",
    srcDir: "./src/",
    telemetry: false,
