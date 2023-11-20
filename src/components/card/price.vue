@@ -3,6 +3,7 @@
       <span class="price__new">
          <span class="price__value" itemprop="price"> {{ priceNew }} </span>
          <span class="price__currency"> {{ priceCurrency }} </span>
+         <meta itemprop="priceCurrency" content="USD" />
       </span>
       <del v-if="priceOld" class="price__old">
          <span class="price__value" itemprop="LowPrice"> {{ priceOld }} </span>
