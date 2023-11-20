@@ -10,51 +10,58 @@
                         <use xlink:href="@/assets/img/svg/sprite.svg#catalog"></use>
                      </svg>
                   </button>
-                  <ul class="header__left-drobdown" :class="{ active: isActiveLeft }">
+                  <ul class="header__left-drobdown" itemscope itemtype="http://schema.org/SiteNavigationElement" :class="{ active: isActiveLeft }">
                      <li class="header__left-drobdown-item">
-                        <nuxt-link class="header__left-drobdown-link" to="/catalog"> Все товары </nuxt-link>
+                        <nuxt-link class="header__left-drobdown-link" to="/catalog" itemprop="url"> Все товары </nuxt-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <nuxt-link class="header__left-drobdown-link" to="/catalog/candles"> Свечи </nuxt-link>
+                        <nuxt-link class="header__left-drobdown-link" to="/catalog/candles" itemprop="url"> Свечи </nuxt-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <nuxt-link class="header__left-drobdown-link" to="/catalog/melts"> Мелтсы </nuxt-link>
+                        <nuxt-link class="header__left-drobdown-link" to="/catalog/melts" itemprop="url"> Мелтсы </nuxt-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <nuxt-link class="header__left-drobdown-link" to="/catalog/boxes"> Наборы </nuxt-link>
+                        <nuxt-link class="header__left-drobdown-link" to="/catalog/boxes" itemprop="url"> Наборы </nuxt-link>
                      </li>
                      <li class="header__left-drobdown-item">
-                        <nuxt-link class="header__left-drobdown-link" to="/catalog/matches"> Дополнительно </nuxt-link>
+                        <nuxt-link class="header__left-drobdown-link" to="/catalog/matches" itemprop="url"> Дополнительно </nuxt-link>
                      </li>
                   </ul>
                </div>
                <ul class="header__left-nav">
                   <li class="header__left-nav-item">
-                     <ul class="header__submenu" :class="{ active: isActiveRight }" @mouseover="menuRightActive" @mouseout="isActiveRight = false">
+                     <ul
+                        class="header__submenu"
+                        :class="{ active: isActiveRight }"
+                        itemscope
+                        itemtype="http://schema.org/SiteNavigationElement"
+                        @mouseover="menuRightActive"
+                        @mouseout="isActiveRight = false">
                         <li class="header__submenu-item" :class="{ active: isActiveRight }">Для клиента</li>
-
                         <li class="header__submenu-drobdown">
                            <ul class="header__submenu-drobdown-list">
                               <li class="header__submenu-drobdown-item">
-                                 <nuxt-link class="header__submenu-drobdown-link" to="/care"> Уход </nuxt-link>
+                                 <nuxt-link class="header__submenu-drobdown-link" to="/care" itemprop="url"> Уход </nuxt-link>
                               </li>
                               <li class="header__submenu-drobdown-item">
-                                 <nuxt-link class="header__submenu-drobdown-link" to="/about"> О нас </nuxt-link>
+                                 <nuxt-link class="header__submenu-drobdown-link" to="/about" itemprop="url"> О нас </nuxt-link>
                               </li>
                               <li class="header__submenu-drobdown-item">
-                                 <nuxt-link class="header__submenu-drobdown-link" to="/partners"> Сотрудничество </nuxt-link>
+                                 <nuxt-link class="header__submenu-drobdown-link" to="/partners" itemprop="url"> Сотрудничество </nuxt-link>
                               </li>
                               <li class="header__submenu-drobdown-item">
-                                 <nuxt-link class="header__submenu-drobdown-link" to="/faqs"> Ответы на вопросы </nuxt-link>
+                                 <nuxt-link class="header__submenu-drobdown-link" to="/faqs" itemprop="url"> Ответы на вопросы </nuxt-link>
                               </li>
                               <li class="hheader__submenu-drobdown-item">
-                                 <nuxt-link class="header__submenu-drobdown-link" to="/delivery"> Доставка и оплата </nuxt-link>
+                                 <nuxt-link class="header__submenu-drobdown-link" to="/delivery" itemprop="url"> Доставка и оплата </nuxt-link>
                               </li>
                               <li class="hheader__submenu-drobdown-item">
-                                 <nuxt-link class="header__submenu-drobdown-link" to="/oferta"> Договор оферты </nuxt-link>
+                                 <nuxt-link class="header__submenu-drobdown-link" to="/oferta" itemprop="url"> Договор оферты </nuxt-link>
                               </li>
                               <li class="header__submenu-drobdown-item">
-                                 <nuxt-link class="header__submenu-drobdown-link" to="/policy"> Политика конфиденциальности </nuxt-link>
+                                 <nuxt-link class="header__submenu-drobdown-link" to="/policy" itemprop="url">
+                                    Политика конфиденциальности
+                                 </nuxt-link>
                               </li>
                            </ul>
                         </li>
