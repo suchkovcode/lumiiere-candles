@@ -1,5 +1,5 @@
 <template>
-   <div class="rating">
+   <div class="rating" itemscope itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating">
       <div class="rating__icons">
          <svg
             v-for="(item, index) in 5"
@@ -17,7 +17,7 @@
          </svg>
       </div>
       <span class="rating__value">{{ ratingHoverData }}</span>
-      <span class="rating__total">({{ ratingVoteData }})</span>
+      <span class="rating__total" itemprop="ratingValue">({{ ratingVoteData }})</span>
    </div>
 </template>
 
