@@ -1,5 +1,5 @@
 <template>
-   <div class="catalogs">
+   <div class="catalogs" itemscope itemtype="http://schema.org/ItemList">
       <card v-for="(item, index) in dataItem" v-show="index < visibleItem" :key="item.uid" :card-data="item" :data-id="index" />
    </div>
 </template>
