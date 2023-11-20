@@ -1,5 +1,5 @@
 <template>
-   <footer id="footer" class="footer">
+   <footer id="footer" class="footer" itemscope itemtype="http://schema.org/WPFooter">
       <div class="container">
          <div class="footer__grid">
             <div class="footer__logo">
@@ -21,18 +21,18 @@
                   </svg>
                   <h2 class="footer__catalog-title">Каталог</h2>
                </div>
-               <ul class="footer__catalog-nav">
+               <ul class="footer__catalog-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
                   <li class="footer__catalog-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/candles"> Свечи </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/candles" itemprop="url"> Свечи </nuxt-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/melts"> Мелтсы </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/melts" itemprop="url"> Мелтсы </nuxt-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/boxes"> Наборы </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/boxes" itemprop="url"> Наборы </nuxt-link>
                   </li>
                   <li class="footer__catalog-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/matches"> Дополнительно </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/catalog/matches" itemprop="url"> Дополнительно </nuxt-link>
                   </li>
                </ul>
             </nav>
@@ -43,27 +43,27 @@
                   </svg>
                   <h2 class="footer__client-title">ДЛЯ КЛИЕНТА</h2>
                </div>
-               <ul class="footer__client-nav">
+               <ul class="footer__client-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
                   <li class="footer__client-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/care"> Уход </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/care" itemprop="url"> Уход </nuxt-link>
                   </li>
                   <li class="footer__client-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/about"> О нас </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/about" itemprop="url"> О нас </nuxt-link>
                   </li>
                   <li class="footer__client-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/partners"> Сотрудничество </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/partners" itemprop="url"> Сотрудничество </nuxt-link>
                   </li>
                   <li class="footer__client-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/faqs"> Ответы на вопросы </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/faqs" itemprop="url"> Ответы на вопросы </nuxt-link>
                   </li>
                   <li class="footer__client-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/delivery"> Доставка и оплата </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/delivery" itemprop="url"> Доставка и оплата </nuxt-link>
                   </li>
                   <li class="footer__client-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/oferta"> Договор оферты </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/oferta" itemprop="url"> Договор оферты </nuxt-link>
                   </li>
                   <li class="footer__client-nav-item">
-                     <nuxt-link class="footer__catalog-nav-link transition" to="/policy"> Политика конфиденциальности </nuxt-link>
+                     <nuxt-link class="footer__catalog-nav-link transition" to="/policy" itemprop="url"> Политика конфиденциальности </nuxt-link>
                   </li>
                </ul>
             </nav>
@@ -130,6 +130,8 @@
             </span>
          </div>
       </div>
+      <meta itemprop="copyrightYear" content="2023" />
+      <meta itemprop="copyrightHolder" content="Lumiiere" />
    </footer>
    <canvas-favorite :active-state="store.isActiveFavorite" @close-canvas="store.updateFavoriteCanvas($event)" />
    <canvas-backet :active-state="store.isActiveBacket" @close-canvas="store.updateBacketCanvas($event)" />
