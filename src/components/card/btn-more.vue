@@ -1,5 +1,5 @@
 <template>
-   <nuxt-link class="cardBtnMore" :to="`/catalog/${pathToCategory}/${cardId}`"> Подробнее </nuxt-link>
+   <nuxt-link class="cardBtnMore" :to="`/catalog/${pathToCategory}/${cardId}`" itemprop="url"> Подробнее </nuxt-link>
 </template>
 
 <script setup>

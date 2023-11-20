@@ -1,5 +1,5 @@
 <template>
-   <article class="card">
+   <article class="card" itemscope itemtype="http://schema.org/Product">
       <header class="card__header">
          <card-favorite :card-id="cardData.uid" />
          <img
@@ -9,11 +9,12 @@
             :title="cardData.img.caption"
             width="140"
             height="180"
-            loading="lazy" />
+            loading="lazy"
+            itemprop="'image'" />
       </header>
       <div class="card__body">
          <card-rating :rating-storage="card" />
-         <h3 class="card__title">{{ cardData.title }}</h3>
+         <h3 class="card__title" itemprop="'name'">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
          <p v-if="isCandles || isMelts" class="card__description">{{ categoryJoin }}</p>
          <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cardData.price.currency" />
