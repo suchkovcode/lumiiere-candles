@@ -18,7 +18,7 @@
       </div>
       <span class="rating__value">{{ ratingHoverData }}</span>
       <span class="rating__total" itemprop="ratingValue">({{ ratingVoteData }})</span>
-      <meta itemprop="ratingCount" content="0">
+      <meta itemprop="ratingCount" content="1">
    </div>
 </template>
 
