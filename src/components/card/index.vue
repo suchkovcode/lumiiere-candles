@@ -10,13 +10,13 @@
             width="140"
             height="180"
             loading="lazy"
-            itemprop="'image'" />
+            itemprop="image" />
       </header>
       <div class="card__body">
          <card-rating :rating-storage="card" />
-         <h3 class="card__title" itemprop="'name'">{{ cardData.title }}</h3>
+         <h3 class="card__title" itemprop="name">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
-         <p v-if="isCandles || isMelts" class="card__description">{{ categoryJoin }}</p>
+         <p v-if="isCandles || isMelts" class="card__description" itemprop="description">{{ categoryJoin }}</p>
          <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cardData.price.currency" />
          <card-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="card.size = $event" />
       </div>
