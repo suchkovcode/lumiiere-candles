@@ -6,7 +6,7 @@
                <div></div>
                <nuxt-link class="admin__header-logo" to="/" aria-label="Logo link">
                   <svg class="admin__header-icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#logo"></use>
+                     <use xlink:href="/img/sprite.svg#logo"></use>
                   </svg>
                </nuxt-link>
                <button class="admin__header-btn" @click="logOut">
