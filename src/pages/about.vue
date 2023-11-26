@@ -9,13 +9,8 @@
          </div>
          <div class="about__grid">
             <div class="about__profile">
-               <svg class="about__profile-icon" width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                     d="M58.1715 2.10517C55.0704 15.7894 39.4104 43.1578 1.57812 43.1578M58.1715 98.421C60.3693 84.912 71.4682 57.8946 98.2814 57.8946C71.4682 57.8946 60.3693 20.3508 58.1715 1.57886"
-                     stroke="#EB4A00"
-                     stroke-width="6"
-                     stroke-linecap="round" />
-                  <path d="M58.2419 98.4211C55.1408 80.0001 39.4808 43.158 1.64844 43.158" stroke="#EB4A00" stroke-width="6" stroke-linecap="round" />
+               <svg class="about__profile-icon" width="40" height="40" fill="none">
+                  <use xlink:href="@/assets/img/svg/sprite.svg#aboutProfileIcon"></use>
                </svg>
                <img class="about__profile-img" src="@/assets/img/webp/about__profile-img.webp" alt="Профиль пользователя" width="130" height="130" />
                <div class="about__profile-text-box">
