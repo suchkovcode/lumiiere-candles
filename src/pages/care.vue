@@ -4,7 +4,7 @@
       <div class="container">
          <base-breadcrumbs class="list__breadcrumbs" :roter-link="{ name: 'Уход', to: '/care' }" />
          <div class="list__header">
-            <img class="list__header-icon" src="@/assets/img/svg/care__header-icon.svg" alt="Главная картинка" width="85" height="40" />
+            <img class="list__header-icon" src="/img/care__header-icon.svg" alt="Главная картинка" width="85" height="40" />
             <h1 class="title list__title">Уход</h1>
             <p class="subtitle list__subtitle">Да, ухаживать за свечами тоже нужно!</p>
          </div>

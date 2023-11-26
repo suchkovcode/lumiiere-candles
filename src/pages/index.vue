@@ -18,10 +18,10 @@
          <img class="hero__bg" src="/img/home__hero-1.webp" alt="Главная картинка" width="340" height="800" />
       </div>
       <svg class="hero__wave-1" width="11700" height="90">
-         <use xlink:href="@/assets/img/svg/sprite.svg#wave-1"></use>
+         <use xlink:href="/img/sprite.svg#wave-1"></use>
       </svg>
       <svg class="hero__wave-2" width="11700" height="90">
-         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+         <use xlink:href="/img/sprite.svg#wave-2"></use>
       </svg>
    </section>
    <section class="products">
@@ -30,7 +30,7 @@
             <div class="products__bullet-item">
                <div class="products__bullet-icon">
                   <svg class="products__bullet-icon-svg">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#homeProductIcon-1"></use>
+                     <use xlink:href="/img/sprite.svg#homeProductIcon-1"></use>
                   </svg>
                </div>
                <p class="products__bullet-title upercase">
@@ -42,7 +42,7 @@
             <div class="products__bullet-item">
                <div class="products__bullet-icon">
                   <svg class="products__bullet-icon-svg">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#homeProductIcon-2"></use>
+                     <use xlink:href="/img/sprite.svg#homeProductIcon-2"></use>
                   </svg>
                </div>
                <p class="products__bullet-title upercase">
@@ -54,7 +54,7 @@
             <div class="products__bullet-item">
                <div class="products__bullet-icon">
                   <svg class="products__bullet-icon-svg">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#homeProductIcon-3"></use>
+                     <use xlink:href="/img/sprite.svg#homeProductIcon-3"></use>
                   </svg>
                </div>
                <p class="products__bullet-title upercase">
@@ -72,7 +72,7 @@
                </div>
                <img class="products__card-img transition" src="/img/products__card-1.webp" loading="lazy" alt="Картинка 1" width="300" height="450" />
                <svg class="products__card-icon-link">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
+                  <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
             </nuxt-link>
             <nuxt-link class="products__card-item products__card-item-2" to="/catalog">
@@ -82,7 +82,7 @@
                </div>
                <img class="products__card-img transition" src="/img/products__card-2.webp" loading="lazy" alt="Картинка 2" width="300" height="450" />
                <svg class="products__card-icon-link">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
+                  <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
             </nuxt-link>
             <nuxt-link class="products__card-item products__card-item-3" to="catalog/matches">
@@ -92,7 +92,7 @@
                </div>
                <img class="products__card-img transition" src="/img/products__card-3.webp" loading="lazy" alt="Картинка 3" width="300" height="450" />
                <svg class="products__card-icon-link">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
+                  <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
             </nuxt-link>
             <nuxt-link class="products__card-item products__card-item-4" to="catalog/boxes">
@@ -106,7 +106,7 @@
                </div>
                <img class="products__card-img transition" src="/img/products__card-4.webp" loading="lazy" alt="Картинка 4" width="300" height="450" />
                <svg class="products__card-icon-link">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardLink"></use>
+                  <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
             </nuxt-link>
             <div class="products__card-item products__card-item-5">
@@ -118,13 +118,13 @@
                   </h2>
                </div>
                <svg class="products__card-icon-1">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardIcon-1"></use>
+                  <use xlink:href="/img/sprite.svg#homeProductCardIcon-1"></use>
                </svg>
                <svg class="products__card-icon-2">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardIcon-2"></use>
+                  <use xlink:href="/img/sprite.svg#homeProductCardIcon-2"></use>
                </svg>
                <svg class="products__card-icon-3">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#homeProductCardIcon-3"></use>
+                  <use xlink:href="/img/sprite.svg#homeProductCardIcon-3"></use>
                </svg>
                <ul class="products__card-nav">
                   <li class="products__card-nav-item" @click="store.setCollectionFilter('Гарри Поттер')">
@@ -151,7 +151,7 @@
          </div>
       </div>
       <svg class="hero__wave-2 hero__wave-2--white" width="11700" height="90">
-         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+         <use xlink:href="/img/sprite.svg#wave-2"></use>
       </svg>
    </section>
    <section class="sliders">
@@ -162,10 +162,10 @@
                   <div class="slider-item__img-box">
                      <div class="slider-item__bullet">
                         <svg class="slider-item__bullet-icon">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletIcon"></use>
+                           <use xlink:href="/img/sprite.svg#homeSliderBulletIcon"></use>
                         </svg>
                         <svg class="slider-item__bullet-text">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletText"></use>
+                           <use xlink:href="/img/sprite.svg#homeSliderBulletText"></use>
                         </svg>
                      </div>
                      <img class="slider-item__hero" src="/img//slider__img-1.webp" loading="lazy" alt="picture" width="300" height="300" />
@@ -173,12 +173,12 @@
                   <div class="slider-item__content-box">
                      <div class="slider-item__header">
                         <svg class="slider-item__icon-1">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-1"></use>
+                           <use xlink:href="/img/sprite.svg#homeSliderItemIcon-1"></use>
                         </svg>
                         <h2 class="title slider-item__title">
                            Свеча месяца
                            <svg class="slider-item__icon-2">
-                              <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-2"></use>
+                              <use xlink:href="/img/sprite.svg#homeSliderItemIcon-2"></use>
                            </svg>
                         </h2>
                         <p class="slider-item__subtitle">Беспрецедентная акция, которую мы проводим каждый месяц! Свеча по самой классной цене :)</p>
@@ -227,7 +227,7 @@
                            </defs>
                         </svg>
                         <svg class="slider-item__bullet-text slider-item__bullet-text--ticket">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderBulletIcon-1"></use>
+                           <use xlink:href="/img/sprite.svg#homeSliderBulletIcon-1"></use>
                         </svg>
                      </div>
                      <img class="slider-item__hero" src="/img//slider__img-2.webp" loading="lazy" alt="picture" width="300" height="300" />
@@ -254,12 +254,12 @@
                   <div class="slider-item__content-box">
                      <div class="slider-item__header">
                         <svg class="slider-item__icon-1">
-                           <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-1"></use>
+                           <use xlink:href="/img/sprite.svg#homeSliderItemIcon-1"></use>
                         </svg>
                         <h2 class="title slider-item__title slider-item__title--slider-3">
                            Скидка за отзыв
                            <svg class="slider-item__icon-2 slider-item__icon-2--slider-3">
-                              <use xlink:href="@/assets/img/svg/sprite.svg#homeSliderItemIcon-2"></use>
+                              <use xlink:href="/img/sprite.svg#homeSliderItemIcon-2"></use>
                            </svg>
                         </h2>
                         <p class="slider-item__subtitle">
@@ -287,7 +287,7 @@
          </div>
       </div>
       <svg class="hero__wave-2 hero__wave-2--wave-1" width="11700" height="90">
-         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+         <use xlink:href="/img/sprite.svg#wave-2"></use>
       </svg>
    </section>
    <section class="catalog">
@@ -304,7 +304,7 @@
          </button>
       </div>
       <svg class="hero__wave-2 hero__wave-2--white hero__wave-2--wave-1" width="11700" height="90">
-         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+         <use xlink:href="/img/sprite.svg#wave-2"></use>
       </svg>
    </section>
    <section class="subscribe">
@@ -326,7 +326,7 @@
          </div>
       </div>
       <svg class="hero__wave-2" width="11700" height="90">
-         <use xlink:href="@/assets/img/svg/sprite.svg#wave-2"></use>
+         <use xlink:href="/img/sprite.svg#wave-2"></use>
       </svg>
    </section>
 </template>

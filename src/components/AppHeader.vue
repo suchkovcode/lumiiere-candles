@@ -7,7 +7,7 @@
                <div class="header__left-catalog" :class="{ active: isActiveLeft }" @mouseover="menuLeftActive" @mouseout="isActiveLeft = false">
                   <button class="header__btn-menu" aria-label="Catalog button" @click="openMobileMenu">
                      <svg class="header__icon" fill="#EB4A00">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#catalog"></use>
+                        <use xlink:href="/img/sprite.svg#catalog"></use>
                      </svg>
                   </button>
                   <ul class="header__left-drobdown" itemscope itemtype="http://schema.org/SiteNavigationElement" :class="{ active: isActiveLeft }">
@@ -74,26 +74,26 @@
             </div>
             <nuxt-link class="header__logo" to="/" aria-label="Logo link">
                <svg class="header__logo-icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#logo"></use>
+                  <use xlink:href="/img/sprite.svg#logo"></use>
                </svg>
             </nuxt-link>
             <div class="header__right">
                <button class="header__btn-favorite" @click="appStore.updateFavoriteCanvas(true)">
                   <svg class="header__icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#favorite"></use>
+                     <use xlink:href="/img/sprite.svg#favorite"></use>
                   </svg>
                   <span class="header__icon-count"> {{ favoriteStore.cards.length }} </span>
                </button>
                <button class="header__btn-backet" @click="appStore.updateBacketCanvas(true)">
                   <svg class="header__icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#backet"></use>
+                     <use xlink:href="/img/sprite.svg#backet"></use>
                   </svg>
                   <span class="header__icon-count"> {{ backetStore.cards.length }} </span>
                </button>
                <nuxt-link class="header__btn-login" :to="isAuthLink" aria-label="Login link">
                   <span> {{ isAuthUsername }}</span>
                   <svg class="header__icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#avatar"></use>
+                     <use xlink:href="/img/sprite.svg#avatar"></use>
                   </svg>
                </nuxt-link>
             </div>

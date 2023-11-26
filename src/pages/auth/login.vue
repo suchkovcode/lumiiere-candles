@@ -4,7 +4,7 @@
          <header class="auth__header">
             <nuxt-link class="auth__header-logo" to="/" aria-label="Logo link">
                <svg class="auth__header-icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#logo"></use>
+                  <use xlink:href="/img/sprite.svg#logo"></use>
                </svg>
             </nuxt-link>
          </header>
@@ -33,7 +33,7 @@
                         autocomplete="on"
                         :class="{ invalid: !meta.valid && meta.touched, valid: meta.valid && meta.touched }" />
                      <svg class="auth__input-icon" @click="isVisible = !isVisible">
-                        <use xlink:href="@/assets/img/svg/sprite.svg#eye"></use>
+                        <use xlink:href="/img/sprite.svg#eye"></use>
                      </svg>
                   </Field>
                   <ErrorMessage class="auth__input-err" name="password" as="span" />
@@ -55,12 +55,12 @@
             <div class="auth__provider">
                <button class="auth__provider-input" type="button">
                   <svg class="auth__provider-icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#auth-google"></use>
+                     <use xlink:href="/img/sprite.svg#auth-google"></use>
                   </svg>
                </button>
                <button class="auth__provider-input" type="button">
                   <svg class="auth__provider-icon">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#auth-github"></use>
+                     <use xlink:href="/img/sprite.svg#auth-github"></use>
                   </svg>
                </button>
             </div>

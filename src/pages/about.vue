@@ -4,15 +4,15 @@
       <div class="container">
          <base-breadcrumbs class="about__breadcrumbs" :roter-link="{ name: 'О нас', to: '/about' }" />
          <div class="about__header">
-            <img class="about__header-icon" src="@/assets/img/svg/about__header-icon.svg" alt="Главная картинка" width="90" height="40" />
+            <img class="about__header-icon" src="/img/about__header-icon.svg" alt="Главная картинка" width="90" height="40" />
             <h1 class="title about__title">О НАС</h1>
          </div>
          <div class="about__grid">
             <div class="about__profile">
                <svg class="about__profile-icon" width="40" height="40" fill="none">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#aboutProfileIcon"></use>
+                  <use xlink:href="/img/sprite.svg#aboutProfileIcon"></use>
                </svg>
-               <img class="about__profile-img" src="@/assets/img/webp/about__profile-img.webp" alt="Профиль пользователя" width="130" height="130" />
+               <img class="about__profile-img" src="/img/about__profile-img.webp" alt="Профиль пользователя" width="130" height="130" />
                <div class="about__profile-text-box">
                   <p class="about__profile-text"><em>Привет!</em></p>
                   <p class="about__profile-text">
@@ -24,7 +24,7 @@
             </div>
             <div class="about__quote">
                <svg class="about__quote-icon" width="40" height="35">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#aboutQuote"></use>
+                  <use xlink:href="/img/sprite.svg#aboutQuote"></use>
                </svg>
                <div class="about__quote-text-box">
                   <p class="about__quote-text">
@@ -49,22 +49,22 @@
             <div class="about__bullet">
                <div class="about__bullet-item">
                   <svg class="about__bullet-icon-1" width="90" height="90">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#aboutBulletIcon-1"></use>
+                     <use xlink:href="/img/sprite.svg#aboutBulletIcon-1"></use>
                   </svg>
                   <svg class="about__bullet-icon-2" width="120" height="120">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#aboutBulletIcon-3"></use>
+                     <use xlink:href="/img/sprite.svg#aboutBulletIcon-3"></use>
                   </svg>
                </div>
                <div class="about__bullet-item">
                   <svg class="about__bullet-icon-1" width="90" height="90">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#aboutBulletIcon-2"></use>
+                     <use xlink:href="/img/sprite.svg#aboutBulletIcon-2"></use>
                   </svg>
                   <svg class="about__bullet-icon-2" width="120" height="120">
-                     <use xlink:href="@/assets/img/svg/sprite.svg#aboutBulletIcon-4"></use>
+                     <use xlink:href="/img/sprite.svg#aboutBulletIcon-4"></use>
                   </svg>
                </div>
             </div>
-            <img class="about__hero" src="@/assets/img/webp/about__hero.webp" alt="Демонстарция товара" width="300" height="300" />
+            <img class="about__hero" src="/img/about__hero.webp" alt="Демонстарция товара" width="300" height="300" />
          </div>
       </div>
    </section>

@@ -4,11 +4,11 @@
       <div class="container">
          <base-breadcrumbs class="boxes__breadcrumbs" :roter-link="{ catalog: true, name: 'Всякое разное', to: '/catalog/matches' }" />
          <div class="postcard__header">
-            <img class="postcard__header-icon" src="@/assets/img/png/matches__page-icon.png" alt="pictire" width="85" height="40" />
+            <img class="postcard__header-icon" src="/img/matches__page-icon.png" alt="pictire" width="85" height="40" />
             <h1 class="title postcard__title">ВСЯКОЕ РАЗНОЕ</h1>
             <p class="subtitle postcard__subtitle">
                <svg class="postcard__subtitle-icon">
-                  <use xlink:href="@/assets/img/svg/sprite.svg#catalogGetting"></use>
+                  <use xlink:href="/img/sprite.svg#catalogGetting"></use>
                </svg>
                Свечи, которые действительно пахнут!
             </p>
