@@ -55,6 +55,7 @@ export default defineNuxtConfig({
             { rel: "apple-touch-icon", type: "image/png", sizes: "167x167", href: "/static/apple-touch-icon-167x167.png" },
             { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: "/static/apple-touch-icon-180x180.png" },
             { rel: "apple-touch-icon", type: "image/png", sizes: "1024x1024", href: "/static/apple-touch-icon-1024x1024.png" },
+            { rel: "preconnect", href: "https://strapi.lumiiere-candles.com" },
          ],
       },
    },
