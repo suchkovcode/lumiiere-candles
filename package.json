@@ -36,7 +36,7 @@
 
       "stylelint": "^16.0.2",
       "stylelint-config-standard-scss": "^12.0.0",
-      "stylelint-order": "^6.0.3",
+      "stylelint-order": "^6.0.4",
 
       "postcss": "^8.4.31",
       "postcss-combine-duplicated-selectors": "^10.0.3",
