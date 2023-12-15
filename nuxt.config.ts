@@ -134,43 +134,11 @@ export default defineNuxtConfig({
       url: "https://lumiiere-candles.com",
    },
 
-   // Security Configurations
-   security: {
-      nonce: false,
-      allowedMethodsRestricter: {
-         methods: ["GET", "POST"],
-      },
-      ssg: {
-         hashScripts: false,
-      },
-      headers: {
-         xXSSProtection: "1",
-         crossOriginEmbedderPolicy: "unsafe-none",
-         crossOriginResourcePolicy: "same-origin",
-         strictTransportSecurity: {
-            maxAge: 15552000,
-            includeSubdomains: true,
-         },
-
-         contentSecurityPolicy: {
-            "img-src": ["'self'", "data:", "https://assets.lumiiere-candles.com/"],
-            "media-src": ["'self'", "data:", "https://assets.lumiiere-candles.com/"],
-            "object-src": ["'none'"],
-            "frame-src": ["'self'", "https://challenges.cloudflare.com/"],
-            "style-src": ["'self'", "'unsafe-inline'"],
-            "script-src": ["'self'", "'unsafe-inline'"],
-            "script-src-attr": ["'self'", "'unsafe-inline'"],
-            "script-src-elem": ["'self'", "'unsafe-inline'", "https://challenges.cloudflare.com/"],
-            "upgrade-insecure-requests": true,
-         },
-      },
-   },
-
    strapi: {
       devtools: false,
       url: process.env.API_URL || "http://localhost:1337",
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap", "nuxt-security"],
+   modules: ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap"],
 });
