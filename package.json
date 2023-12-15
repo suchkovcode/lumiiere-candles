@@ -23,7 +23,7 @@
       "nuxt": "^3.8.2",
       "nuxt-simple-robots": "^3.1.10",
       "nuxt-simple-sitemap": "^4.1.17",
-      "nuxt-security": "^1.0.0-rc.4",
+      "nuxt-security": "^1.0.0",
 
       "@nuxtjs/eslint-module": "^4.1.0",
       "@nuxtjs/strapi": "^1.9.3",
