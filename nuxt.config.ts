@@ -90,6 +90,9 @@ export default defineNuxtConfig({
    nitro: {
       preset: "cloudflare-pages-static",
       serveStatic: true,
+      prerender: {
+         autoSubfolderIndex: false
+       }
    },
 
    eslint: {
