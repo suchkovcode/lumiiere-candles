@@ -79,7 +79,7 @@ export default defineNuxtConfig({
 
    experimental: {
       inlineSSRStyles: false,
-      payloadExtraction: true,
+      payloadExtraction: false,
       headNext: true,
       noScripts: false,
       appManifest: false,
@@ -100,6 +100,8 @@ export default defineNuxtConfig({
    },
 
    robots: {
+      enabled: true,
+      blockNonSeoBots: true,
       sitemap: ["/sitemap.xml"],
       credits: false,
    },
@@ -134,6 +136,7 @@ export default defineNuxtConfig({
    },
 
    site: {
+      indexable: false,
       url: "https://lumiiere-candles.com",
    },
 

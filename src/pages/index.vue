@@ -168,7 +168,7 @@
                            <use xlink:href="/img/sprite.svg#homeSliderBulletText"></use>
                         </svg>
                      </div>
-                     <img class="slider-item__hero" src="/img//slider__img-1.webp" loading="lazy" alt="picture" width="300" height="300" />
+                     <img class="slider-item__hero" src="/img/slider__img-1.webp" loading="lazy" alt="picture" width="300" height="300" />
                   </div>
                   <div class="slider-item__content-box">
                      <div class="slider-item__header">
@@ -206,7 +206,7 @@
                            height="100"
                            viewBox="0 0 100 100"
                            fill="none"
-                           xmlns="http://www.w3.org/2000/svg">
+                           xmlns="http:/www.w3.org/2000/svg">
                            <g clip-path="url(#clip0_1227_204)">
                               <path
                                  opacity="0.9"
@@ -230,11 +230,11 @@
                            <use xlink:href="/img/sprite.svg#homeSliderBulletIcon-1"></use>
                         </svg>
                      </div>
-                     <img class="slider-item__hero" src="/img//slider__img-2.webp" loading="lazy" alt="picture" width="300" height="300" />
+                     <img class="slider-item__hero" src="/img/slider__img-2.webp" loading="lazy" alt="picture" width="300" height="300" />
                   </div>
                   <div class="slider-item__content-box">
                      <div class="slider-item__header">
-                        <img class="slider-item__icon" src="/img//slider__icon-2.webp" loading="lazy" alt="picture" width="100" height="20" />
+                        <img class="slider-item__icon" src="/img/slider__icon-2.webp" loading="lazy" alt="picture" width="100" height="20" />
                         <h2 class="title slider-item__title">Золотой билет</h2>
                         <p class="slider-item__subtitle">Переместись в мир сказок и шоколадных свечей, найди золотой билет в своём заказе!</p>
                      </div>
@@ -249,7 +249,7 @@
                </div>
                <div class="slider-item" :class="{ active: currentSlider === 3 }">
                   <div class="slider-item__img-box">
-                     <img class="slider-item__hero" src="/img//slider__img-3.webp" loading="lazy" alt="picture" width="300" height="300" />
+                     <img class="slider-item__hero" src="/img/slider__img-3.webp" loading="lazy" alt="picture" width="300" height="300" />
                   </div>
                   <div class="slider-item__content-box">
                      <div class="slider-item__header">

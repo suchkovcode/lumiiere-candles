@@ -9,5 +9,4 @@ useSeoMeta({
    title: "Lumiiere Candles | Home",
    description: "Соевые свечи ручной работы с вашими любимыми персонажами",
 });
-defineRobotMeta();
 </script>

@@ -11,22 +11,16 @@
    </section>
 </template>
 
-<script>
-export default {
-   props: {
-      error: {
-         type: Object,
-         required: true,
-      },
+<script setup>
+const props = defineProps({
+   error: {
+      type: Object,
+      required: true,
    },
+});
 
-   setup() {
-      useSeoMeta({
-         title: "Lumiiere Candles | 404",
-         description: "Ой кажется возникла ошибка",
-      });
-
-      defineRobotMeta();
-   },
-};
+useSeoMeta({
+   title: "Lumiiere Candles | 404",
+   description: "Ой кажется возникла ошибка",
+});
 </script>
