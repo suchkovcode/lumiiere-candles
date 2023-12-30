@@ -21,7 +21,7 @@
       "@types/node": "^20.10.4",
 
       "nuxt": "^3.9.0",
-      "nuxt-simple-robots": "^3.1.10",
+      "nuxt-simple-robots": "^4.0.0-rc.9",
       "nuxt-simple-sitemap": "^4.1.17",
       "nuxt-security": "^1.0.0",
 
