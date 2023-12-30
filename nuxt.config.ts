@@ -79,7 +79,7 @@ export default defineNuxtConfig({
 
    experimental: {
       inlineSSRStyles: false,
-      payloadExtraction: false,
+      payloadExtraction: true,
       headNext: true,
       noScripts: false,
       appManifest: false,
