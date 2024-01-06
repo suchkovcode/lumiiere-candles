@@ -146,5 +146,5 @@ export default defineNuxtConfig({
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "nuxt-simple-sitemap"],
+   modules: ["@nuxtjs/sitemap", "@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots"],
 });
