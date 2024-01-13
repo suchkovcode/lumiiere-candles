@@ -18,7 +18,7 @@
       "nuxt:upgrade": "npx nuxi upgrade"
    },
    "devDependencies": {
-      "@types/node": "^20.10.6",
+      "@types/node": "^20.11.0",
 
       "nuxt-simple-robots": "^4.0.0-rc.9",
       "nuxt-security": "^1.0.0",
