@@ -91,7 +91,7 @@
          {
             "ignoreWhenNoAttributes": true,
             "ignoreWhenEmpty": true,
-            "ignores": ["pre", "textarea", "NuxtLink", "p", "span", "h3", "h2", "h1", "button", "li", "a"]
+            "ignores": ["pre", "textarea", "NuxtLink", "p", "span", "h3", "h2", "h1", "button", "li", "a", "del"]
          }
       ]
    }
