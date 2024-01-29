@@ -28,13 +28,12 @@
    <div class="allcatalog">
       <div class="container">
          <div class="allcatalog__grid">
-            <AppFilter @filter-handler="(filter = $event), store.setPageNumber(1)" />
+            <AppFilter :filters="getUniqueFilter" @filter-handler="(filter = $event), store.setPageNumber(1)" />
             <div>
                <ClientOnly>
                   <AppCatalog class="allcatalog__cards" :data-item="filteredProducts.products" />
                   <AppPagination class="allcatalog__pagination" :pagination-data="filteredProducts.pagination" />
                   <p v-if="!filteredProducts.products.length" class="emptyData">Список пуст</p>
-
                   <template #fallback>
                      <p class="emptyData">Загрузка карточек...</p>
                   </template>
@@ -55,44 +54,61 @@ const searchQueryData = ref("");
 const { data } = await find("products", { "pagination[pageSize]": 100 });
 const card = await useHandllerApi(data);
 
-const filteredProducts = computed(() => {
-   const sortingFunctions = {
-      new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
-      old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
-      start: (a, b) => b.title.localeCompare(a.title),
-      end: (a, b) => a.title.localeCompare(b.title),
-   };
+const sortingFunctions = {
+   new: (a, b) => new Date(a.publishedAt) - new Date(b.publishedAt),
+   old: (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
+   start: (a, b) => b.title.localeCompare(a.title),
+   end: (a, b) => a.title.localeCompare(b.title),
+};
 
+const filteredProducts = computed(() => {
    const { sort, aroma, collection, category } = filter.value;
    const startIndex = (store.pageNumber - 1) * 6;
-   const endIndex = startIndex + 6;
    const searchQuery = searchQueryData.value.trim().toLowerCase();
 
-   const sortingFunction = sortingFunctions[sort];
-   const selectedAromas = new Set(aroma);
-   const selectedCollections = new Set(collection);
+   let filtered = card.filter((item) => {
+      const matchesCategory = category === "Все" || item.category === category;
+      const matchesAroma = !aroma.length || aroma.includes(item.aroma);
+      const matchesCollection = !collection.length || collection.includes(item.collection);
+      const matchesSearch = !searchQuery || item.title.toLowerCase().includes(searchQuery);
 
-   const filteredByCategory = category === "Все" ? card : card.filter((item) => item.category === category);
+      return matchesCategory && matchesAroma && matchesCollection && matchesSearch;
+   });
 
-   const sortedByCategory = sortingFunction ? [...filteredByCategory].sort(sortingFunction) : [...filteredByCategory];
-
-   const filteredByAroma = selectedAromas.size === 0 ? sortedByCategory : sortedByCategory.filter((item) => selectedAromas.has(item.aroma));
-
-   const filteredByCollection =
-      selectedCollections.size === 0 ? filteredByAroma : filteredByAroma.filter((item) => selectedCollections.has(item.collection));
-
-   const filteredByLimitedCards = filteredByCollection.slice(startIndex, endIndex);
-
-   const filteredBySearchQuery = !searchQuery
-      ? filteredByLimitedCards
-      : filteredByLimitedCards.filter((item) => item.title.toLowerCase().includes(searchQuery));
-
-   const itemCount = searchQuery.length > 0 ? filteredBySearchQuery.length : filteredByCollection.length;
-   const cardPaginationCount = Math.ceil(itemCount / 6);
+   const sorted = sort ? filtered.sort(sortingFunctions[sort]) : filtered;
+   const paginatedItems = sorted.slice(startIndex, startIndex + 6);
 
    return {
-      products: filteredBySearchQuery,
-      pagination: cardPaginationCount,
+      products: paginatedItems,
+      pagination: Math.ceil(filtered.length / 6),
+   };
+});
+
+const isEmptyObject = (obj) => {
+   return Object.keys(obj).length === 0;
+};
+
+const getUniqueFilter = computed(() => {
+   let uniqueCategories = new Set();
+   let uniqueCollections = new Set();
+   let uniqueAromas = new Set();
+
+   for (const item of card) {
+      if (item.category && !isEmptyObject(item.category)) {
+         uniqueCategories.add(item.category);
+      }
+      if (item.collection && !isEmptyObject(item.collection)) {
+         uniqueCollections.add(item.collection);
+      }
+      if (item.aroma && !isEmptyObject(item.aroma)) {
+         uniqueAromas.add(item.aroma);
+      }
+   }
+
+   return {
+      uniqueCategories: Array.from(uniqueCategories).sort((a, b) => a.localeCompare(b)),
+      uniqueCollections: Array.from(uniqueCollections).sort((a, b) => a.localeCompare(b)),
+      uniqueAromas: Array.from(uniqueAromas).sort((a, b) => a.localeCompare(b)),
    };
 });
 </script>
