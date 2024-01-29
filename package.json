@@ -8,9 +8,9 @@
    "homepage": "https://lumiiere-candles.com",
    "private": true,
    "scripts": {
-      "build:dev": "nuxt dev --host ",
-      "build:prod": "nuxt build",
-      "build:ssr": "nuxt generate",
+      "build:dev": "npx nuxi dev --host",
+      "build:prod": "npx nuxi build",
+      "build:ssr": "npx nuxi generate",
       "build:preview": "nuxt preview",
       "nuxt:analuze": "npx nuxi analyze",
       "nuxt:clean": "npx nuxi cleanup",
