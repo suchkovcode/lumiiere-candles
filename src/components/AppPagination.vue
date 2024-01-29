@@ -8,7 +8,6 @@
 
 <script setup>
 const store = useAppStore();
-const emit = defineEmits(["pageNumber"]);
 const props = defineProps({
    paginationData: {
       type: Number,
