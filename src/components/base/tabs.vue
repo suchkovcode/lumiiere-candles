@@ -6,13 +6,12 @@
       <div class="drobdown drobdown--width">
          <label v-for="item in tabsData" :key="item.id" class="tabs__option">
             <input
-               v-model="selectedRadio"
+               v-model="modelValue"
                class="tabs__option-input"
                type="radio"
                name="radio"
                :value="item.value"
                :content="item.content"
-               @change="updateTab"
                @click="isClickBtn = false" />
             <span class="upercase tabs__option-text">{{ item.content }}</span>
          </label>
@@ -22,6 +21,7 @@
 
 <script setup>
 const emit = defineEmits(["update:modelValue"]);
+const modelValue = defineModel(String);
 
 const selectedRadio = ref("");
 const selectRadioContent = ref("");
@@ -54,9 +54,4 @@ onMounted(() => {
    selectRadioContent.value = tabsData.value[0].content;
    emit("update:modelValue", selectedRadio.value);
 });
-
-const updateTab = (event) => {
-   selectRadioContent.value = event.target.getAttribute("content");
-   emit("update:modelValue", event.target.value);
-};
 </script>
