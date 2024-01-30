@@ -15,10 +15,9 @@
             <p class="subtitle hero__subtitle">Свечи, которые действительно пахнут!</p>
             <nuxt-link class="btn btn--hero hero__btn" to="/catalog"> хочу </nuxt-link>
          </div>
-         <UnLazyImage
+         <img
             class="hero__bg"
-            blurhash="LPR,?a?]RinmtRjeR+xXk;jFVtkU"
-            src-set="/img/home__hero-1.webp"
+            srcs="/img/home__hero-1.webp"
             alt="Главная картинка"
             width="340"
             height="800" />
