@@ -6,7 +6,14 @@
             <base-breadcrumbs
                :roter-link="{ catalog: true, subpage: { name: 'Соевые свечи', to: '/catalog/candles' }, name: cards.title, to: $route.fullPath }" />
             <article class="post__container">
-               <img class="post__img" :src="cards.img.url" :alt="cards.img.alternativeText" :title="cards.img.caption" width="260" height="260" />
+               <UnLazyImage
+                  class="post__img"
+                  :blurhash="cards.img.blurhash"
+                  :src-set="cards.img.url"
+                  :alt="cards.img.alternativeTex"
+                  :title="cards.img.caption"
+                  width="260"
+                  height="260" />
                <div class="post__content">
                   <header class="post__content-header">
                      <card-rating :rating-storage="card" />
