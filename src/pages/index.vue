@@ -15,7 +15,13 @@
             <p class="subtitle hero__subtitle">Свечи, которые действительно пахнут!</p>
             <nuxt-link class="btn btn--hero hero__btn" to="/catalog"> хочу </nuxt-link>
          </div>
-         <img class="hero__bg" src="/img/home__hero-1.webp" alt="Главная картинка" width="340" height="800" />
+         <UnLazyImage
+            class="hero__bg"
+            blurhash="LPR,?a?]RinmtRjeR+xXk;jFVtkU"
+            src-set="/img/home__hero-1.webp"
+            alt="Главная картинка"
+            width="340"
+            height="800" />
       </div>
       <svg class="hero__wave-1" width="11700" height="90">
          <use xlink:href="/img/sprite.svg#wave-1"></use>
