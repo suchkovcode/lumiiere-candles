@@ -70,7 +70,13 @@
                   <h2 class="products__card-title">Органические свечи</h2>
                   <p class="subtitle products__card-subtitle">Свечи с ароматными сюжетами!</p>
                </div>
-               <img class="products__card-img transition" src="/img/products__card-1.webp" loading="lazy" alt="Картинка 1" width="300" height="450" />
+               <UnLazyImage
+                  class="products__card-img transition"
+                  blurhash="LEHw}[GEqwxdV+skk?V@Knv#SbkP"
+                  src-set="/img/products__card-1.webp"
+                  alt="Картинка 1"
+                  width="300"
+                  height="450" />
                <svg class="products__card-icon-link">
                   <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
@@ -80,7 +86,13 @@
                   <h2 class="products__card-title">Спички</h2>
                   <p class="subtitle products__card-subtitle">Зажигай, чтоб горело ясно</p>
                </div>
-               <img class="products__card-img transition" src="/img/products__card-2.webp" loading="lazy" alt="Картинка 2" width="300" height="450" />
+               <UnLazyImage
+                  class="products__card-img transition"
+                  blurhash="LAE:xQ9@-D%N0;00?HM|*0g5bwxV"
+                  src-set="/img/products__card-2.webp"
+                  alt="Картинка 2"
+                  width="300"
+                  height="450" />
                <svg class="products__card-icon-link">
                   <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
@@ -90,7 +102,13 @@
                   <h2 class="products__card-title">Открытки</h2>
                   <p class="subtitle products__card-subtitle">Для самых любимых!</p>
                </div>
-               <img class="products__card-img transition" src="/img/products__card-3.webp" loading="lazy" alt="Картинка 3" width="300" height="450" />
+               <UnLazyImage
+                  class="products__card-img transition"
+                  blurhash="LCJ?:9_:4p+=_#9+PUPT4nKNPAXo"
+                  src-set="/img/products__card-3.webp"
+                  alt="Картинка 3"
+                  width="300"
+                  height="450" />
                <svg class="products__card-icon-link">
                   <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
@@ -104,7 +122,13 @@
                      кто не смог определиться.
                   </p>
                </div>
-               <img class="products__card-img transition" src="/img/products__card-4.webp" loading="lazy" alt="Картинка 4" width="300" height="450" />
+               <UnLazyImage
+                  class="products__card-img transition"
+                  blurhash="L9H-fICi4U1GrV|?wH;Lo}t7XSeT"
+                  src-set="/img/products__card-4.webp"
+                  alt="Картинка 4"
+                  width="300"
+                  height="450" />
                <svg class="products__card-icon-link">
                   <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
@@ -146,7 +170,13 @@
                      <nuxt-link to="/catalog" class="products__card-nav-link transition"> Без персонажей </nuxt-link>
                   </li>
                </ul>
-               <img class="products__card-img transition" src="/img/products__card-5.webp" loading="lazy" alt="Картинка 4" width="300" height="450" />
+               <UnLazyImage
+                  class="products__card-img transition"
+                  blurhash="LJQhz:4S3DrZ$RxHo}XmX4obs.sC"
+                  src-set="/img/products__card-5.webp"
+                  alt="Картинка 5"
+                  width="300"
+                  height="450" />
             </div>
          </div>
       </div>
