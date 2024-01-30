@@ -1,8 +1,10 @@
 <template>
    <article class="card" itemscope itemtype="http://schema.org/Product">
       <header class="card__header">
+         <div v-if="cardData.label" class="card__label">
+            <p class="card__label-text">{{ cardData.label }}</p>
+         </div>
          <card-favorite :card-id="cardData.uid" />
-
          <UnLazyImage
             class="card__hero"
             :blurhash="cardData.img.blurhash"
@@ -17,7 +19,7 @@
          <card-rating :rating-storage="card" />
          <h3 class="card__title" itemprop="name">{{ cardData.title }}</h3>
          <p class="card__article">Артикул: {{ cardArticle }}</p>
-         <p v-if="isCandles || isMelts" class="card__description" itemprop="description">{{ categoryJoin }}</p>
+         <p v-if="cardData.tags.length !== 0" class="card__description" itemprop="description">{{ categoryJoin }}</p>
          <card-price :price-new="cardPriceNew" :price-old="cardPriceOld" :price-currency="cardData.price.currency" />
          <card-changesize v-if="isCandles" :size-item-data="card.size" @cardsize="card.size = $event" />
       </div>
@@ -47,7 +49,6 @@ const card = ref({
 const categoryJoin = computed(() => props.cardData?.tags?.join(" | "));
 const cardArticle = computed(() => props.cardData?.article?.[card.value.size]?.toUpperCase());
 const isCandles = computed(() => props.cardData?.category?.toLowerCase()?.trim() === "свечи");
-const isMelts = computed(() => props.cardData?.category?.toLowerCase()?.trim() === "мелтсы");
 
 const cardPriceNew = computed(() => {
    const newPrice = props.cardData?.price?.new?.[card.value.size];
