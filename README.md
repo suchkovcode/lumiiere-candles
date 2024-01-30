@@ -36,7 +36,8 @@ Password: Password12
 8. Catalog pagination;
 9. Single page application(SSR);
 10. Registration\authorization;
-11. OWASP security and  Cloudflare Turnstile.
+11. LazyLoad img and BlurHash generate;
+12. OWASP security and  Cloudflare Turnstile.
 
 ## Website speed and performance
 
