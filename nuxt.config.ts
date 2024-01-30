@@ -91,8 +91,8 @@ export default defineNuxtConfig({
       preset: "cloudflare-pages-static",
       serveStatic: true,
       prerender: {
-         autoSubfolderIndex: false
-       }
+         autoSubfolderIndex: false,
+      },
    },
 
    eslint: {
@@ -151,5 +151,7 @@ export default defineNuxtConfig({
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/sitemap", "@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "@unlazy/nuxt"],
+   modules: isDev
+      ? ["@nuxtjs/sitemap", "@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "@unlazy/nuxt"]
+      : ["@nuxtjs/sitemap", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "@unlazy/nuxt"],
 });
