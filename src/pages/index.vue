@@ -88,7 +88,7 @@
             </nuxt-link>
             <nuxt-link class="products__card-item products__card-item-2" to="/catalog">
                <div class="products__card-header">
-                  <h2 class="products__card-title">Спички</h2>
+                  <h2 class="products__card-title">Допы</h2>
                   <p class="subtitle products__card-subtitle">Зажигай, чтоб горело ясно</p>
                </div>
                <UnLazyImage
@@ -102,10 +102,10 @@
                   <use xlink:href="/img/sprite.svg#homeProductCardLink"></use>
                </svg>
             </nuxt-link>
-            <nuxt-link class="products__card-item products__card-item-3" to="catalog/matches">
+            <nuxt-link class="products__card-item products__card-item-3" to="catalog/melts">
                <div class="products__card-header">
-                  <h2 class="products__card-title">Открытки</h2>
-                  <p class="subtitle products__card-subtitle">Для самых любимых!</p>
+                  <h2 class="products__card-title">Мелтсы</h2>
+                  <p class="subtitle products__card-subtitle">Аромалапки, чтобы  <br>  жизнь была сладкой</p>
                </div>
                <UnLazyImage
                   class="products__card-img transition"
