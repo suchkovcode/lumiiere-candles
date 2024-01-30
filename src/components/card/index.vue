@@ -2,14 +2,15 @@
    <article class="card" itemscope itemtype="http://schema.org/Product">
       <header class="card__header">
          <card-favorite :card-id="cardData.uid" />
-         <img
+
+         <UnLazyImage
             class="card__hero"
-            :src="cardData.img.url"
+            :blurhash="cardData.img.blurhash"
+            :src-set="cardData.img.url"
             :alt="cardData.img.alternativeText"
             :title="cardData.img.caption"
             width="140"
             height="180"
-            loading="lazy"
             itemprop="image" />
       </header>
       <div class="card__body">
