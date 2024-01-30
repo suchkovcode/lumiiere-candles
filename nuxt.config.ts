@@ -145,6 +145,11 @@ export default defineNuxtConfig({
       url: process.env.API_URL || "http://localhost:1337",
    },
 
+   unlazy: {
+      ssr: isDev ? false : true,
+      placeholderSize: 16,
+   },
+
    css: ["@/assets/styles/app.scss"],
-   modules: ["@nuxtjs/sitemap", "@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots"],
+   modules: ["@nuxtjs/sitemap", "@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "@unlazy/nuxt"],
 });
