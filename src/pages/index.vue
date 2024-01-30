@@ -17,7 +17,7 @@
          </div>
          <img
             class="hero__bg"
-            srcs="/img/home__hero-1.webp"
+            src="/img/home__hero-1.webp"
             alt="Главная картинка"
             width="340"
             height="800" />
