@@ -21,7 +21,7 @@
       "@types/node": "^20.11.7",
 
       "nuxt-simple-robots": "^4.0.0-rc.13",
-      "nuxt-security": "^1.0.1",
+      "nuxt-security": "^1.1.0",
 
       "@nuxtjs/sitemap": "^5.0.5",
       "@nuxtjs/eslint-module": "^4.1.0",
