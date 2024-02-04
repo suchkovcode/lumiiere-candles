@@ -44,7 +44,7 @@
       "postcss-combine-media-query": "^1.0.1",
       "cssnano": "^6.0.3",
 
-      "prettier": "^3.2.4",
+      "prettier": "^3.2.5",
       "sass": "^1.70.0"
    },
    "dependencies": {
