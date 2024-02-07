@@ -39,6 +39,7 @@ export default defineNuxtConfig({
             { name: "apple-mobile-web-app-title", content: "Lumiiere Candles" },
             { name: "apple-mobile-web-app-capable", content: "yes" },
             { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+            {  name: "robots", content: "noindex, nofollow" },
          ],
          link: [
             { rel: "shortcut icon", type: "image/png", href: "/static/favicon.ico" },
@@ -152,6 +153,6 @@ export default defineNuxtConfig({
 
    css: ["@/assets/styles/app.scss"],
    modules: isDev
-      ? ["@nuxtjs/sitemap", "@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "@unlazy/nuxt"]
-      : ["@nuxtjs/sitemap", "@nuxtjs/strapi", "@pinia/nuxt", "nuxt-simple-robots", "@unlazy/nuxt"],
+      ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"]
+      : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"],
 });
