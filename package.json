@@ -35,7 +35,7 @@
       "eslint-plugin-vue": "^9.23.0",
       "eslint-plugin-security-node": "^1.1.4",
 
-      "stylelint": "^16.2.0",
+      "stylelint": "^16.2.1",
       "stylelint-config-standard-scss": "^13.0.0",
       "stylelint-order": "^6.0.4",
 
