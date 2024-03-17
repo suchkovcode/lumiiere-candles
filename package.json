@@ -45,7 +45,7 @@
       "cssnano": "^6.1.0",
 
       "prettier": "^3.2.5",
-      "sass": "^1.70.0"
+      "sass": "^1.72.0"
    },
    "dependencies": {
       "vee-validate": "^4.12.5",
