@@ -100,7 +100,6 @@ export default defineNuxtConfig({
       prerender: {
          autoSubfolderIndex: false,
          crawlLinks: true,
-         routes: ["/sitemap.xml"],
       },
       output: {
          dir: ".output",
@@ -119,14 +118,6 @@ export default defineNuxtConfig({
       enabled: true,
       blockNonSeoBots: true,
       sitemap: ["/sitemap.xml"],
-      credits: false,
-   },
-
-   sitemap: {
-      sitemaps: isDev ? false : true,
-      xsl: false,
-      xslTips: false,
-      discoverImages: false,
       credits: false,
    },
 
