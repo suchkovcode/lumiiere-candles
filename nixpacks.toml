@@ -1,0 +1,15 @@
+[variables]
+   NODE_ENV = "—omit=dev"
+   NIXPACKS_NODE_VERSION = "20"
+
+[phases.setup]
+   nixPkgs = ["nodejs", "yarn"]
+
+[phases.install]
+   cmds = ["yarn install"]
+
+[phases.build]
+   cmds = ["yarn run build:prod"]
+
+[start]
+   cmd = "yarn run build:start"
