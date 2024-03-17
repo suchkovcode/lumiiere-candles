@@ -39,7 +39,7 @@ export default defineNuxtConfig({
             { name: "apple-mobile-web-app-title", content: "Lumiiere Candles" },
             { name: "apple-mobile-web-app-capable", content: "yes" },
             { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
-            {  name: "robots", content: "noindex, nofollow" },
+            { name: "robots", content: "noindex, nofollow" },
          ],
          link: [
             { rel: "shortcut icon", type: "image/png", href: "/static/favicon.ico" },
@@ -56,7 +56,7 @@ export default defineNuxtConfig({
             { rel: "apple-touch-icon", type: "image/png", sizes: "167x167", href: "/static/apple-touch-icon-167x167.png" },
             { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: "/static/apple-touch-icon-180x180.png" },
             { rel: "apple-touch-icon", type: "image/png", sizes: "1024x1024", href: "/static/apple-touch-icon-1024x1024.png" },
-            { rel: "preconnect", href: "https://strapi.lumiiere-candles.com" },
+            { rel: "preconnect", href: "https://admin.suchkov.cc" },
          ],
       },
    },
@@ -92,7 +92,6 @@ export default defineNuxtConfig({
       inlineStyles: false,
       noScripts: false,
    },
-
 
    nitro: {
       preset: "node-server",
@@ -145,7 +144,7 @@ export default defineNuxtConfig({
 
    site: {
       indexable: false,
-      url: "https://lumiiere-candles.com",
+      url: "https://lumiiere.suchkov.cc",
    },
 
    strapi: {
@@ -159,7 +158,5 @@ export default defineNuxtConfig({
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: isDev
-      ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"]
-      : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"],
+   modules: isDev ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"] : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"],
 });
