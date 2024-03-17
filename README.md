@@ -19,7 +19,7 @@
 ## Access to the admin panel Strapi
 
 ```
-Url: https://strapi.lumiiere-candles.com/
+Url: https://admin.suchkov.cc
 Email: watcher@lumiiere-candles.com
 Password: Password12
 ```
