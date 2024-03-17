@@ -79,21 +79,36 @@ export default defineNuxtConfig({
    },
 
    experimental: {
-      inlineSSRStyles: false,
+      componentIslands: false,
       payloadExtraction: false,
       headNext: true,
-      noScripts: false,
       appManifest: false,
       renderJsonPayloads: false,
       crossOriginPrefetch: false,
+      sharedPrerenderData: true,
    },
 
+   features: {
+      inlineStyles: false,
+      noScripts: false,
+   },
+
+
    nitro: {
-      preset: "cloudflare-pages-static",
-      serveStatic: true,
+      preset: "node-server",
+      serveStatic: "node",
       prerender: {
          autoSubfolderIndex: false,
+         crawlLinks: true,
+         routes: ["/sitemap.xml"],
       },
+      output: {
+         dir: ".output",
+         serverDir: ".output/server",
+         publicDir: ".output/public",
+      },
+
+      minify: false,
    },
 
    eslint: {
@@ -108,10 +123,11 @@ export default defineNuxtConfig({
    },
 
    sitemap: {
-      sitemaps: false,
+      sitemaps: isDev ? false : true,
       xsl: false,
       xslTips: false,
-      discoverImages: true,
+      discoverImages: false,
+      credits: false,
    },
 
    routeRules: {
@@ -148,7 +164,7 @@ export default defineNuxtConfig({
 
    unlazy: {
       ssr: isDev ? false : true,
-      placeholderSize: 16,
+      placeholderSize: 24,
    },
 
    css: ["@/assets/styles/app.scss"],
