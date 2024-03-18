@@ -15,12 +15,7 @@
             <p class="subtitle hero__subtitle">Свечи, которые действительно пахнут!</p>
             <nuxt-link class="btn btn--hero hero__btn" to="/catalog"> хочу </nuxt-link>
          </div>
-         <img
-            class="hero__bg"
-            src="/img/home__hero-1.webp"
-            alt="Главная картинка"
-            width="340"
-            height="800" />
+         <img class="hero__bg" src="/img/home__hero-1.webp" alt="Главная картинка" width="340" height="800" />
       </div>
       <svg class="hero__wave-1" width="11700" height="90">
          <use xlink:href="/img/sprite.svg#wave-1"></use>
@@ -105,7 +100,10 @@
             <nuxt-link class="products__card-item products__card-item-3" to="catalog/melts">
                <div class="products__card-header">
                   <h2 class="products__card-title">Мелтсы</h2>
-                  <p class="subtitle products__card-subtitle">Аромалапки, чтобы  <br>  жизнь была сладкой</p>
+                  <p class="subtitle products__card-subtitle">
+                     Аромалапки, чтобы <br />
+                     жизнь была сладкой
+                  </p>
                </div>
                <UnLazyImage
                   class="products__card-img transition"
@@ -241,7 +239,8 @@
                            height="100"
                            viewBox="0 0 100 100"
                            fill="none"
-                           xmlns="http:/www.w3.org/2000/svg">
+                           xmlns="http://www.w3.org/2000/svg"
+                           xmlns:xlink="http://www.w3.org/1999/xlink">
                            <g clip-path="url(#clip0_1227_204)">
                               <path
                                  opacity="0.9"
