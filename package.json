@@ -23,7 +23,6 @@
       "@types/node": "^20.11.28",
 
       "nuxt": "^3.11.0",
-      "nuxt-simple-robots": "^4.0.0-rc.13",
       "nuxt-security": "^1.2.2",
 
       "@nuxtjs/eslint-module": "^4.1.0",
