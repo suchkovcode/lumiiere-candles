@@ -113,17 +113,6 @@ export default defineNuxtConfig({
       lintOnStart: false,
    },
 
-   robots: {
-      enabled: true,
-      blockNonSeoBots: true,
-      sitemap: ["/sitemap.xml"],
-      credits: false,
-   },
-
-   routeRules: {
-      "/admin": { index: false },
-   },
-
    postcss: {
       plugins: {
          "postcss-combine-media-query": {},
