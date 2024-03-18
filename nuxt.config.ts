@@ -155,7 +155,7 @@ export default defineNuxtConfig({
          hashStyles: false,
       },
       headers: {
-         crossOriginResourcePolicy: "same-origin",
+         crossOriginResourcePolicy: "cross-origin",
          crossOriginOpenerPolicy: "same-origin",
          crossOriginEmbedderPolicy: "unsafe-none",
          originAgentCluster: "?1",
