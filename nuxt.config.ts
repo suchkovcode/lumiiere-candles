@@ -146,6 +146,60 @@ export default defineNuxtConfig({
       placeholderSize: 24,
    },
 
+   security: {
+      csrf: true,
+      sri: true,
+      nonce: false,
+      ssg: {
+         meta: true,
+         hashScripts: false,
+         hashStyles: false,
+      },
+      headers: {
+         crossOriginResourcePolicy: "same-origin",
+         crossOriginOpenerPolicy: "same-origin",
+         crossOriginEmbedderPolicy: "unsafe-none",
+         originAgentCluster: "?1",
+         referrerPolicy: "strict-origin",
+         strictTransportSecurity: {
+            maxAge: 15552000,
+            includeSubdomains: true,
+         },
+         xContentTypeOptions: "nosniff",
+         xDownloadOptions: "noopen",
+         xFrameOptions: "DENY",
+         xPermittedCrossDomainPolicies: "none",
+         xXSSProtection: "1",
+         contentSecurityPolicy: {
+            "base-uri": ["'none'"],
+            "font-src": ["'self'"],
+            "form-action": ["'self'"],
+            "frame-ancestors": ["'none'"],
+            "img-src": ["'self'", "data:", "https://assets.lumiiere-candles.com", "https://admin.suchkov.cc"],
+            "object-src": ["'none'"],
+            "script-src-attr": ["'none'"],
+            "style-src": ["'self'", "'unsafe-inline'"],
+            "script-src": ["'self'", "'unsafe-inline'"],
+            "connect-src": ["'self'", "https://assets.lumiiere-candles.com", "https://admin.suchkov.cc"],
+            "upgrade-insecure-requests": true,
+         },
+      },
+      allowedMethodsRestricter: {
+         methods: ["POST", "GET"],
+      },
+      hidePoweredBy: false,
+      removeLoggers: {
+         external: [],
+         consoleType: ["log", "debug"],
+         include: [/\.[jt]sx?$/, /\.vue\??/],
+         exclude: [/node_modules/, /\.git/],
+      },
+
+      rateLimiter: {
+         tokensPerInterval: false,
+      },
+   },
+
    css: ["@/assets/styles/app.scss"],
    modules: isDev ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"] : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"],
 });
