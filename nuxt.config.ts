@@ -68,7 +68,6 @@ export default defineNuxtConfig({
 
    devtools: {
       enabled: false,
-
       timeline: {
          enabled: false,
       },
@@ -84,7 +83,7 @@ export default defineNuxtConfig({
       headNext: true,
       appManifest: false,
       renderJsonPayloads: false,
-      crossOriginPrefetch: false,
+      crossOriginPrefetch: true,
       sharedPrerenderData: true,
    },
 
@@ -138,7 +137,7 @@ export default defineNuxtConfig({
 
    strapi: {
       devtools: false,
-      url: process.env.API_URL || "http://localhost:1337",
+      url: process.env.API_URL || "https://admin.suchkov.cc",
    },
 
    unlazy: {
@@ -201,5 +200,7 @@ export default defineNuxtConfig({
    },
 
    css: ["@/assets/styles/app.scss"],
-   modules: isDev ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"] : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt"],
+   modules: isDev
+      ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "nuxt-security"]
+      : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "nuxt-security"],
 });
