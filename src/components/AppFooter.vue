@@ -125,8 +125,7 @@
             </div>
             <p class="footer__copy">© 2023 Lumiiere. Защищено авторским правом</p>
             <span>
-               <a class="footer__dev transition" href="https://github.com/suchkovcode/"> Develop |</a>
-               <a class="footer__dev transition" href="https://mssg.me/d.purple"> Design </a>
+               <a class="footer__dev transition" href="https://github.com/suchkovcode/"> Develop</a>
             </span>
          </div>
       </div>
