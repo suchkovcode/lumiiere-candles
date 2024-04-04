@@ -12,7 +12,7 @@
             <button class="btn backet__product-btn" type="button" @click="checkout = true">Оформить</button>
          </div>
          <p v-show="!store.cards.length && !checkout" class="backet__empty">Корзина пуста</p>
-         <canvas-backet-form v-if="checkout" :sum-data="store.getSumAddition" :currency-data="store.cards[0].currency" />
+         <canvas-backet-form v-if="checkout" :sum-data="store.getSumAddition" :currency-data="store.cards[0].currency" @back-form="checkout = false" />
       </ClientOnly>
    </div>
 </template>

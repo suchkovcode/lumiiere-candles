@@ -5,6 +5,32 @@
    padding: 25px;
    padding-bottom: 120px;
 
+   &__back {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 13px;
+      margin-bottom: 20px;
+      font: 500 18px/1.3 "AvenirNextCyr";
+      color: #333;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+         color: var(--color_base);
+         background-color: var(--color_btn_hover);
+         border-color: var(--color_btn_hover);
+      }
+
+      &-icon {
+         display: block;
+         width: 18px;
+         height: 18px;
+      }
+   }
+
    &__order {
       margin-bottom: 50px;
    }

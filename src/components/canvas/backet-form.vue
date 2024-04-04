@@ -1,5 +1,11 @@
 <template>
    <form class="backetForm" @submit.prevent="false">
+      <button class="backetForm__back" @click="$emit('backForm', false)">
+         <svg class="backetForm__back-icon">
+            <use xlink:href="/img/sprite.svg#icon-back"></use>
+         </svg>
+         <span> Вернуться </span>
+      </button>
       <div class="backetForm__contact">
          <h2 class="backetForm__title">Оформить заказ</h2>
          <div class="backetForm__input-box">
@@ -12,14 +18,13 @@
             <input v-model.trim="tel" class="backetForm__input" name="phone" type="tel" placeholder="+38 (999) 999 99-99" />
          </div>
       </div>
+
       <div class="backetForm__delivery">
          <h2 class="backetForm__title">Доставка</h2>
          <label class="backetForm__input-box">
             <span class="backetForm__subtitle">Страна:</span>
             <select v-model.trim="country" class="backetForm__input">
-               <option value="Украина">
-                  Украина
-               </option>
+               <option value="Украина">Украина</option>
             </select>
          </label>
          <label class="backetForm__input-box">
