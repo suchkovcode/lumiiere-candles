@@ -20,7 +20,7 @@
       "nuxt:upgrade": "npx nuxi upgrade"
    },
    "devDependencies": {
-      "@types/node": "^20.11.28",
+      "@types/node": "^20.12.4",
 
       "nuxt": "^3.11.1",
       "nuxt-security": "^1.3.0",
