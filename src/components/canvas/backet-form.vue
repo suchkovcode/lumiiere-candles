@@ -51,6 +51,7 @@
 </template>
 
 <script setup>
+const emit = defineEmits(["backForm"]);
 const props = defineProps({
    sumData: {
       type: String,
