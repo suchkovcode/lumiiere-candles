@@ -201,6 +201,6 @@ export default defineNuxtConfig({
 
    css: ["@/assets/styles/app.scss"],
    modules: isDev
-      ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "nuxt-security"]
-      : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "nuxt-security"],
+      ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "nuxt-security", "@pinia-plugin-persistedstate/nuxt"]
+      : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "nuxt-security", "@pinia-plugin-persistedstate/nuxt"],
 });
