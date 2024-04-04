@@ -52,5 +52,6 @@
       "vee-validate": "^4.12.6",
       "yup": "^1.4.0",
       "pinia": "^2.1.7"
-   }
+   },
+   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
