@@ -43,7 +43,7 @@
       "postcss": "^8.4.38",
       "postcss-combine-duplicated-selectors": "^10.0.3",
       "postcss-combine-media-query": "^1.0.1",
-      "cssnano": "^6.1.0",
+      "cssnano": "^6.1.2",
 
       "prettier": "^3.2.5",
       "sass": "^1.72.0"
