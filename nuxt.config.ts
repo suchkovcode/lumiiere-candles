@@ -1,7 +1,6 @@
 const isDev = process.env.NODE_ENV !== "production";
 
 export default defineNuxtConfig({
-   builder: "vite",
    srcDir: "./src/",
    telemetry: false,
    ssr: true,
@@ -28,7 +27,7 @@ export default defineNuxtConfig({
       rootId: "root",
       pageTransition: false,
       layoutTransition: false,
-      buildAssetsDir: isDev ? "_nuxt/" : "assets/",
+      buildAssetsDir: isDev ? "/_nuxt/" : "assets/",
 
       head: {
          htmlAttrs: {
