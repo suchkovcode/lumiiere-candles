@@ -9,6 +9,7 @@ bower_components
 .cache
 
 # Config files
+pnpm-lock.yaml
 package-lock.json
 yarn.lock
 
