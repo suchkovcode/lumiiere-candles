@@ -20,45 +20,47 @@
       "nuxt:upgrade": "npx nuxi upgrade"
    },
    "devDependencies": {
-      "@types/node": "^20.12.4",
+      "@types/node": "latest",
 
-      "nuxt": "^3.11.2",
-      "nuxt-security": "^1.2.0",
+      "nuxt": "3.13.2",
+      "nuxt-purgecss": "^2.0.0",
+      "nuxt-security": "^2.0.0",
 
       "@nuxtjs/eslint-module": "^4.1.0",
       "@nuxtjs/strapi": "^1.12.0",
-      "@pinia/nuxt": "^0.5.1",
-      "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+      "@pinia/nuxt": "^0.5.5",
+      "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
       "@unlazy/nuxt": "^0.11.3",
 
-      "eslint": "^8.57.0",
-      "eslint-plugin-import": "^2.29.1",
-      "eslint-plugin-vue": "^9.24.0",
-      "eslint-plugin-security-node": "^1.1.4",
+      "eslint": "latest",
+      "eslint-plugin-import": "latest",
+      "eslint-plugin-vue": "latest",
+      "eslint-plugin-security-node": "latest",
 
-      "stylelint": "^16.3.1",
-      "stylelint-config-standard-scss": "^13.1.0",
-      "stylelint-order": "^6.0.4",
+      "stylelint": "latest",
+      "stylelint-config-standard-scss": "latest",
+      "stylelint-order": "latest",
 
-      "postcss": "^8.4.38",
-      "postcss-combine-duplicated-selectors": "^10.0.3",
-      "postcss-combine-media-query": "^1.0.1",
-      "cssnano": "^6.1.2",
+      "postcss": "latest",
+      "postcss-combine-duplicated-selectors": "latest",
+      "postcss-combine-media-query": "latest",
+      "postcss-hover-media-feature": "latest",
+      "cssnano": "latest",
+      "sass": "latest",
 
-      "prettier": "^3.2.5",
-      "sass": "^1.74.1"
+      "prettier": "latest"
    },
    "dependencies": {
-      "vee-validate": "^4.12.6",
+      "vee-validate": "latest",
       "yup": "^1.4.0",
-      "vue": "3.4.21",
-      "vue-router": "4.3.0",
-      "pinia": "^2.1.7"
+      "vue": "3.5.12",
+      "vue-router": "4.4.5",
+      "pinia": "^2.2.4"
    },
    "pnpm": {
       "overrides": {
         "consola": "3.2.3"
       }
     },
-   "packageManager": "pnpm@8.15.6"
+   "packageManager": "pnpm@9.12.0"
 }

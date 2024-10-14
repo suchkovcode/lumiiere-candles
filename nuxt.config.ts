@@ -1,7 +1,7 @@
 const isDev = process.env.NODE_ENV !== "production";
 
 export default defineNuxtConfig({
-   srcDir: "./src/",
+   builder: "vite",
    telemetry: false,
    ssr: true,
 
@@ -60,11 +60,6 @@ export default defineNuxtConfig({
       },
    },
 
-   sourcemap: {
-      server: false,
-      client: false,
-   },
-
    devtools: {
       enabled: false,
       timeline: {
@@ -72,23 +67,18 @@ export default defineNuxtConfig({
       },
    },
 
-   devServer: {
-      port: 3000,
-   },
-
-   experimental: {
-      componentIslands: false,
-      payloadExtraction: false,
-      headNext: true,
-      appManifest: false,
-      renderJsonPayloads: false,
-      crossOriginPrefetch: true,
-      sharedPrerenderData: true,
+   sourcemap: {
+      server: false,
+      client: false,
    },
 
    features: {
       inlineStyles: false,
       noScripts: false,
+   },
+
+   future: {
+      compatibilityVersion: 4,
    },
 
    nitro: {
@@ -110,28 +100,22 @@ export default defineNuxtConfig({
    eslint: {
       lintOnStart: false,
    },
-
    postcss: {
       plugins: {
          "postcss-combine-media-query": {},
          "postcss-combine-duplicated-selectors": {},
-         "cssnano": {
-            preset: [
-               "default",
-               {
-                  discardComments: { removeAll: true },
-                  discardEmpty: true,
-                  discardDuplicates: true,
-                  minifyFontValues: true,
-               },
-            ],
-         },
+         "postcss-hover-media-feature": {},
+         "cssnano": ["default", { discardComments: { removeAll: true }, discardEmpty: true, discardDuplicates: true, minifyFontValues: true }],
       },
    },
 
-   site: {
-      indexable: false,
-      url: "https://lumiiere.suchkov.cc",
+   purgecss: {
+      enabled: isDev ? false : true,
+      content: ["./src/**/*.vue", "./src/**/*.js"],
+      safelist: ["html", "head", "body", "root"],
+      fontFace: false,
+      variables: false,
+      keyframes: false,
    },
 
    strapi: {
@@ -145,57 +129,90 @@ export default defineNuxtConfig({
    },
 
    security: {
-      csrf: true,
-      sri: true,
-      nonce: false,
-      ssg: {
-         meta: true,
-         hashScripts: false,
-         hashStyles: false,
-      },
+      strict: false,
       headers: {
-         crossOriginEmbedderPolicy: "unsafe-none",
-         crossOriginOpenerPolicy: "unsafe-none",
-         crossOriginResourcePolicy: "cross-origin",
+         crossOriginResourcePolicy: "same-origin",
+         crossOriginOpenerPolicy: "same-origin",
+         crossOriginEmbedderPolicy: "credentialless",
+         contentSecurityPolicy: {
+            "base-uri": ["'none'"],
+            "default-src": ["'none'"],
+            "connect-src": ["'self'", "https://s3.amurfy.com/", "https://accounts.google.com/gsi/", "https://ipapi.co/json"],
+            "font-src": ["'self'", "data:"],
+            "form-action": ["'self'"],
+            "frame-ancestors": ["'self'"],
+            "frame-src": ["'self'", "https://accounts.google.com/gsi/"],
+            "img-src": ["'self'", "data:", "blob:", "https://s3.amurfy.com/"],
+            "manifest-src": ["'self'"],
+            "media-src": ["'self'", "blob:", "https://s3.amurfy.com/"],
+            "style-src": ["'self'", "'unsafe-inline'", "https://accounts.google.com/gsi/style"],
+            "object-src": ["'self'"],
+            "script-src-attr": ["'none'"],
+            "script-src": ["'self'", "'unsafe-inline'", "https://accounts.google.com/gsi/client"],
+            "worker-src": ["'self'"],
+            "upgrade-insecure-requests": true,
+         },
          originAgentCluster: "?1",
-         referrerPolicy: "strict-origin",
+         referrerPolicy: "no-referrer",
          strictTransportSecurity: {
             maxAge: 15552000,
             includeSubdomains: true,
          },
          xContentTypeOptions: "nosniff",
+         xDNSPrefetchControl: "off",
          xDownloadOptions: "noopen",
-         xFrameOptions: "DENY",
-         xPermittedCrossDomainPolicies: "all",
+         xFrameOptions: "SAMEORIGIN",
+         xPermittedCrossDomainPolicies: "none",
          xXSSProtection: "1",
-         contentSecurityPolicy: {
-            "base-uri": ["'none'"],
-            "font-src": ["'self'"],
-            "form-action": ["'self'"],
-            "frame-ancestors": ["'none'"],
-            "img-src": ["'self'", "data:", "https:", "https://assets.suchkov.cc", "https://admin.suchkov.cc"],
-            "object-src": ["'none'"],
-            "script-src-attr": ["'none'"],
-            "style-src": ["'self'", "'unsafe-inline'"],
-            "script-src": ["'self'", "'unsafe-inline'"],
-            "connect-src": ["'self'", "https:", "https://assets.suchkov.cc", "https://admin.suchkov.cc"],
-            "upgrade-insecure-requests": true,
+         permissionsPolicy: {
+            "camera": [],
+            "display-capture": [],
+            "fullscreen": [],
+            "geolocation": [],
+            "microphone": [],
+         },
+      },
+      requestSizeLimiter: {
+         maxRequestSizeInBytes: 20971520, // 20 MB
+         maxUploadFileRequestInBytes: 20971520, // 20 MB
+         throwError: true,
+      },
+      rateLimiter: {
+         tokensPerInterval: 150,
+         interval: 300000,
+         headers: true,
+         driver: {
+            name: "lruCache",
+         },
+         throwError: true,
+      },
+      xssValidator: {
+         throwError: true,
+      },
+      corsHandler: {
+         origin: process.env.NUXT_PUBLIC_SITE_URL,
+         methods: ["GET", "POST", "DELETE"],
+         preflight: {
+            statusCode: 204,
          },
       },
       allowedMethodsRestricter: {
-         methods: ["POST", "GET"],
+         methods: "*",
+         throwError: true,
       },
-      hidePoweredBy: false,
+      hidePoweredBy: true,
+      basicAuth: false,
+      enabled: true,
+      csrf: false,
+      nonce: false,
       removeLoggers: {
          external: [],
          consoleType: ["log", "debug"],
          include: [/\.[jt]sx?$/, /\.vue\??/],
          exclude: [/node_modules/, /\.git/],
       },
-
-      rateLimiter: {
-         tokensPerInterval: false,
-      },
+      ssg: false,
+      sri: true,
    },
 
    css: ["@/assets/styles/app.scss"],
