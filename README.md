@@ -48,10 +48,10 @@ Password: Password12
       </tr>
    <tr>
       <td>
-         <img src="./src/assets/img/md/mob.jpg" alt="Картинка мобильного" title="Картинка" />
+         <img src="./app/assets/img/md/mob.jpg" alt="Картинка мобильного" title="Картинка" />
       </td>
       <td>
-         <img src="./src/assets/img/md/des-1.jpg" alt="Картинка компьютера" title="Картинка" />
+         <img src="./app/assets/img/md/des-1.jpg" alt="Картинка компьютера" title="Картинка" />
       </td>
    </tr>
 </table>
@@ -63,10 +63,10 @@ Password: Password12
       </tr>
       <tr>
          <td>
-            <img src="./src/assets/img/md/gt.jpg" alt="Картинка" />
+            <img src="./app/assets/img/md/gt.jpg" alt="Картинка" />
          </td>
          <td>
-            <img src="./src/assets/img/md/w3w.jpg" alt="Картинка" />
+            <img src="./app/assets/img/md/w3w.jpg" alt="Картинка" />
          </td>
       </tr>
    </table>
