@@ -48,7 +48,7 @@ const card = ref({
 
 const categoryJoin = computed(() => props.cardData?.tags?.join(" | "));
 const cardArticle = computed(() => props.cardData?.article?.[card.value.size]?.toUpperCase());
-const isCandles = computed(() => props.cardData?.category?.toLowerCase()?.trim() === "свечи");
+const isCandles = computed(() => props.cardData?.category?.toLowerCase()?.trim() === "соевые свечи");
 
 const cardPriceNew = computed(() => {
    const newPrice = props.cardData?.price?.new?.[card.value.size];

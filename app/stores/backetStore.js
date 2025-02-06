@@ -79,7 +79,5 @@ export const useBacketStore = defineStore("backetStore", {
       },
    },
 
-   persist: {
-      storage: persistedState.localStorage,
-   },
+   persist: true,
 });

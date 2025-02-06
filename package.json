@@ -28,7 +28,7 @@
       "@nuxtjs/eslint-module": "^4.1.0",
       "@nuxtjs/strapi": "^1.12.0",
       "@pinia/nuxt": "^0.9.0",
-      "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+      "pinia-plugin-persistedstate": "^4.2.0",
       "@unlazy/nuxt": "^0.12.1",
 
       "eslint": "latest",
@@ -45,9 +45,10 @@
       "postcss-combine-media-query": "latest",
       "postcss-hover-media-feature": "latest",
       "cssnano": "latest",
-      "sass": "latest",
+      "sass": "1.75.0",
 
-      "prettier": "latest"
+      "prettier": "latest",
+      "qs": "latest"
    },
    "dependencies": {
       "vee-validate": "latest",

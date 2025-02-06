@@ -39,5 +39,5 @@ const { data } = await find("products", {
 
 const cards = await useHandllerApi(data);
 
-const card = computed(() => cards.filter((item) => item.category === "Свечи"));
+const card = computed(() => cards.filter((item) => item.category === "Соевые свечи"));
 </script>
