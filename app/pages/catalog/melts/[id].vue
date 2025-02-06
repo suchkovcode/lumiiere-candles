@@ -14,7 +14,7 @@
                <UnLazyImage
                   class="post__img"
                   :blurhash="cards.img.blurhash"
-                  :src-set="cards.img.url"
+                  :src-set="`https://strapi.suchkov.cc${cards.img.url}`"
                   :alt="cards.img.alternativeTex"
                   :title="cards.img.caption"
                   width="260"

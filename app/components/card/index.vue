@@ -8,7 +8,7 @@
          <UnLazyImage
             class="card__hero"
             :blurhash="cardData.img.blurhash"
-            :src-set="cardData.img.url"
+            :src-set="`https://strapi.suchkov.cc${cardData.img.url}`"
             :alt="cardData.img.alternativeText"
             :title="cardData.img.caption"
             width="140"
