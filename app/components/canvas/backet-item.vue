@@ -2,7 +2,7 @@
    <div class="backetItem">
       <img
          class="backetItem__img"
-         :src="backetItem.img.url"
+         :src="`https://strapi.suchkov.cc${backetItem.img.url}`"
          :alt="backetItem.img.alternativeText"
          :title="backetItem.img.caption"
          width="70"

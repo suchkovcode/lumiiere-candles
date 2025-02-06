@@ -2,7 +2,7 @@
    <div class="favoriteItem">
       <img
          class="favoriteItem__img"
-         :src="favoriteItem.img.url"
+         :src="`https://strapi.suchkov.cc${favoriteItem.img.url}`"
          :alt="favoriteItem.img.alternativeText"
          :title="favoriteItem.img.caption"
          width="70"
