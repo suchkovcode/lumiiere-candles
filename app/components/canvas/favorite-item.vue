@@ -35,10 +35,11 @@ const props = defineProps({
 
 const pathToCategory = computed(() => {
    const categoryToPath = {
-      Свечи: "candles",
-      Наборы: "boxes",
-      Мелтсы: "melts",
-      Дополнительно: "matches",
+      "Соевые свечи": "candles",
+      "Наборы свечей": "boxes",
+      "Диффузоры": "diffusers",
+      "Мелтсы": "melts",
+      "Дополнительно": "matches",
    };
 
    return categoryToPath[props.favoriteItem.category];
