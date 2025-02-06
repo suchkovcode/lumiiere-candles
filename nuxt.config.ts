@@ -55,7 +55,7 @@ export default defineNuxtConfig({
             { rel: "apple-touch-icon", type: "image/png", sizes: "167x167", href: "/static/apple-touch-icon-167x167.png" },
             { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: "/static/apple-touch-icon-180x180.png" },
             { rel: "apple-touch-icon", type: "image/png", sizes: "1024x1024", href: "/static/apple-touch-icon-1024x1024.png" },
-            { rel: "preconnect", href: "https://admin.suchkov.cc" },
+            { rel: "preconnect", href: "https://strapi.suchkov.cc" },
          ],
       },
    },
@@ -100,6 +100,7 @@ export default defineNuxtConfig({
    eslint: {
       lintOnStart: false,
    },
+   
    postcss: {
       plugins: {
          "postcss-combine-media-query": {},
@@ -120,7 +121,7 @@ export default defineNuxtConfig({
 
    strapi: {
       devtools: false,
-      url: process.env.API_URL || "https://admin.suchkov.cc",
+      url: process.env.API_URL || "https://strapi.suchkov.cc",
    },
 
    unlazy: {
@@ -128,95 +129,8 @@ export default defineNuxtConfig({
       placeholderSize: 24,
    },
 
-   security: {
-      strict: false,
-      headers: {
-         crossOriginResourcePolicy: "same-origin",
-         crossOriginOpenerPolicy: "same-origin",
-         crossOriginEmbedderPolicy: "credentialless",
-         contentSecurityPolicy: {
-            "base-uri": ["'none'"],
-            "default-src": ["'none'"],
-            "connect-src": ["'self'", "https://s3.amurfy.com/", "https://accounts.google.com/gsi/", "https://ipapi.co/json"],
-            "font-src": ["'self'", "data:"],
-            "form-action": ["'self'"],
-            "frame-ancestors": ["'self'"],
-            "frame-src": ["'self'", "https://accounts.google.com/gsi/"],
-            "img-src": ["'self'", "data:", "blob:", "https://s3.amurfy.com/"],
-            "manifest-src": ["'self'"],
-            "media-src": ["'self'", "blob:", "https://s3.amurfy.com/"],
-            "style-src": ["'self'", "'unsafe-inline'", "https://accounts.google.com/gsi/style"],
-            "object-src": ["'self'"],
-            "script-src-attr": ["'none'"],
-            "script-src": ["'self'", "'unsafe-inline'", "https://accounts.google.com/gsi/client"],
-            "worker-src": ["'self'"],
-            "upgrade-insecure-requests": true,
-         },
-         originAgentCluster: "?1",
-         referrerPolicy: "no-referrer",
-         strictTransportSecurity: {
-            maxAge: 15552000,
-            includeSubdomains: true,
-         },
-         xContentTypeOptions: "nosniff",
-         xDNSPrefetchControl: "off",
-         xDownloadOptions: "noopen",
-         xFrameOptions: "SAMEORIGIN",
-         xPermittedCrossDomainPolicies: "none",
-         xXSSProtection: "1",
-         permissionsPolicy: {
-            "camera": [],
-            "display-capture": [],
-            "fullscreen": [],
-            "geolocation": [],
-            "microphone": [],
-         },
-      },
-      requestSizeLimiter: {
-         maxRequestSizeInBytes: 20971520, // 20 MB
-         maxUploadFileRequestInBytes: 20971520, // 20 MB
-         throwError: true,
-      },
-      rateLimiter: {
-         tokensPerInterval: 150,
-         interval: 300000,
-         headers: true,
-         driver: {
-            name: "lruCache",
-         },
-         throwError: true,
-      },
-      xssValidator: {
-         throwError: true,
-      },
-      corsHandler: {
-         origin: process.env.NUXT_PUBLIC_SITE_URL,
-         methods: ["GET", "POST", "DELETE"],
-         preflight: {
-            statusCode: 204,
-         },
-      },
-      allowedMethodsRestricter: {
-         methods: "*",
-         throwError: true,
-      },
-      hidePoweredBy: true,
-      basicAuth: false,
-      enabled: true,
-      csrf: false,
-      nonce: false,
-      removeLoggers: {
-         external: [],
-         consoleType: ["log", "debug"],
-         include: [/\.[jt]sx?$/, /\.vue\??/],
-         exclude: [/node_modules/, /\.git/],
-      },
-      ssg: false,
-      sri: true,
-   },
-
    css: ["@/assets/styles/app.scss"],
    modules: isDev
-      ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "nuxt-security", "@pinia-plugin-persistedstate/nuxt"]
-      : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "nuxt-security", "@pinia-plugin-persistedstate/nuxt"],
+      ? ["@nuxtjs/eslint-module", "@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "@pinia-plugin-persistedstate/nuxt"]
+      : ["@nuxtjs/strapi", "@pinia/nuxt", "@unlazy/nuxt", "@pinia-plugin-persistedstate/nuxt"],
 });
