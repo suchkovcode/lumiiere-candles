@@ -97,7 +97,7 @@ const cardWeight = computed(() => {
 });
 
 const isCandles = computed(() => {
-   return cards?.category?.toLowerCase()?.trim() === "свечи";
+   return cards?.category?.toLowerCase()?.trim() === "соевые свечи";
 });
 
 const isMelts = computed(() => {
