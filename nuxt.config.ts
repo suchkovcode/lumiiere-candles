@@ -131,9 +131,7 @@ export default defineNuxtConfig({
 
   css: ["@/assets/styles/app.scss"],
 
-  modules: isDev
-     ? ["@nuxtjs/strapi", "@unlazy/nuxt", "@pinia/nuxt", "pinia-plugin-persistedstate/nuxt"]
-     : ["@nuxtjs/strapi", "@unlazy/nuxt", "@pinia/nuxt", "pinia-plugin-persistedstate/nuxt"],
+  modules: ["@nuxtjs/strapi", "@unlazy/nuxt", "@pinia/nuxt", "pinia-plugin-persistedstate/nuxt"],
 
   compatibilityDate: "2025-02-06",
 });

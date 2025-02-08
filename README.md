@@ -1,20 +1,20 @@
-   <p align="center">
-      <a href="https://vuefire.vuejs.org" target="_blank" rel="noopener noreferrer">
-         <img width="100" src="https://vuefire.vuejs.org/logo.svg" alt="VueFire logo" />
-      </a>
-   </p>
-   <br />
-   <p align="center">
-      <a href="https://github.com/vuejs/vue">
-         <img src="https://img.shields.io/badge/nuxt-3.15.4-brightgreen.svg" alt="vue" />
-      </a>
-      <a href="https://github.com/vuejs/pinia">
-         <img src="https://img.shields.io/badge/pinia-2.2.7-brightgreen.svg" alt="pinia" />
-      </a>
-      <a href="https://github.com/vuejs/vue">
-         <img src="https://img.shields.io/badge/strapi-4.25.20-brightgreen.svg" alt="vue" />
-      </a>
-   </p>
+<p align="center">
+   <a href="https://vuefire.vuejs.org" target="_blank" rel="noopener noreferrer">
+      <img width="100" src="https://vuefire.vuejs.org/logo.svg" alt="VueFire logo" />
+   </a>
+</p>
+<br />
+<p align="center">
+   <a href="https://github.com/vuejs/vue">
+      <img src="https://img.shields.io/badge/nuxt-3.15.4-brightgreen.svg" alt="vue" />
+   </a>
+   <a href="https://github.com/vuejs/pinia">
+      <img src="https://img.shields.io/badge/pinia-2.2.7-brightgreen.svg" alt="pinia" />
+   </a>
+   <a href="https://github.com/vuejs/vue">
+      <img src="https://img.shields.io/badge/strapi-4.25.20-brightgreen.svg" alt="vue" />
+   </a>
+</p>
 
 ## Access to the admin panel Strapi
 
