@@ -1,0 +1,17 @@
+{
+   "$schema": "https://schema.railpack.com",
+   "packages": {
+      "node": "24"
+   },
+   "steps": {
+      "build": {
+         "commands": [
+            "...",
+            "pnpm run build:prod"
+         ]
+      }
+   },
+   "deploy": {
+      "startCommand": "pnpm run build:start"
+   }
+}
